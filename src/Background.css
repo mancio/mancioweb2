@@ -1,0 +1,48 @@
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cup-element,
+.cloud-element,
+.car-element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    animation: bounce linear infinite;
+}
+
+.cup-element {
+    /* Customize the cup styling */
+    background-color: red;
+}
+
+.cloud-element {
+    /* Customize the cloud styling */
+    background-color: blue;
+}
+
+.car-element {
+    /* Customize the car styling */
+    background-color: green;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(200px, -200px);
+    }
+    50% {
+        transform: translate(400px, 0);
+    }
+    75% {
+        transform: translate(200px, 200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
