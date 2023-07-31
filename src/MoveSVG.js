@@ -12,7 +12,7 @@ function MoveSVG({ svgFile }) {
 
     function genRandPos(){
         return {
-            x: Math.random() * window.innerWidth,
+            x: Math.random() * window.innerWidth ,
             y: Math.random() * window.innerHeight,
         };
     }

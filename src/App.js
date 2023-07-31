@@ -3,8 +3,9 @@ import MoveSVG from './MoveSVG';
 import Cup from './svg/cup.svg';
 import Cloud from './svg/cloud.svg';
 import Car from './svg/car.svg';
+import Face from './svg/face.svg'
 function App() {
-    const svgs = [Car,Cup,Cloud];
+    const svgs = [Car,Cup,Cloud,Face];
 
     function renderMoveSVGs(svgFiles) {
         return svgFiles.map((svg, index) => (
