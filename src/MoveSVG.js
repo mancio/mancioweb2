@@ -15,6 +15,14 @@ function MoveSVG({ svgFile }) {
         };
     }
 
+    function genRandAngle(){
+        return Math.random() * 360;
+    }
+
+    function degToRadians(deg){
+        return deg * (Math.PI / 180);
+    }
+
     const springProps = useSpring({
         to: { x: position.x, y: position.y },
         config: { tension: 200, friction: 20 },

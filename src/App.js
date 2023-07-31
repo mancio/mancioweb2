@@ -7,6 +7,7 @@ import Face from './svg/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
+    const elements = 300;
 
     const generateRandomArray = (size, svgs) => {
         const randomArray = [];
@@ -18,7 +19,7 @@ function App() {
         return randomArray;
     };
 
-    const svgArray = generateRandomArray(100, svgs);
+    const svgArray = generateRandomArray(elements, svgs);
 
     function renderMoveSVGs(svgFiles) {
         return svgFiles.map((svg, index) => (
