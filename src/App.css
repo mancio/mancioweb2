@@ -2,13 +2,9 @@
   text-align: center;
   background-color: black;
   height: 100vh;
+  width: auto;
 }
 
 
-.MoveSVG {
-  /*background-color: black;*/
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
-}
+
 
