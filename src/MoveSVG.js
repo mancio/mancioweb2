@@ -1,30 +1,57 @@
 import {useState} from "react";
 import { useSpring, animated, to } from "react-spring";
-import {getFileNameNoExt} from "./logic/Functions";
+import {getFileNameNoExt, xAxis, yAxis} from "./logic/Functions";
 
 
 function MoveSVG({ svgFile }) {
 
-    const [position, setPosition] = useState(genRandPos())
+    const [px, setPx] = useState(100);
+    const [position, setPosition] = useState(genRandPos(px))
 
-    function genRandPos(){
-        const px = 100;
+    function genRandPos(px){
         return {
             x: Math.random() * (window.innerWidth - px),
             y: Math.random() * (window.innerHeight - px),
         };
     }
 
-    function genRandAngle(){
+    function genRandDeg(){
         return Math.random() * 360;
     }
 
-    function degToRadians(deg){
+    function getRadians(deg){
         return deg * (Math.PI / 180);
     }
 
+    function getDistance(rad, axis){
+        if (axis === xAxis) return Math.cos(rad) * 2;
+        else if (axis === yAxis) return Math.sin(rad) * 2;
+    }
+
+    function getNewPos(position){
+        const deg = genRandDeg();
+        const rad = getRadians(deg);
+        const deltaX = getDistance(rad, xAxis);
+        const deltaY = getDistance(rad, yAxis);
+        const newX = position.x + deltaX;
+        const newY = position.y + deltaY;
+        return { x: newX, y: newY };
+    }
+
+    function isTouching (x,y,px){
+        return x < 0 || x > window.innerWidth - px || y < 0 || y > window.innerHeight - px;
+    }
+
     const springProps = useSpring({
-        to: { x: position.x, y: position.y },
+        from: { x: position.x, y: position.y },
+        to: async (next) => {
+
+
+            x: position.x, y: position.y
+
+
+
+        },
         config: { tension: 200, friction: 20 },
     });
 
