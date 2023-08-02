@@ -1,11 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { useSpring, animated, to } from "react-spring";
-import {getFileNameNoExt, xAxis, yAxis} from "./logic/Functions";
+import {getFileNameNoExt} from "./logic/Functions";
 
 
 function MoveSVG({ svgFile }) {
 
-    const [px, setPx] = useState(100);
+    const [px] = useState(100);
     const [position, setPosition] = useState(genRandPos(px))
 
     function genRandPos(px){
@@ -23,37 +23,54 @@ function MoveSVG({ svgFile }) {
         return deg * (Math.PI / 180);
     }
 
-    function getDistance(rad, axis){
-        if (axis === xAxis) return Math.cos(rad) * 2;
-        else if (axis === yAxis) return Math.sin(rad) * 2;
+    function getDistance(rad){
+        const deltaX = Math.cos(rad);
+        const deltaY = Math.sin(rad);
+        return {disX: deltaX * window.innerWidth, distY: deltaY * window.innerHeight}
     }
 
     function getNewPos(position){
         const deg = genRandDeg();
         const rad = getRadians(deg);
-        const deltaX = getDistance(rad, xAxis);
-        const deltaY = getDistance(rad, yAxis);
-        const newX = position.x + deltaX;
-        const newY = position.y + deltaY;
+        const distance = getDistance(rad);
+        const newX = position.x + distance.disX;
+        const newY = position.y + distance.distY;
         return { x: newX, y: newY };
     }
 
-    function isTouching (x,y,px){
-        return x < 0 || x > window.innerWidth - px || y < 0 || y > window.innerHeight - px;
+    function newBorder(position){
+        const borderX = position.x < 0 ? 0 : position.x > window.innerWidth - px ? window.innerWidth - px : position.x;
+        const borderY = position.y < 0 ? 0 : position.y > window.innerHeight - px ? window.innerHeight - px : position.y;
+        return { x: borderX, y: borderY };
     }
 
-    const springProps = useSpring({
+    function isTouching (position,px){
+        return position.x < 0 || position.x > window.innerWidth - px || position.y < 0 || position.y > window.innerHeight - px;
+    }
+
+    const [springProps, set] = useSpring(() => ({
         from: { x: position.x, y: position.y },
-        to: async (next) => {
+        to: { x: position.x, y: position.y },
+        config: { duration: 3000 },
+    }));
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const newPos = getNewPos(position);
+            if (isTouching(newPos, px)) {
+                const borders = newBorder(newPos);
+                setPosition({ x: borders.x, y: borders.y });
+                set({ x: borders.x, y: borders.y });
+            } else {
+                setPosition({ x: newPos.x, y: newPos.y });
+                set({ x: newPos.x, y: newPos.y });
+            }
+        }, 1000);
 
-            x: position.x, y: position.y
-
-
-
-        },
-        config: { tension: 200, friction: 20 },
-    });
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     return (
         <div style={{ position: "absolute", width: "auto"}}>
