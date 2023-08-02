@@ -10,6 +10,24 @@ body {
   padding: 0;
 }
 
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background-color: black;
+  border: 2px solid red;
+  z-index: 9999;
+}
+
+.title > p {
+  font-size: 3vw;
+  color: white;
+  font-family: Algerian, serif;
+}
+
 
 
 

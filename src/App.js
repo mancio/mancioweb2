@@ -5,7 +5,9 @@ import Cup from './svg/cup.svg';
 import Cloud from './svg/cloud.svg';
 import Car from './svg/car.svg';
 import Face from './svg/face.svg'
-import {getRandomNumber} from "./logic/Functions";
+import {getEmoji, getRandomNumber} from "./logic/Functions";
+import Button from 'react-native';
+
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
     const elements = 50;
@@ -33,6 +35,13 @@ function App() {
     <div className="App">
         <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
         {renderMoveSVGs(svgArray)}
+        <div className="frame">
+            <div className="title">
+                <p> {getEmoji()} Mancio Page {getEmoji()}</p>
+                <Button color="green">Success</Button>
+
+            </div>
+        </div>
     </div>
   );
 }
