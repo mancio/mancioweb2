@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import { useSpring, animated, to } from "react-spring";
-import {getFileNameNoExt} from "./logic/Functions";
+import {getFileNameNoExt} from "../logic/Functions";
 
 
 function MoveSVG({ svgFile }) {

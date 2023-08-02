@@ -1,5 +1,6 @@
+import CookieConsent from "react-cookie-consent";
 import './App.css';
-import MoveSVG from './MoveSVG';
+import MoveSVG from './animation/MoveSVG';
 import Cup from './svg/cup.svg';
 import Cloud from './svg/cloud.svg';
 import Car from './svg/car.svg';
@@ -7,7 +8,7 @@ import Face from './svg/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
-    const elements = 20;
+    const elements = 50;
 
     const generateRandomArray = (size, svgs) => {
         const randomArray = [];
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="App">
+        <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
         {renderMoveSVGs(svgArray)}
     </div>
   );
