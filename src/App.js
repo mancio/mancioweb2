@@ -10,6 +10,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Menu from "./pages/Menu";
 import Recipes from "./pages/Recipes";
 import {MENU, RECIPES} from "./logic/Names";
+import RecipesGen from "./pages/RecipesGen";
 
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
@@ -42,6 +43,7 @@ function App() {
                     <Routes>
                         <Route exact path={MENU} element={<Menu/>} />
                         <Route path={RECIPES} element={<Recipes/>} />
+                        <Route path={RECIPES + '/:recipeName'} element={<RecipesGen/>} />
                     </Routes>
                 </BrowserRouter>
             </div>

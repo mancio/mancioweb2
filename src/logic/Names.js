@@ -1,6 +1,5 @@
 export const MENU = '/';
 export const RECIPES = '/recipes';
-
 export const recipeList = [
     {
         name: 'Panna Cotta',
