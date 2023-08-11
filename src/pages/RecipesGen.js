@@ -6,7 +6,11 @@ function RecipesGen(){
 
     const recipeName = useParams();
 
+    console.log(removeSpaceLowerCaseString(recipeList[0].name));
+
     const recipe = recipeList.find(recipe => removeSpaceLowerCaseString(recipe.name) === recipeName);
+
+    console.log(recipe);
 
     if (!recipe) {
         return (
