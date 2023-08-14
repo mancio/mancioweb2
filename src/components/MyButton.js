@@ -1,4 +1,4 @@
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import {StyleSheet, View, Text, Pressable} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
 function MyButton({text, onPress}){
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={onPress}>
+            <Pressable style={styles.button} onPress={onPress}>
                 <Text style={styles.buttonText}>{text}</Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 }

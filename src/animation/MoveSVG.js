@@ -8,7 +8,7 @@ function MoveSVG({ svgFile }) {
     const [px] = useState(100);
     const [position, setPosition] = useState(genRandPos(px))
 
-    const [springProps, set] = useSpring(() => ({
+    const [springProps, setSpring] = useSpring(() => ({
         from: { x: position.x, y: position.y },
         to: { x: position.x, y: position.y },
         config: { duration: 5000 },
@@ -20,10 +20,10 @@ function MoveSVG({ svgFile }) {
             if (isTouching(newPos, px)) {
                 const borders = newBorder(newPos, px);
                 setPosition({ x: borders.x, y: borders.y });
-                set({ x: borders.x, y: borders.y });
+                setSpring({ x: borders.x, y: borders.y });
             } else {
                 setPosition({ x: newPos.x, y: newPos.y });
-                set({ x: newPos.x, y: newPos.y });
+                setSpring({ x: newPos.x, y: newPos.y });
             }
         }, 2000);
 

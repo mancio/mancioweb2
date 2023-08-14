@@ -13,7 +13,7 @@ function Menu(){
             <div className="title">
                 <p> {getEmoji()} Mancio Page {getEmoji()}</p>
             </div>
-            <p><MyButton text="Recipes" onPress={()=>navigate(RECIPES)}/></p>
+            <MyButton text="Recipes" onPress={()=>navigate(RECIPES)}/>
         </div>
     );
 }
