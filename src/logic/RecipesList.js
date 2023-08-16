@@ -1,6 +1,6 @@
 export const recipesList = [
     {
-        name: 'Panna cotta con fragole',
+        name: 'Panna cotta with strawberries',
         picture: "https://www.lacucinaimperfetta.com/wp-content/uploads/2012/04/Panna-cotta-alle-fragole-9.jpg",
         portions: 4,
         ingredients: [

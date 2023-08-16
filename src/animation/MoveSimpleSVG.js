@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {genRandPos} from "../logic/Functions";
+import {genRandPos, getNewPos, isTouching, newBorder} from "../logic/Functions";
 
 const MoveSimpleSVG = ({svgFile}) => {
 
@@ -7,33 +7,17 @@ const MoveSimpleSVG = ({svgFile}) => {
 
     const [position, setPosition] = useState(genRandPos(px));
 
-    const [direction, setDirection] = useState({
-        x: Math.random() > 0.5 ? 1 : -1,
-        y: Math.random() > 0.5 ? 1 : -1,
-    });
-
     useEffect(() => {
         const moveInterval = setInterval(() => {
-            setPosition((prevPosition) => {
-                const newX = prevPosition.x + direction.x;
-                const newY = prevPosition.y + direction.y;
 
-                if (newX >= window.innerWidth || newX <= 0) {
-                    setDirection((prevDirection) => ({
-                        ...prevDirection,
-                        x: -prevDirection.x,
-                    }));
-                }
+            const newPos = getNewPos(position);
 
-                if (newY >= window.innerHeight || newY <= 0) {
-                    setDirection((prevDirection) => ({
-                        ...prevDirection,
-                        y: -prevDirection.y,
-                    }));
-                }
-
-                return { x: newX, y: newY };
-            });
+            if (isTouching(newPos, px)) {
+                const borders = newBorder(newPos, px);
+                setPosition({ x: borders.x, y: borders.y });
+            } else {
+                setPosition({ x: newPos.x, y: newPos.y });
+            }
         }, 16); // Update roughly every frame (60fps)
 
         return () => clearInterval(moveInterval);
