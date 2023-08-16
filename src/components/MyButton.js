@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: 'black',
-        fontSize: 'xx-large',
+        fontSize: 'x-large',
+        textAlign: "center"
 },
 });
 

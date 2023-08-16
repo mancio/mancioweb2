@@ -11,6 +11,7 @@ import Menu from "./pages/Menu";
 import Recipes from "./pages/Recipes";
 import {MENU, RECIPES} from "./logic/Names";
 import RecipesGen from "./pages/RecipesGen";
+import MoveSimpleSVG from "./animation/MoveSimpleSVG";
 
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
@@ -37,7 +38,8 @@ function App() {
     return (
         <div className="App">
             <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
-            {renderMoveSVGs(svgArray)}
+            {/*{renderMoveSVGs(svgArray)}*/}
+            <MoveSimpleSVG svgFile={Car}/>
             <div className="frame">
                 <BrowserRouter>
                     <Routes>
