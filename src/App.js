@@ -15,7 +15,7 @@ import MoveSimpleSVG from "./animation/MoveSimpleSVG";
 
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
-    const elements = 50;
+    const elements = 20;
 
     const generateRandomArray = (size, svgs) => {
         const randomArray = [];
@@ -31,15 +31,14 @@ function App() {
 
     function renderMoveSVGs(svgFiles) {
         return svgFiles.map((svg, index) => (
-            <MoveSVG key={`svg-${index}`} svgFile={svg} />
+            <MoveSimpleSVG key={`svg-${index}`} svgFile={svg} />
         ));
     }
 
     return (
         <div className="App">
             <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
-            {/*{renderMoveSVGs(svgArray)}*/}
-            <MoveSimpleSVG svgFile={Car}/>
+            {renderMoveSVGs(svgArray)}
             <div className="frame">
                 <BrowserRouter>
                     <Routes>
