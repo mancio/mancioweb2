@@ -21,7 +21,9 @@ function MoveSimpleSVG({ svgFile }) {
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        // eslint-disable-next-line
         ctx = canvas.getContext('2d');
+        // eslint-disable-next-line
         anim_img = new Image(size_x, size_y);
         anim_img.onload = function () {
             startAnimation(); // Start the animation when the image is loaded

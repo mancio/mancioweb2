@@ -1,17 +1,19 @@
 import CookieConsent from "react-cookie-consent";
 import './App.css';
-import MoveSVG from './animation/MoveSVG';
 import Cup from './svg/cup.svg';
 import Cloud from './svg/cloud.svg';
 import Car from './svg/car.svg';
 import Face from './svg/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import Menu from "./pages/Menu";
-import Recipes from "./pages/Recipes";
-import {MENU, RECIPES} from "./logic/Names";
-import RecipesGen from "./pages/RecipesGen";
+import {DASHBOARD, MENU, RECIPES} from "./logic/Names";
 import MoveSimpleSVG from "./animation/MoveSimpleSVG";
+import {lazy, Suspense} from "react";
+const Menu = lazy(() => import('./pages/Menu'));
+const Recipes = lazy(() => import('./pages/Recipes'));
+const RecipesGen = lazy(() => import('./pages/RecipesGen'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+
 
 function App() {
     const svgs = [Car,Cup,Cloud,Face];
@@ -38,16 +40,19 @@ function App() {
     return (
         <div className="App">
             <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
-            {renderMoveSVGs(svgArray)}
-            <div className="frame">
-                <BrowserRouter>
-                    <Routes>
-                        <Route exact path={MENU} element={<Menu/>} />
-                        <Route path={RECIPES} element={<Recipes/>} />
-                        <Route path={RECIPES + '/:recipeName'} element={<RecipesGen/>} />
-                    </Routes>
-                </BrowserRouter>
-            </div>
+            <Suspense fallback={<div>Loading...</div>}>
+                {renderMoveSVGs(svgArray)}
+                <div className="frame">
+                    <BrowserRouter>
+                        <Routes>
+                            <Route exact path={MENU} element={<Menu />} />
+                            <Route path={RECIPES} element={<Recipes />} />
+                            <Route path={RECIPES + '/:recipeName'} element={<RecipesGen />} />
+                            <Route path={DASHBOARD} element={<Dashboard />} />
+                        </Routes>
+                    </BrowserRouter>
+                </div>
+            </Suspense>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import {getEmoji} from "../logic/Functions";
 import MyButton from "../components/MyButton";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import {RECIPES} from "../logic/Names";
+import {DASHBOARD, RECIPES} from "../logic/Names";
 
 function Menu(){
 
@@ -14,6 +14,7 @@ function Menu(){
                 <p> {getEmoji()} Mancio Page {getEmoji()}</p>
             </div>
             <MyButton text="Recipes" onPress={()=>navigate(RECIPES)}/>
+            <MyButton text="Dashboard" onPress={()=>navigate(DASHBOARD)}/>
         </div>
     );
 }
