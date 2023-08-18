@@ -30,4 +30,7 @@ yarn-error.log*
 #idea
 .idea
 
+#secret
+.env
+
 

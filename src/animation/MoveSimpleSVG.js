@@ -5,7 +5,6 @@ function MoveSimpleSVG({ svgFile }) {
     const margin = 10;
     const startPos = genRandPos(margin);
     const relSize = getRelativeSize(0.5);
-    console.log(relSize);
     const canvasRef = useRef(null);
     let ctx = null;
     let x_icon = startPos.x;

@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase, onValue, set, ref } from "firebase/database";
+
 export function getFileNameNoExt (file){
     return file.split("/").pop().split(".")[0];
 }
@@ -70,4 +73,47 @@ export function getEmoji(){
     const emojis = ['😊', '🎉', '🌟', '🐶', '🍕'];
     const randomIndex = Math.floor(Math.random() * emojis.length);
     return emojis[randomIndex];
+}
+
+// db management
+
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+    databaseURL: process.env.DATABASE,
+};
+
+export let dbApp = null;
+
+export function isDbSet(){
+    return dbApp !== null;
+}
+
+export function getFirebaseSetUp(){
+    dbApp = initializeApp(firebaseConfig);
+}
+
+export function setRef(path){
+    return ref(getDatabase(dbApp), path);
+}
+
+export function readDb(path, callback){
+    const dashboardRef = setRef(path);
+
+    onValue(dashboardRef, (snapshot) => {
+        const data = snapshot.val();
+        console.log(data);
+        callback(data);
+    });
+}
+
+export function writeDb(ref, value){
+    set(ref, value).then(() => console.log("saved")).catch((error) => {
+        console.error('Error writing data to Firebase:', error);
+    });;
 }
