@@ -10,7 +10,7 @@ function Dashboard(){
 
     if (!isDbSet()) getFirebaseSetUp();
 
-    const [dashboardText, setDashboardText] = useState('');
+    const [dashboardText, setDashboardText] = useState('jhg');
 
     // Load data from Firebase on component mount
     useEffect(() => {
