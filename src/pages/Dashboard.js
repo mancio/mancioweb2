@@ -1,6 +1,6 @@
 import MyButton from "../components/MyButton";
 import {MENU} from "../logic/Names";
-import {dbApp, getEmoji, getFirebaseSetUp, isDbSet, readDb, setRef, writeDb} from "../logic/Functions";
+import {getEmoji, getFirebaseSetUp, isDbSet, readDb, setRef, writeDb} from "../logic/Functions";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 
@@ -10,11 +10,12 @@ function Dashboard(){
 
     if (!isDbSet()) getFirebaseSetUp();
 
-    const [dashboardText, setDashboardText] = useState('jhg');
+    const [dashboardText, setDashboardText] = useState('');
 
     // Load data from Firebase on component mount
     useEffect(() => {
         readDb('dashboard', (data) => {
+            console.log(data);
             setDashboardText(data);
         })
     }, []);

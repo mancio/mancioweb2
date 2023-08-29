@@ -88,7 +88,7 @@ const firebaseConfig = {
     databaseURL: process.env.DATABASE,
 };
 
-export let dbApp = null;
+let dbApp = null;
 
 export function isDbSet(){
     return dbApp !== null;
@@ -107,13 +107,17 @@ export function readDb(path, callback){
 
     onValue(dashboardRef, (snapshot) => {
         const data = snapshot.val();
-        console.log(data);
         callback(data);
     });
 }
 
-export function writeDb(ref, value){
-    set(ref, value).then(() => console.log("saved")).catch((error) => {
-        console.error('Error writing data to Firebase:', error);
-    });;
+export function writeDb(ref, value) {
+    set(ref, value)
+        .then(() => {
+            console.log("Data saved successfully");
+        })
+        .catch((error) => {
+            console.error('Error writing data to Firebase:', error);
+        });
 }
+
