@@ -1,5 +1,5 @@
 import '../App.css';
-import {getCurrentLanguage, removeSpaceLowerCaseString} from "../logic/Functions";
+import {getCurrentLanguage, removeSpaceLowerCaseString, setCurrentLanguage} from "../logic/Functions";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
@@ -11,12 +11,17 @@ function RecipesGen(){
 
     const recipeName = useParams().recipeName;
 
-    console.log(recipeName);
-
-    console.log(getCurrentLanguage());
-
-    const recipe = recipesList.find(recipe => removeSpaceLowerCaseString(recipe.name[getCurrentLanguage()]) === removeSpaceLowerCaseString(recipeName));
-
+    const recipe = recipesList.find((recipe) => {
+        const recipeNames = Object.entries(recipe.name); // Get an array of [language, name] pairs
+        const matchingLanguagePair = recipeNames.find(([_, name]) => {
+            return removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName);
+        });
+        if (matchingLanguagePair) {
+            setCurrentLanguage(matchingLanguagePair[0]);
+            return true; // Exit the loop when a match is found
+        }
+        return false;
+    });
 
     const [imgBool, setImgBool] = useState([]);
 
@@ -34,16 +39,27 @@ function RecipesGen(){
     }
 
     useEffect(() => {
-        const loadImages = async () => {
-            const promises = recipe.steps.map((step) => {
-                return picturePromise(step.picture);
-            });
-            const lastPromise = picturePromise(recipe.picture);
-            const results = await Promise.all([...promises,lastPromise]);
-            setImgBool(results);
-        };
-        loadImages().then(() => console.log("Images loaded"));
-    }, [recipe.steps, recipe.picture]);
+        if (recipe) {
+            const loadImages = async () => {
+                const promises = recipe.steps.map((step) => {
+                    return picturePromise(step.picture);
+                });
+                const lastPromise = picturePromise(recipe.picture);
+                const results = await Promise.all([...promises, lastPromise]);
+                setImgBool(results);
+            };
+            loadImages().then(() => console.log("Images loaded"));
+        }
+    }, [recipe]);
+
+    if (!recipe) {
+        return (
+            <div className='title'>
+                <p>Recipe not found</p>
+                <MyButton text='Back' onPress={() => navigate(RECIPES)} />
+            </div>
+        );
+    }
 
     return(
       <div className='recipe-box'>
