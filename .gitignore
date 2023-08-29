@@ -33,4 +33,7 @@ yarn-error.log*
 #secret
 .env
 
+#BFG Repo-Cleaner
+bfg*
+
 
