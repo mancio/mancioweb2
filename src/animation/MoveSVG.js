@@ -11,7 +11,7 @@ function MoveSVG({ svgFile }) {
     const [springProps, setSpring] = useSpring(() => ({
         from: { x: position.x, y: position.y },
         to: { x: position.x, y: position.y },
-        config: { duration: 5000 },
+        config: { duration: 3000 },
     }));
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function MoveSVG({ svgFile }) {
                 setPosition({ x: newPos.x, y: newPos.y });
                 setSpring({ x: newPos.x, y: newPos.y });
             }
-        }, 2000);
+        }, 1000);
 
         return () => {
             clearInterval(interval);

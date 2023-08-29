@@ -7,8 +7,8 @@ import Face from './svg/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {DASHBOARD, MENU, RECIPES} from "./logic/Names";
-import MoveSimpleSVG from "./animation/MoveSimpleSVG";
 import {lazy, Suspense} from "react";
+import MoveSVG from "./animation/MoveSVG";
 const Menu = lazy(() => import('./pages/Menu'));
 const Recipes = lazy(() => import('./pages/Recipes'));
 const RecipesGen = lazy(() => import('./pages/RecipesGen'));
@@ -33,7 +33,7 @@ function App() {
 
     function renderMoveSVGs(svgFiles) {
         return svgFiles.map((svg, index) => (
-            <MoveSimpleSVG key={`svg-${index}`} svgFile={svg} />
+            <MoveSVG key={`svg-${index}`} svgFile={svg} />
         ));
     }
 
