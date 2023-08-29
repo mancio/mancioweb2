@@ -62,10 +62,16 @@ function RecipesGen(){
     }
 
     return(
-      <div className='recipe-box'>
+        <div className='recipe-box'>
             <h3>{recipe.name[getCurrentLanguage()]}</h3>
             {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[getCurrentLanguage()]}/>}
             <p>{recipe.portions[getCurrentLanguage()]}</p>
+            <h3>Ingredients</h3>
+            {recipe.ingredients[getCurrentLanguage()].map((ingredients, index) => (
+                <div key={index}>
+                    <p>- {ingredients}</p>
+                </div>
+            ))}
             <h3>Steps:</h3>
             {recipe.steps.map((step, index) => (
                 <div key={index}>
