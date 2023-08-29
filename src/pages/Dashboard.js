@@ -33,10 +33,9 @@ function Dashboard(){
 
     useEffect(() => {
         if (inputRef.current) {
-            inputRef.current.style.width = '100%';
-            inputRef.current.style.width = `${inputRef.current.scrollWidth}px`;
+            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
         }
-    }, []); // This effect will run whenever dashboardText changes
+    }, [dashboardText]); // This effect will run whenever dashboardText changes
 
 
 
@@ -47,8 +46,7 @@ function Dashboard(){
             </div>
             <div className='dashboard'>
                 <p>prova</p>
-                <input
-                    type="text"
+                <textarea
                     value={dashboardText}
                     onChange={handleInputChange}
                     className="text-box"
