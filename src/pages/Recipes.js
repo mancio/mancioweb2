@@ -9,7 +9,7 @@ function Recipes(){
 
     const navigate = useNavigate();
 
-    const [selectedLanguage, setSelectedLanguage] = useState(getCurrentLanguage()); // Default language is English
+    const [selectedLanguage, setSelectedLanguage] = useState(getCurrentLanguage());
 
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
@@ -22,7 +22,7 @@ function Recipes(){
             <div className='title'>
                 <p>Recipes</p>
                 <div className='dashboard'>
-                    <p>Language: <select id='languageDropdown' onChange={handleLanguageChange} value={getCurrentLanguage()}>
+                    <p>Language: <select onChange={handleLanguageChange} value={getCurrentLanguage()}>
                         <option value={ENGLISH}>English</option>
                         <option value={ITALIAN}>Italian</option>
                     </select>

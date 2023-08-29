@@ -11,7 +11,12 @@ function RecipesGen(){
 
     const recipeName = useParams().recipeName;
 
+    console.log(recipeName);
+
+    console.log(getCurrentLanguage());
+
     const recipe = recipesList.find(recipe => removeSpaceLowerCaseString(recipe.name[getCurrentLanguage()]) === removeSpaceLowerCaseString(recipeName));
+
 
     const [imgBool, setImgBool] = useState([]);
 
