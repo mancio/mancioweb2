@@ -13,12 +13,11 @@ function Dashboard(){
     if (!isDbSet()) getFirebaseSetUp();
 
     const [dashboardText, setDashboardText] = useState('');
-    const inputRef = useRef(null);
+    const textAreaRef = useRef(null);
 
     // Load data from Firebase on component mount
     useEffect(() => {
         readDb(path, (data) => {
-            console.log(data);
             setDashboardText(data);
         })
     }, []);
@@ -32,8 +31,9 @@ function Dashboard(){
     };
 
     useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+        if (textAreaRef.current) {
+            textAreaRef.current.style.height = 'auto'; // Reset height to auto
+            textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
         }
     }, [dashboardText]); // This effect will run whenever dashboardText changes
 
@@ -50,7 +50,7 @@ function Dashboard(){
                     value={dashboardText}
                     onChange={handleInputChange}
                     className="text-box"
-                    ref={inputRef}
+                    ref={textAreaRef}
                     placeholder="Type here"
                 />
             </div>
