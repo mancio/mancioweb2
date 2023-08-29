@@ -1,5 +1,5 @@
 import '../App.css';
-import {removeSpaceLowerCaseString} from "../logic/Functions";
+import {getCurrentLanguage, removeSpaceLowerCaseString} from "../logic/Functions";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
@@ -11,7 +11,7 @@ function RecipesGen(){
 
     const recipeName = useParams().recipeName;
 
-    const recipe = recipesList.find(recipe => removeSpaceLowerCaseString(recipe.name) === removeSpaceLowerCaseString(recipeName));
+    const recipe = recipesList.find(recipe => removeSpaceLowerCaseString(recipe.name[getCurrentLanguage()]) === removeSpaceLowerCaseString(recipeName));
 
     const [imgBool, setImgBool] = useState([]);
 
@@ -40,28 +40,19 @@ function RecipesGen(){
         loadImages().then(() => console.log("Images loaded"));
     }, [recipe.steps, recipe.picture]);
 
-
-    if (!recipe) {
-        return (
-            <div className='title'>
-                <p>Recipe not found</p>
-            </div>
-        );
-    }
-
     return(
       <div className='recipe-box'>
-            <h3>{recipe.name}</h3>
-            {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name}/>}
-            <p>Portions: {recipe.portions}</p>
+            <h3>{recipe.name[getCurrentLanguage()]}</h3>
+            {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[getCurrentLanguage()]}/>}
+            <p>{recipe.portions[getCurrentLanguage()]}</p>
             <h3>Steps:</h3>
             {recipe.steps.map((step, index) => (
                 <div key={index}>
-                    <p>{index + 1} - {step.description}</p>
+                    <p>{index + 1} - {step.description[getCurrentLanguage()]}</p>
                     {imgBool[index] && <img className='recipe-img' src={step.picture} alt={`Step ${index + 1}`} />}
                 </div>
             ))}
-          <MyButton text="Back" onPress={()=>navigate(RECIPES)}/>
+            <MyButton text="Back" onPress={()=>navigate(RECIPES)}/>
       </div>
     );
 }

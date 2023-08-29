@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, set, ref } from "firebase/database";
+import {ENGLISH} from "./Names";
 
 export function getFileNameNoExt (file){
     return file.split("/").pop().split(".")[0];
@@ -7,6 +8,16 @@ export function getFileNameNoExt (file){
 
 export function removeSpaceLowerCaseString(str){
     return str.replace(/\s+/g, '').toLowerCase();
+}
+
+export let currentLanguage = ENGLISH;
+
+export function setCurrentLanguage(language){
+    currentLanguage = language;
+}
+
+export function getCurrentLanguage(){
+    return currentLanguage;
 }
 
 export const getRandomNumber = (min, max) => {

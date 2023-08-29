@@ -5,7 +5,10 @@ export const recipesList = [
             EN: 'Strawberry Panna Cotta'
         },
         picture: "https://www.lacucinaimperfetta.com/wp-content/uploads/2012/04/Panna-cotta-alle-fragole-9.jpg",
-        portions: 4,
+        portions: {
+            IT: '4 porzioni',
+            EN: '4 portions'
+        },
         ingredients: {
             IT: [
                 '100 ml latte',
