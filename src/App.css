@@ -69,6 +69,10 @@ body {
   box-sizing: border-box;
 }
 
+.language-line{
+  display: inline-flex;
+}
+
 
 
 

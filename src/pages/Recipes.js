@@ -1,7 +1,7 @@
 import MyButton from "../components/MyButton";
 import { useNavigate } from 'react-router-dom';
 import {ENGLISH, ITALIAN, MENU} from "../logic/Names";
-import {getCurrentLanguage, removeSpaceLowerCaseString, setCurrentLanguage} from "../logic/Functions";
+import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
 import {recipesList} from "../logic/RecipesList";
 import {useState} from "react";
 
@@ -9,12 +9,12 @@ function Recipes(){
 
     const navigate = useNavigate();
 
-    const [selectedLanguage, setSelectedLanguage] = useState(getCurrentLanguage());
+    const [selectedLanguage, setSelectedLanguage] = useState(getSharedLanguage());
 
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
         setSelectedLanguage(newLanguage);
-        setCurrentLanguage(newLanguage);
+        setSharedLanguage(newLanguage);
     };
 
     return(
@@ -22,7 +22,7 @@ function Recipes(){
             <div className='title'>
                 <p>Recipes</p>
                 <div className='dashboard'>
-                    <p>Language: <select onChange={handleLanguageChange} value={getCurrentLanguage()}>
+                    <p>Language: <select onChange={handleLanguageChange} value={getSharedLanguage()}>
                         <option value={ENGLISH}>English</option>
                         <option value={ITALIAN}>Italian</option>
                     </select>

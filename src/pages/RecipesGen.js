@@ -1,5 +1,5 @@
 import '../App.css';
-import {getCurrentLanguage, removeSpaceLowerCaseString, setCurrentLanguage} from "../logic/Functions";
+import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
@@ -11,17 +11,35 @@ function RecipesGen(){
 
     const recipeName = useParams().recipeName;
 
-    const recipe = recipesList.find((recipe) => {
-        const recipeNames = Object.entries(recipe.name); // Get an array of [language, name] pairs
-        const matchingLanguagePair = recipeNames.find(([_, name]) => {
-            return removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName);
+    const [languageList, setLanguageList] = useState([]);
+
+    const [currentLanguage, setCurrentLanguage] = useState(getSharedLanguage());
+
+    const [recipe, setRecipe] = useState(null);
+
+    useEffect(() => {
+        let provList = [];
+        const recipe = recipesList.find((recipe) => {
+            let match = false;
+            const recipeNamePairs = Object.entries(recipe.name);
+            for (const [language, name] of recipeNamePairs) {
+                if (!provList.includes(language)) {
+                    provList.push(language);
+                }
+                if (removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName) && !match) {
+                    match = true;
+                    setCurrentLanguage(language);
+                    setSharedLanguage(language);
+                }
+            }
+            if (match) return true; // Exit the loop when a match is found
+            return false;
         });
-        if (matchingLanguagePair) {
-            setCurrentLanguage(matchingLanguagePair[0]);
-            return true; // Exit the loop when a match is found
-        }
-        return false;
-    });
+        setRecipe(recipe);
+        setLanguageList(provList);
+        // eslint-disable-next-line
+    },[]);
+
 
     const [imgBool, setImgBool] = useState([]);
 
@@ -63,11 +81,11 @@ function RecipesGen(){
 
     return(
         <div className='recipe-box'>
-            <h3>{recipe.name[getCurrentLanguage()]}</h3>
-            {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[getCurrentLanguage()]}/>}
-            <p>{recipe.portions[getCurrentLanguage()]}</p>
+            <h3>{recipe.name[currentLanguage]}</h3>
+            {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[currentLanguage]}/>}
+            <p>{recipe.portions[currentLanguage]}</p>
             <h3>Ingredients</h3>
-            {recipe.ingredients[getCurrentLanguage()].map((ingredients, index) => (
+            {recipe.ingredients[currentLanguage].map((ingredients, index) => (
                 <div key={index}>
                     <p>- {ingredients}</p>
                 </div>
@@ -75,10 +93,22 @@ function RecipesGen(){
             <h3>Steps:</h3>
             {recipe.steps.map((step, index) => (
                 <div key={index}>
-                    <p>{index + 1} - {step.description[getCurrentLanguage()]}</p>
+                    <p>{index + 1} - {step.description[currentLanguage]}</p>
                     {imgBool[index] && <img className='recipe-img' src={step.picture} alt={`Step ${index + 1}`} />}
                 </div>
             ))}
+            {recipe.notes && (
+                <div>
+                    <h3>Notes</h3>
+                    <p>{recipe.notes[currentLanguage]}</p>
+                </div>
+            )}
+            <div className='language-line'>
+                <h3>Languages:</h3>
+                {languageList.map((language) => (
+                    <MyButton key={language} text={language} onPress={() => setCurrentLanguage(language)} />
+                ))}
+            </div>
             <MyButton text="Back" onPress={()=>navigate(RECIPES)}/>
       </div>
     );

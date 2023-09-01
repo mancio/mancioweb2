@@ -11,11 +11,11 @@ export function removeSpaceLowerCaseString(str){
 }
 
 
-export function setCurrentLanguage(language){
+export function setSharedLanguage(language){
     localStorage.setItem(LANGUAGE_RECIPE_KEY, language);
 }
 
-export function getCurrentLanguage(){
+export function getSharedLanguage(){
     return localStorage.getItem(LANGUAGE_RECIPE_KEY) || ENGLISH;
 }
 
