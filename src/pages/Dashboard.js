@@ -1,8 +1,8 @@
-import MyButton from "../components/MyButton";
 import {MENU} from "../logic/Names";
 import {getEmoji, getFirebaseSetUp, isDbSet, readDb, setRef, writeDb} from "../logic/Functions";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
+import BetterButton from "../components/BetterButton";
 
 const path = 'dashboard';
 
@@ -45,7 +45,6 @@ function Dashboard(){
                 <p> {getEmoji()} DashBoard Copy/Paste {getEmoji()}</p>
             </div>
             <div className='dashboard'>
-                <p>prova</p>
                 <textarea
                     value={dashboardText}
                     onChange={handleInputChange}
@@ -54,7 +53,7 @@ function Dashboard(){
                     placeholder="Type here"
                 />
             </div>
-            <MyButton text="Back" onPress={() => navigate(MENU)}/>
+            <BetterButton text="Back" click={() => navigate(MENU)}/>
         </div>
     );
 }

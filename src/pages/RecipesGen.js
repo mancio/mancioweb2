@@ -3,8 +3,8 @@ import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
-import MyButton from "../components/MyButton";
 import {RECIPES} from "../logic/Names";
+import BetterButton from "../components/BetterButton";
 function RecipesGen(){
 
     const navigate = useNavigate();
@@ -74,7 +74,7 @@ function RecipesGen(){
         return (
             <div className='title'>
                 <p>Recipe not found</p>
-                <MyButton text='Back' onPress={() => navigate(RECIPES)} />
+                <BetterButton text='Back' click={() => navigate(RECIPES)} />
             </div>
         );
     }
@@ -106,10 +106,10 @@ function RecipesGen(){
             <div className='language-line'>
                 <h3>Languages:</h3>
                 {languageList.map((language) => (
-                    <MyButton key={language} text={language} onPress={() => setCurrentLanguage(language)} />
+                    <BetterButton key={language} text={language} click={() => setCurrentLanguage(language)} />
                 ))}
             </div>
-            <MyButton text="Back" onPress={()=>navigate(RECIPES)}/>
+            <BetterButton text="Back" click={()=>navigate(RECIPES)}/>
       </div>
     );
 }

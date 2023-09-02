@@ -73,6 +73,28 @@ body {
   display: inline-flex;
 }
 
+.betterBt {
+  border-radius: 20px;
+  background-color: orange;
+  font-size: x-large;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease; /* Add a transition for smooth background color change */
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+}
+
+.betterBt:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+  background-color: red; /* Change background color on hover */
+  transition: transform 0.1s ease, background-color 0.5s ease; /* Add transition for both transform and background color during click */
+
+}
+
+.betterBt:active {
+  transform: scale(0.9); /* Shrink on click */
+}
+
 
 
 
