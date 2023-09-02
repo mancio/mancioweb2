@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, set, ref } from "firebase/database";
+import {initializeApp} from "firebase/app";
+import {getDatabase, onValue, ref, set} from "firebase/database";
 import {ENGLISH, LANGUAGE_RECIPE_KEY} from "./Names";
 
 export function getFileNameNoExt (file){
@@ -130,4 +130,56 @@ export function writeDb(ref, value) {
             console.error('Error writing data to Firebase:', error);
         });
 }
+
+export async function getInfoFromIp() {
+    try {
+        const token = process.env.REACT_APP_TIME_TOKEN;
+        const response = await fetch('https://timezoneapi.io/api/ip/?token=' + token);
+        const data = await response.json();
+
+        return {
+            city: data.data.city,
+            state: data.data.state,
+            country: data.data.country,
+            date: data.data.datetime.date,
+            time: data.data.datetime.time,
+        };
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+export function addOneSecond(inputTime) {
+    try {
+        // Parse the inputTime string into a Date object
+        const timeParts = inputTime.split(':');
+
+        let hours = parseInt(timeParts[0]);
+        let minutes = parseInt(timeParts[1]);
+        let seconds = parseInt(timeParts[2]);
+
+        // Add one second
+        seconds += 1;
+
+        // Handle overflow in seconds and minutes
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes += 1;
+        }
+        if (minutes >= 60) {
+            minutes = 0;
+            hours += 1;
+        }
+        if (hours >= 24) {
+            hours = 0;
+        }
+
+        // Format the updated time
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    } catch (error) {
+        return "Invalid input format or values";
+    }
+}
+
 

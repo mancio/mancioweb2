@@ -41,12 +41,6 @@ body {
   font-family: Algerian, serif;
 }
 
-.button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .recipe-img{
   width: 50%;
   border-radius: 10px;
@@ -67,6 +61,8 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  overflow: hidden;
+  resize: none;
 }
 
 .language-line{
@@ -84,7 +80,8 @@ body {
   margin: 10px;
 }
 
-.betterBt:hover {
+.betterBt:hover,
+.betterBt:focus {
   transform: scale(1.1); /* Enlarge on hover */
   background-color: red; /* Change background color on hover */
   transition: transform 0.1s ease, background-color 0.5s ease; /* Add transition for both transform and background color during click */
@@ -93,6 +90,18 @@ body {
 
 .betterBt:active {
   transform: scale(0.9); /* Shrink on click */
+}
+
+.time-now{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: large;
+  border-radius: 30px;
 }
 
 

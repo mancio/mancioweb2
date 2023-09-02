@@ -3,6 +3,7 @@ import {getEmoji, getFirebaseSetUp, isDbSet, readDb, setRef, writeDb} from "../l
 import {useNavigate} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import BetterButton from "../components/BetterButton";
+import '../App.css';
 
 const path = 'dashboard';
 
