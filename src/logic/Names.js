@@ -10,3 +10,5 @@ export const SEARCHING_MESSAGE = 'Searching....';
 // for local storage
 export const LANGUAGE_RECIPE_KEY = 'currentLanguage';
 
+export const MIDNIGHT_AS_24H_STRING = '00:00:00';
+

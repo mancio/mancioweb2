@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {addOneSecond, getInfoFromIp} from "../logic/Functions";
-import {SEARCHING_MESSAGE} from "../logic/Names";
+import {addOneSecond, formatDate, getInfoFromIp} from "../logic/Functions";
+import {MIDNIGHT_AS_24H_STRING, SEARCHING_MESSAGE} from "../logic/Names";
 import '../App.css';
 
 function IpPlaceTime(){
@@ -18,7 +18,7 @@ function IpPlaceTime(){
                 setRegion(info.state);
                 setCountry(info.country);
                 setTime(info.time)
-                setDate(info.date);
+                setDate(formatDate(info.date));
             })
             .catch((error) => {
             console.error(error);
@@ -32,6 +32,10 @@ function IpPlaceTime(){
             },1000);
             return () => clearInterval(timer);
         }
+    },[time])
+
+    useEffect(() => {
+        if (time === MIDNIGHT_AS_24H_STRING) window.location.reload();
     },[time])
 
     return(
