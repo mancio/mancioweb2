@@ -6,7 +6,7 @@ import Car from './svg/car.svg';
 import Face from './svg/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import {DASHBOARD, MENU, RECIPES} from "./logic/Names";
+import {DASHBOARD, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
 import IpPlaceTime from "./components/IpPlaceTime";
@@ -14,6 +14,7 @@ const Menu = lazy(() => import('./pages/Menu'));
 const Recipes = lazy(() => import('./pages/Recipes'));
 const RecipesGen = lazy(() => import('./pages/RecipesGen'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const ScoreCounter = lazy(() => import('./pages/ScoreCounter'));
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
                             <Route path={RECIPES} element={<Recipes />} />
                             <Route path={RECIPES + '/:recipeName'} element={<RecipesGen />} />
                             <Route path={DASHBOARD} element={<Dashboard />} />
+                            <Route path={SCORE_COUNTER} element={<ScoreCounter />} />
                         </Routes>
                     </BrowserRouter>
                     <IpPlaceTime/>
