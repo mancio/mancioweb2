@@ -150,6 +150,32 @@ export async function getInfoFromIp() {
     }
 }
 
+export function formatDate(inputDate) {
+    // Split the input date string into day, month, and year components
+    const [month, day, year] = inputDate.split('/').map(Number);
+
+    // Create a new Date object
+    const date = new Date(year, month - 1, day);
+
+    // Define an array for month names
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    // Define an array for day names
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Get the day, month, and year components from the date object
+    const formattedDay = dayNames[date.getDay()];
+    const formattedMonth = monthNames[date.getMonth()];
+    const formattedYear = date.getFullYear();
+
+    // Return the formatted date string
+    return `${formattedDay} ${day} ${formattedMonth} ${formattedYear}`;
+}
+
+
 export function addOneSecond(inputTime) {
     try {
         // Parse the inputTime string into a Date object

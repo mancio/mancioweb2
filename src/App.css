@@ -93,15 +93,13 @@ body {
 }
 
 .time-now{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: inline-block;
   background-color: black;
   color: white;
   text-align: center;
   font-size: large;
   border-radius: 30px;
+  padding: 20px;
 }
 
 

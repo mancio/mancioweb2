@@ -9,6 +9,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {DASHBOARD, MENU, RECIPES} from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
+import IpPlaceTime from "./components/IpPlaceTime";
 const Menu = lazy(() => import('./pages/Menu'));
 const Recipes = lazy(() => import('./pages/Recipes'));
 const RecipesGen = lazy(() => import('./pages/RecipesGen'));
@@ -51,6 +52,7 @@ function App() {
                             <Route path={DASHBOARD} element={<Dashboard />} />
                         </Routes>
                     </BrowserRouter>
+                    <IpPlaceTime/>
                 </div>
             </Suspense>
         </div>
