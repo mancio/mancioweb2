@@ -1,9 +1,9 @@
 import CookieConsent from "react-cookie-consent";
 import './App.css';
-import Cup from './svg/cup.svg';
-import Cloud from './svg/cloud.svg';
-import Car from './svg/car.svg';
-import Face from './svg/face.svg'
+import Cup from './pictures/cup.svg';
+import Cloud from './pictures/cloud.svg';
+import Car from './pictures/car.svg';
+import Face from './pictures/face.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {DASHBOARD, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";

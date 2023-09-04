@@ -102,6 +102,21 @@ body {
   padding: 20px;
 }
 
+.card{
+  width: 100px;
+  padding: 10px;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card-table{
+  display: inline-flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
 
 
