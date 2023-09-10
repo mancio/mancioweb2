@@ -1,5 +1,5 @@
 import BetterButton from "../components/BetterButton";
-import {BRISCOLA, SCOPA} from "../logic/Names";
+import {BRISCOLA, MENU, SCOPA} from "../logic/Names";
 import {useState} from "react";
 import '../App.css';
 
@@ -13,12 +13,16 @@ import Sei from '../pictures/sei_coppe.jpg';
 import Cinque from '../pictures/cinque_bastoni.jpg';
 import Quattro from '../pictures/quattro_bastoni.jpg';
 import Due from '../pictures/due_denari.jpg';
+import {useNavigate} from "react-router-dom";
 
 function ScoreCounter(){
+
+    const navigate = useNavigate();
 
     const [game, setGame] = useState(null);
     const [score, setScore] = useState(0);
     const [selCards, setSelCards] = useState([]);
+    const [lastCardIndex, setLastCardIndex] = useState(null);
 
     const cardList = [
         {
@@ -87,13 +91,15 @@ function ScoreCounter(){
         setSelCards([]);
         setScore(0);
         setGame(game);
+        setLastCardIndex(null);
     }
 
 
-    function addPoint(el, type) {
+    function addPoint(el, type, index) {
         const cardName = el.name;
         setSelCards([...selCards, cardName]);
         setScore(score + el[type]);
+        setLastCardIndex(index);
     }
 
     function showCards(type) {
@@ -103,10 +109,10 @@ function ScoreCounter(){
                     <div key={index} >
                         {el[type] !== 0 && (
                             <img
-                                className='card'
+                                className={index === lastCardIndex ? 'card-selected' : 'card'}
                                 src={el.card}
                                 alt={index.toString()}
-                                onClick={() => addPoint(el, type)}
+                                onClick={() => addPoint(el, type, index)}
                             />
                         )}
                     </div>
@@ -134,6 +140,7 @@ function ScoreCounter(){
                     <p>Cards selected: {selCards.join(",")} = {score}</p>
                 </div>
             )}
+            <BetterButton text="Back" click={()=>navigate(MENU)}/>
         </div>
     )
 }
