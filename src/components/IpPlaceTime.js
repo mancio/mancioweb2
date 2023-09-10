@@ -40,7 +40,7 @@ function IpPlaceTime(){
 
     return(
         <div className='time-now'>
-            <p>{city}, {region}, {country}</p>
+            <p>Connected to: {city}, {region}, {country}</p>
             <p>Real Time: {time}</p>
             <p>Day: {date}</p>
         </div>
