@@ -121,6 +121,9 @@ body {
   display: inline-flex;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 
