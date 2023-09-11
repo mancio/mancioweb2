@@ -209,3 +209,17 @@ export function addOneSecond(inputTime) {
 }
 
 
+// Pizza functions
+
+export function getHydration(water, flour){
+    return Math.round((water / flour) * 100);
+}
+
+export function getFlour(hydration, water) {
+    return Math.round((100 * water) / hydration);
+}
+
+export function getWater(hydration, flour){
+    return Math.round((hydration / 100) * flour);
+}
+

@@ -1,8 +1,8 @@
 export const MENU = '/';
 export const RECIPES = '/recipes';
-export const DASHBOARD = '/dashboard'
-
+export const DASHBOARD = '/dashboard';
 export const SCORE_COUNTER = '/score';
+export const KITCHEN_TOOLS = '/kitchenTools';
 
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';
@@ -16,4 +16,8 @@ export const MIDNIGHT_AS_24H_STRING = '00:00:00';
 
 export const BRISCOLA = 'Briscola';
 export const SCOPA = 'Scopa';
+
+export const FLOUR = 'fl';
+export const WATER = 'wt';
+export const HYDRATION = 'hy';
 

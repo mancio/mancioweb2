@@ -126,7 +126,28 @@ body {
   align-items: center;
 }
 
+.border-frame{
+  border: 4px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
 
+.input-number{
+  margin-left: 10px;
+  border-radius: 5px;
+  width: 45px;
+}
+
+.row-el {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  margin-bottom: 10px; /* Add spacing between rows */
+}
+
+.row-el label {
+  flex: 1; /* Distribute available space evenly */
+  margin-right: 10px; /* Add spacing between label and input */
+}
 
 
 
