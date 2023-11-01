@@ -87,11 +87,15 @@ function ScoreCounter(){
         }
     ]
 
-    function selectGame(game){
+    function reset(){
         setSelCards([]);
         setScore(0);
-        setGame(game);
         setLastCardIndex(null);
+    }
+
+    function selectGame(game){
+        reset();
+        setGame(game);
     }
 
 
@@ -137,10 +141,11 @@ function ScoreCounter(){
             )}
             {(game) && (score !== 0) && (
                 <div>
-                    <p>Cards selected: {selCards.join(",")} = {score}</p>
+                    <h3>Cards selected: {selCards.join(" ")} = {score}</h3>
                 </div>
             )}
-            <BetterButton text="Back" click={()=>navigate(MENU)}/>
+            <BetterButton text="Back" click={() => navigate(MENU)}/>
+            <BetterButton text="Reset Score" click={() => reset()}/>
         </div>
     )
 }

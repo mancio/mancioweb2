@@ -1,7 +1,7 @@
 import {getEmoji} from "../logic/Functions";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import {DASHBOARD, RECIPES, SCORE_COUNTER} from "../logic/Names";
+import {DASHBOARD, KITCHEN_TOOLS, RECIPES, SCORE_COUNTER} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 
 function Menu(){
@@ -16,6 +16,7 @@ function Menu(){
             <BetterButton text="Recipes" click={()=>navigate(RECIPES)}/>
             <BetterButton text="Dashboard" click={()=>navigate(DASHBOARD)}/>
             <BetterButton text="Score Counter" click={()=>navigate(SCORE_COUNTER)}/>
+            <BetterButton text="Kitchen Tools" click={()=>navigate(KITCHEN_TOOLS)}/>
         </div>
     );
 }
