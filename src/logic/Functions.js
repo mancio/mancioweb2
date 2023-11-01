@@ -19,9 +19,16 @@ export function getSharedLanguage(){
     return localStorage.getItem(LANGUAGE_RECIPE_KEY) || ENGLISH;
 }
 
-export const getRandomNumber = (min, max) => {
+export const getRandomNumber = (min = 1, max = 6) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
+export function getRealRandomInt(min = 1, max = 6) {
+    let range = max - min + 1;
+    let randomArray = new Uint32Array(1);
+    window.crypto.getRandomValues(randomArray);
+    return min + (randomArray[0] % range);
+}
 
 // Functions to move svg
 
