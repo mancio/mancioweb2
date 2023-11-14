@@ -693,6 +693,75 @@ export const recipesList = [
     },
     {
         name: {
+            IT: 'Crescente Bolognese',
+            EN: 'Crescente Bolognese'
+        },
+        picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/03/Crescente-bolognese-0D6A1879-1200x675.jpg',
+        portions: {
+            IT: 'Numero di porzioni non specificato',
+            EN: 'Number of portions not specified'
+        },
+        ingredients: {
+            IT: [
+                '500 grammi di farina 00',
+                '250 grammi di acqua (circa)',
+                '25 grammi di lievito di birra',
+                '150 grammi di prosciutto crudo o pancetta, tritato grossolano',
+                '50 grammi di strutto',
+                '8 grammi di sale (un cucchiaio colmo)',
+                'mezzo cucchiaino di zucchero'
+            ],
+            EN: [
+                '500 grams of type 00 flour',
+                '250 grams of water (approximately)',
+                '25 grams of beer yeast',
+                '150 grams of raw ham or bacon, coarsely chopped',
+                '50 grams of lard',
+                '8 grams of salt (one heaped teaspoon)',
+                'Half a teaspoon of sugar'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Fare la fontana con gli ingredienti e impastare velocemente formando una palla.',
+                    EN: 'Make a well with the ingredients and quickly knead to form a ball.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'Coprire e lasciare lievitare per 50-60 minuti.',
+                    EN: 'Cover and let rise for 50-60 minutes.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'Stendere la pasta senza lavorarla formando un ovale di circa 1,5 cm di spessore e disporla su una teglia.',
+                    EN: 'Roll out the dough without overworking it, forming an oval about 1.5 cm thick and place it on a baking tray.'
+                },
+                picture: 'URL of the step 2 picture',
+            },
+            {
+                description: {
+                    IT: 'Pizzicare tutto intorno, tracciare delle losanghe sulla superficie con una lametta, spennellare con uovo e lasciare lievitare per altri 50 minuti.',
+                    EN: 'Pinch all around, score diamonds on the surface with a blade, brush with beaten egg and let rise for another 50 minutes.'
+                },
+                picture: 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2014/07/ricetta-crescente-bolognese/jcr:content/procedure-par/recipe_procedures_2/image.img3.jpg/1650312206923.jpg',
+            },
+            {
+                description: {
+                    IT: 'Cuocere in forno pre-riscaldato a 200-210 °C per 40-45 minuti.',
+                    EN: 'Bake in a preheated oven at 200-210 °C for 40-45 minutes.'
+                },
+                picture: 'URL of the step 4 picture',
+            }
+        ],
+        notes: 'Se preferisci la crescente più soffice, lascia raddoppiare il volume completamente prima di cuocere.'
+    },
+    {
+        name: {
             IT: 'Focaccia con pomodorini',
             EN: 'Focaccia with Cherry Tomatoes'
         },
