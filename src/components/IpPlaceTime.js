@@ -11,6 +11,34 @@ function IpPlaceTime(){
     const [time, setTime] = useState(SEARCHING_MESSAGE);
     const [date, setDate] = useState(SEARCHING_MESSAGE);
 
+    const [bottomPosition, setBottomPosition] = useState('0px');
+
+    const timeNowStyle = {
+        backgroundColor: 'black',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 'large',
+        borderRadius: '30px',
+        padding: '20px',
+        margin: bottomPosition
+    };
+
+    const updatePosition = () => {
+        const viewportHeight = window.innerHeight;
+        const newBottomPosition = `${viewportHeight / 8}px`;
+        setBottomPosition(newBottomPosition);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', updatePosition);
+
+        // Set initial position
+        updatePosition();
+
+        // Cleanup listener when component unmounts
+        return () => window.removeEventListener('resize', updatePosition);
+    }, []);
+
     useEffect(() => {
         getInfoFromIp()
             .then((info) => {
@@ -39,7 +67,7 @@ function IpPlaceTime(){
     },[time])
 
     return(
-        <div className='time-now'>
+        <div style={timeNowStyle}>
             <p>Connected to: {city}, {region}, {country}</p>
             <p>Real Time: {time}</p>
             <p>Day: {date}</p>
