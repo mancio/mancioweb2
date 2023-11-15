@@ -125,6 +125,12 @@ function ScoreCounter(){
         )
     }
 
+    function checkScore(score){
+        if (score === 60) return (<div><h3>Draw! ⚖️</h3></div>);
+        if (score < 60) return (<div><h3>You lose! 👎</h3></div>);
+        if (score > 60) return (<div><h3>You win! 🏆</h3></div>);
+    }
+
     return(
         <div className='dashboard'>
             <BetterButton text={BRISCOLA} click={() => selectGame(BRISCOLA)}/>
@@ -142,6 +148,7 @@ function ScoreCounter(){
             {(game) && (score !== 0) && (
                 <div>
                     <h3>Cards selected: {selCards.join(" ")} = {score}</h3>
+                    {(game === BRISCOLA) && checkScore(score)}
                 </div>
             )}
             <BetterButton text="Back" click={() => navigate(MENU)}/>

@@ -1,5 +1,5 @@
 # Change directory to the upper directory
-#Set-Location ..
+#Set-Location -Path "C:\Users\Andrea\IdeaProjects\mancioweb2"
 
 # Run React build
 Write-Host "Building React app..."
@@ -12,6 +12,8 @@ if ($LASTEXITCODE -eq 0) {
   Write-Host "React build failed. Exiting script."
   exit 1
 }
+
+Start-Sleep -Seconds 5
 
 # Execute Firebase deploy
 Write-Host "Deploying to Firebase..."

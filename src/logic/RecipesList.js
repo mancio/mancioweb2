@@ -452,6 +452,100 @@ export const recipesList = [
         }
     },
     {
+        "name": {
+            "IT": "Zabaione",
+            "EN": "Zabaglione"
+        },
+        "picture": "https://www.giallozafferano.it/images/181-18153/Zabaione_450x300.jpg",
+        "portions": {
+            "IT": "Porzioni per 4 persone",
+            "EN": "Serves 4"
+        },
+        "ingredients": {
+            "IT": [
+                "4 tuorli",
+                "74 g di zucchero",
+                "74 g di Marsala"
+            ],
+            "EN": [
+                "4 egg yolks",
+                "74 g of sugar",
+                "74 g of Marsala wine"
+            ]
+        },
+        "steps": [
+            {
+                "description": {
+                    "IT": "Mettiamo in una ciotola 4 tuorli.",
+                    "EN": "Place 4 egg yolks."
+                },
+                "picture": "URL of step 1 picture"
+            },
+            {
+                "description": {
+                    "IT": "In una ciotolina mettiamo lo zucchero.",
+                    "EN": "In a small bowl, add 74 grams of sugar."
+                },
+                "picture": "URL of step 2 picture"
+            },
+            {
+                "description": {
+                    "IT": "Mettiamo la stessa quantità di Marsala in un bicchiere o una piccola brocca.",
+                    "EN": "Measure the same amount of Marsala into a glass or a small jug."
+                },
+                "picture": "URL of step 3 picture"
+            },
+            {
+                "description": {
+                    "IT": "Versiamo lo zucchero sui tuorli e montiamo con le fruste elettriche fino ad avere un composto chiaro e spumoso.",
+                    "EN": "Pour the sugar over the yolks and beat with an electric mixer until light and fluffy."
+                },
+                "picture": "URL of step 4 picture"
+            },
+            {
+                "description": {
+                    "IT": "Aggiungiamo metà del Marsala e mescoliamo con le fruste elettriche.",
+                    "EN": "Add half of the Marsala and mix with the electric mixer."
+                },
+                "picture": "URL of step 5 picture"
+            },
+            {
+                "description": {
+                    "IT": "Versiamo il Marsala rimasto e continuiamo a montare fino ad avere un composto gonfio e chiaro.",
+                    "EN": "Pour in the remaining Marsala and continue to whip until the mixture is fluffy and light."
+                },
+                "picture": "URL of step 6 picture"
+            },
+            {
+                "description": {
+                    "IT": "Cuociamo a bagnomaria, mescolando continuamente dal basso verso l’alto con una frusta.",
+                    "EN": "Cook in a double boiler, continuously stirring from the bottom up with a whisk."
+                },
+                "picture": "URL of step 7 picture"
+            },
+            {
+                "description": {
+                    "IT": "Lo zabaione è pronto quando raggiunge gli 84° C o quando si addensa ma resta fluido.",
+                    "EN": "The zabaglione is ready when it reaches 84° C or when it thickens but remains fluid."
+                },
+                "picture": "URL of step 8 picture"
+            },
+            {
+                "description": {
+                    "IT": "Spegniamo il fuoco, mescoliamo qualche minuto e poi serviamo.",
+                    "EN": "Turn off the heat, stir for a few minutes, and then serve."
+                },
+                "picture": "URL of step 9 picture"
+            }
+        ],
+        "notes": {
+            "IT": "Attenzione alla temperatura, nel caso la ciotola sia troppo calda allontanarla dall'acqua. " +
+                "Regolare vino e zucchero a seconda della dolcezza desiderata.",
+            "EN": "Be mindful of the temperature; if the bowl gets too hot, move it away from the water. " +
+                "Adjust the wine and sugar according to the desired level of sweetness."
+        }
+    },
+    {
         name: {
             IT: 'Ciambella Bolognese',
             EN: 'Bolognese Donut'
@@ -690,6 +784,75 @@ export const recipesList = [
                 + 'Furthermore, lukewarm water brings the mixture to temperature, preventing it from forming lumps when in contact with the pasta. '
                 + 'Be cautious with the pecorino! Its saltiness is important. If the pecorino is too salty, mix it with Parmesan.'
         }
+    },
+    {
+        name: {
+            IT: 'Crescente Bolognese',
+            EN: 'Crescente Bolognese'
+        },
+        picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/03/Crescente-bolognese-0D6A1879-1200x675.jpg',
+        portions: {
+            IT: 'Numero di porzioni non specificato',
+            EN: 'Number of portions not specified'
+        },
+        ingredients: {
+            IT: [
+                '500 grammi di farina 00',
+                '250 grammi di acqua (circa)',
+                '25 grammi di lievito di birra',
+                '150 grammi di prosciutto crudo o pancetta, tritato grossolano',
+                '50 grammi di strutto',
+                '8 grammi di sale (un cucchiaio colmo)',
+                'mezzo cucchiaino di zucchero'
+            ],
+            EN: [
+                '500 grams of type 00 flour',
+                '250 grams of water (approximately)',
+                '25 grams of beer yeast',
+                '150 grams of raw ham or bacon, coarsely chopped',
+                '50 grams of lard',
+                '8 grams of salt (one heaped teaspoon)',
+                'Half a teaspoon of sugar'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Fare la fontana con gli ingredienti e impastare velocemente formando una palla.',
+                    EN: 'Make a well with the ingredients and quickly knead to form a ball.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'Coprire e lasciare lievitare per 50-60 minuti.',
+                    EN: 'Cover and let rise for 50-60 minutes.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'Stendere la pasta senza lavorarla formando un ovale di circa 1,5 cm di spessore e disporla su una teglia.',
+                    EN: 'Roll out the dough without overworking it, forming an oval about 1.5 cm thick and place it on a baking tray.'
+                },
+                picture: 'URL of the step 2 picture',
+            },
+            {
+                description: {
+                    IT: 'Pizzicare tutto intorno, tracciare delle losanghe sulla superficie con una lametta, spennellare con uovo e lasciare lievitare per altri 50 minuti.',
+                    EN: 'Pinch all around, score diamonds on the surface with a blade, brush with beaten egg and let rise for another 50 minutes.'
+                },
+                picture: 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2014/07/ricetta-crescente-bolognese/jcr:content/procedure-par/recipe_procedures_2/image.img3.jpg/1650312206923.jpg',
+            },
+            {
+                description: {
+                    IT: 'Cuocere in forno pre-riscaldato a 200-210 °C per 40-45 minuti.',
+                    EN: 'Bake in a preheated oven at 200-210 °C for 40-45 minutes.'
+                },
+                picture: 'URL of the step 4 picture',
+            }
+        ],
+        notes: 'Se preferisci la crescente più soffice, lascia raddoppiare il volume completamente prima di cuocere.'
     },
     {
         name: {
