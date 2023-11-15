@@ -2,6 +2,60 @@ import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import {ENGLISH, LANGUAGE_RECIPE_KEY} from "./Names";
 
+
+export function changeIngredientQuantity(ingredient, multiplier) {
+    const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
+    const match = ingredient.match(regex);
+
+    if (match) {
+        let quantity;
+
+        if (match[0].includes('/')) {
+            // If the match is a fraction, split it and compute the fractional value
+            const [numerator, denominator] = match[0].split('/').map(Number);
+            quantity = numerator / denominator;
+        } else {
+            // If the match is a decimal or whole number, parse it as a float
+            quantity = parseFloat(match[0]);
+        }
+
+        const updatedQuantity = quantity * multiplier;
+
+        // Format the number: one decimal place if not a whole number, no decimal if it's a whole number
+        const formattedQuantity = updatedQuantity % 1 === 0 ? Math.round(updatedQuantity) : updatedQuantity.toFixed(1);
+
+        return ingredient.replace(regex, formattedQuantity);
+    }
+
+    return ingredient;
+}
+
+export function numberToEmoji(number) {
+    const emojiMap = {
+        '1': '❶',
+        '2': '❷',
+        '3': '❸',
+        '4': '❹',
+        '5': '❺',
+        '6': '❻',
+        '7': '❼',
+        '8': '❽',
+        '9': '❾',
+        '10': '❿'
+    };
+
+    // Convert the number to a string for processing
+    const numStr = number.toString();
+
+    // Special case for 10
+    if (numStr === '10') {
+        return emojiMap[numStr];
+    }
+
+    // Map each digit to its emoji and join
+    return numStr.split('').map(digit => emojiMap[digit]).join('');
+}
+
 export function getFileNameNoExt (file){
     return file.split("/").pop().split(".")[0];
 }

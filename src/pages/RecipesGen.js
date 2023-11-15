@@ -1,21 +1,25 @@
 import '../App.css';
-import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
+import {
+    changeIngredientQuantity,
+    getSharedLanguage, numberToEmoji,
+    removeSpaceLowerCaseString,
+    setSharedLanguage
+} from "../logic/Functions";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
 import {RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
+import IngredientMultiplier from "../components/IngredientMultiplier";
 function RecipesGen(){
 
     const navigate = useNavigate();
-
     const recipeName = useParams().recipeName;
-
     const [languageList, setLanguageList] = useState([]);
-
     const [currentLanguage, setCurrentLanguage] = useState(getSharedLanguage());
-
     const [recipe, setRecipe] = useState(null);
+    const [multiplier, setMultiplier] = useState(1);
+
 
     useEffect(() => {
         let provList = [];
@@ -84,16 +88,17 @@ function RecipesGen(){
             <h3>{recipe.name[currentLanguage]}</h3>
             {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[currentLanguage]}/>}
             <p>{recipe.portions[currentLanguage]}</p>
+            <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier}/>
             <h3>Ingredients</h3>
             {recipe.ingredients[currentLanguage].map((ingredients, index) => (
                 <div key={index}>
-                    <p>- {ingredients}</p>
+                    <p>🔆 {changeIngredientQuantity(ingredients, multiplier)} 🔆</p>
                 </div>
             ))}
             <h3>Steps:</h3>
             {recipe.steps.map((step, index) => (
                 <div key={index}>
-                    <p>{index + 1} - {step.description[currentLanguage]}</p>
+                    <p style={{ textAlign: 'left' }}>{numberToEmoji(index + 1)} ➼ {step.description[currentLanguage]}</p>
                     {imgBool[index] && <img className='recipe-img' src={step.picture} alt={`Step ${index + 1}`} />}
                 </div>
             ))}

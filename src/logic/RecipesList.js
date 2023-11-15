@@ -452,6 +452,100 @@ export const recipesList = [
         }
     },
     {
+        "name": {
+            "IT": "Zabaione",
+            "EN": "Zabaglione"
+        },
+        "picture": "https://www.giallozafferano.it/images/181-18153/Zabaione_450x300.jpg",
+        "portions": {
+            "IT": "Porzioni per 4 persone",
+            "EN": "Serves 4"
+        },
+        "ingredients": {
+            "IT": [
+                "4 tuorli",
+                "74 g di zucchero",
+                "74 g di Marsala"
+            ],
+            "EN": [
+                "4 egg yolks",
+                "74 g of sugar",
+                "74 g of Marsala wine"
+            ]
+        },
+        "steps": [
+            {
+                "description": {
+                    "IT": "Mettiamo in una ciotola 4 tuorli.",
+                    "EN": "Place 4 egg yolks."
+                },
+                "picture": "URL of step 1 picture"
+            },
+            {
+                "description": {
+                    "IT": "In una ciotolina mettiamo lo zucchero.",
+                    "EN": "In a small bowl, add 74 grams of sugar."
+                },
+                "picture": "URL of step 2 picture"
+            },
+            {
+                "description": {
+                    "IT": "Mettiamo la stessa quantità di Marsala in un bicchiere o una piccola brocca.",
+                    "EN": "Measure the same amount of Marsala into a glass or a small jug."
+                },
+                "picture": "URL of step 3 picture"
+            },
+            {
+                "description": {
+                    "IT": "Versiamo lo zucchero sui tuorli e montiamo con le fruste elettriche fino ad avere un composto chiaro e spumoso.",
+                    "EN": "Pour the sugar over the yolks and beat with an electric mixer until light and fluffy."
+                },
+                "picture": "URL of step 4 picture"
+            },
+            {
+                "description": {
+                    "IT": "Aggiungiamo metà del Marsala e mescoliamo con le fruste elettriche.",
+                    "EN": "Add half of the Marsala and mix with the electric mixer."
+                },
+                "picture": "URL of step 5 picture"
+            },
+            {
+                "description": {
+                    "IT": "Versiamo il Marsala rimasto e continuiamo a montare fino ad avere un composto gonfio e chiaro.",
+                    "EN": "Pour in the remaining Marsala and continue to whip until the mixture is fluffy and light."
+                },
+                "picture": "URL of step 6 picture"
+            },
+            {
+                "description": {
+                    "IT": "Cuociamo a bagnomaria, mescolando continuamente dal basso verso l’alto con una frusta.",
+                    "EN": "Cook in a double boiler, continuously stirring from the bottom up with a whisk."
+                },
+                "picture": "URL of step 7 picture"
+            },
+            {
+                "description": {
+                    "IT": "Lo zabaione è pronto quando raggiunge gli 84° C o quando si addensa ma resta fluido.",
+                    "EN": "The zabaglione is ready when it reaches 84° C or when it thickens but remains fluid."
+                },
+                "picture": "URL of step 8 picture"
+            },
+            {
+                "description": {
+                    "IT": "Spegniamo il fuoco, mescoliamo qualche minuto e poi serviamo.",
+                    "EN": "Turn off the heat, stir for a few minutes, and then serve."
+                },
+                "picture": "URL of step 9 picture"
+            }
+        ],
+        "notes": {
+            "IT": "Attenzione alla temperatura, nel caso la ciotola sia troppo calda allontanarla dall'acqua. " +
+                "Regolare vino e zucchero a seconda della dolcezza desiderata.",
+            "EN": "Be mindful of the temperature; if the bowl gets too hot, move it away from the water. " +
+                "Adjust the wine and sugar according to the desired level of sweetness."
+        }
+    },
+    {
         name: {
             IT: 'Ciambella Bolognese',
             EN: 'Bolognese Donut'

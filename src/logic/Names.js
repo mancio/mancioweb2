@@ -22,3 +22,5 @@ export const FLOUR = 'fl';
 export const WATER = 'wt';
 export const HYDRATION = 'hy';
 
+export const INCREASE = 'increase';
+export const DECREASE = 'decrease';
