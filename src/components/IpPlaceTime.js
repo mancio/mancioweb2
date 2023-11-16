@@ -25,7 +25,8 @@ function IpPlaceTime(){
 
     const updatePosition = () => {
         const viewportHeight = window.innerHeight;
-        const newBottomPosition = `${viewportHeight / 8}px`;
+        const viewportWidth = window.innerWidth;
+        const newBottomPosition = `${viewportWidth / viewportHeight}px`;
         setBottomPosition(newBottomPosition);
     };
 

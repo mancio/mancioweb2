@@ -2,7 +2,6 @@ import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import {ENGLISH, LANGUAGE_RECIPE_KEY} from "./Names";
 
-
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
     const match = ingredient.match(regex);
