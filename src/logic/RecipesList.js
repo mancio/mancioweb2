@@ -465,7 +465,7 @@ export const recipesList = [
             "IT": [
                 "4 tuorli",
                 "74 g di zucchero",
-                "74 g di Marsala"
+                "37 g di Marsala"
             ],
             "EN": [
                 "4 egg yolks",
@@ -540,9 +540,11 @@ export const recipesList = [
         ],
         "notes": {
             "IT": "Attenzione alla temperatura, nel caso la ciotola sia troppo calda allontanarla dall'acqua. " +
-                "Regolare vino e zucchero a seconda della dolcezza desiderata.",
+                "Regolare vino e zucchero a seconda della dolcezza desiderata. " +
+                "È possibile usare Vin Santo, vino Moscato, o altri vini dolci.",
             "EN": "Be mindful of the temperature; if the bowl gets too hot, move it away from the water. " +
-                "Adjust the wine and sugar according to the desired level of sweetness."
+                "Adjust the wine and sugar according to the desired level of sweetness. " +
+                "You can use Vin Santo, Moscato wine, or other sweet wines."
         }
     },
     {
