@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import arcade from '../pictures/buttons/arcade.svg'
 import arcade2 from '../pictures/buttons/arcade_hover.svg'
 import arcade3 from '../pictures/buttons/arcade_hover2.svg'
+import '../App.css';
+import {isTouchDevice} from "../logic/Functions";
 
 function ArcadeButton({text, click}){
     const svgs = [arcade, arcade2, arcade3];
@@ -29,11 +31,12 @@ function ArcadeButton({text, click}){
     let interval;
 
     useEffect(() => {
-        if (isHovering) {
+        if (isHovering || isTouchDevice()) {
             interval = setInterval(() => {
                 setCurrentSvg(prevSvg => (prevSvg + 1) % svgs.length);
             }, 300);
         } else {
+            setCurrentSvg(0);
             clearInterval(interval);
         }
         return () => clearInterval(interval);
@@ -42,6 +45,7 @@ function ArcadeButton({text, click}){
     return (
         <div>
             <button
+                className="every-button"
                 style={{ ...btnStyle, backgroundImage: `url(${svgs[currentSvg]})` }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
