@@ -1,25 +1,39 @@
 import {COOKING} from "../logic/Names";
 import cooking from '../pictures/buttons/cooking-button.svg';
+import React from 'react';
 
-function StaticButton({style, padding, color, text, click}){
 
-    const defMargin = '10px';
+function StaticButton({style, color, text, click}){
+
+    const width = window.innerWidth < 400 ? window.innerWidth /1.2 : 500;
+
+    function addBrEvery20Chars(text) {
+        const chunkSize = 20;
+        let chunks = [];
+        for (let i = 0; i < text.length; i += chunkSize) {
+            const chunk = text.slice(i, i + chunkSize);
+            chunks.push(chunk);
+        }
+
+        const jsxArray = chunks.map((chunk, index) => (
+            <React.Fragment key={index}>
+                {chunk}
+                {index < chunks.length - 1 && <br />}
+            </React.Fragment>
+        ));
+
+        return jsxArray;
+    }
+
 
     function getStyle(style){
         if(style === COOKING) return cooking;
     }
 
     const btnStyle = {
-        // Width: '400px',
-        // maxWidth: '300px',
+        width: `${width}px`,
+        height: `${width/8}px`,
         border: 'none',
-        // margin: defMargin,
-        // paddingTop: '10px', // Adjust as needed
-        // paddingBottom: '10px', // Adjust as needed
-        // paddingLeft: padding || defMargin,
-        // paddingRight: padding || defMargin,
-        paddingLeft: '50px',
-        paddingRight: '50px',
         margin: '10px',
         outline: 'none',
         cursor: 'pointer',
@@ -29,9 +43,7 @@ function StaticButton({style, padding, color, text, click}){
         backgroundColor: 'transparent',
         overflow: 'hidden',
         color: color || 'white',
-        fontSize: 'x-large',
-        // whiteSpace: 'normal', // Corrected spelling and uncommented
-        wordBreak: 'break-all',
+        fontSize: 'large',
         textAlign: 'center', // Optionally center the text
     };
 
@@ -41,7 +53,7 @@ function StaticButton({style, padding, color, text, click}){
                 style={{ ...btnStyle, backgroundImage: `url(${getStyle(style)})` }}
                 className='every-button'
                 onClick={click}>
-                {text}
+                {addBrEvery20Chars(text)}
             </button>
         </div>
     )

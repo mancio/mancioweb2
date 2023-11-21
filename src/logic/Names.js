@@ -26,4 +26,3 @@ export const INCREASE = 'increase';
 export const DECREASE = 'decrease';
 
 export const COOKING = 'cooking';
-export const COOKING_PADDING = '50px';

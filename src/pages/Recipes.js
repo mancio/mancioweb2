@@ -35,7 +35,6 @@ function Recipes(){
                 return (
                     <StaticButton
                         style={COOKING}
-                        padding={COOKING_PADDING}
                         color='black'
                         text={translatedRecipeName}
                         key={index}
@@ -43,10 +42,7 @@ function Recipes(){
                     />
                 );
             })}
-            <StaticButton
-                style={COOKING}
-                padding={COOKING_PADDING}
-                color='black'
+            <BetterButton
                 text="Back"
                 click={()=>navigate(MENU)}
             />
