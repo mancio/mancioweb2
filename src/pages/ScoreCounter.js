@@ -3,16 +3,16 @@ import {BRISCOLA, MENU, SCOPA} from "../logic/Names";
 import {useState} from "react";
 import '../App.css';
 
-import Asso from '../pictures/asso_di_coppe.svg';
-import Tre from '../pictures/tre_spade.svg';
-import Re from '../pictures/re_denari.jpg';
-import Cavallo from '../pictures/cavallo_denari.png';
-import Fante from '../pictures/fante_bastoni.jpg';
-import Sette from '../pictures/sette_denari.svg';
-import Sei from '../pictures/sei_coppe.jpg';
-import Cinque from '../pictures/cinque_bastoni.jpg';
-import Quattro from '../pictures/quattro_bastoni.jpg';
-import Due from '../pictures/due_denari.jpg';
+import Asso from '../pictures/cards/asso_di_coppe.svg';
+import Tre from '../pictures/cards/tre_spade.svg';
+import Re from '../pictures/cards/re_denari.jpg';
+import Cavallo from '../pictures/cards/cavallo_denari.png';
+import Fante from '../pictures/cards/fante_bastoni.jpg';
+import Sette from '../pictures/cards/sette_denari.svg';
+import Sei from '../pictures/cards/sei_coppe.jpg';
+import Cinque from '../pictures/cards/cinque_bastoni.jpg';
+import Quattro from '../pictures/cards/quattro_bastoni.jpg';
+import Due from '../pictures/cards/due_denari.jpg';
 import {useNavigate} from "react-router-dom";
 
 function ScoreCounter(){

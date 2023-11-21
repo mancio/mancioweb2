@@ -1,9 +1,12 @@
 import CookieConsent from "react-cookie-consent";
 import './App.css';
-import Cup from './pictures/cup.svg';
-import Cloud from './pictures/cloud.svg';
-import Car from './pictures/car.svg';
-import Face from './pictures/face.svg'
+import Cup from './pictures/icons/cup.svg';
+import Cloud from './pictures/icons/cloud.svg';
+import Car from './pictures/icons/car.svg';
+import Face from './pictures/icons/face.svg'
+import Tree from './pictures/icons/christmas-tree.svg'
+import Santa from './pictures/icons/santa.svg'
+import SnowMan from './pictures/icons/snowman.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {DASHBOARD, DICE, KITCHEN_TOOLS, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";
@@ -20,7 +23,7 @@ const Dice = lazy(() => import('./pages/Dice'));
 
 
 function App() {
-    const svgs = [Car,Cup,Cloud,Face];
+    const svgs = [Tree, Santa, SnowMan];
     const elements = 20;
 
     const generateRandomArray = (size, svgs) => {
