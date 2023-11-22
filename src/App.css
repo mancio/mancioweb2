@@ -69,6 +69,11 @@ body {
   display: inline-flex;
 }
 
+.every-button {
+  transform: scale(1); /* Default scale */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
 .every-button:hover,
 .every-button:focus {
   transform: scale(1.1); /* Enlarge on hover */
