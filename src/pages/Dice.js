@@ -5,12 +5,12 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {getRandomNumber, getRealRandomInt} from "../logic/Functions";
 
-import one from '../pictures/dice-1.svg'
-import two from '../pictures/dice-2.svg'
-import three from '../pictures/dice-3.svg'
-import four from '../pictures/dice-4.svg'
-import five from '../pictures/dice-5.svg'
-import six from '../pictures/dice-6.svg'
+import one from '../pictures/dice/dice-1.svg'
+import two from '../pictures/dice/dice-2.svg'
+import three from '../pictures/dice/dice-3.svg'
+import four from '../pictures/dice/dice-4.svg'
+import five from '../pictures/dice/dice-5.svg'
+import six from '../pictures/dice/dice-6.svg'
 
 function Dice(){
 

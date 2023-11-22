@@ -24,3 +24,5 @@ export const HYDRATION = 'hy';
 
 export const INCREASE = 'increase';
 export const DECREASE = 'decrease';
+
+export const COOKING = 'cooking';

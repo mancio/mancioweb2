@@ -138,6 +138,7 @@ export function fpsToMs(fps){
 
 ////////////////////////
 
+export function isTouchDevice(){return navigator.maxTouchPoints > 0;}
 
 export function getEmoji(){
     const emojis = ['😊', '🎉', '🌟', '🐶', '🍕'];

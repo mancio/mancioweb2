@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import {ENGLISH, ITALIAN, MENU} from "../logic/Names";
+import {COOKING, COOKING_PADDING, ENGLISH, ITALIAN, MENU} from "../logic/Names";
 import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
 import {recipesList} from "../logic/RecipesList";
 import {useState} from "react";
 import BetterButton from "../components/BetterButton";
+import StaticButton from "../components/StaticButton";
 
 function Recipes(){
 
@@ -32,10 +33,19 @@ function Recipes(){
             {recipesList.map((recipe, index) => {
                 const translatedRecipeName = recipe.name[selectedLanguage];
                 return (
-                    <BetterButton text={translatedRecipeName} key={index} click={()=>navigate(removeSpaceLowerCaseString(translatedRecipeName))}/>
+                    <StaticButton
+                        style={COOKING}
+                        color='black'
+                        text={translatedRecipeName}
+                        key={index}
+                        click={()=>navigate(removeSpaceLowerCaseString(translatedRecipeName))}
+                    />
                 );
             })}
-            <BetterButton text="Back" click={()=>navigate(MENU)}/>
+            <BetterButton
+                text="Back"
+                click={()=>navigate(MENU)}
+            />
         </div>
     );
 }
