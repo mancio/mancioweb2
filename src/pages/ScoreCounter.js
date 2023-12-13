@@ -151,8 +151,8 @@ function ScoreCounter(){
                     {(game === BRISCOLA) && checkScore(score)}
                 </div>
             )}
-            <BetterButton text="Back" click={() => navigate(MENU)}/>
             <BetterButton text="Reset Score" click={() => reset()}/>
+            <BetterButton text="Back" click={() => navigate(MENU)}/>
         </div>
     )
 }

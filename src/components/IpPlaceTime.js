@@ -20,7 +20,10 @@ function IpPlaceTime(){
         fontSize: 'large',
         borderRadius: '30px',
         padding: '20px',
-        margin: bottomPosition
+        marginTop: bottomPosition,
+        width: '300px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
     };
 
     const updatePosition = () => {
