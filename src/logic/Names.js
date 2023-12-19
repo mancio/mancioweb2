@@ -3,11 +3,12 @@ export const RECIPES = '/recipes';
 export const DASHBOARD = '/dashboard';
 export const SCORE_COUNTER = '/score';
 export const KITCHEN_TOOLS = '/kitchenTools';
-export const DICE = '/Dice'
+export const DICE = '/Dice';
+export const FART = '/Fart';
 
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';
-
+export const POLISH = 'PL';
 export const SEARCHING_MESSAGE = 'Searching....';
 
 // for local storage

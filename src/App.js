@@ -9,7 +9,7 @@ import Santa from './pictures/icons/santa.svg'
 import SnowMan from './pictures/icons/snowman.svg'
 import {getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import {DASHBOARD, DICE, KITCHEN_TOOLS, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";
+import {DASHBOARD, DICE, FART, KITCHEN_TOOLS, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
 import IpPlaceTime from "./components/IpPlaceTime";
@@ -20,6 +20,7 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 const ScoreCounter = lazy(() => import('./pages/ScoreCounter'));
 const KitchenTools = lazy(() => import('./pages/KitchenTools'));
 const Dice = lazy(() => import('./pages/Dice'));
+const Fart = lazy(() => import('./pages/Fart'));
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                             <Route path={SCORE_COUNTER} element={<ScoreCounter />} />
                             <Route path={KITCHEN_TOOLS} element={<KitchenTools />} />
                             <Route path={DICE} element={<Dice />} />
+                            <Route path={FART} element={<Fart />} />
                         </Routes>
                     </BrowserRouter>
                     <IpPlaceTime/>
