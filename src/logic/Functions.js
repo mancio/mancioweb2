@@ -1,6 +1,20 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
 import {ENGLISH, LANGUAGE_RECIPE_KEY} from "./Names";
+import fart1 from '../sounds/farts/fart1.mp3';
+import fart2 from '../sounds/farts/fart2.mp3';
+import fart3 from '../sounds/farts/fart3.mp3';
+import fart4 from '../sounds/farts/fart4.mp3';
+import fart5 from '../sounds/farts/fart5.mp3';
+import fart6 from '../sounds/farts/fart6.mp3';
+import fart7 from '../sounds/farts/fart7.mp3';
+import fart8 from '../sounds/farts/fart8.mp3';
+import fart9 from '../sounds/farts/fart9.mp3';
+import fart10 from '../sounds/farts/fart10.mp3';
+import fart11 from '../sounds/farts/fart11.mp3';
+import fart12 from '../sounds/farts/fart12.mp3';
+import fart13 from '../sounds/farts/fart13.mp3';
+import fart14 from '../sounds/farts/fart14.mp3';
 
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
@@ -286,66 +300,49 @@ export function getWater(hydration, flour){
 
 /////// Fart page stuff
 
-const farts = {
-    Toot : 'fart1',
-    Ripper : 'fart2',
-    Plop : 'fart3',
-    Squit : 'fart4',
-    Raspberry : 'fart5',
-    Squat : 'fart6',
-    Tuppence : 'fart7',
-    Liftoff : 'fart8',
-    Trumpet : 'fart9',
-    Fizzler : 'fart10',
-    Windy : 'fart11',
-    Eine : 'fart12',
-    Fartception: 'fart13',
-    Fartpoint1: 'fart14'
+export const farts = [
+    { name: 'Toot Toot', audio: fart1 },
+    { name: 'Jack the Ripper', audio: fart2 },
+    { name: 'Snap Crackle Plop', audio: fart3 },
+    { name: 'Squit', audio: fart4 },
+    { name: 'Squat', audio: fart5 },
+    { name: 'Raspberry', audio: fart6 },
+    { name: 'Tuppence', audio: fart7 },
+    { name: 'Lift Off', audio: fart8 },
+    { name: 'Trouser Trumpet', audio: fart9 },
+    { name: 'The Fizzler', audio: fart10 },
+    { name: 'Windy Valley', audio: fart11 },
+    { name: 'Eine Kleine Fartmusik', audio: fart12 },
+    { name: 'Fartception', audio: fart13 },
+    { name: 'Fart The Return', audio: fart14 }
+];
+
+const playFart = index => {
+    new Audio(farts[index].audio).play()
+        .then(() => console.log("I'm farting!: " + farts[index].name))
+        .catch(err => console.log(err));
 };
 
+const getRandomIndex = () => Math.floor(Math.random() * farts.length);
 
-const valuesOfFarts = Object.values(farts);
+export const playRandomFart = () => playFart(getRandomIndex());
 
-const namesOfFarts = Object.keys(farts);
-
-export const getNamesOfFarts = function (){
-    return namesOfFarts;
-}
-
-const getFartNameFromIndex = function (index){
-    return namesOfFarts[index];
-}
-
-const getIndexFromFartName = function (name){
-    return namesOfFarts.indexOf(name);
-}
-
-const playFart = function (index){
-    const audio = new Audio('http://fartjs.com/farts/'+ valuesOfFarts[index] + '.mp3');
-    audio.play().then(r => console.log("I'm farting!: " + getFartNameFromIndex(index)))
-        .catch(r => console.log(r));
-}
-
-const getRandomIndex = function (){
-    return Math.floor(Math.random() * valuesOfFarts.length);
-}
-
-export const playRandomFart = function (){
-    playFart(getRandomIndex());
-}
-
-export const playArmageddonFart = async function () {
-    const timer = ms => new Promise(res => setTimeout(res, ms))
+export const playArmageddonFart = async () => {
+    const timer = ms => new Promise(res => setTimeout(res, ms));
     for (let i = 0; i <= 50; i++) {
         playFart(getRandomIndex());
         await timer(500);
     }
-}
+};
 
-export const playSingleFart = function (name){
-    const index = getIndexFromFartName(name);
-    playFart(index);
-}
+export const playSingleFart = name => {
+    const index = farts.findIndex(fart => fart.name === name);
+    if (index !== -1) {
+        playFart(index);
+    } else {
+        console.log("Fart not found: " + name);
+    }
+};
 
 export const askToStop = function (){
     window.alert('ehehh you wish.....');
