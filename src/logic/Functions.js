@@ -323,14 +323,14 @@ const playFart = index => {
         .catch(err => console.log(err));
 };
 
-const getRandomIndex = () => Math.floor(Math.random() * farts.length);
+const getRandomFartIndex = () => Math.floor(Math.random() * farts.length);
 
-export const playRandomFart = () => playFart(getRandomIndex());
+export const playRandomFart = () => playFart(getRandomFartIndex());
 
 export const playArmageddonFart = async () => {
     const timer = ms => new Promise(res => setTimeout(res, ms));
     for (let i = 0; i <= 50; i++) {
-        playFart(getRandomIndex());
+        playFart(getRandomFartIndex());
         await timer(500);
     }
 };
