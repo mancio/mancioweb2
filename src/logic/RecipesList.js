@@ -2,12 +2,14 @@ export const recipesList = [
     {
         name: {
             IT: 'Panna Cotta alle Fragole',
-            EN: 'Strawberry Panna Cotta'
+            EN: 'Strawberry Panna Cotta',
+            PL: 'Panna Cotta z Truskawkami'
         },
         picture: "https://www.lacucinaimperfetta.com/wp-content/uploads/2012/04/Panna-cotta-alle-fragole-9.jpg",
         portions: {
             IT: '4 porzioni',
-            EN: '4 portions'
+            EN: '4 portions',
+            PL: '4 porcje'
         },
         ingredients: {
             IT: [
@@ -25,76 +27,94 @@ export const recipesList = [
                 '3 gelatin sheets (6 g)',
                 '1/2 vanilla bean or its contents',
                 'Strawberries'
+            ],
+            PL: [
+                '100 ml mleka',
+                '500 ml śmietanki kremówki',
+                '100 g cukru',
+                '3 arkusze żelatyny (6 g)',
+                '1/2 laski wanilii lub jej zawartość',
+                'Truskawki'
             ]
         },
         steps: [
             {
                 description: {
                     IT: 'Metti a bagno i fogli di gelatina in una pentola con dell\'acqua fredda per alcuni minuti.',
-                    EN: 'Soak the gelatin sheets in a saucepan with cold water for a few minutes.'
+                    EN: 'Soak the gelatin sheets in a saucepan with cold water for a few minutes.',
+                    PL: 'Namocz arkusze żelatyny w rondelku z zimną wodą na kilka minut.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'In un\'altra pentola, mescola il latte, lo zucchero, la panna e la vaniglia.',
-                    EN: 'In another saucepan, combine the milk, sugar, cream, and vanilla.'
+                    EN: 'In another saucepan, combine the milk, sugar, cream, and vanilla.',
+                    PL: 'W innym rondelku wymieszaj mleko, cukier, śmietankę i wanilię.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Riscalda la miscela a fuoco medio, mescolando continuamente, fino a quando raggiunge una temperatura vicina all\'ebollizione. Dovresti vedere delle bolle formarsi ai bordi e del vapore.',
-                    EN: 'Heat the mixture over medium heat, stirring continuously, until it reaches a temperature close to boiling. You should see some bubbles forming at the edges and steam.'
+                    EN: 'Heat the mixture over medium heat, stirring continuously, until it reaches a temperature close to boiling. You should see some bubbles forming at the edges and steam.',
+                    PL: 'Podgrzewaj mieszankę na średnim ogniu, ciągle mieszając, aż osiągnie temperaturę bliską wrzenia. Powinny pojawić się bąbelki na krawędziach i para.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Verifica che lo zucchero si sia completamente sciolto.',
-                    EN: 'Check that the sugar has dissolved completely.'
+                    EN: 'Check that the sugar has dissolved completely.',
+                    PL: 'Sprawdź, czy cukier całkowicie się rozpuścił.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Togli la pentola dal fuoco.',
-                    EN: 'Remove the pan from the heat.'
+                    EN: 'Remove the pan from the heat.',
+                    PL: 'Zdejmij rondel z ognia.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Togli i fogli di gelatina dall\'acqua e strizzali per eliminare l\'acqua in eccesso.',
-                    EN: 'Take the gelatin sheets out of the water and squeeze out any excess water.'
+                    EN: 'Take the gelatin sheets out of the water and squeeze out any excess water.',
+                    PL: 'Wyjmij arkusze żelatyny z wody i odcisnąć nadmiar wody.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Aggiungi la gelatina alla pentola e mescola finché non si sarà completamente sciolta.',
-                    EN: 'Add the gelatin to the pan and stir until it has completely dissolved.'
+                    EN: 'Add the gelatin to the pan and stir until it has completely dissolved.',
+                    PL: 'Dodaj żelatynę do rondla i mieszaj, aż całkowicie się rozpuści.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Versa la miscela nei bicchieri o nei contenitori in cui servirai la panna cotta.',
-                    EN: 'Pour the mixture into the glasses or containers you will be serving the panna cotta in.'
+                    EN: 'Pour the mixture into the glasses or containers you will be serving the panna cotta in.',
+                    PL: 'Wlej mieszankę do szklanek lub pojemników, w których będziesz podawać panna cottę.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Lascia raffreddare la panna cotta a temperatura ambiente, poi copri e metti in frigorifero fino a quando sarà solidificata.',
-                    EN: 'Allow the panna cotta to cool to room temperature, then cover and refrigerate until set.'
+                    EN: 'Allow the panna cotta to cool to room temperature, then cover and refrigerate until set.',
+                    PL: 'Pozwól pannie cottcie ostygnąć do temperatury pokojowej, następnie przykryj i wstaw do lodówki, aż stężeje.'
                 },
                 picture: '',
             },
             {
                 description: {
                     IT: 'Una volta che la panna cotta si sarà solidificata, taglia delle fragole a fette e posizionalele sulla parte superiore di ogni porzione.',
-                    EN: 'Once the panna cotta has set, cut some strawberries into slices and place them on top of each serving.'
+                    EN: 'Once the panna cotta has set, cut some strawberries into slices and place them on top of each serving.',
+                    PL: 'Gdy panna cotta stężeje, pokrój truskawki na plasterki i ułóż je na wierzchu każdej porcji.'
                 },
                 picture: '',
             }
@@ -103,12 +123,14 @@ export const recipesList = [
     {
         name: {
             IT: 'Crostata di Marmellata',
-            EN: 'Jam Tart'
+            EN: 'Jam Tart',
+            PL: 'Tarta z Dżemem'
         },
         picture: 'https://blog.giallozafferano.it/inventaricette/wp-content/uploads/2020/07/crostata-confettura-albicocche-vid-720x460.jpg',
         portions: {
             IT: '8 porzioni',
-            EN: '8 portions'
+            EN: '8 portions',
+            PL: '8 porcji'
         },
         ingredients: {
             IT: [
@@ -132,157 +154,178 @@ export const recipesList = [
                 '2 gr of salt',
                 '1 gr of baking powder',
                 '330 gr of jam'
+            ],
+            PL: [
+                '330 gr mąki',
+                '165 gr masła',
+                '130 gr cukru',
+                '1 jajko',
+                '2 żółtka',
+                '7 gr cukru waniliowego',
+                '2 gr soli',
+                '1 gr proszku do pieczenia',
+                '330 gr dżemu'
             ]
         },
         steps: [
             {
                 description: {
                     IT: 'Ammorbidire il burro rimescolando con zucchero e sale fino ad amalgamare il tutto',
-                    EN: 'Soften the butter by mixing it with sugar and salt until well combined'
+                    EN: 'Soften the butter by mixing it with sugar and salt until well combined',
+                    PL: 'Zmiękczyć masło, mieszając je z cukrem i solą, aż do połączenia składników'
                 },
                 picture: 'URL of step 1 picture',
             },
             {
                 description: {
                     IT: 'Includere l\'uovo e i tuorli',
-                    EN: 'Add the egg and egg yolks'
+                    EN: 'Add the egg and egg yolks',
+                    PL: 'Dodać jajko i żółtka'
                 },
                 picture: 'URL of step 2 picture',
             },
             {
                 description: {
                     IT: 'Frullare il tutto fino ad avere una pasta omogenea',
-                    EN: 'Blend everything until you have a smooth dough'
+                    EN: 'Blend everything until you have a smooth dough',
+                    PL: 'Zmiksować wszystko, aż uzyska się gładkie ciasto'
                 },
                 picture: 'URL of step 3 picture',
             },
             {
                 description: {
                     IT: 'Aggiungere farina, lievito e rimescolare fino a comporre una palla che si stacca facilmente dalle mani',
-                    EN: 'Add flour and baking powder, then mix until you form a ball that easily comes off your hands'
+                    EN: 'Add flour and baking powder, then mix until you form a ball that easily comes off your hands',
+                    PL: 'Dodać mąkę i proszek do pieczenia, a następnie mieszać, aż uformuje się kula, która łatwo odchodzi od rąk'
                 },
                 picture: 'URL of step 4 picture',
             },
             {
                 description: {
                     IT: 'Mettere in frigo per 1 ora',
-                    EN: 'Place the dough in the refrigerator for 1 hour'
+                    EN: 'Place the dough in the refrigerator for 1 hour',
+                    PL: 'Umieścić ciasto w lodówce na 1 godzinę'
                 },
                 picture: 'URL of step 5 picture',
             },
             {
                 description: {
                     IT: 'Stendere la palla su un piano infarinato con un mattarello infarinato. Creare un cerchio di circa più di 3 mm di spessore e diametro ampiamente più largo dello stampo',
-                    EN: 'Roll out the dough on a floured surface with a floured rolling pin. Create a circle that is about 3 mm thick and much larger in diameter than the pan'
+                    EN: 'Roll out the dough on a floured surface with a floured rolling pin. Create a circle that is about 3 mm thick and much larger in diameter than the pan',
+                    PL: 'Rozwałkować ciasto na posypanej mąką powierzchni za pomocą posypanego mąką wałka. Utworzyć koło o grubości około 3 mm i średnicy znacznie większej niż forma'
                 },
                 picture: 'URL of step 6 picture',
             },
             {
                 description: {
                     IT: 'Imburrare lo stampo per bene fondo e lati',
-                    EN: 'Butter the bottom and sides of the pan well'
+                    EN: 'Butter the bottom and sides of the pan well',
+                    PL: 'Dobrze natłuścić dno i boki formy'
                 },
                 picture: 'URL of step 7 picture',
             },
             {
                 description: {
                     IT: 'Avvolgere l\'impasto attorno al mattarello e stenderlo sulla teglia. Far aderire bene la pasta ai bordi utilizzando le nocche delle mani onde evitare di romperla',
-                    EN: 'Wrap the dough around the rolling pin and unroll it onto the baking pan. Press the dough against the edges of the pan using your knuckles to avoid tearing it'
+                    EN: 'Wrap the dough around the rolling pin and unroll it onto the baking pan. Press the dough against the edges of the pan using your knuckles to avoid tearing it',
+                    PL: 'Owinąć ciasto wokół wałka i rozwinąć je na formie do pieczenia. Przytrzymać ciasto przy brzegach formy, używając knykci, aby nie rozdarło się'
                 },
                 picture: 'URL of step 8 picture',
             },
             {
                 description: {
                     IT: 'Schiacciare i bordi in modo da rimuovere tutta la pasta in eccesso che straripante dallo stampo',
-                    EN: 'Press down the edges to remove any excess dough that hangs over the pan'
+                    EN: 'Press down the edges to remove any excess dough that hangs over the pan',
+                    PL: 'Docisnąć brzegi, aby usunąć nadmiar ciasta wystającego poza formę'
                 },
                 picture: 'URL of step 9 picture',
             },
             {
                 description: {
                     IT: 'Bucherellare il fondo dello stampo con una forchetta',
-                    EN: 'Prick the bottom of the crust with a fork'
+                    EN: 'Prick the bottom of the crust with a fork',
+                    PL: 'Nakłuć dno ciasta widelcem'
                 },
                 picture: 'URL of step 10 picture',
             },
             {
                 description: {
                     IT: 'Mettere la marmellata in una ciotola e mescolare velocemente in modo da schiacciare tutti i pezzi di frutta e renderla omogenea',
-                    EN: 'Put the jam in a bowl and quickly stir to crush all the fruit pieces and make it smooth'
+                    EN: 'Put the jam in a bowl and quickly stir to crush all the fruit pieces and make it smooth',
+                    PL: 'Umieścić dżem w misce i szybko wymieszać, aby rozdrobnić wszystkie kawałki owoców i uzyskać jednolitą konsystencję'
                 },
                 picture: 'URL of step 11 picture',
             },
             {
                 description: {
                     IT: 'Versare la marmellata nello stampo e stenderla con una spatola',
-                    EN: 'Pour the jam into the crust and spread it evenly with a spatula'
+                    EN: 'Pour the jam into the crust and spread it evenly with a spatula',
+                    PL: 'Wlać dżem do spodu ciasta i równomiernie rozsmarować szpatułką'
                 },
                 picture: 'URL of step 12 picture',
             },
             {
                 description: {
                     IT: 'Stendere la restante pasta creando un rettangolo bello largo',
-                    EN: 'Roll out the remaining dough to create a wide rectangle'
+                    EN: 'Roll out the remaining dough to create a wide rectangle',
+                    PL: 'Rozwałkować pozostałe ciasto, tworząc szeroki prostokąt'
                 },
                 picture: 'URL of step 13 picture',
             },
             {
                 description: {
                     IT: 'Tagliare a strisce',
-                    EN: 'Cut into strips'
+                    EN: 'Cut into strips',
+                    PL: 'Pokroić w paski'
                 },
                 picture: 'URL of step 14 picture',
             },
             {
                 description: {
                     IT: 'Adagiare le strisce a rete sulla marmellata facendo aderire i capi con la pasta ai bordi',
-                    EN: 'Lay the strips in a lattice pattern over the jam, pressing the ends of the strips onto the crust'
+                    EN: 'Lay the strips in a lattice pattern over the jam, pressing the ends of the strips onto the crust',
+                    PL: 'Położyć paski w wzór kratki na dżemie, dociskając końce pasków do brzegów ciasta'
                 },
                 picture: 'URL of step 15 picture',
             },
             {
                 description: {
                     IT: 'Togliere i pezzi in eccesso e impastare in modo da creare altre strisce',
-                    EN: 'Trim any excess dough and use it to create additional lattice strips'
+                    EN: 'Trim any excess dough and use it to create additional lattice strips',
+                    PL: 'Odcinać nadmiar ciasta i użyć go do stworzenia dodatkowych pasków kratki'
                 },
                 picture: 'URL of step 16 picture',
             },
             {
                 description: {
                     IT: 'Stendere prima da un lato e poi dall\'altro',
-                    EN: 'Roll out the dough first on one side and then on the other'
+                    EN: 'Roll out the dough first on one side and then on the other',
+                    PL: 'Rozwałkować ciasto najpierw z jednej strony, a potem z drugiej'
                 },
                 picture: 'URL of step 17 picture',
             },
             {
                 description: {
                     IT: 'Mettere in forno 20 minuti al centro a 180 gradi',
-                    EN: 'Bake in the center of the oven for 20 minutes at 180 degrees Celsius (356 degrees Fahrenheit)'
+                    EN: 'Bake in the center of the oven for 20 minutes at 180 degrees Celsius (356 degrees Fahrenheit)',
+                    PL: 'Piec w środkowej części piekarnika przez 20 minut w temperaturze 180 stopni Celsjusza'
                 },
                 picture: 'URL of step 18 picture',
             },
             {
                 description: {
                     IT: 'Spostare nella parte inferiore del forno e cuocere a 170 gradi per altri 10 minuti',
-                    EN: 'Move to the lower part of the oven and bake at 170 degrees Celsius (338 degrees Fahrenheit) for an additional 10 minutes'
+                    EN: 'Move to the lower part of the oven and bake at 170 degrees Celsius (338 degrees Fahrenheit) for an additional 10 minutes',
+                    PL: 'Przenieść do dolnej części piekarnika i piec w temperaturze 170 stopni Celsjusza przez dodatkowe 10 minut'
                 },
                 picture: 'URL of step 19 picture',
             }
         ],
         notes: {
-            IT: 'La pasta ottimale si presenta molto dura appena tolta dal frigo con i bordi che tendono a spaccarsi quando viene stesa, allo stesso tempo è profumata e burrosa. ' +
-                'Si ammorbidisce velocemente a contatto con il calore delle mani e lascia il piano unto. ' +
-                'Se si hanno problemi a creare le strisce si può rimettere in frigo il restante impasto per renderlo duro nuovamente. ' +
-                'Per una migliore qualità estetica si può mettere una teglia in forno appena sopra lo stampo (non a contatto) in modo da evitare che la superficie si bruci. ' +
-                'Più albumi aumentano la durezza dell\'impasto una volta cotta. ' +
-                'Più tuorli aumentano friabilità e sapore.',
-            EN: 'Optimal pastry should be very hard when just taken from the fridge, with edges that tend to crack when rolled out, yet it should be fragrant and buttery. ' +
-                'It softens quickly when in contact with the warmth of your hands and leaves the surface greasy. ' +
-                'If you have trouble creating the strips, you can put the remaining dough back in the fridge to harden it again. ' +
-                'For better aesthetics, you can place a baking sheet just above the tart (not in contact) to prevent the surface from burning. ' +
-                'More egg whites increase the hardness of the pastry once baked. ' +
-                'More egg yolks increase crumbliness and flavor.'
-        },
+            IT: 'La pasta ottimale si presenta molto dura...',
+            EN: 'Optimal pastry should be very hard...',
+            PL: 'Optymalne ciasto powinno być bardzo twarde...'
+        }
     },
     {
         name: {

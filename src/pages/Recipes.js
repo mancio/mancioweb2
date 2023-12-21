@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import {COOKING, COOKING_PADDING, ENGLISH, ITALIAN, MENU} from "../logic/Names";
+import {COOKING, ENGLISH, ITALIAN, MENU, POLISH} from "../logic/Names";
 import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
 import {recipesList} from "../logic/RecipesList";
 import {useState} from "react";
@@ -26,12 +26,13 @@ function Recipes(){
                     <p>Language: <select onChange={handleLanguageChange} value={getSharedLanguage()}>
                         <option value={ENGLISH}>English</option>
                         <option value={ITALIAN}>Italian</option>
+                        <option value={POLISH}>Polish</option>
                     </select>
                     </p>
                 </div>
             </div>
             {recipesList.map((recipe, index) => {
-                const translatedRecipeName = recipe.name[selectedLanguage];
+                const translatedRecipeName = recipe.name[selectedLanguage] || recipe.name[ENGLISH];
                 return (
                     <StaticButton
                         style={COOKING}

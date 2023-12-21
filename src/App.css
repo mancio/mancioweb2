@@ -160,6 +160,28 @@ body {
   margin-right: 10px; /* Add spacing between label and input */
 }
 
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically (optional) */
+  /* Add height if you want to see vertical centering effect */
+}
+
+
+.button-grid button {
+  flex: 1 1 40%; /* Adjust the percentage to control the button width */
+  margin: 5px; /* Optional: for spacing around buttons */
+}
+
+/* Optional: Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .button-grid button {
+    flex-basis: 80%; /* Adjust for single column layout */
+  }
+}
+
+
 
 
 
