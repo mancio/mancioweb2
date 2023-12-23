@@ -32,7 +32,8 @@ function Recipes(){
                 </div>
             </div>
             {recipesList.map((recipe, index) => {
-                const translatedRecipeName = recipe.name[selectedLanguage] || recipe.name[ENGLISH];
+                const translatedRecipeName = recipe.name[selectedLanguage] || recipe.name[ITALIAN] ||
+                    recipe.name[ENGLISH];
                 return (
                     <StaticButton
                         style={COOKING}

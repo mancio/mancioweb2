@@ -23,26 +23,31 @@ function RecipesGen(){
 
     useEffect(() => {
         let provList = [];
-        const recipe = recipesList.find((recipe) => {
-            let match = false;
-            const recipeNamePairs = Object.entries(recipe.name);
-            for (const [language, name] of recipeNamePairs) {
-                if (!provList.includes(language)) {
-                    provList.push(language);
-                }
-                if (removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName) && !match) {
-                    match = true;
-                    setCurrentLanguage(language);
-                    setSharedLanguage(language);
-                }
-            }
-            if (match) return true; // Exit the loop when a match is found
-            return false;
+
+        // Find the matching recipe based on name and shared language
+        const matchedRecipe = recipesList.find(r => {
+            const recipeNamePairs = Object.entries(r.name);
+            return recipeNamePairs.some(([language, name]) =>
+                removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName) &&
+                language === getSharedLanguage()
+            );
         });
-        setRecipe(recipe);
+
+        // If a matching recipe is found, process its languages
+        if (matchedRecipe) {
+            Object.keys(matchedRecipe.name).forEach(language => {
+                provList.push(language);
+            });
+
+            // Assuming you want to set these only if the recipe is found
+            setCurrentLanguage(getSharedLanguage());
+            setSharedLanguage(getSharedLanguage());
+            setRecipe(matchedRecipe);
+        }
+
         setLanguageList(provList);
         // eslint-disable-next-line
-    },[]);
+    }, []);
 
 
     const [imgBool, setImgBool] = useState([]);

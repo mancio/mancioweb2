@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {ENGLISH, LANGUAGE_RECIPE_KEY} from "./Names";
+import {ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -83,7 +83,7 @@ export function setSharedLanguage(language){
 }
 
 export function getSharedLanguage(){
-    return localStorage.getItem(LANGUAGE_RECIPE_KEY) || ENGLISH;
+    return localStorage.getItem(LANGUAGE_RECIPE_KEY) || ITALIAN || ENGLISH;
 }
 
 export const getRandomNumber = (min = 1, max = 6) => {
