@@ -8,7 +8,7 @@ import {
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
-import {RECIPES} from "../logic/Names";
+import {ENGLISH, ITALIAN, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 function RecipesGen(){
@@ -23,26 +23,43 @@ function RecipesGen(){
 
     useEffect(() => {
         let provList = [];
-        const recipe = recipesList.find((recipe) => {
-            let match = false;
-            const recipeNamePairs = Object.entries(recipe.name);
-            for (const [language, name] of recipeNamePairs) {
-                if (!provList.includes(language)) {
-                    provList.push(language);
+
+        // Find the matching recipe based on name and shared language
+        const matchedRecipe = recipesList.find(r => {
+            const recipeNamePairs = Object.entries(r.name);
+
+            return recipeNamePairs.some(([language, name]) => {
+                const isNameMatch = removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName);
+                if (isNameMatch && language === getSharedLanguage()) {
+                    return true;
+                } else if (isNameMatch && language === ITALIAN) {
+                    setCurrentLanguage(ITALIAN);
+                    setSharedLanguage(ITALIAN);
+                    return true;
+                } else if (isNameMatch && language === ENGLISH) {
+                    setCurrentLanguage(ENGLISH);
+                    setSharedLanguage(ENGLISH);
+                    return true;
                 }
-                if (removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName) && !match) {
-                    match = true;
-                    setCurrentLanguage(language);
-                    setSharedLanguage(language);
-                }
-            }
-            if (match) return true; // Exit the loop when a match is found
-            return false;
+                return false;
+            });
         });
-        setRecipe(recipe);
+
+        // If a matching recipe is found, process its languages
+        if (matchedRecipe) {
+            Object.keys(matchedRecipe.name).forEach(language => {
+                provList.push(language);
+            });
+
+            // Assuming you want to set these only if the recipe is found
+            setCurrentLanguage(getSharedLanguage());
+            setSharedLanguage(getSharedLanguage());
+            setRecipe(matchedRecipe);
+        }
+
         setLanguageList(provList);
         // eslint-disable-next-line
-    },[]);
+    }, []);
 
 
     const [imgBool, setImgBool] = useState([]);
