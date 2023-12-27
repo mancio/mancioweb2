@@ -8,7 +8,7 @@ import {
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
-import {RECIPES} from "../logic/Names";
+import {ENGLISH, ITALIAN, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 function RecipesGen(){
@@ -27,10 +27,22 @@ function RecipesGen(){
         // Find the matching recipe based on name and shared language
         const matchedRecipe = recipesList.find(r => {
             const recipeNamePairs = Object.entries(r.name);
-            return recipeNamePairs.some(([language, name]) =>
-                removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName) &&
-                language === getSharedLanguage()
-            );
+
+            return recipeNamePairs.some(([language, name]) => {
+                const isNameMatch = removeSpaceLowerCaseString(name) === removeSpaceLowerCaseString(recipeName);
+                if (isNameMatch && language === getSharedLanguage()) {
+                    return true;
+                } else if (isNameMatch && language === ITALIAN) {
+                    setCurrentLanguage(ITALIAN);
+                    setSharedLanguage(ITALIAN);
+                    return true;
+                } else if (isNameMatch && language === ENGLISH) {
+                    setCurrentLanguage(ENGLISH);
+                    setSharedLanguage(ENGLISH);
+                    return true;
+                }
+                return false;
+            });
         });
 
         // If a matching recipe is found, process its languages
