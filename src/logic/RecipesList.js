@@ -335,81 +335,108 @@ export const recipesList = [
         },
         picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone-1200x675.jpg',
         portions: {
-            IT: 'Quantità per 6 persone',
-            EN: 'Serves 6 people',
-            PL: 'Ilość na 6 osób'
+            IT: 'Quantità per diverse porzioni',
+            EN: 'Serves multiple portions',
+            PL: 'Porcje dla kilku osób'
         },
         ingredients: {
             IT: [
-                '30 gr di tuorli (circa 2 piccoli)',
-                '60 gr di zucchero semolato (+ 15 gr di acqua)',
-                '250 gr di mascarpone freddo e perfettamente sgocciolato'
+                '250 gr di mascarpone',
+                '2 tuorli',
+                '60 gr di zucchero',
+                '25 gr di acqua'
             ],
             EN: [
-                '30 gr of egg yolks (about 2 small ones)',
-                '60 gr of granulated sugar (+ 15 gr of water)',
-                '250 gr of cold and well-drained mascarpone'
+                '250 gr of mascarpone',
+                '2 egg yolks',
+                '60 gr of sugar',
+                '25 gr of water'
             ],
             PL: [
-                '30 gr żółtek (około 2 małe)',
-                '60 gr cukru granulowanego (+ 15 gr wody)',
-                '250 gr schłodzonego i dobrze odsączonego mascarpone'
+                '250 gr mascarpone',
+                '2 żółtka',
+                '60 gr cukru',
+                '25 gr wody'
             ]
         },
         steps: [
             {
                 description: {
-                    IT: 'Separate i tuorli dagli albumi.',
-                    EN: 'Separate the yolks from the whites.',
-                    PL: 'Oddziel żółtka od białek.'
+                    IT: 'Inizia dalla preparazione della pate à bombe. Versa lo zucchero e l\'acqua in un pentolino e porta sul fuoco.',
+                    EN: 'Start with preparing the pate à bombe. Pour sugar and water into a saucepan and bring to a boil.',
+                    PL: 'Zacznij od przygotowania pate à bombe. Wlej cukier i wodę do rondla i zagotuj.'
                 },
-                picture: 'URL_of_step_1_picture',
+                picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone_preparare_sciroppo_2.jpg',
             },
             {
                 description: {
-                    IT: 'Aggiungete i tuorli in una ciotola, preferibilmente una planetaria.',
-                    EN: 'Add the yolks to a bowl, preferably a stand mixer.',
-                    PL: 'Dodaj żółtka do miski, najlepiej miksera planetarnego.'
+                    IT: 'Utilizza un termometro da cucina per monitorare la temperatura dello sciroppo fino a 121 °C. Se non disponi di un termometro, la temperatura è ottimale quando sulla superficie dello sciroppo si formano tante bollicine.',
+                    EN: 'Use a cooking thermometer to monitor the syrup temperature until it reaches 121 °C. If you don\'t have a thermometer, the temperature is right when lots of bubbles form on the syrup\'s surface.',
+                    PL: 'Użyj termometru kuchennego, aby monitorować temperaturę syropu, aż osiągnie 121 °C. Jeśli nie masz termometru, odpowiednia temperatura jest osiągnięta, gdy na powierzchni syropu pojawi się dużo bąbelków.'
                 },
-                picture: 'URL_of_step_2_picture',
+                picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone_raggiungere_temperatura_3.jpg',
             },
             {
                 description: {
-                    IT: 'Sciogliete lo zucchero nell’acqua e fate cuocere fino a ottenere uno sciroppo.',
-                    EN: 'Dissolve the sugar in water and cook until it becomes a syrup.',
-                    PL: 'Rozpuść cukier w wodzie i gotuj, aż powstanie syrop.'
+                    IT: 'A 114-115 °C, separa gli albumi dai tuorli, monta i tuorli con le fruste elettriche.',
+                    EN: 'At 114-115 °C, separate the whites from the yolks, then beat the yolks with an electric mixer.',
+                    PL: 'Przy 114-115 °C oddziel białka od żółtek, a następnie ubij żółtka mikserem elektrycznym.'
                 },
                 picture: 'URL_of_step_3_picture',
             },
             {
                 description: {
-                    IT: 'Versate lo zucchero nei tuorli e montate con fruste elettriche fino a ottenere un composto spumoso.',
-                    EN: 'Pour the sugar into the yolks and whisk with an electric mixer until foamy.',
-                    PL: 'Wlej cukier do żółtek i ubijaj mikserem elektrycznym, aż powstanie puszysta masa.'
+                    IT: 'Versa lo sciroppo sui tuorli montati, continuando a montare fino al completo raffreddamento.',
+                    EN: 'Pour the syrup over the beaten yolks, continue beating until completely cooled.',
+                    PL: 'Wlej syrop na ubite żółtka, kontynuując ubijanie aż do całkowitego ostygnięcia.'
                 },
-                picture: 'URL_of_step_4_picture',
+                picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone_versare_sciroppo_4.jpg',
             },
             {
                 description: {
-                    IT: 'Amalgamate il mascarpone freddo con un cucchiaio, poi incorporate la crema di uova gradualmente.',
-                    EN: 'Blend the cold mascarpone with a spoon, then gradually incorporate the egg cream.',
-                    PL: 'Połącz schłodzone mascarpone łyżką, a następnie stopniowo dodawaj krem jajeczny.'
+                    IT: 'Lavora il mascarpone in una ciotola separata usando una spatola.',
+                    EN: 'Work the mascarpone in a separate bowl using a spatula.',
+                    PL: 'Pracuj mascarpone w osobnej misce, używając szpatułki.'
                 },
                 picture: 'URL_of_step_5_picture',
             },
             {
                 description: {
-                    IT: 'La crema di mascarpone è pronta per essere servita.',
-                    EN: 'The mascarpone cream is ready to be served.',
-                    PL: 'Krem mascarpone jest gotowy do podania.'
+                    IT: 'Aggiungi gradualmente la montata di uova pastorizzate.',
+                    EN: 'Gradually add the pasteurized egg mixture.',
+                    PL: 'Stopniowo dodawaj pasteryzowaną mieszankę jaj.'
                 },
-                picture: 'URL_of_step_6_picture',
+                picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone_aggiungere_montata_7.jpg',
+            },
+            {
+                description: {
+                    IT: 'Mescola delicatamente dal basso verso l\'alto per non smontare il composto.',
+                    EN: 'Gently mix from the bottom up to avoid deflating the mixture.',
+                    PL: 'Delikatnie mieszaj od dołu do góry, aby nie stracić puszystości mieszanki.'
+                },
+                picture: 'URL_of_step_7_picture',
+            },
+            {
+                description: {
+                    IT: 'Dovrai ottenere una crema liscia e vellutata, priva di grumi.',
+                    EN: 'You should obtain a smooth and velvety cream, free of lumps.',
+                    PL: 'Powinieneś uzyskać gładki i aksamitny krem bez grudek.'
+                },
+                picture: 'URL_of_step_8_picture',
+            },
+            {
+                description: {
+                    IT: 'La crema al mascarpone è pronta: può essere servita in bicchierini o utilizzata per farcire torte o preparare il tiramisù.',
+                    EN: 'The mascarpone cream is ready: it can be served in small glasses or used as a filling for cakes or in tiramisu.',
+                    PL: 'Krem mascarpone jest gotowy: można go podawać w małych szklankach lub używać jako nadzienia do ciast lub do tiramisu.'
+                },
+                picture: 'URL_of_step_9_picture',
             }
         ],
         notes: {
-            IT: 'Facoltativo: Per una crema più ferma, potete aggiungere della panna montata. Servite con dolci come il panettone o come ripieno per torte.',
-            EN: 'Optional: For a firmer cream, you can add whipped cream. Serve with desserts like panettone or as a filling for cakes.',
-            PL: 'Opcjonalnie: Dla uzyskania gęstszej kremu, można dodać bitą śmietanę. Podawać z deserami, takimi jak panettone, lub jako nadzienie do ciast.'
+            IT: 'Per pastorizzare le uova e realizzare lo sciroppo di zucchero è importante usare un termometro preciso. La crema si conserva in frigo per massimo 3 giorni.',
+            EN: 'To pasteurize the eggs and make the sugar syrup, it is important to use an accurate thermometer. The cream can be stored in the fridge for up to 3 days.',
+            PL: 'Do pasteryzacji jajek i przygotowania syropu cukrowego ważne jest użycie dokładnego termometru. Krem można przechowywać w lodówce do 3 dni.'
         }
     },
     {
