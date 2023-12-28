@@ -329,6 +329,91 @@ export const recipesList = [
     },
     {
         name: {
+            IT: 'Crema di Mascarpone',
+            EN: 'Mascarpone Cream',
+            PL: 'Krem Mascarpone'
+        },
+        picture: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Crema-al-mascarpone-1200x675.jpg',
+        portions: {
+            IT: 'Quantità per 6 persone',
+            EN: 'Serves 6 people',
+            PL: 'Ilość na 6 osób'
+        },
+        ingredients: {
+            IT: [
+                '30 gr di tuorli (circa 2 piccoli)',
+                '60 gr di zucchero semolato (+ 15 gr di acqua)',
+                '250 gr di mascarpone freddo e perfettamente sgocciolato'
+            ],
+            EN: [
+                '30 gr of egg yolks (about 2 small ones)',
+                '60 gr of granulated sugar (+ 15 gr of water)',
+                '250 gr of cold and well-drained mascarpone'
+            ],
+            PL: [
+                '30 gr żółtek (około 2 małe)',
+                '60 gr cukru granulowanego (+ 15 gr wody)',
+                '250 gr schłodzonego i dobrze odsączonego mascarpone'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Separate i tuorli dagli albumi.',
+                    EN: 'Separate the yolks from the whites.',
+                    PL: 'Oddziel żółtka od białek.'
+                },
+                picture: 'URL_of_step_1_picture',
+            },
+            {
+                description: {
+                    IT: 'Aggiungete i tuorli in una ciotola, preferibilmente una planetaria.',
+                    EN: 'Add the yolks to a bowl, preferably a stand mixer.',
+                    PL: 'Dodaj żółtka do miski, najlepiej miksera planetarnego.'
+                },
+                picture: 'URL_of_step_2_picture',
+            },
+            {
+                description: {
+                    IT: 'Sciogliete lo zucchero nell’acqua e fate cuocere fino a ottenere uno sciroppo.',
+                    EN: 'Dissolve the sugar in water and cook until it becomes a syrup.',
+                    PL: 'Rozpuść cukier w wodzie i gotuj, aż powstanie syrop.'
+                },
+                picture: 'URL_of_step_3_picture',
+            },
+            {
+                description: {
+                    IT: 'Versate lo zucchero nei tuorli e montate con fruste elettriche fino a ottenere un composto spumoso.',
+                    EN: 'Pour the sugar into the yolks and whisk with an electric mixer until foamy.',
+                    PL: 'Wlej cukier do żółtek i ubijaj mikserem elektrycznym, aż powstanie puszysta masa.'
+                },
+                picture: 'URL_of_step_4_picture',
+            },
+            {
+                description: {
+                    IT: 'Amalgamate il mascarpone freddo con un cucchiaio, poi incorporate la crema di uova gradualmente.',
+                    EN: 'Blend the cold mascarpone with a spoon, then gradually incorporate the egg cream.',
+                    PL: 'Połącz schłodzone mascarpone łyżką, a następnie stopniowo dodawaj krem jajeczny.'
+                },
+                picture: 'URL_of_step_5_picture',
+            },
+            {
+                description: {
+                    IT: 'La crema di mascarpone è pronta per essere servita.',
+                    EN: 'The mascarpone cream is ready to be served.',
+                    PL: 'Krem mascarpone jest gotowy do podania.'
+                },
+                picture: 'URL_of_step_6_picture',
+            }
+        ],
+        notes: {
+            IT: 'Facoltativo: Per una crema più ferma, potete aggiungere della panna montata. Servite con dolci come il panettone o come ripieno per torte.',
+            EN: 'Optional: For a firmer cream, you can add whipped cream. Serve with desserts like panettone or as a filling for cakes.',
+            PL: 'Opcjonalnie: Dla uzyskania gęstszej kremu, można dodać bitą śmietanę. Podawać z deserami, takimi jak panettone, lub jako nadzienie do ciast.'
+        }
+    },
+    {
+        name: {
             IT: 'Tiramisù',
             EN: 'Tiramisu',
             PL: 'Tiramisu'
