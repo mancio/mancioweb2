@@ -135,7 +135,7 @@ export const recipesList = [
         ingredients: {
             IT: [
                 '330 gr di farina',
-                '165 gr di burro',
+                '150 gr di burro',
                 '130 gr di zucchero',
                 '1 uovo',
                 '2 tuorli',
