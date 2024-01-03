@@ -14,6 +14,7 @@ import Cinque from '../pictures/cards/cinque_bastoni.jpg';
 import Quattro from '../pictures/cards/quattro_bastoni.jpg';
 import Due from '../pictures/cards/due_denari.jpg';
 import {useNavigate} from "react-router-dom";
+import ScorePanel from "../components/ScorePanel";
 
 function ScoreCounter(){
 
@@ -142,6 +143,7 @@ function ScoreCounter(){
                 )}
             {(game) && (game === SCOPA) && (
                 <div>
+                    <ScorePanel/>
                     <p>{showCards(SCOPA.toLowerCase())}</p>
                 </div>
             )}
