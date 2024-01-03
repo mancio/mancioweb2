@@ -445,10 +445,10 @@ export const recipesList = [
             EN: 'Tiramisu',
             PL: 'Tiramisu'
         },
-        picture: 'https://polki.pl/foto/4_3_LARGE/tiramisu-2350187.webp',
+        picture: 'https://www.giallozafferano.it/images/251-25105/Tiramisu-della-tradizione_450x300.jpg',
         portions: {
             IT: '6 porzioni',
-            EN: '6 portions',
+            EN: '6 servings',
             PL: '6 porcji'
         },
         ingredients: {
@@ -458,7 +458,7 @@ export const recipesList = [
                 '120 gr di zucchero',
                 '400 gr di savoiardi',
                 '2 caffè lunghi',
-                '1 bustina/e di cacao'
+                '1 bustina di cacao'
             ],
             EN: [
                 '4 eggs',
@@ -466,7 +466,7 @@ export const recipesList = [
                 '120 gr of sugar',
                 '400 gr of ladyfingers (savoiardi)',
                 '2 long coffees',
-                '1 packet of cocoa'
+                '1 sachet of cocoa powder'
             ],
             PL: [
                 '4 jajka',
@@ -474,169 +474,156 @@ export const recipesList = [
                 '120 gr cukru',
                 '400 gr biszkoptów (savoiardi)',
                 '2 długie kawy',
-                '1 opakowanie kakao'
+                '1 saszetka kakao'
             ]
         },
         steps: [
             {
                 description: {
-                    IT: 'Fare il caffè lungo (meglio con la moka) e mettere zucchero quanto basta',
-                    EN: 'Make long coffee (preferably with a moka pot) and add sugar to taste',
-                    PL: 'Przygotuj długą kawę (najlepiej z moka) i dodaj cukier do smaku'
+                    IT: 'Fare il caffè lungo (meglio con la moka) e mettere zucchero quanto basta se i savoiardi non sono già zuccherati in superficie',
+                    EN: 'Make long coffee (better with a moka pot) and add sugar to taste if the ladyfingers are not already sugared on the surface',
+                    PL: 'Zrobić długą kawę (najlepiej z moka) i dodać cukier do smaku, jeśli biszkopty nie są już posypane cukrem na powierzchni'
                 },
-                picture: 'URL of step 1 picture',
+                picture: '' // URL of the step 1 picture
             },
             {
                 description: {
                     IT: 'Portare il mascarpone a temperatura ambiente',
-                    EN: 'Bring the mascarpone cheese to room temperature',
-                    PL: 'Ogrzej mascarpone do temperatury pokojowej'
+                    EN: 'Bring the mascarpone to room temperature',
+                    PL: 'Ogrzać mascarpone do temperatury pokojowej'
                 },
-                picture: 'URL of step 2 picture',
+                picture: '' // URL of the step 2 picture
             },
             {
                 description: {
                     IT: 'Separare tuorli da albumi, facendo attenzione non vengano a contatto',
-                    EN: 'Separate the egg yolks from the egg whites, being careful not to let them come into contact',
-                    PL: 'Oddziel żółtka od białek, uważając, aby się nie stykały'
+                    EN: 'Separate the yolks from the whites, being careful not to let them come into contact',
+                    PL: 'Oddzielić żółtka od białek, uważając, aby się nie stykały'
                 },
-                picture: 'URL of step 3 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
-                    IT: 'Unire zucchero e acqua in un pentolino in modo tale che l\'acqua copra leggermente lo zucchero',
-                    EN: 'Combine sugar and water in a saucepan so that the water slightly covers the sugar',
-                    PL: 'Połącz cukier i wodę w rondelku, tak aby woda lekko przykrywała cukier'
+                    IT: 'Unire metà zucchero e acqua in un pentolino in modo tale che l\'acqua copra leggermente lo zucchero',
+                    EN: 'Combine half of the sugar with water in a small pot so that the water slightly covers the sugar',
+                    PL: 'Połączyć połowę cukru z wodą w małym garnku, tak aby woda lekko przykrywała cukier'
                 },
-                picture: 'URL of step 4 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
-                    IT: 'Mettere sul fuoco il composto e rimescolare onde evitare si formi caramello ma diventi uno sciroppo',
-                    EN: 'Place the mixture on the heat and stir to prevent caramelization and make it a syrup',
-                    PL: 'Postaw mieszaninę na ogniu i mieszaj, aby zapobiec karmelizacji i uzyskać syrop'
+                    IT: 'Mettere sul fuoco il composto e mescolare onde evitare si formi caramello ma diventi uno sciroppo',
+                    EN: 'Put the mixture on the heat and stir to avoid caramelization but let it turn into syrup',
+                    PL: 'Postawić mieszankę na ogniu i mieszać, aby nie powstał karmel, ale zmieniła się w syrop'
                 },
-                picture: 'URL of step 5 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Levare dal fuoco quando si vedono le bollicine bianche (ha superato i 100 gradi)',
-                    EN: 'Remove from heat when white bubbles appear (it has reached over 100 degrees Celsius)',
-                    PL: 'Zdejmij z ognia, gdy pojawią się białe bąbelki (temperatura przekroczyła 100 stopni Celsjusza)'
+                    EN: 'Remove from the heat when white bubbles are seen (it has exceeded 100 degrees)',
+                    PL: 'Zdjąć z ognia, gdy pojawią się białe bąbelki (temperatura przekroczyła 100 stopni)'
                 },
-                picture: 'URL of step 6 picture',
-            },
-            {
-                description: {
-                    IT: 'Ricordare di usare metà sciroppo per i tuorli e metà per gli albumi',
-                    EN: 'Remember to use half of the syrup for the yolks and half for the egg whites',
-                    PL: 'Pamiętaj, aby użyć połowy syropu do żółtek i połowy do białek'
-                },
-                picture: 'URL of step 7 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Sbattere i tuorli a lungo con la frusta elettrica ad alta velocità mentre si versa a filo lo sciroppo. Continuare fino a quando si vedrà il composto addensare e schiarire',
-                    EN: 'Beat the egg yolks vigorously with an electric whisk at high speed while pouring in the syrup. Continue until the mixture thickens and lightens in color',
-                    PL: 'Energicznie ubij żółtka mikserem na wysokich obrotach, wlewając powoli syrop. Kontynuuj, aż mieszanka zgęstnieje i rozjaśni się'
+                    EN: 'Whisk the yolks for a long time with an electric mixer at high speed while pouring the syrup in a thin stream. Continue until the mixture thickens and lightens',
+                    PL: 'Ubić żółtka przez długi czas mikserem elektrycznym na wysokich obrotach, wlewając syrop cienkim strumieniem. Kontynuować aż masa zgęstnieje i rozjaśni'
                 },
-                picture: 'URL of step 8 picture',
+                picture: 'https://ricette.giallozafferano.it/images/ricette/262/26229/pate-a-bombe_6.jpg'
             },
             {
                 description: {
-                    IT: 'Versare il composto nella coppa di mascarpone a poco a poco e rimescolare in modo tale da evitare grumi',
-                    EN: 'Pour the mixture into the bowl of mascarpone cheese gradually and stir to avoid lumps',
-                    PL: 'Stopniowo wlewaj mieszaninę do miski z mascarpone, mieszając, aby uniknąć grudek'
+                    IT: 'Versare il composto della coppa di mascarpone a poco a poco nei tuorli in modo tale da evitare grumi (è possibile sbattere energicamente, il composto di tuorli non si smonterà)',
+                    EN: 'Gradually pour the mascarpone mixture into the yolks to avoid lumps (you can beat vigorously, the yolk mixture will not collapse)',
+                    PL: 'Stopniowo wlewać mieszankę mascarpone do żółtek, aby uniknąć grudek (można energicznie ubijać, mieszanka żółtek się nie rozpadnie)'
                 },
-                picture: 'URL of step 9 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
-                    IT: 'Sbattere gli albumi a lungo fino a quando il composto sarà bianco denso e spumoso',
-                    EN: 'Beat the egg whites until the mixture is white, thick, and foamy',
-                    PL: 'Ubij białka, aż mieszanina będzie biała, gęsta i puszysta'
+                    IT: 'Fare nuovamente lo sciroppo con la restante metà dello zucchero',
+                    EN: 'Make the syrup again with the remaining half of the sugar',
+                    PL: 'Ponownie zrobić syrop z pozostałej połowy cukru'
                 },
-                picture: 'URL of step 10 picture',
+                picture: '' // URL of the step picture
+            },
+            {
+                description: {
+                    IT: 'Sbattere gli albumi a lungo con la frusta elettrica ad alta velocità mentre si versa a filo lo sciroppo. Gli albumi devono diventare densi a tal punto che non cadono se si rovescia la ciotola',
+                    EN: 'Whisk the egg whites for a long time with an electric mixer at high speed while pouring the syrup in a thin stream. The whites should become so dense that they do not fall if the bowl is turned over',
+                    PL: 'Ubić białka przez długi czas mikserem elektrycznym na wysokich obrotach, wlewając syrop cienkim strumieniem. Białka powinny stać się tak gęste, że nie spadną, gdy odwróci się miskę'
+                },
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Unire il tutto rimescolando DELICATAMENTE (altrimenti il composto diventerà liquido)',
-                    EN: 'Gently fold everything together (otherwise, the mixture will become liquid)',
-                    PL: 'Delikatnie wymieszaj wszystko razem (w przeciwnym razie masa stanie się płynna)'
+                    EN: 'Combine everything by gently stirring (otherwise the mixture will become liquid)',
+                    PL: 'Połączyć wszystko, delikatnie mieszając (w przeciwnym razie masa stanie się płynna)'
                 },
-                picture: 'URL of step 11 picture',
+                picture: 'https://ricette.giallozafferano.it/images/ricette/251/25105/tiramisu-della-tradizione_12.jpg'
             },
             {
                 description: {
-                    IT: 'Mettere un pò di composto sulla base del contenitore',
-                    EN: 'Put a bit of the mixture on the bottom of the container',
-                    PL: 'Połóż trochę masy na dnie naczynia'
+                    IT: 'Mettere un po\' di composto sulla base del contenitore',
+                    EN: 'Put a bit of the mixture on the base of the container',
+                    PL: 'Nałożyć trochę mieszanki na dno pojemnika'
                 },
-                picture: 'URL of step 12 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
-                    IT: 'Bagnare i savoiardi velocemente nel caffè e metterli in fila nel contenitore (faremo due piani)',
-                    EN: 'Quickly dip the ladyfingers in coffee and arrange them in the container (we will make two layers)',
-                    PL: 'Szybko zamocz biszkopty w kawie i ułóż je w naczyniu (zrobimy dwie warstwy)'
+                    IT: 'Bagnare i savoiardi velocemente nel caffè e metterli in fila nel contenitore',
+                    EN: 'Quickly soak the ladyfingers in coffee and line them up in the container',
+                    PL: 'Szybko namoczyć biszkopty w kawie i ułożyć je w pojemniku'
                 },
-                picture: 'URL of step 13 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
-                    IT: 'Coprire i savoiardi con abbastanza il minimo di crema necessaria per coprirli (attenzione a non usare troppa crema)',
-                    EN: 'Cover the ladyfingers with just enough of the mixture to coat them (be careful not to use too much cream)',
-                    PL: 'Przykryj biszkopty wystarczającą ilością masy, aby je pokryć (uważaj, aby nie używać zbyt dużo kremu)'
+                    IT: 'Coprire i savoiardi con il minimo di crema necessaria per coprirli (attenzione a non usare troppa crema)',
+                    EN: 'Cover the ladyfingers with the minimum amount of cream needed to cover them (be careful not to use too much cream)',
+                    PL: 'Przykryć biszkopty minimalną ilością kremu potrzebną do ich pokrycia (uważaj, aby nie użyć zbyt dużo kremu)'
                 },
-                picture: 'URL of step 14 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Stendere un altro strato di savoiardi',
-                    EN: 'Add another layer of ladyfingers',
-                    PL: 'Dodaj kolejną warstwę biszkoptów'
+                    EN: 'Lay another layer of ladyfingers',
+                    PL: 'Położyć kolejną warstwę biszkoptów'
                 },
-                picture: 'URL of step 15 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Coprire con la crema restante livellando bene da coprire tutti i buchi',
-                    EN: 'Cover with the remaining mixture, leveling it well to cover all gaps',
-                    PL: 'Przykryj pozostałą masą, wyrównując ją dobrze, aby pokryć wszystkie luki'
+                    EN: 'Cover with the remaining cream, leveling well to cover all gaps',
+                    PL: 'Przykryć pozostałym kremem, wyrównując dobrze, aby pokryć wszystkie luki'
                 },
-                picture: 'URL of step 16 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Coprire con cacao in polvere la superficie',
                     EN: 'Cover the surface with cocoa powder',
-                    PL: 'Posyp powierzchnię kakao w proszku'
+                    PL: 'Przykryć powierzchnię kakao w proszku'
                 },
-                picture: 'URL of step 17 picture',
+                picture: '' // URL of the step picture
             },
             {
                 description: {
                     IT: 'Coprire il contenitore con pellicola trasparente e lasciare in frigo per almeno 1 ora',
-                    EN: 'Cover the container with plastic wrap and refrigerate for at least 1 hour',
-                    PL: 'Przykryj pojemnik folią spożywczą i schłodź w lodówce przez co najmniej 1 godzinę'
+                    EN: 'Cover the container with cling film and leave in the fridge for at least 1 hour',
+                    PL: 'Przykryć pojemnik folią spożywczą i odstawić do lodówki na co najmniej 1 godzinę'
                 },
-                picture: 'URL of step 18 picture',
+                picture: '' // URL of the step picture
             }
         ],
-        notes: {
-            IT: 'Sbattere le uova il più possibile in modo da incorporare aria e rendere il composto più solido possibile. '
-                + 'Non usare troppo sciroppo per i tuorli altrimenti non sarà possibile pastorizzare gli albumi. '
-                + 'Riscaldare lo sciroppo più volte per esseri sicuri sia sempre superiore a 100 gradi. '
-                + 'Sbattere le uova velocemente mentre si versa lo sciroppo altrimenti si formeranno pezzi di uovo cotto.',
-            EN: 'Beat the eggs as much as possible to incorporate air and make the mixture as solid as possible. '
-                + 'Do not use too much syrup for the yolks, otherwise, it will not be possible to pasteurize the whites. '
-                + 'Heat the syrup several times to ensure it is always above 100 degrees Celsius. '
-                + 'Beat the eggs quickly while pouring the syrup to avoid forming pieces of cooked egg.',
-            PL: 'Ubijaj jajka jak najbardziej, aby włączyć powietrze i uczynić mieszaninę jak najbardziej stałą. '
-                + 'Nie używaj zbyt dużo syropu do żółtek, inaczej nie będzie możliwe pasteryzowanie białek. '
-                + 'Podgrzewaj syrop kilkakrotnie, aby upewnić się, że zawsze jest powyżej 100 stopni Celsjusza. '
-                + 'Ubijaj jajka szybko podczas wlewania syropu, aby uniknąć tworzenia się kawałków ugotowanego jajka.'
-        }
+        notes: 'additional notes'
     },
     {
         "name": {
