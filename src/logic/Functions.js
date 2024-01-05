@@ -86,6 +86,18 @@ export function getSharedLanguage(){
     return localStorage.getItem(LANGUAGE_RECIPE_KEY) || ITALIAN || ENGLISH;
 }
 
+export function setSharedObject(name, object){
+    localStorage.setItem(name, JSON.stringify(object));
+}
+
+export function getSharedObject(name){
+    return JSON.parse(localStorage.getItem(name));
+}
+
+export function removeSharedObject(name){
+    localStorage.removeItem(name);
+}
+
 export const getRandomNumber = (min = 1, max = 6) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };

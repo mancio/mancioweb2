@@ -134,6 +134,8 @@ function ScoreCounter(){
 
     return(
         <div className='dashboard'>
+            <ScorePanel/>
+            <h1>•☽────✧˖°˖☆˖°˖✧────☾•</h1>
             <BetterButton text={BRISCOLA} click={() => selectGame(BRISCOLA)}/>
             <BetterButton text={SCOPA + ' - Primiera'} click={() => selectGame(SCOPA)}/>
             {(game) && (game === BRISCOLA) && (
@@ -143,7 +145,6 @@ function ScoreCounter(){
                 )}
             {(game) && (game === SCOPA) && (
                 <div>
-                    <ScorePanel/>
                     <p>{showCards(SCOPA.toLowerCase())}</p>
                 </div>
             )}
@@ -153,7 +154,7 @@ function ScoreCounter(){
                     {(game === BRISCOLA) && checkScore(score)}
                 </div>
             )}
-            <BetterButton text="Reset Score" click={() => reset()}/>
+            <BetterButton text="Reset Cards Score" click={() => reset()}/>
             <BetterButton text="Back" click={() => navigate(MENU)}/>
         </div>
     )

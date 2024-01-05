@@ -27,3 +27,10 @@ export const INCREASE = 'increase';
 export const DECREASE = 'decrease';
 
 export const COOKING = 'cooking';
+
+
+export const STEP1 = 'st1';
+export const STEP2 = 'st2';
+export const STEP3 = 'st3';
+export const PLAYERS_SCORE = 'plscore';
+export const PLAYER_NAMES = 'plnames';
