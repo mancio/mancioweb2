@@ -14,6 +14,7 @@ import Cinque from '../pictures/cards/cinque_bastoni.jpg';
 import Quattro from '../pictures/cards/quattro_bastoni.jpg';
 import Due from '../pictures/cards/due_denari.jpg';
 import {useNavigate} from "react-router-dom";
+import ScorePanel from "../components/ScorePanel";
 
 function ScoreCounter(){
 
@@ -133,6 +134,8 @@ function ScoreCounter(){
 
     return(
         <div className='dashboard'>
+            <ScorePanel/>
+            <h1>•☽────✧˖°˖☆˖°˖✧────☾•</h1>
             <BetterButton text={BRISCOLA} click={() => selectGame(BRISCOLA)}/>
             <BetterButton text={SCOPA + ' - Primiera'} click={() => selectGame(SCOPA)}/>
             {(game) && (game === BRISCOLA) && (
@@ -151,7 +154,7 @@ function ScoreCounter(){
                     {(game === BRISCOLA) && checkScore(score)}
                 </div>
             )}
-            <BetterButton text="Reset Score" click={() => reset()}/>
+            <BetterButton text="Reset Cards Score" click={() => reset()}/>
             <BetterButton text="Back" click={() => navigate(MENU)}/>
         </div>
     )
