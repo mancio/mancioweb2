@@ -149,6 +149,12 @@ body {
   width: 45px;
 }
 
+.input-player{
+  margin-left: 10px;
+  border-radius: 5px;
+  width: 55vw;
+}
+
 .row-el {
   display: flex;
   align-items: center; /* Vertically center items */

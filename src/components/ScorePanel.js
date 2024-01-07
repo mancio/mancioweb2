@@ -105,10 +105,14 @@ function ScorePanel(){
         for (let i = 0; i < playerNumber; i++) {
             textAreas.push(
                 <div>
-                    <p>Write player {i+1} name: </p>
-                    <textarea
+                    <h1 className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}>
+                        Write player {i+1} name:
+                    </h1>
+                    <input
+                        className={isPhoneInVerticalOrientation() ? 'input-player h2Equivalent': 'input-player h1Equivalent'}
+                        type='text'
                         key={i}
-                        placeholder={`Player ${i + 1} - Type name here`}
+                        placeholder={`Type name here`}
                         onChange={(e) => handleNameChange(e, i)}
                     />
                 </div>
@@ -143,7 +147,7 @@ function ScorePanel(){
             {step === STEP2 && (
                 <div>
                     {generateTextAreas()}
-                    <BetterButton text="Ready" click={() => changePanel(STEP3)}/>
+                    <BetterButton text="Set Names" click={() => changePanel(STEP3)}/>
                 </div>
             )}
             {step === STEP3 && (

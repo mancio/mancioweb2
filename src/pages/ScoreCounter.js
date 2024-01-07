@@ -136,12 +136,18 @@ function ScoreCounter(){
         if (score > 60) return (<div><h3>You win! 🏆</h3></div>);
     }
 
-    return(
-        <div className='dashboard'>
-            <ScorePanel/>
+    function divisor() {
+        return (
             <h1 className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}>
                 •☽────✧˖°˖☆˖°˖✧────☾•
             </h1>
+        )
+    }
+
+    return (
+        <div className='dashboard'>
+            <ScorePanel/>
+            {divisor()}
             <BetterButton text={BRISCOLA} click={() => selectGame(BRISCOLA)}/>
             <BetterButton text={SCOPA + ' - Primiera'} click={() => selectGame(SCOPA)}/>
             {(game) && (game === BRISCOLA) && (
@@ -160,7 +166,8 @@ function ScoreCounter(){
                     {(game === BRISCOLA) && checkScore(score)}
                 </div>
             )}
-            <BetterButton text="Reset Cards Score" click={() => reset()}/>
+            {(game) && (<BetterButton text="Reset Cards Score" click={() => reset()}/>)}
+            {divisor()}
             <BetterButton text="Back" click={() => navigate(MENU)}/>
         </div>
     )
