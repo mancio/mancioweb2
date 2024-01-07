@@ -15,8 +15,12 @@ import Quattro from '../pictures/cards/quattro_bastoni.jpg';
 import Due from '../pictures/cards/due_denari.jpg';
 import {useNavigate} from "react-router-dom";
 import ScorePanel from "../components/ScorePanel";
+import {isPhoneInVerticalOrientation, useRefreshOnDisplayChange} from "../logic/Functions";
 
 function ScoreCounter(){
+
+    useRefreshOnDisplayChange();
+
 
     const navigate = useNavigate();
 
@@ -135,7 +139,9 @@ function ScoreCounter(){
     return(
         <div className='dashboard'>
             <ScorePanel/>
-            <h1>•☽────✧˖°˖☆˖°˖✧────☾•</h1>
+            <h1 className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}>
+                •☽────✧˖°˖☆˖°˖✧────☾•
+            </h1>
             <BetterButton text={BRISCOLA} click={() => selectGame(BRISCOLA)}/>
             <BetterButton text={SCOPA + ' - Primiera'} click={() => selectGame(SCOPA)}/>
             {(game) && (game === BRISCOLA) && (
