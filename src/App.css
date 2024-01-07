@@ -181,6 +181,29 @@ body {
   }
 }
 
+.h1Equivalent {
+  font-size: 2em;      /* 2 times the size of the normal text */
+  font-weight: bold;  /* Bold font */
+  margin-top: 0.67em; /* Default top margin */
+  margin-bottom: 0.67em; /* Default bottom margin */
+}
+
+.h2Equivalent {
+  font-size: 1.5em;     /* Typically 1.5 times the size of normal text */
+  font-weight: bold;    /* Bold font */
+  margin-top: 0.83em;   /* Default top margin */
+  margin-bottom: 0.83em; /* Default bottom margin */
+}
+
+.h3Equivalent {
+  font-size: 1.17em;    /* Typically 1.17 times the size of normal text */
+  font-weight: bold;    /* Bold font */
+  margin-top: 1em;      /* Default top margin */
+  margin-bottom: 1em;   /* Default bottom margin */
+}
+
+
+
 
 
 

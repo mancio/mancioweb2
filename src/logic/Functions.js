@@ -15,6 +15,7 @@ import fart11 from '../sounds/farts/fart11.mp3';
 import fart12 from '../sounds/farts/fart12.mp3';
 import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
+import {useEffect} from "react";
 
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
@@ -163,6 +164,35 @@ export function fpsToMs(fps){
 }
 
 ////////////////////////
+
+export function isPhoneInVerticalOrientation() {
+    // Adjust this based on common phone screen widths in CSS pixels
+    const maxWidthForPhone = 480; // Increased to accommodate larger phones
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const isPhone = width <= maxWidthForPhone; // Check if the width is within phone range
+    const isVertical = height > width; // Check if the height is greater than the width
+
+    return isPhone && isVertical;
+}
+
+export function useRefreshOnDisplayChange(){
+
+    useEffect(() => {
+        const handleOrientationChange = () => {
+            // Refresh the page
+            window.location.reload();
+        };
+
+        window.addEventListener('orientationchange', handleOrientationChange);
+
+        // Clean up
+        return () => {
+            window.removeEventListener('orientationchange', handleOrientationChange);
+        };
+    }, []);
+}
 
 export function isTouchDevice(){return navigator.maxTouchPoints > 0;}
 

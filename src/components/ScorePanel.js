@@ -2,7 +2,12 @@ import '../App.css';
 import {useEffect, useState} from "react";
 import BetterButton from "./BetterButton";
 import {PLAYER_NAMES, PLAYERS_SCORE, STEP1, STEP2, STEP3} from "../logic/Names";
-import {getSharedObject, removeSharedObject, setSharedObject} from "../logic/Functions";
+import {
+    getSharedObject,
+    isPhoneInVerticalOrientation,
+    removeSharedObject,
+    setSharedObject
+} from "../logic/Functions";
 
 function ScorePanel(){
 
@@ -123,7 +128,10 @@ function ScorePanel(){
         <div>
             {(step === STEP1) && (
                 <div>
-                    <h1 style={centerFlexStyle}>
+                    <h1
+                        style={centerFlexStyle}
+                        className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}
+                    >
                     Players number:
                         <BetterButton text="<" click={() => reducePlayers()}/>
                         {playerNumber}
@@ -140,10 +148,16 @@ function ScorePanel(){
             )}
             {step === STEP3 && (
                 <div>
-                    <h2>Players score:</h2>
+                    <h2 className={isPhoneInVerticalOrientation() ? 'h3Equivalent' : ''}>
+                        Players score:
+                    </h2>
                     {playerNames.map((name, index) => (
-                        <h2 key={index} style={centerFlexStyle} >
-                            {name}
+                        <h2
+                            key={index}
+                            style={centerFlexStyle}
+                            className={isPhoneInVerticalOrientation() ? 'h3Equivalent' : ''}
+                        >
+                            {name}:
                             <BetterButton text="<" click={() => reduceScore(index)}/>
                             {scores[index]}
                             <BetterButton text=">" click={() => increaseScore(index)}/>
