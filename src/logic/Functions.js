@@ -268,7 +268,7 @@ export async function getInfoFromIp() {
         // Extract date and time from the datetime string
         const datetimeParts = data.datetime.split('T');
         const date = datetimeParts[0];
-        const time = datetimeParts[1].split('+')[0]; // This removes the timezone offset, adjust if necessary
+        const time = datetimeParts[1].split('+')[0].split('.')[0]; // This will remove the milliseconds part
 
         return {
             date: date,
