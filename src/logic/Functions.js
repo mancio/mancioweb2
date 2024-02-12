@@ -250,16 +250,17 @@ export function writeDb(ref, value) {
 
 export async function getInfoFromIp() {
     try {
-        const token = process.env.REACT_APP_TIME_TOKEN;
-        const response = await fetch('https://timezoneapi.io/api/ip/?token=' + token);
+        const response = await fetch('https://worldtimeapi.org/api/ip');
         const data = await response.json();
 
+        // Extract date and time from the datetime string
+        const datetimeParts = data.datetime.split('T');
+        const date = datetimeParts[0];
+        const time = datetimeParts[1].split('+')[0]; // This removes the timezone offset, adjust if necessary
+
         return {
-            city: data.data.city,
-            state: data.data.state,
-            country: data.data.country,
-            date: data.data.datetime.date,
-            time: data.data.datetime.time,
+            date: date,
+            time: time,
         };
     } catch (error) {
         console.error(error);
@@ -267,29 +268,10 @@ export async function getInfoFromIp() {
     }
 }
 
-export function formatDate(inputDate) {
-    // Split the input date string into day, month, and year components
-    const [month, day, year] = inputDate.split('/').map(Number);
 
-    // Create a new Date object
-    const date = new Date(year, month - 1, day);
-
-    // Define an array for month names
-    const monthNames = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-
-    // Define an array for day names
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-    // Get the day, month, and year components from the date object
-    const formattedDay = dayNames[date.getDay()];
-    const formattedMonth = monthNames[date.getMonth()];
-    const formattedYear = date.getFullYear();
-
-    // Return the formatted date string
-    return `${formattedDay} ${day} ${formattedMonth} ${formattedYear}`;
+export function formatDate(dateString) {
+    const parts = dateString.split('-'); // Split the date by hyphen
+    return `${parts[2]}-${parts[1]}-${parts[0]}`; // Rearrange the parts
 }
 
 
