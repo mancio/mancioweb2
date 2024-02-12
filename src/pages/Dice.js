@@ -3,7 +3,7 @@ import {MENU} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {getRandomNumber, getRealRandomInt} from "../logic/Functions";
+import {getRealRandomInt} from "../logic/Functions";
 
 import one from '../pictures/dice/dice-1.svg'
 import two from '../pictures/dice/dice-2.svg'

@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import {COOKING, ENGLISH, ITALIAN, MENU, POLISH} from "../logic/Names";
 import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
 import {recipesList} from "../logic/RecipesList";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import SearchBar from '../components/SearchBar';
 import BetterButton from "../components/BetterButton";
 import StaticButton from "../components/StaticButton";
 
@@ -12,10 +13,26 @@ function Recipes(){
 
     const [selectedLanguage, setSelectedLanguage] = useState(getSharedLanguage());
 
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
+
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
         setSelectedLanguage(newLanguage);
         setSharedLanguage(newLanguage);
+    };
+
+    // Update the filtered recipes list every time the search term changes
+    useEffect(() => {
+        const filtered = recipesList.filter((recipe) => {
+            const recipeNameValues = Object.values(recipe.name);
+            return recipeNameValues.some(name => name.toLowerCase().includes(searchTerm.toLowerCase()));
+        });
+        setFilteredRecipes(filtered);
+    }, [searchTerm]);
+
+    const handleSearchTermChange = (newSearchTerm) => {
+        setSearchTerm(newSearchTerm);
     };
 
     return(
@@ -31,7 +48,10 @@ function Recipes(){
                     </p>
                 </div>
             </div>
-            {recipesList.map((recipe, index) => {
+
+            <SearchBar onSearchTermChange={handleSearchTermChange} />
+
+            {filteredRecipes.map((recipe, index) => {
                 const translatedRecipeName = recipe.name[selectedLanguage] || recipe.name[ITALIAN] ||
                     recipe.name[ENGLISH];
                 return (
@@ -40,7 +60,7 @@ function Recipes(){
                         color='black'
                         text={translatedRecipeName}
                         key={index}
-                        click={()=>navigate(removeSpaceLowerCaseString(translatedRecipeName))}
+                        click={() => navigate(removeSpaceLowerCaseString(translatedRecipeName))}
                     />
                 );
             })}

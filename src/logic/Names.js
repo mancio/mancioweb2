@@ -34,3 +34,7 @@ export const STEP2 = 'st2';
 export const STEP3 = 'st3';
 export const PLAYERS_SCORE = 'plscore';
 export const PLAYER_NAMES = 'plnames';
+
+export const PHONE = 'phone';
+export const TABLET = 'tablet';
+export const DESKTOP = 'desktop';
