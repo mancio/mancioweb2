@@ -7,9 +7,20 @@ import Face from './pictures/icons/face.svg'
 import Tree from './pictures/icons/christmas-tree.svg'
 import Santa from './pictures/icons/santa.svg'
 import SnowMan from './pictures/icons/snowman.svg'
-import {getRandomNumber} from "./logic/Functions";
+import {getDisplayType, getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import {DASHBOARD, DICE, FART, KITCHEN_TOOLS, MENU, RECIPES, SCORE_COUNTER} from "./logic/Names";
+import {
+    DASHBOARD,
+    DESKTOP,
+    DICE,
+    FART,
+    KITCHEN_TOOLS,
+    MENU,
+    PHONE,
+    RECIPES,
+    SCORE_COUNTER,
+    TABLET
+} from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
 import IpPlaceTime from "./components/IpPlaceTime";
@@ -25,7 +36,11 @@ const Fart = lazy(() => import('./pages/Fart'));
 
 function App() {
     const svgs = [Tree, Santa, SnowMan];
-    const elements = 20;
+    const type = getDisplayType();
+    const elements =
+        type === PHONE ? 5 :
+        type === TABLET ? 10 :
+        20;
 
     const generateRandomArray = (size, svgs) => {
         const randomArray = [];

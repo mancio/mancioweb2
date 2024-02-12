@@ -208,6 +208,19 @@ body {
   margin-bottom: 1em;   /* Default bottom margin */
 }
 
+.search-bar {
+  width: 27vw;
+  border: 10px solid #d9a738;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    width: 66vw;
+  }
+}
 
 
 

@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY} from "./Names";
+import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, TABLET} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -175,6 +175,18 @@ export function isPhoneInVerticalOrientation() {
     const isVertical = height > width; // Check if the height is greater than the width
 
     return isPhone && isVertical;
+}
+
+export function getDisplayType() {
+    const width = window.innerWidth;
+
+    if (width <= 768) {
+        return PHONE;
+    } else if (width > 768 && width <= 1024) {
+        return TABLET;
+    } else {
+        return DESKTOP;
+    }
 }
 
 export function useRefreshOnDisplayChange(){

@@ -11,16 +11,14 @@ function IpPlaceTime(){
     const [bottomPosition, setBottomPosition] = useState('0px');
 
     const timeNowStyle = {
-        backgroundColor: 'black',
-        color: 'white',
-        textAlign: 'center',
-        fontSize: 'large',
-        borderRadius: '30px',
-        padding: '20px',
+        display: "inline-block",
+        backgroundColor: "black",
+        color: "white",
+        textAlign: "center",
+        fontSize: "large",
+        borderRadius: "30px",
+        padding: "11px",
         marginTop: bottomPosition,
-        width: '300px',
-        marginLeft: 'auto',
-        marginRight: 'auto'
     };
 
     const updatePosition = () => {
