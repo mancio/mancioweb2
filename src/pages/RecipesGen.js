@@ -11,6 +11,7 @@ import {recipesList} from "../logic/RecipesList";
 import {ENGLISH, ITALIAN, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
+import YouTubeLogo from "../pictures/icons/YouTube.svg";
 function RecipesGen(){
 
     const navigate = useNavigate();
@@ -123,6 +124,14 @@ function RecipesGen(){
                 <div>
                     <h3>Notes</h3>
                     <p>{recipe.notes[currentLanguage]}</p>
+                </div>
+            )}
+            {recipe.video && (
+                <div>
+                    <h1>Link to video</h1>
+                    <a href={recipe.video} target="_blank" rel="noopener noreferrer">
+                        <img src={YouTubeLogo} alt="Watch on YouTube" width="100"/>
+                    </a>
                 </div>
             )}
             <div className='language-line'>

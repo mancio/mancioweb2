@@ -1,6 +1,121 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Risotto allo Zafferano',
+            PL: 'Risotto z Szafranem',
+            EN: 'Saffron Risotto'
+        },
+        picture: 'https://www.misya.info/wp-content/uploads/2007/10/Risotto-allo-zafferano.jpg',
+        portions: {
+            IT: 'Porzioni per 4 persone',
+            PL: 'Porcje dla 4 osób',
+            EN: 'Serves 4'
+        },
+        ingredients: {
+            IT: [
+                'Riso Carnaroli 320 g',
+                'Zafferano in pistilli 1 cucchiaino',
+                'Cipolle dorate ½',
+                'Vino bianco 40 g',
+                'Brodo vegetale 1 l',
+                'Acqua q.b.',
+                'Olio extravergine d\'oliva q.b.',
+                'Sale fino q.b.',
+                'Grana Padano DOP freddo di frigo (da grattugiare) 80 g',
+                'Burro freddo di frigo 75 g'
+            ],
+            PL: [
+                'Ryż Carnaroli 320 g',
+                'Szafran w nitkach 1 łyżeczka',
+                'Złota cebula ½',
+                'Białe wino 40 g',
+                'Rosół warzywny 1 l',
+                'Woda w razie potrzeby',
+                'Oliwa z oliwek extra vergine w razie potrzeby',
+                'Drobna sól w razie potrzeby',
+                'Ser Grana Padano DOP z lodówki (do startowania) 80 g',
+                'Masło z lodówki 75 g'
+            ],
+            EN: [
+                'Carnaroli Rice 320 g',
+                'Saffron pistils 1 teaspoon',
+                'Golden onions ½',
+                'White wine 40 g',
+                'Vegetable broth 1 l',
+                'Water as needed',
+                'Extra virgin olive oil as needed',
+                'Fine salt as needed',
+                'Cold Grana Padano DOP from the fridge (to be grated) 80 g',
+                'Cold butter from the fridge 75 g'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Per realizzare il risotto allo zafferano per prima cosa mettete i pistilli di zafferano in una ciotolina e coprite con l’acqua. Lasciate in infusione per almeno 6 ore o anche per tutta la notte, coprendo la ciotolina.',
+                    PL: 'Aby przygotować risotto z szafranem, najpierw włóż nici szafranu do miseczki i przykryj wodą. Pozostaw do naciągnięcia na co najmniej 6 godzin lub nawet na całą noc, przykrywając miseczkę.',
+                    EN: 'To make the saffron risotto, first put the saffron pistils in a bowl and cover with water. Leave to infuse for at least 6 hours or even overnight, covering the bowl.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'Trascorso il tempo di infusione preparate il brodo vegetale e tenetelo in caldo. Mondate e tritate la cipolla molto finemente, poi versatela in una padella con un giro d’olio.',
+                    PL: 'Po czasie maceracji przygotuj bulion warzywny i utrzymuj go w cieple. Obierz i drobno posiekaj cebulę, następnie wlej ją na patelnię z odrobiną oliwy.',
+                    EN: 'After the infusion time, prepare the vegetable broth and keep it warm. Peel and finely chop the onion, then pour it into a pan with a swirl of oil.'
+                },
+                picture: 'URL of the step 2 picture',
+            },
+            {
+                description: {
+                    IT: 'Accendete il fuoco al minimo e fatela appassire molto dolcemente per circa 10-15 minuti; per aiutarvi potete aggiungere un pizzico di sale o un mestolino di brodo. Quando la cipolla sarà morbida e traslucida versate il riso e tostatelo per un paio di minuti, mescolando continuamente e tenendo il fuoco basso per evitare che si bruci la cipolla.',
+                    PL: 'Zapal ogień na minimalnym poziomie i pozwól cebuli zeszklić się bardzo delikatnie przez około 10-15 minut; możesz pomóc sobie dodając szczyptę soli lub chochelkę bulionu. Gdy cebula będzie miękka i przezroczysta, wsyp ryż i praż go przez kilka minut, ciągle mieszając i utrzymując niski ogień, aby cebula się nie przypaliła.',
+                    EN: 'Turn the heat to low and let it wilt very gently for about 10-15 minutes; you can help by adding a pinch of salt or a ladle of broth. When the onion is soft and translucent, pour in the rice and toast it for a couple of minutes, stirring constantly and keeping the heat low to avoid burning the onion.'
+                },
+                picture: 'URL of the step 3 picture',
+            },
+            {
+                description: {
+                    IT: 'Sfumate con il vino bianco e lasciate evaporare completamente la parte alcolica, poi iniziate a bagnare il riso con il brodo caldo, un mestolo per volta, avendo cura di aspettare che venga assorbito prima di aggiungere quello successivo.',
+                    PL: 'Zdeglazuj białym winem i pozwól całkowicie odparować alkohol, a następnie zacznij nawilżać ryż gorącym bulionem, po jednej chochelce, upewniając się, że każda porcja zostanie wchłonięta przed dodaniem kolejnej.',
+                    EN: 'Deglaze with white wine and let the alcohol completely evaporate, then start wetting the rice with the hot broth, one ladle at a time, making sure each portion is absorbed before adding the next.'
+                },
+                picture: 'URL of the step 4 picture',
+            },
+            {
+                description: {
+                    IT: 'Mantenete un bollore leggero e costante. Quando il riso sarà quasi a cottura, potete unire lo zafferano con il suo liquido di infusione (potete conservare i pistilli rimasti attaccati sul fondo e utilizzarli per la decorazione).',
+                    PL: 'Utrzymuj lekkie i stałe wrzenie. Gdy ryż będzie prawie ugotowany, możesz dodać szafran wraz z jego płynem maceracyjnym (możesz zachować pozostałe nici na dnie i użyć ich do dekoracji).',
+                    EN: 'Maintain a gentle and steady boil. When the rice is almost done, you can add the saffron with its infusion liquid (you can keep the pistils that remain at the bottom and use them for decoration).'
+                },
+                picture: 'URL of the step 5 picture',
+            },
+            {
+                description: {
+                    IT: 'Mescolate bene e finite di cuocere il riso, regolando di sale se necessario. Una volta terminata la cottura, spegnete il fuoco e mantecate con il burro e il Grana Padano DOP grattugiato, entrambi freddi di frigo.',
+                    PL: 'Dobrze wymieszaj i dokończ gotowanie ryżu, doprawiając solą w razie potrzeby. Po ugotowaniu wyłącz ogień i wymieszaj z masłem oraz startym Grana Padano DOP, oba prosto z lodówki.',
+                    EN: 'Stir well and finish cooking the rice, adjusting with salt if necessary. Once cooking is complete, turn off the heat and stir in the butter and grated Grana Padano DOP, both cold from the fridge.'
+                },
+                picture: 'URL of the step 6 picture',
+            },
+            {
+                description: {
+                    IT: 'Aggiungete ancora un pochino di brodo, quanto basta per ottenere la giusta consistenza, poi amalgamate il tutto, scuotendo il tegame per formare la classica “onda”. Impiattate il vostro risotto allo zafferano e guarnite con i pistilli tenuti da parte!',
+                    PL: 'Dodaj jeszcze trochę bulionu, wystarczająco, by uzyskać odpowiednią konsystencję, następnie wymieszaj wszystko, potrząsając patelnią, aby utworzyć klasyczną "falę". Podawaj swoje risotto z szafranem, dekorując je odłożonymi wcześniej niciami szafranu!',
+                    EN: 'Add a little more broth, just enough to achieve the right consistency, then mix everything together, shaking the pan to create the classic "wave". Plate your saffron risotto and garnish with the saffron pistils set aside!'
+                },
+                picture: 'URL of the final step picture',
+            }
+        ],
+        notes: {
+            IT: 'Per un autentico Risotto allo Zafferano, utilizzare zafferano e brodo di alta qualità. Mescolare costantemente mentre si aggiunge il brodo per ottenere la perfetta cremosità. Assicurarsi di lasciare in infusione lo zafferano per almeno 6 ore per intensificarne il sapore.',
+            PL: 'Dla autentycznego Risotto z Szafranem użyj wysokiej jakości szafranu i bulionu. Mieszaj ciągle, dodając bulion, aby osiągnąć idealną kremowość. Upewnij się, że szafran jest macerowany przez co najmniej 6 godzin, aby wzmocnić jego smak.',
+            EN: 'For an authentic Saffron Risotto, use high-quality saffron and broth. Stir constantly while adding the broth to achieve the perfect creaminess. Make sure to infuse the saffron for at least 6 hours to enhance its flavor.'
+        },
+        video: "https://youtu.be/dc7zIDB_kBs?si=8kmqDTOszV14iNDQ"
+    },
+    {
+        name: {
             IT: 'Panna Cotta alle Fragole',
             EN: 'Strawberry Panna Cotta',
             PL: 'Panna Cotta z Truskawkami'
@@ -859,7 +974,8 @@ export const recipesList = [
                 + 'with a toothpick or the blade of a knife by placing it between the cracks that will form during baking. '
                 + 'For optimal cooking, I recommend lowering the temperature to 100-120 degrees Celsius when the cake reaches a golden but not too dark color. '
                 + 'This way, it will dry on the inside without burning on the outside.'
-        }
+        },
+        video: 'https://youtu.be/D_vtv_8magg?si=z7deXAcF9K1QpIca'
     },
     {
         name: {
