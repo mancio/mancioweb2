@@ -834,7 +834,8 @@ export const recipesList = [
             "EN": "Be mindful of the temperature; if the bowl gets too hot, move it away from the water. " +
                 "Adjust the wine and sugar according to the desired level of sweetness. " +
                 "You can use Vin Santo, Moscato wine, or other sweet wines."
-        }
+        },
+        video: 'https://youtu.be/wT0_kRdrgRw?si=pjrU_wYkQLquhTxu'
     },
     {
         name: {
@@ -1075,7 +1076,8 @@ export const recipesList = [
                 + 'flavor too bitter and ruin the dish. Adding water to the mixture of yolks and pecorino helps make it smoother. '
                 + 'Furthermore, lukewarm water brings the mixture to temperature, preventing it from forming lumps when in contact with the pasta. '
                 + 'Be cautious with the pecorino! Its saltiness is important. If the pecorino is too salty, mix it with Parmesan.'
-        }
+        },
+        video: 'https://youtu.be/_T6jkRvhlkk?si=-ccCZ1p81iW6qR2m'
     },
     {
         name: {
@@ -1591,7 +1593,8 @@ export const recipesList = [
         notes: {
             IT: 'Contorni consigliati: Patate lesse condite con olio d’oliva e origano.',
             EN: 'Recommended side dish: Boiled potatoes seasoned with olive oil and oregano.'
-        }
+        },
+        video: 'https://youtu.be/G1FC5eB3bvs?si=DyQ4SpufFD8i1alU'
     },
     {
         name: {
@@ -1892,7 +1895,8 @@ export const recipesList = [
                 'Keep the meat as rare as possible to preserve its tenderness.',
                 'Allowing the meat to rest is important to keep it tender.'
             ]
-        }
+        },
+        video: 'https://youtu.be/II0Bxv6I6r0?si=7oHHyuL5z0ur7qa-'
     },
 ];
 
