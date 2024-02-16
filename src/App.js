@@ -1,9 +1,5 @@
 import CookieConsent from "react-cookie-consent";
 import './App.css';
-import Cup from './pictures/icons/cup.svg';
-import Cloud from './pictures/icons/cloud.svg';
-import Car from './pictures/icons/car.svg';
-import Face from './pictures/icons/face.svg'
 import Tree from './pictures/icons/christmas-tree.svg'
 import Santa from './pictures/icons/santa.svg'
 import SnowMan from './pictures/icons/snowman.svg'
@@ -20,7 +16,7 @@ import {
     SCORE_COUNTER,
     TABLET
 } from "./logic/Names";
-import {lazy, Suspense, useEffect} from "react";
+import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
 import IpPlaceTime from "./components/IpPlaceTime";
 const Menu = lazy(() => import('./pages/Menu'));
