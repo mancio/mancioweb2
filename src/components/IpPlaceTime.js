@@ -39,16 +39,28 @@ function IpPlaceTime(){
     }, []);
 
     useEffect(() => {
-        getInfoFromIp()
-            .then((info) => {
-                if (info) { // Make sure info is not null
-                    setTime(info.time);
-                    setDate(formatDate(info.date));
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        // Function to fetch info and update state
+        const fetchInfo = () => {
+            getInfoFromIp()
+                .then((info) => {
+                    if (info) { // Make sure info is not null
+                        setTime(info.time);
+                        setDate(formatDate(info.date));
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        };
+
+        // Call fetchInfo immediately to not wait for the first interval to elapse
+        fetchInfo();
+
+        // Set up the interval to repeat fetchInfo every 30 sec
+        const intervalId = setInterval(fetchInfo, 30 * 1000);
+
+        // Clean-up function to clear the interval when the component unmounts or the effect re-runs
+        return () => clearInterval(intervalId);
     }, []);
 
     useEffect(() => {

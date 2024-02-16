@@ -34,7 +34,7 @@ function ArcadeButton({text, click}){
         if (isHovering || isTouchDevice()) {
             interval = setInterval(() => {
                 setCurrentSvg(prevSvg => (prevSvg + 1) % svgs.length);
-            }, 300);
+            }, 500);
         } else {
             setCurrentSvg(0);
             clearInterval(interval);

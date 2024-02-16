@@ -11,7 +11,6 @@ import {getDisplayType, getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {
     DASHBOARD,
-    DESKTOP,
     DICE,
     FART,
     KITCHEN_TOOLS,
@@ -21,7 +20,7 @@ import {
     SCORE_COUNTER,
     TABLET
 } from "./logic/Names";
-import {lazy, Suspense} from "react";
+import {lazy, Suspense, useEffect} from "react";
 import MoveSVG from "./animation/MoveSVG";
 import IpPlaceTime from "./components/IpPlaceTime";
 const Menu = lazy(() => import('./pages/Menu'));

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
 .App {
   text-align: center;
   height: 100vh;
@@ -36,9 +38,9 @@ body {
 }
 
 .title > p {
-  font-size: x-large;
+  font-size: xx-large;
   color: white;
-  font-family: Algerian, serif;
+  font-family: "Honk", serif;
 }
 
 .recipe-img{
