@@ -8,7 +8,7 @@ import {
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {recipesList} from "../logic/RecipesList";
-import {ENGLISH, ITALIAN, RECIPES} from "../logic/Names";
+import {ENGLISH, ITALIAN, MAGIC_SEPARATOR, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
@@ -103,9 +103,12 @@ function RecipesGen(){
 
     return(
         <div className='recipe-box'>
-            <h3>{recipe.name[currentLanguage]}</h3>
+            <div className='title2'>
+                <h3>{recipe.name[currentLanguage]}</h3>
+            </div>
             {imgBool[getLastIndex()] && <img className='recipe-img' src={recipe.picture} alt={recipe.name[currentLanguage]}/>}
             <p>{recipe.portions[currentLanguage]}</p>
+            {MAGIC_SEPARATOR}
             <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier}/>
             <h3>Ingredients</h3>
             {recipe.ingredients[currentLanguage].map((ingredients, index) => (
@@ -113,6 +116,7 @@ function RecipesGen(){
                     <p>🔆 {changeIngredientQuantity(ingredients, multiplier)} 🔆</p>
                 </div>
             ))}
+            {MAGIC_SEPARATOR}
             <h3>Steps:</h3>
             {recipe.steps.map((step, index) => (
                 <div key={index}>
@@ -120,6 +124,7 @@ function RecipesGen(){
                     {imgBool[index] && <img className='recipe-img' src={step.picture} alt={`Step ${index + 1}`} />}
                 </div>
             ))}
+            {MAGIC_SEPARATOR}
             {recipe.notes && (
                 <div>
                     <h3>Notes</h3>
@@ -128,6 +133,7 @@ function RecipesGen(){
             )}
             {recipe.video && (
                 <div>
+                    {MAGIC_SEPARATOR}
                     <h1>Link to video</h1>
                     <a href={recipe.video} target="_blank" rel="noopener noreferrer">
                         <img src={YouTubeLogo} alt="Watch on YouTube" width="100"/>

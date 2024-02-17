@@ -1,6 +1,84 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Paccheri con crema di burrata e pancetta',
+            EN: 'Paccheri with Burrata Cream and Pancetta',
+            PL: 'Paccheri z kremem z burraty i pancettą'
+        },
+        picture: 'https://www.giallozafferano.it/images/223-22379/Paccheri-con-crema-di-burrata-e-pancetta_450x300.jpg',
+        portions: {
+            IT: 'Per 4 persone',
+            EN: 'Serves 4',
+            PL: 'Dla 4 osób'
+        },
+        ingredients: {
+            IT: [
+                'Paccheri 320 g',
+                'Burrata 320 g',
+                'Granella di pistacchi 60 g',
+                'Latte intero 12 cucchiai',
+                'Pancetta dolce 100 g',
+                'Olio extravergine d\'oliva q.b.'
+            ],
+            EN: [
+                'Paccheri 320 g',
+                'Burrata 320 g',
+                'Chopped pistachios 60 g',
+                'Whole milk 12 tablespoons',
+                'Sweet pancetta 100 g',
+                'Extra virgin olive oil as needed'
+            ],
+            PL: [
+                'Paccheri 320 g',
+                'Burrata 320 g',
+                'Posiekane pistacje 60 g',
+                'Pełnotłuste mleko 12 łyżek',
+                'Słodka pancetta 100 g',
+                'Oliwa z oliwek extra virgin według potrzeb'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Per preparare i paccheri con crema di burrata e pancetta cominciate mettendo sul fuoco l\'acqua in cui cuocere la pasta. Nel frattempo occupatevi del condimento. Versate la burrata in una ciotola, aggiungete il latte e frullate.',
+                    EN: 'To prepare the paccheri with burrata cream and pancetta, start by boiling the water to cook the pasta. Meanwhile, prepare the dressing. Pour the burrata into a bowl, add the milk, and blend.',
+                    PL: 'Aby przygotować paccheri z kremem z burraty i pancettą, zacznij od zagotowania wody na makaron. W międzyczasie przygotuj sos. Wlej burratę do miski, dodaj mleko i zmiksuj.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'In una padella versate un filo d\'olio e aggiungete i cubetti di pancetta, lasciandoli rosolare per qualche minuto.',
+                    EN: 'In a pan, pour a drizzle of olive oil and add the pancetta cubes, letting them brown for a few minutes.',
+                    PL: 'Na patelni wlej odrobinę oliwy i dodaj kostki pancetty, smażąc je przez kilka minut na złoty kolor.'
+                },
+                picture: 'URL of the step 2 picture',
+            },
+            {
+                description: {
+                    IT: 'Cuocete la pasta in acqua bollente salata e scolatela al dente direttamente nella padella. Saltate per pochi istanti, poi spegnete il fuoco e aggiungete la crema di burrata.',
+                    EN: 'Cook the pasta in boiling salted water and drain it al dente directly into the pan. Sauté for a few moments, then turn off the heat and add the burrata cream.',
+                    PL: 'Ugotuj makaron w osolonej wrzącej wodzie i odcedź go al dente bezpośrednio na patelnię. Podsmaż przez chwilę, następnie wyłącz ogień i dodaj krem z burraty.'
+                },
+                picture: 'URL of the step 3 picture',
+            },
+            {
+                description: {
+                    IT: 'Aggiungete la granella di pistacchi e mescolate. Impiattate e servite immediatamente.',
+                    EN: 'Add the chopped pistachios and mix. Plate and serve immediately.',
+                    PL: 'Dodaj posiekane pistacje i wymieszaj. Podawaj od razu po nałożeniu na talerze.'
+                },
+                picture: 'URL of the step 4 picture',
+            }
+        ],
+        notes: {
+            IT: 'Invece della pancetta, potreste utilizzare dello speck per ottenere un sapore più robusto dei vostri paccheri con crema di burrata. Inoltre, se l\'avete, aggiungete un po\' di pesto di pistacchi alla crema di burrata: sentirete che bontà!',
+            EN: 'Instead of pancetta, you could use speck to get a more robust flavor in your paccheri with burrata cream. Also, if you have it, add some pistachio pesto to the burrata cream: you will see how delicious it is!',
+            PL: 'Zamiast pancetty można użyć speck, aby uzyskać bardziej wyrazisty smak paccheri z kremem burrata. Jeśli masz, dodaj także trochę pesto z pistacji do kremu burrata: przekonasz się, jakie to pyszne!'
+        }
+    },
+    {
+        name: {
             IT: 'Risotto allo Zafferano',
             PL: 'Risotto z Szafranem',
             EN: 'Saffron Risotto'

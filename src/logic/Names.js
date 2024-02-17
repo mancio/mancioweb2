@@ -38,3 +38,5 @@ export const PLAYER_NAMES = 'plnames';
 export const PHONE = 'phone';
 export const TABLET = 'tablet';
 export const DESKTOP = 'desktop';
+
+export const MAGIC_SEPARATOR = '•☽────✧˖°˖☆˖°˖✧────☾•';

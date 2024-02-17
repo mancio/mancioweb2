@@ -1,5 +1,5 @@
 import BetterButton from "../components/BetterButton";
-import {BRISCOLA, MENU, SCOPA} from "../logic/Names";
+import {BRISCOLA, MAGIC_SEPARATOR, MENU, SCOPA} from "../logic/Names";
 import {useState} from "react";
 import '../App.css';
 
@@ -139,7 +139,7 @@ function ScoreCounter(){
     function divisor() {
         return (
             <h1 className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}>
-                •☽────✧˖°˖☆˖°˖✧────☾•
+                {MAGIC_SEPARATOR}
             </h1>
         )
     }
