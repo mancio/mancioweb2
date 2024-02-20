@@ -1,6 +1,147 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Panini Napoletani',
+            EN: 'Neapolitan Sandwiches',
+            PL: 'Kanapki Neapolitańskie'
+        },
+        picture: 'https://www.misya.info/wp-content/uploads/2007/10/Panini-napoletani2.jpg', // You can add a URL of the recipe picture here
+        portions: {
+            IT: '10 panini',
+            EN: '10 sandwiches',
+            PL: '10 kanapek'
+        },
+        ingredients: {
+            IT: [
+                '400 gr di farina 00',
+                '100 ml di acqua',
+                '100 ml di latte',
+                '5 gr di lievito di birra',
+                '70 gr di strutto',
+                '1 cucchiaino di sale',
+                '20 gr di grana',
+                '100 gr di pancetta',
+                '70 gr di prosciutto cotto',
+                '150 gr di provolone',
+                '2 uova sode opzionali'
+            ],
+            EN: [
+                '400 gr of type 00 flour',
+                '100 ml of water',
+                '100 ml of milk',
+                '5 gr of yeast',
+                '70 gr of lard',
+                '1 teaspoon of salt',
+                '20 gr of Parmesan cheese',
+                '100 gr of pancetta',
+                '70 gr of cooked ham',
+                '150 gr of provolone cheese',
+                '2 boiled eggs (optional)'
+            ],
+            PL: [
+                '400 gr mąki typu 00',
+                '100 ml wody',
+                '100 ml mleka',
+                '5 gr drożdży piwnych',
+                '70 gr smalcu',
+                '1 łyżeczka soli',
+                '20 gr sera Grana Padano',
+                '100 gr pancetty',
+                '70 gr gotowanej szynki',
+                '150 gr sera provolone',
+                '2 ugotowane jajka (opcjonalnie)'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Far sciogliere il lievito nel latte e l\'acqua appena tiepidi.',
+                    EN: 'Dissolve the yeast in lukewarm milk and water.',
+                    PL: 'Rozpuścić drożdże w letnim mleku i wodzie.'
+                },
+                picture: '' // You can add a URL of the step 1 picture here
+            },
+            {
+                description: {
+                    IT: 'In un\'ampia ciotola, disporre la farina, fare un buco al centro ed iniziare a versare man mano l\'acqua, il latte e il lievito.',
+                    EN: 'In a large bowl, place the flour, make a well in the center, and begin to gradually add the water, milk, and yeast.',
+                    PL: 'W dużej misce umieścić mąkę, zrobić dołek w środku i stopniowo dodawać wodę, mleko i drożdże.'
+                },
+                picture: '' // You can add a URL of the step 2 picture here
+            },
+            {
+                description: {
+                    IT: 'Quando la pasta inizia ad addensarsi, aggiungere sale, e 2 cucchiai di sugna, e continuare a lavorare fino ad avere un panetto liscio ed elastico.',
+                    EN: 'When the dough begins to thicken, add salt and 2 tablespoons of lard, and continue to work until you have a smooth and elastic dough.',
+                    PL: 'Gdy ciasto zaczyna gęstnieć, dodać sól i 2 łyżki smalcu, i kontynuować wyrabianie aż do uzyskania gładkiego i elastycznego ciasta.'
+                },
+                picture: '' // You can add a URL of the step 3 picture here
+            },
+            {
+                description: {
+                    IT: 'Lasciar riposare il panetto 2 ore al coperto.',
+                    EN: 'Let the dough rest covered for 2 hours.',
+                    PL: 'Pozostawić ciasto przykryte do odpoczynku na 2 godziny.'
+                },
+                picture: '' // You can add a URL of the step 4 picture here
+            },
+            {
+                description: {
+                    IT: 'Riprendere il panetto e stenderlo con le mani fino a formare una sfoglia rettangolare di 3 mm circa.',
+                    EN: 'Take the dough and roll it out with your hands to form a rectangular sheet about 3 mm thick.',
+                    PL: 'Ponownie zabrać się za ciasto i rozwałkować je rękoma, formując prostokątny placek o grubości około 3 mm.'
+                },
+                picture: '' // You can add a URL of the step 5 picture here
+            },
+            {
+                description: {
+                    IT: 'Ricoprire con prosciutto cotto, pancetta e provolone piccante a pezzetti, e due uova sode sbriciolate, se vi piacciono. Poi pigiare con le mani affinché i pezzetti penetrino parzialmente nell\'impasto e poi cospargere con del grana grattugiato.',
+                    EN: 'Cover with cooked ham, pancetta, and spicy provolone cheese in pieces, and two crumbled hard-boiled eggs, if you like. Then press with your hands so that the pieces partially penetrate the dough, and then sprinkle with grated Parmesan cheese.',
+                    PL: 'Przykryć gotowaną szynką, pancettą i ostrym serem provolone pokrojonymi na kawałki, oraz dwoma pokruszonymi ugotowanymi jajkami, jeśli lubisz. Następnie docisnąć rękoma, aby kawałki częściowo wniknęły w ciasto, a następnie posypać startym serem Grana Padano.'
+                },
+                picture: '' // You can add a URL of the step 6 picture here
+            },
+            {
+                description: {
+                    IT: 'Avvolgere la sfoglia formando un rotolo non troppo stretto e tagliarlo a tranci di circa 3 dita di larghezza.',
+                    EN: 'Roll up the sheet to form a roll not too tight and cut it into slices about 3 fingers wide.',
+                    PL: 'Zwinąć placek, formując roladę niezbyt ciasno, i pokroić ją na plastry o szerokości około 3 palców.'
+                },
+                picture: '' // You can add a URL of the step 7 picture here
+            },
+            {
+                description: {
+                    IT: 'Adagiare i panini napoletani su una teglia unta di olio e lasciarli lievitare coperti da un telo per 2 ore.',
+                    EN: 'Place the Neapolitan sandwiches on an oiled baking sheet and let them rise covered with a cloth for 2 hours.',
+                    PL: 'Umieścić kanapki neapolitańskie na natłuszczonej blaszce i pozostawić do wyrośnięcia przykryte ściereczką na 2 godziny.'
+                },
+                picture: '' // You can add a URL of the step 8 picture here
+            },
+            {
+                description: {
+                    IT: 'Una volta lievitati, spennellare i panini napoletani con il cucchiaio di strutto rimanente e far riposare anciora per 30 minuti. Cuocete in forno preriscaldato a 180°C per 20 minuti circa.',
+                    EN: 'Once risen, brush the Neapolitan sandwiches with the remaining spoonful of lard and let rest for another 30 minutes. Bake in a preheated oven at 180°C for about 20 minutes.',
+                    PL: 'Po wyrośnięciu posmarować kanapki neapolitańskie pozostałym smalcem i pozostawić do odpoczynku na kolejne 30 minut. Piec w nagrzanym piekarniku w 180°C przez około 20 minut.'
+                },
+                picture: '' // You can add a URL of the step 9 picture here
+            },
+            {
+                description: {
+                    IT: 'Lasciar intiepidire prima di servirli.',
+                    EN: 'Let them cool down a bit before serving.',
+                    PL: 'Pozwolić im nieco ostygnąć przed podaniem.'
+                },
+                picture: '' // You can add a URL of the step 10 picture here
+            }
+        ],
+        notes: {
+            IT: 'Per panini più leggeri puoi utilizzare due cucchiai colmi di olio di oliva per l\'impasto e altro olio d\'oliva per la spennellatura prima di metterli in forno.',
+            EN: 'For lighter sandwiches, you can use two heaping tablespoons of olive oil for the dough and more olive oil for brushing before baking.',
+            PL: 'Dla lżejszych kanapek można użyć dwóch pełnych łyżek oliwy z oliwek do ciasta oraz więcej oliwy do posmarowania przed pieczeniem.'
+        }
+    },
+    {
+        name: {
             IT: 'Pancake alla banana',
             EN: 'Banana Pancake',
             PL: 'Naleśniki z bananami'
