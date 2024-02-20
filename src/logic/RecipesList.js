@@ -1,6 +1,89 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Pancake alla banana',
+            EN: 'Banana Pancake',
+            PL: 'Naleśniki z bananami'
+        },
+        picture: 'https://www.giallozafferano.it/images/174-17475/Pancake-alla-banana_450x300.jpg', // URL of the recipe picture
+        portions: {
+            IT: 'Porzione per 1 persona',
+            EN: 'Serves 1 person',
+            PL: 'Porcja dla 1 osoby'
+        },
+        ingredients: {
+            IT: [
+                'Punta di un cucchiaino di lievito per dolci',
+                'Due cucchiai colmi di farina',
+                'Un uovo',
+                'Una banana',
+                'Olio di oliva'
+            ],
+            EN: [
+                'Tip of a teaspoon of baking powder',
+                'Two heaping tablespoons of flour',
+                'One egg',
+                'One banana',
+                'Olive oil'
+            ],
+            PL: [
+                'Czubek łyżeczki proszku do pieczenia',
+                'Dwie pełne łyżki mąki',
+                'Jajko',
+                'Banana',
+                'Oliwa z oliwek'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'In un piatto schiaccia una banana con una forchetta e lascia un pezzo di banana da parte per la guarnizione finale',
+                    EN: 'Mash a banana in a dish with a fork and set aside a piece of banana for the final garnish',
+                    PL: 'Rozgnieć banana na talerzu widelcem i odłóż kawałek banana na ostateczną dekorację'
+                },
+                picture: '', // URL of the step 1 picture
+            },
+            {
+                description: {
+                    IT: 'Unisci un uovo, la farina e il lievito e mischia',
+                    EN: 'Add an egg, flour, and baking powder and mix',
+                    PL: 'Dodaj jajko, mąkę i proszek do pieczenia, a następnie wymieszaj'
+                },
+                picture: '', // URL of the step 2 picture
+            },
+            {
+                description: {
+                    IT: 'Ungi con un po\' d\'olio una padella e asciuga con la carta assorbente l\'olio in eccesso o in alternativa usa l\'olio spray',
+                    EN: 'Grease a pan with a little oil and wipe away the excess oil with paper towels or alternatively use spray oil',
+                    PL: 'Posmaruj patelnię odrobiną oleju i wytrzyj nadmiar oleju ręcznikiem papierowym lub alternatywnie użyj oleju w sprayu'
+                },
+                picture: '', // URL of the step 3 picture
+            },
+            {
+                description: {
+                    IT: 'Metti il composto sulla padella calda disponendolo a forma di cerchio',
+                    EN: 'Place the mixture on the hot pan, shaping it into a circle',
+                    PL: 'Umieść masę na gorącej patelni, formując koło'
+                },
+                picture: '', // URL of the step 4 picture
+            },
+            {
+                description: {
+                    IT: 'Cuoci coperto da entrambi i lati il pancake ricordando di girarlo',
+                    EN: 'Cook the pancake on both sides covered, remembering to flip it',
+                    PL: 'Smaż naleśnik z obu stron pod przykryciem, pamiętając o przewróceniu go'
+                },
+                picture: '', // URL of the step 5 picture
+            }
+        ],
+        notes: {
+            IT: 'Puoi servire il pancake con frutta di stagione, yogurt e sciroppo d\'acero',
+            EN: 'You can serve the pancake with seasonal fruit, yogurt, and maple syrup',
+            PL: 'Możesz podawać naleśniki z sezonowymi owocami, jogurtem i syropem klonowym'
+        }
+    },
+    {
+        name: {
             IT: 'Paccheri con crema di burrata e pancetta',
             EN: 'Paccheri with Burrata Cream and Pancetta',
             PL: 'Paccheri z kremem z burraty i pancettą'
