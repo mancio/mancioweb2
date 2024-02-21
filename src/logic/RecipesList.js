@@ -1,6 +1,105 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Budino alla vaniglia con maizena',
+            EN: 'Vanilla Pudding with Cornstarch',
+            PL: 'Budyń waniliowy ze skrobią kukurydzianą'
+        },
+        picture: 'https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg',
+        portions: {
+            PL: 'Składniki na 6 foremek',
+            EN: 'Ingredients for 6 molds',
+            IT: 'Ingredienti per 6 stampini'
+        },
+        ingredients: {
+            PL: [
+                '500 ml mleka',
+                '2 jajka',
+                '100 g cukru',
+                '1 laska wanilii',
+                '3 łyżki mąki kukurydzianej'
+            ],
+            EN: [
+                '500 ml of milk',
+                '2 eggs',
+                '100 gr of sugar',
+                '1 vanilla pod',
+                '3 tablespoons of cornstarch'
+            ],
+            IT: [
+                '500 ml di latte',
+                '2 uova',
+                '100 gr di zucchero',
+                '1 stecca di vaniglia',
+                '3 cucchiai di maizena'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    PL: 'Naciń laskę wanilii i gotuj w mleku na małym ogniu przez 5 minut, aby uwolnić aromat.',
+                    EN: 'Slit the vanilla pod and simmer in milk for 5 minutes to release its flavor.',
+                    IT: 'Incidete una stecca di vaniglia e fatela sobollire nel latte per 5 minuti, così che sprigioni tutto il suo aroma.'
+                },
+                picture: 'URL_of_step_1_picture',
+            },
+            {
+                description: {
+                    PL: 'W misce ubij jajka z cukrem.',
+                    EN: 'Whisk the eggs with the sugar in a bowl.',
+                    IT: 'In una ciotola montate le uova con lo zucchero.'
+                },
+                picture: 'URL_of_step_2_picture',
+            },
+            {
+                description: {
+                    PL: 'Dodaj mąkę kukurydzianą i utwórz krem.',
+                    EN: 'Add the cornstarch and form a cream.',
+                    IT: 'Aggiungete la maizena e formate una crema.'
+                },
+                picture: 'URL_of_step_3_picture',
+            },
+            {
+                description: {
+                    PL: 'Przecedź mleko, dodaj do kremu jajecznego i mieszaj.',
+                    EN: 'Strain the milk, add it to the egg cream, and mix.',
+                    IT: 'Filtrate il latte, aggiungetelo alla crema di uova e mescolate.'
+                },
+                picture: 'URL_of_step_4_picture',
+            },
+            {
+                description: {
+                    PL: 'Włóż ponownie na ogień i gotuj, aż masa zgęstnieje.',
+                    EN: 'Return to the heat and cook until the mixture thickens.',
+                    IT: 'Rimettete sul fuoco e fate addensare.'
+                },
+                picture: 'URL_of_step_5_picture',
+            },
+            {
+                description: {
+                    PL: 'Przelej masę do foremek i odstaw do lodówki na 3 godziny.',
+                    EN: 'Pour the mixture into molds and refrigerate for 3 hours.',
+                    IT: 'Versate il composto ottenuto negli stampini e mettete in frigo per 3 ore.'
+                },
+                picture: 'URL_of_step_6_picture',
+            },
+            {
+                description: {
+                    PL: 'Wyjmij budyń na talerzyki i podawaj.',
+                    EN: 'Unmold the vanilla pudding onto plates and serve.',
+                    IT: 'Capovolgete il budino alla vaniglia nei piattini e servite.'
+                },
+                picture: 'Budino-alla-vaniglia7_picture_URL',
+            }
+        ],
+        notes: {
+            IT: "Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa al cioccolato.",
+            EN: "For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.",
+            PL: "Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową."
+        }
+    },
+    {
+        name: {
             IT: 'Panini Napoletani',
             EN: 'Neapolitan Sandwiches',
             PL: 'Kanapki Neapolitańskie'
@@ -135,9 +234,9 @@ export const recipesList = [
             }
         ],
         notes: {
-            IT: 'Per panini più leggeri puoi utilizzare due cucchiai colmi di olio di oliva per l\'impasto e altro olio d\'oliva per la spennellatura prima di metterli in forno.',
-            EN: 'For lighter sandwiches, you can use two heaping tablespoons of olive oil for the dough and more olive oil for brushing before baking.',
-            PL: 'Dla lżejszych kanapek można użyć dwóch pełnych łyżek oliwy z oliwek do ciasta oraz więcej oliwy do posmarowania przed pieczeniem.'
+            "IT": "Per panini più leggeri, puoi utilizzare l'olio di oliva al posto dello strutto, impiegando due cucchiai colmi per l'impasto e altro olio d'oliva per la spennellatura prima di metterli in forno.",
+            "EN": "For lighter sandwiches, you can use olive oil instead of lard, using two heaping tablespoons for the dough and more olive oil for brushing before baking.",
+            "PL": "Dla lżejszych kanapek można użyć oliwy z oliwek zamiast smalcu, stosując dwie pełne łyżki do ciasta oraz więcej oliwy do posmarowania przed pieczeniem."
         }
     },
     {

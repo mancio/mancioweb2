@@ -61,6 +61,7 @@ body {
 .dashboard{
   background-color: white;
   padding: 20px;
+  margin: 25px;
   border-radius: 10px;
   text-align: center;
 }

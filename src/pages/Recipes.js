@@ -49,6 +49,11 @@ function Recipes(){
                 </div>
             </div>
 
+            <BetterButton
+                text="Back"
+                click={()=>navigate(MENU)}
+            />
+
             <SearchBar onSearchTermChange={handleSearchTermChange} />
 
             {filteredRecipes.map((recipe, index) => {
