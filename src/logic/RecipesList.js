@@ -17,7 +17,7 @@ export const recipesList = [
                 '2 jajka',
                 '100 g cukru',
                 '1 laska wanilii',
-                '3 łyżki mąki kukurydzianej'
+                '3 łyżki skrobi kukurydzianej'
             ],
             EN: [
                 '500 ml of milk',
