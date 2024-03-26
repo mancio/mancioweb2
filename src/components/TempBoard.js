@@ -25,9 +25,9 @@ function TempBoard() {
 
     return (
         <div>
-            <p>Last update: {unixToPolishTime(datetime)}</p>
-            <p>🌡️: {temperature} ℃ </p>
-            <p>🔋: {voltage} Volts</p>
+            <h2>Last update: {unixToPolishTime(datetime)}</h2>
+            <h2>🌡️: {temperature} ℃ </h2>
+            <h2>🔋: {voltage} Volts</h2>
         </div>
     );
 }

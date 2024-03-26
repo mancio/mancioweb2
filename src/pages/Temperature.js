@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import TempBoard from "../components/TempBoard";
+import BetterButton from "../components/BetterButton";
 
 function Temperature(){
     const [inputPassword, setInputPassword] = useState('');
@@ -26,13 +27,13 @@ function Temperature(){
 
     return (
         <div className='dashboard'>
-            <form onSubmit={handleSubmit}>
+            <form>
+                <BetterButton text="Enter" click={handleSubmit}/>
                 <input className='password-field'
                     type="password"
                     value={inputPassword}
                     onChange={(e) => setInputPassword(e.target.value)}
                 />
-                <button type="submit">Enter</button>
             </form>
             {isAuthenticated && (
                 <div>
