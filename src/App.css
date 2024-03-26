@@ -235,6 +235,11 @@ body {
   }
 }
 
+.password-field{
+  margin: 50px;
+  border-radius: 20px;
+}
+
 
 
 

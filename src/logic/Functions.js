@@ -319,6 +319,28 @@ export function addOneSecond(inputTime) {
     }
 }
 
+export function unixToPolishTime(unixTimestamp) {
+    // Convert the Unix timestamp to milliseconds
+    const date = new Date(unixTimestamp * 1000);
+
+    // Format the date in Polish locale
+    const formattedDate = date.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+
+    // Format the time in Polish locale, ensuring it's in 24-hour format without seconds
+    const formattedTime = date.toLocaleTimeString('pl-PL', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+    });
+
+    // Combine the formatted date and time
+    return `${formattedDate} ${formattedTime}`;
+}
+
 
 // Pizza functions
 

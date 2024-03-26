@@ -6,6 +6,8 @@ export const KITCHEN_TOOLS = '/kitchenTools';
 export const DICE = '/Dice';
 export const FART = '/Fart';
 
+export const TEMP = '/Temp'
+
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';
 export const POLISH = 'PL';
@@ -40,3 +42,7 @@ export const TABLET = 'tablet';
 export const DESKTOP = 'desktop';
 
 export const MAGIC_SEPARATOR = '•☽────✧˖°˖☆˖°˖✧────☾•';
+
+export const DB_TIME_PATH = 'Casina/time'
+export const DB_TEMP_PATH = 'Casina/temp'
+export const DB_VOLTAGE_PATH = 'Casina/voltage'
