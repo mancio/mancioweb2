@@ -235,6 +235,18 @@ body {
   }
 }
 
+.password-field{
+  margin: 20px;
+  border-radius: 20px;
+  font-size: xx-large;
+}
+
+@media (max-width: 600px) {
+  .password-field{
+    font-size: large;
+  }
+}
+
 
 
 

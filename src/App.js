@@ -14,7 +14,7 @@ import {
     PHONE,
     RECIPES,
     SCORE_COUNTER,
-    TABLET
+    TABLET, TEMP
 } from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
@@ -27,6 +27,7 @@ const ScoreCounter = lazy(() => import('./pages/ScoreCounter'));
 const KitchenTools = lazy(() => import('./pages/KitchenTools'));
 const Dice = lazy(() => import('./pages/Dice'));
 const Fart = lazy(() => import('./pages/Fart'));
+const Temperature = lazy(() => import('./pages/Temperature'));
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
                             <Route path={KITCHEN_TOOLS} element={<KitchenTools />} />
                             <Route path={DICE} element={<Dice />} />
                             <Route path={FART} element={<Fart />} />
+                            <Route path={TEMP} element={<Temperature />} />
                         </Routes>
                     </BrowserRouter>
                     <IpPlaceTime/>

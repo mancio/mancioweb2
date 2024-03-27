@@ -17,6 +17,13 @@ import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
 
+export function roundStringToTwoDecimals(strNum) {
+    const num = parseFloat(strNum);
+    return num.toFixed(2);
+}
+
+
+
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
     const match = ingredient.match(regex);
@@ -317,6 +324,28 @@ export function addOneSecond(inputTime) {
     } catch (error) {
         return "Invalid input format or values";
     }
+}
+
+export function unixToPolishTime(unixTimestamp) {
+    // Convert the Unix timestamp to milliseconds
+    const date = new Date(unixTimestamp * 1000);
+
+    // Format the date in Polish locale
+    const formattedDate = date.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
+
+    // Format the time in Polish locale, ensuring it's in 24-hour format without seconds
+    const formattedTime = date.toLocaleTimeString('pl-PL', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+    });
+
+    // Combine the formatted date and time
+    return `${formattedDate} ${formattedTime}`;
 }
 
 
