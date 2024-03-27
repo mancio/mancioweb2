@@ -8,7 +8,7 @@ function Temperature(){
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     // This should be replaced with the SHA-256 hash of your actual password.
-    const hashedPassword = 'f3766fd4c9ae95209cac2de9718418c7bea8ca31bde4ab9982d04888e79eb17a';
+    const hashedPassword = process.env.REACT_APP_TEMP_PASSWORD;
 
     const checkPassword = async (enteredPassword) => {
         const encoder = new TextEncoder();

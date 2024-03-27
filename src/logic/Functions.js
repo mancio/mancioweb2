@@ -17,6 +17,13 @@ import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
 
+export function roundStringToTwoDecimals(strNum) {
+    const num = parseFloat(strNum);
+    return num.toFixed(2);
+}
+
+
+
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;
     const match = ingredient.match(regex);
