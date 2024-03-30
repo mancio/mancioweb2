@@ -1,6 +1,13 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, TABLET} from "./Names";
+import {
+    DESKTOP,
+    ENGLISH,
+    ITALIAN,
+    LANGUAGE_RECIPE_KEY,
+    PHONE,
+    TABLET
+} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -22,6 +29,17 @@ export function roundStringToTwoDecimals(strNum) {
     return num.toFixed(2);
 }
 
+export function batteryPercentage(voltageStr) {
+    const voltage = parseFloat(voltageStr);
+    const MAX_VOLTAGE = 5.6;
+    const MIN_VOLTAGE = 3.6;
+    // Clamp the voltage to ensure it's within the expected range
+    const clampedVoltage = Math.max(MIN_VOLTAGE, Math.min(MAX_VOLTAGE, voltage));
+    // Calculate the percentage
+    const percentage = ((clampedVoltage - MIN_VOLTAGE) / (MAX_VOLTAGE - MIN_VOLTAGE)) * 100;
+    // Return the percentage as a string with two decimal places
+    return `${percentage.toFixed(2)}%`;
+}
 
 
 export function changeIngredientQuantity(ingredient, multiplier) {

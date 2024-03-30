@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {
+    batteryPercentage,
     getFirebaseSetUp,
     isDbSet,
     readDb,
     roundStringToTwoDecimals,
     unixToPolishTime
 } from "../logic/Functions";
-import {DB_TEMP_PATH, DB_TIME_PATH, DB_VOLTAGE_PATH} from "../logic/Names";
+import {
+    DB_TEMP_PATH,
+    DB_TIME_PATH,
+    DB_VOLTAGE_PATH,
+} from "../logic/Names";
 
 function TempBoard() {
 
@@ -29,11 +34,15 @@ function TempBoard() {
         });
     }, []);
 
+
+
+
     return (
         <div>
             <h2>Last update: {unixToPolishTime(datetime)}</h2>
             <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃ </h2>
             <h2>🔋: {roundStringToTwoDecimals(voltage)} Volts</h2>
+            <h2>Battery level: {batteryPercentage(voltage)}</h2>
         </div>
     );
 }
