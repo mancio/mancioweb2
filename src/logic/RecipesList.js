@@ -1,6 +1,112 @@
 export const recipesList = [
     {
         name: {
+            IT: 'Zucchine Ripiene',
+            EN: 'Stuffed Zucchini',
+            PL: 'Faszerowane Cukinie'
+        },
+        picture: 'https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg',
+        portions: {
+            IT: '4 porzioni',
+            EN: '4 servings',
+            PL: '4 porcje'
+        },
+        ingredients: {
+            IT: [
+                '4 zucchine medie',
+                '300g di carne macinata',
+                '50g di prosciutto cotto, tritato finemente',
+                '50g di Parmigiano grattugiato',
+                'Un pizzico di noce moscata',
+                '1 uovo',
+                'Mezzo bicchiere di pangrattato',
+                'Latte q.b. per ammorbidire il pangrattato e fare il sugo',
+                'Sale q.b.',
+                'Olio d\'oliva per soffriggere'
+            ],
+            EN: [
+                '4 medium zucchini',
+                '300g ground meat',
+                '50g finely chopped cooked ham',
+                '50g grated Parmesan cheese',
+                'A pinch of nutmeg',
+                '1 egg',
+                'Half a glass of breadcrumbs',
+                'Milk as needed to soften the breadcrumbs and make the sauce',
+                'Salt to taste',
+                'Olive oil for frying'
+            ],
+            PL: [
+                '4 średnie cukinie',
+                '300g mielonego mięsa',
+                '50g drobno pokrojonej gotowanej szynki',
+                '50g startego sera Parmesan',
+                'Szczypta gałki muszkatołowej',
+                '1 jajko',
+                'Pół szklanki bułki tartej',
+                'Mleko w razie potrzeby do zmiękczenia bułki tartej i przygotowania sosu',
+                'Sól do smaku',
+                'Oliwa z oliwek do smażenia'
+            ]
+        },
+        steps: [
+            {
+                description: {
+                    IT: 'Lava e asciuga le zucchine. Usa un coltello lungo e sottile per forare delicatamente il centro lungo tutta la loro lunghezza, senza rompere le estremità. Estrai il nucleo con un coltellino apposito o un cucchiaino, creando un canale centrale.',
+                    EN: 'Wash and dry the zucchini. Use a long, thin knife to gently pierce the center along their entire length, being careful not to break the ends. Remove the core with a special knife or a teaspoon, creating a central channel.',
+                    PL: 'Umyj i osusz cukinie. Użyj długiego, cienkiego noża, aby delikatnie przekłuć środek wzdłuż całej ich długości, starając się nie złamać końcówek. Usuń rdzeń specjalnym nożykiem lub łyżeczką, tworząc centralny kanał.'
+                },
+                picture: 'URL of the step 1 picture',
+            },
+            {
+                description: {
+                    IT: 'In una ciotola, mescola la carne macinata, il prosciutto cotto tritato, l\'uovo, il parmigiano, il pangrattato precedentemente ammollato nel latte e strizzato, un pizzico di noce moscata e sale fino a ottenere un impasto omogeneo. Incorpora la polpa tritata delle zucchine al ripieno, mescolando bene.',
+                    EN: 'In a bowl, mix the ground meat, chopped cooked ham, egg, Parmesan, breadcrumbs previously soaked in milk and squeezed, a pinch of nutmeg, and salt until smooth. Mix in the chopped zucchini flesh into the stuffing, mixing well.',
+                    PL: 'W misce wymieszaj mielone mięso, posiekaną gotowaną szynkę, jajko, Parmesan, bułkę tartą wcześniej namoczoną w mleku i odciśniętą, szczyptę gałki muszkatołowej oraz sól, aż do uzyskania jednolitej masy. Wmieszaj posiekaną miąższ cukinii do farszu, dokładnie mieszając.'
+                },
+                picture: 'URL of the step 2 picture',
+            },
+            {
+                description: {
+                    IT: 'Riempi il canale centrale delle zucchine con il ripieno preparato, compattandolo bene. Sigilla le estremità delle zucchine con parte del ripieno, formando un tappo di ripieno su ciascun capo per prevenire fuoriuscite durante la cottura.',
+                    EN: 'Fill the central channel of the zucchini with the prepared filling, packing it well. Seal the ends of the zucchini with some of the filling, forming a plug on each end to prevent leakage during cooking.',
+                    PL: 'Napełnij środkowy kanał cukinii przygotowanym farszem, dobrze go ubijając. Zakryj końce cukinii częścią farszu, formując zatyczkę na każdym końcu, aby zapobiec wyciekom podczas gotowania.'
+                },
+                picture: 'URL of the step 3 picture',
+            },
+            {
+                description: {
+                    IT: 'Riscalda un filo d\'olio d\'oliva in una padella larga e adagia le zucchine ripiene. Soffriggi per un po\'.',
+                    EN: 'Heat some olive oil in a wide pan and place the stuffed zucchini in it. Fry for a while.',
+                    PL: 'Rozgrzej trochę oliwy z oliwek na szerokiej patelni i umieść na niej faszerowane cukinie. Smaż przez chwilę.'
+                },
+                picture: 'URL of the step 4 picture',
+            },
+            {
+                description: {
+                    IT: 'Aggiungi passata e latte fino a coprire 1 terzo delle zucchine. Cuoci coperto a fuoco medio-basso per circa 20-30 minuti, finché le zucchine non sono tenere e il ripieno ben cotto.',
+                    EN: 'Add tomato sauce and milk until it covers one third of the zucchini. Cook covered on medium-low heat for about 20-30 minutes, until the zucchini are tender and the filling is well cooked.',
+                    PL: 'Dodaj passatę i mleko, aż przykryją jedną trzecią cukinii. Gotuj pod przykryciem na średnio-niskim ogniu przez około 20-30 minut, aż cukinie będą miękkie i nadzienie dobrze ugotowane.'
+                },
+                picture: 'URL of the step 5 picture',
+            },
+            {
+                description: {
+                    IT: 'Cuoci coperto a fuoco medio-basso per circa 20-30 minuti, finché le zucchine non sono tenere e il ripieno ben cotto.',
+                    EN: 'Cook covered on medium-low heat for about 20-30 minutes, until the zucchini are tender and the filling is well cooked.',
+                    PL: 'Gotuj pod przykryciem na średnio-niskim ogniu przez około 20-30 minut, aż cukinie będą miękkie i nadzienie dobrze ugotowane.'
+                },
+                picture: 'URL of the step 6 picture',
+            },
+        ],
+        notes: {
+            IT: "Aggiusta la quantità di latte in base alla consistenza desiderata del pangrattato e del sugo.",
+            EN: "Adjust the amount of milk depending on the desired consistency of the breadcrumbs and the sauce.",
+            PL: "Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu."
+        }
+    },
+    {
+        name: {
             IT: 'Budino alla vaniglia con maizena',
             EN: 'Vanilla Pudding with Cornstarch',
             PL: 'Budyń waniliowy ze skrobią kukurydzianą'

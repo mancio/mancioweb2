@@ -5,8 +5,8 @@ import {Fragment} from 'react';
 
 function StaticButton({style, color, text, click}){
 
-    const width = window.innerWidth < 400 ? window.innerWidth /1.2 : 500;
-    const fontSize = window.innerWidth < 400 ? 'large': 'x-large';
+    const width = window.innerWidth < 600 ? window.innerWidth /1.2 : 500;
+    const fontSize = window.innerWidth < 600 ? 'large': 'x-large';
 
     function returnHtmlText(text, charLimit) {
         const chunks = [];
