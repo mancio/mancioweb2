@@ -18,7 +18,7 @@ export const recipesList = [
                 '50g di prosciutto cotto, tritato finemente',
                 '50g di Parmigiano grattugiato',
                 'Un pizzico di noce moscata',
-                '1 uovo',
+                '2 uova', // Updated: 2 eggs
                 'Mezzo bicchiere di pangrattato',
                 'Latte q.b. per ammorbidire il pangrattato e fare il sugo',
                 'Sale q.b.',
@@ -30,7 +30,7 @@ export const recipesList = [
                 '50g finely chopped cooked ham',
                 '50g grated Parmesan cheese',
                 'A pinch of nutmeg',
-                '1 egg',
+                '2 eggs', // Updated: 2 eggs
                 'Half a glass of breadcrumbs',
                 'Milk as needed to soften the breadcrumbs and make the sauce',
                 'Salt to taste',
@@ -42,7 +42,7 @@ export const recipesList = [
                 '50g drobno pokrojonej gotowanej szynki',
                 '50g startego sera Parmesan',
                 'Szczypta gałki muszkatołowej',
-                '1 jajko',
+                '2 jajka', // Updated: 2 eggs
                 'Pół szklanki bułki tartej',
                 'Mleko w razie potrzeby do zmiękczenia bułki tartej i przygotowania sosu',
                 'Sól do smaku',
@@ -52,9 +52,9 @@ export const recipesList = [
         steps: [
             {
                 description: {
-                    IT: 'Lava e asciuga le zucchine. Usa un coltello lungo e sottile per forare delicatamente il centro lungo tutta la loro lunghezza, senza rompere le estremità. Estrai il nucleo con un coltellino apposito o un cucchiaino, creando un canale centrale.',
-                    EN: 'Wash and dry the zucchini. Use a long, thin knife to gently pierce the center along their entire length, being careful not to break the ends. Remove the core with a special knife or a teaspoon, creating a central channel.',
-                    PL: 'Umyj i osusz cukinie. Użyj długiego, cienkiego noża, aby delikatnie przekłuć środek wzdłuż całej ich długości, starając się nie złamać końcówek. Usuń rdzeń specjalnym nożykiem lub łyżeczką, tworząc centralny kanał.'
+                    IT: 'Lava e asciuga le zucchine. Usa un coltello lungo e sottile per forare delicatamente il centro lungo tutta la loro lunghezza, senza rompere le estremità. Estrai il nucleo con un coltellino apposito o un cucchiaino, creando un canale centrale. Usa solo una parte dei centri delle zucchine per il ripieno.', // Updated text
+                    EN: 'Wash and dry the zucchini. Use a long, thin knife to gently pierce the center along their entire length, being careful not to break the ends. Remove the core with a special knife or a teaspoon, creating a central channel. Use only a portion of the zucchini centers for the stuffing.', // Updated text
+                    PL: 'Umyj i osusz cukinie. Użyj długiego, cienkiego noża, aby delikatnie przekłuć środek wzdłuż całej ich długości, starając się nie złamać końcówek. Usuń rdzeń specjalnym nożykiem lub łyżeczką, tworząc centralny kanał. Użyj tylko części rdzeni cukinii na farsz.' // Updated text
                 },
                 picture: 'URL of the step 1 picture',
             },
@@ -100,9 +100,9 @@ export const recipesList = [
             },
         ],
         notes: {
-            IT: "Aggiusta la quantità di latte in base alla consistenza desiderata del pangrattato e del sugo.",
-            EN: "Adjust the amount of milk depending on the desired consistency of the breadcrumbs and the sauce.",
-            PL: "Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu."
+            IT: "Aggiusta la quantità di latte in base alla consistenza desiderata del pangrattato e del sugo. Assicurati che l'impasto di carne non sia troppo morbido e usa le restanti zucchine per fare il sugo della pasta.",
+            EN: "Adjust the amount of milk depending on the desired consistency of the breadcrumbs and the sauce. Ensure the meat mixture is not too soft and use the remaining zucchini to make pasta sauce.",
+            PL: "Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu. Upewnij się, że farsz mięsny nie jest zbyt miękki i użyj pozostałych cukinii do przygotowania sosu do makaronu."
         }
     },
     {
