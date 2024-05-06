@@ -2456,3 +2456,22 @@ export const recipesList = [
 
 
  */
+
+
+const recipeText = ` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`
