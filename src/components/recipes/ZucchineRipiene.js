@@ -123,4 +123,4 @@ Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej 
 że farsz mięsny nie jest zbyt miękki i użyj pozostałych cukinii do przygotowania sosu do makaronu.
 `
 
-export const ZucchineRipiene = [ZucchineRipieneIT, ZucchineRipieneEN, ZucchineRipienePL]
+export const ZucchineRipiene = ZucchineRipieneIT + ZucchineRipieneEN + ZucchineRipienePL;

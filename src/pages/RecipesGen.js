@@ -1,6 +1,6 @@
 import '../App.css';
 import {
-    changeIngredientQuantity,
+    changeIngredientQuantity, convertRecipeToList,
     getSharedLanguage, numberToEmoji,
     removeSpaceLowerCaseString,
     setSharedLanguage
@@ -12,6 +12,8 @@ import {ENGLISH, ITALIAN, MAGIC_SEPARATOR, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
+import {ZucchineRipieneEN} from "../components/recipes/ZucchineRipiene";
+
 function RecipesGen(){
 
     const navigate = useNavigate();
@@ -20,6 +22,8 @@ function RecipesGen(){
     const [currentLanguage, setCurrentLanguage] = useState(getSharedLanguage());
     const [recipe, setRecipe] = useState(null);
     const [multiplier, setMultiplier] = useState(1);
+
+
 
 
     useEffect(() => {
