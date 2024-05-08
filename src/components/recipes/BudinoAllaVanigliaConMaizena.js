@@ -1,5 +1,5 @@
 const BudinoAllaVanigliaConMaizenaIT = `
-
+-
 IT
 -
 Budino alla vaniglia con maizena
@@ -32,7 +32,7 @@ Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa 
 `
 
 const BudinoAllaVanigliaConMaizenaEN = `
-
+-
 EN
 -
 Vanilla Pudding with Cornstarch
@@ -65,7 +65,7 @@ For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
 `
 
 const BudinoAllaVanigliaConMaizenaPL = `
-
+-
 PL
 -
 Budyń waniliowy ze skrobią kukurydzianą
@@ -97,5 +97,5 @@ Wyjmij budyń na talerzyki i podawaj.
 Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową.
 `
 
-export const BudinoAllaVanigliaConMaizena = BudinoAllaVanigliaConMaizenaIT + BudinoAllaVanigliaConMaizenaEN +
-    BudinoAllaVanigliaConMaizenaPL;
+export const BudinoAllaVanigliaConMaizena = [BudinoAllaVanigliaConMaizenaIT, BudinoAllaVanigliaConMaizenaEN,
+    BudinoAllaVanigliaConMaizenaPL];
