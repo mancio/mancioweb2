@@ -50,32 +50,26 @@ export const recipeFullList = [
     ...ZucchineRipiene
 ]
 
-let recipes = {
-    totalNumberOfRecipes: 0,
-    recipeList: []
-};
-
-let uniqueRecipes = new Set();
+let recipes = new Map();
+let totalNumberOfRecipes = 0;
+const recipeMapVersion = 1;
 
 function addRecipe(recipeLanguage, recipeName, servings, ingredients, steps, notes, pictures) {
     let recipe = {
         language: recipeLanguage,
-        name: recipeName,
         servings: servings,
         ingredients: ingredients,
         steps: steps,
         notes: notes,
         pictures: pictures
     };
-    recipes.recipeList.push(recipe);
 
-    // Check if the recipe name is already in the set of unique recipes
-    if (!uniqueRecipes.has(recipeName)) {
-        uniqueRecipes.add(recipeName);
-        recipes.totalNumberOfRecipes++;
+    // Check if the recipe name is already in the map of recipes
+    if (!recipes.has(recipeName)) {
+        recipes.set(recipeName, recipe);
+        totalNumberOfRecipes++;
     }
 }
-
 
 export function getRecipesNamesAndLang(recipesArray) {
     for (let i = 0; i < recipesArray.length; i++) {
@@ -89,20 +83,9 @@ export function getRecipesNamesAndLang(recipesArray) {
         let recipeName = recipeLines[firstNonEmptyLineIndex + 2].trim();
         let servings = recipeLines[firstNonEmptyLineIndex + 6].trim();
 
-        // Find the indices of the '-' lines
-        let dashIndices = recipeLines.reduce((indices, line, index) => {
-            if (line === '-') indices.push(index);
-            return indices;
-        }, []);
 
-        // Extract all the picture lines and store them in the pictures object
-        let pictures = {};
-        for (let j = dashIndices[1] + 1; j < dashIndices[2]; j++) {
-            let pictureLine = recipeLines[j].trim().split(' - ');
-            pictures[pictureLine[0]] = pictureLine[1];
-        }
 
-        let ingredients = recipeLines.slice(dashIndices[2] + 1, dashIndices[3]);
+        let ingredients = recipeLines[firstNonEmptyLineIndex + 6].trim();
         let steps = recipeLines.slice(dashIndices[3] + 1, dashIndices[4]).join('\n').split('\n\n');
         let notes = recipeLines[dashIndices[4] + 1].trim();
 

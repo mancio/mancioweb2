@@ -1,5 +1,5 @@
 const BudinoAllaVanigliaConMaizenaIT = `
--
+
 IT
 -
 Budino alla vaniglia con maizena
@@ -32,7 +32,7 @@ Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa 
 `
 
 const BudinoAllaVanigliaConMaizenaEN = `
--
+
 EN
 -
 Vanilla Pudding with Cornstarch
@@ -65,21 +65,27 @@ For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
 `
 
 const BudinoAllaVanigliaConMaizenaPL = `
--
+
+1
 PL
--
+
+2
 Budyń waniliowy ze skrobią kukurydzianą
--
-[https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
--
+
+3
+1 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
+
+4
 Składniki na 6 foremek
--
+
+5
 500 ml mleka
 2 jajka 
 100 g cukru 
 1 laska wanilii 
 3 łyżki skrobi kukurydzianej 
--
+
+6
 Naciń laskę wanilii i gotuj w mleku na małym ogniu przez 5 minut, aby uwolnić aromat.
 
 W misce ubij jajka z cukrem.
@@ -93,7 +99,8 @@ Włóż ponownie na ogień i gotuj, aż masa zgęstnieje.
 Przelej masę do foremek i odstaw do lodówki na 3 godziny.
 
 Wyjmij budyń na talerzyki i podawaj.
--
+
+7
 Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową.
 `
 
