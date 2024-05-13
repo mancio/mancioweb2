@@ -45,52 +45,87 @@ export function batteryPercentage(voltageStr) {
 
 /////////// recipes list handler
 
-export const recipeFullList = [
+const recipeFullList = [
     ...BudinoAllaVanigliaConMaizena,
     ...ZucchineRipiene
 ]
 
-let recipes = new Map();
-let totalNumberOfRecipes = 0;
-const recipeMapVersion = 1;
+function splitTextIntoBlocks(text) {
+    // Trim leading and trailing whitespace from the entire text
+    text = text.trim();
 
-function addRecipe(recipeLanguage, recipeName, servings, ingredients, steps, notes, pictures) {
-    let recipe = {
-        language: recipeLanguage,
-        servings: servings,
-        ingredients: ingredients,
-        steps: steps,
-        notes: notes,
-        pictures: pictures
-    };
+    // Split the trimmed text into lines
+    const lines = text.split('\n');
 
-    // Check if the recipe name is already in the map of recipes
-    if (!recipes.has(recipeName)) {
-        recipes.set(recipeName, recipe);
-        totalNumberOfRecipes++;
+    // Prepare an array to hold the blocks
+    let blocks = [];
+    let currentBlock = [];
+
+    // Iterate through each line
+    lines.forEach(line => {
+        // Check if the line is just a dash
+        if (line.trim() === '-') {
+            // When a dash is found and there is collected text, save it as a block
+            if (currentBlock.length > 0) {
+                blocks.push(currentBlock.join('\n')); // Join the block without trimming internal content
+                currentBlock = []; // Reset current block
+            }
+        } else {
+            // If not a dash, add the line to the current block
+            currentBlock.push(line);
+        }
+    });
+
+    // Add the last block if any lines remain
+    if (currentBlock.length > 0) {
+        blocks.push(currentBlock.join('\n'));
     }
+
+    return blocks;
 }
 
-export function getRecipesNamesAndLang(recipesArray) {
-    for (let i = 0; i < recipesArray.length; i++) {
-        let recipeText = recipesArray[i];
-        let recipeLines = recipeText.split('\n');
+export function getRecipeData(text){
+    const textBlocks = splitTextIntoBlocks(text);
 
-        // Find the first non-empty line
-        let firstNonEmptyLineIndex = recipeLines.findIndex(line => line.trim() !== '');
+    const recipeLanguage = textBlocks[0].trim();
+    const recipeName = textBlocks[1].trim();
+    const servings = textBlocks[2].trim();
+    const ingredients = textBlocks[3].split('\n').trim();
+    const steps = textBlocks[4].split('\n\n').trim();
+    const notes = textBlocks[5].split('\n').trim();
 
-        let language = recipeLines[firstNonEmptyLineIndex].trim();
-        let recipeName = recipeLines[firstNonEmptyLineIndex + 2].trim();
-        let servings = recipeLines[firstNonEmptyLineIndex + 6].trim();
+    const pictureLines = textBlocks[6].split('\n').trim();
 
+    // Prepare an array to hold the number and URL pairs
+    let pictures = [];
 
+    // Iterate through each line, assuming each line contains a picture
+    pictureLines.forEach(line => {
+        const trimmedLine = line.trim();
+        if (trimmedLine) { // Ensure the line is not empty
+            // Split the line around ' - ' to separate the number and the URL part
+            const parts = trimmedLine.split(' - ');
 
-        let ingredients = recipeLines[firstNonEmptyLineIndex + 6].trim();
-        let steps = recipeLines.slice(dashIndices[3] + 1, dashIndices[4]).join('\n').split('\n\n');
-        let notes = recipeLines[dashIndices[4] + 1].trim();
+            // Parse the number, assumed to be before ' - '
+            const number = parseInt(parts[0], 10);
 
-        addRecipe(language, recipeName, servings, ingredients, steps, notes, pictures);
-    }
+            // Extract the URL from between the brackets
+            const url = parts[1].slice(1, -1); // Removes the enclosing []
+
+            // Store the number and URL as an object in the pictures array
+            pictures.push({ number, url });
+        }
+    });
+
+   return {
+       language: recipeLanguage,
+       name: recipeName,
+       servings: servings,
+       ingredients: ingredients,
+       steps: steps,
+       notes: notes,
+       pictures: pictures
+   };
 }
 
 
