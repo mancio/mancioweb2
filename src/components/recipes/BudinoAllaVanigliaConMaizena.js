@@ -4,8 +4,6 @@ IT
 -
 Budino alla vaniglia con maizena
 -
-[https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
--
 Ingredienti per 6 stampini
 -
 500 ml di latte
@@ -29,6 +27,8 @@ Versate il composto ottenuto negli stampini e mettete in frigo per 3 ore.
 Capovolgete il budino alla vaniglia nei piattini e servite.
 -
 Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa al cioccolato.
+-
+0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
 `
 
 const BudinoAllaVanigliaConMaizenaEN = `
@@ -36,8 +36,6 @@ const BudinoAllaVanigliaConMaizenaEN = `
 EN
 -
 Vanilla Pudding with Cornstarch
--
-[https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
 -
 Ingredients for 6 molds
 -
@@ -62,6 +60,8 @@ Pour the mixture into molds and refrigerate for 3 hours.
 Unmold the vanilla pudding onto plates and serve.
 -
 For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
+-
+0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
 `
 
 const BudinoAllaVanigliaConMaizenaPL = `
@@ -95,9 +95,11 @@ Wyjmij budyń na talerzyki i podawaj.
 -
 Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową.
 -
-1 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
-5 - [https://www.giallozafferano.it/images/6-626/Budinokjubob-alla-vaniglia_450x300.jpg]
+0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
 `
 
-export const BudinoAllaVanigliaConMaizena = [BudinoAllaVanigliaConMaizenaIT, BudinoAllaVanigliaConMaizenaEN,
-    BudinoAllaVanigliaConMaizenaPL];
+export const BudinoAllaVanigliaConMaizena = [
+    { code: 0, name: "Budino alla vaniglia con maizena", language: "IT", text: BudinoAllaVanigliaConMaizenaIT},
+    { code: 0, name: "Vanilla Pudding with Cornstarch", language: "EN", text: BudinoAllaVanigliaConMaizenaEN},
+    { code: 0, name: "Budyń waniliowy ze skrobią kukurydzianą", language: "PL", text: BudinoAllaVanigliaConMaizenaPL}
+];

@@ -4,8 +4,6 @@ IT
 -
 Zucchine Ripiene
 -
-[https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
--
 4 porzioni
 -
 4 zucchine medie
@@ -36,7 +34,8 @@ Cuoci coperto a fuoco medio-basso per circa 20-30 minuti, finché le zucchine no
 -
 Aggiusta la quantità di latte in base alla consistenza desiderata del pangrattato e del sugo. 
 Assicurati che l'impasto di carne non sia troppo morbido e usa le restanti zucchine per fare il sugo della pasta.
-
+-
+0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 `
 
 const ZucchineRipieneEN = `
@@ -44,8 +43,6 @@ const ZucchineRipieneEN = `
 EN
 -
 Stuffed Zucchini
--
-[https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 -
 4 servings
 -
@@ -66,7 +63,6 @@ Use only a portion of the zucchini centers for the stuffing.
 
 In a bowl, mix the ground meat, chopped cooked ham, egg, Parmesan, breadcrumbs previously soaked in milk and squeezed, 
 a pinch of nutmeg, and salt until smooth. Mix in the chopped zucchini flesh into the stuffing, mixing well.
-[https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 
 Fill the central channel of the zucchini with the prepared filling, packing it well. Seal the ends of the zucchini with some of the filling,
 forming a plug on each end to prevent leakage during cooking.
@@ -80,6 +76,8 @@ Cook covered on medium-low heat for about 20-30 minutes, until the zucchini are 
 -
 Adjust the amount of milk depending on the desired consistency of the breadcrumbs and the sauce. 
 Ensure the meat mixture is not too soft and use the remaining zucchini to make pasta sauce.
+-
+0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 `
 
 const ZucchineRipienePL = `
@@ -87,8 +85,6 @@ const ZucchineRipienePL = `
 PL
 -
 Cukinie Faszerowane
--
-[https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 -
 4 porcje
 -
@@ -121,6 +117,12 @@ aż cukinie będą miękkie, a farsz dobrze ugotowany.
 -
 Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu. Upewnij się, 
 że farsz mięsny nie jest zbyt miękki i użyj pozostałych cukinii do przygotowania sosu do makaronu.
+-
+0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
 `
 
-export const ZucchineRipiene = [ZucchineRipieneIT, ZucchineRipieneEN, ZucchineRipienePL];
+export const ZucchineRipiene = [
+    { code: 1, name: "Zucchine Ripiene", language: "IT", text: ZucchineRipieneIT},
+    { code: 1, name: "Stuffed Zucchini", language: "EN", text: ZucchineRipieneEN},
+    { code: 1, name: "Cukinie Faszerowane", language: "PL", text: ZucchineRipienePL}
+];

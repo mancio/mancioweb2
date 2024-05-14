@@ -1,13 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {
-    DESKTOP,
-    ENGLISH,
-    ITALIAN,
-    LANGUAGE_RECIPE_KEY,
-    PHONE,
-    TABLET
-} from "./Names";
+import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, TABLET} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -49,6 +42,8 @@ const recipeFullList = [
     ...BudinoAllaVanigliaConMaizena,
     ...ZucchineRipiene
 ]
+
+export const recipeModel = { code: 1, name: "", language: "IT", text: ""};
 
 function splitTextIntoBlocks(text) {
     // Trim leading and trailing whitespace from the entire text
@@ -128,6 +123,25 @@ export function getRecipeData(text){
    };
 }
 
+export function getRecipeByLangText(lang, text) {
+
+    const partName = text.toLowerCase();
+
+    // Filter the recipes array to get only the recipes that match the specified language and include the given text
+    const filteredRecipes = recipeFullList.filter(recipe =>
+        recipe.language === lang && recipe.name.toLowerCase().includes(partName)
+    );
+
+    // Map the filtered recipes to an array of names
+    return filteredRecipes.map(recipe => recipe.name);
+}
+
+export function getRecipeByUrl(text) {
+    // Filter the recipes array to get the first recipe that exactly matches the modified URL text
+    return recipeFullList.find(recipe =>
+        removeSpaceLowerCaseString(recipe.name) === removeSpaceLowerCaseString(text)
+    );
+}
 
 
 //////// end
