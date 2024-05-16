@@ -1,4 +1,6 @@
-const ZucchineRipieneIT = `
+import {EMPTY} from "../../logic/Names";
+
+export const ZucchineRipieneIT = `
 
 IT
 -
@@ -28,7 +30,7 @@ Sigilla le estremità delle zucchine con parte del ripieno, formando un tappo di
 
 Riscalda un filo d'olio d'oliva in una padella larga e adagia le zucchine ripiene. Soffriggi per un po'.
 
-Aggiungi passata e latte fino a coprire 1 terzo delle zucchine. Cuoci coperto a fuoco medio-basso per circa 20-30 minuti, finché le zucchine non sono tenere e il ripieno ben cotto.
+Aggiungi passata e latte fino a coprire 1 terzo delle zucchine.
 
 Cuoci coperto a fuoco medio-basso per circa 20-30 minuti, finché le zucchine non sono tenere e il ripieno ben cotto.
 -
@@ -36,6 +38,8 @@ Aggiusta la quantità di latte in base alla consistenza desiderata del pangratta
 Assicurati che l'impasto di carne non sia troppo morbido e usa le restanti zucchine per fare il sugo della pasta.
 -
 0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
+-
+${EMPTY}
 `
 
 const ZucchineRipieneEN = `
@@ -69,8 +73,7 @@ forming a plug on each end to prevent leakage during cooking.
 
 Heat some olive oil in a wide pan and place the stuffed zucchini in it. Fry for a while.
 
-Add tomato sauce and milk until it covers one third of the zucchini. Cook covered on medium-low heat for about 20-30 minutes,
-until the zucchini are tender and the filling is well cooked.
+Add tomato sauce and milk until it covers one third of the zucchini. 
 
 Cook covered on medium-low heat for about 20-30 minutes, until the zucchini are tender and the filling is well cooked.
 -
@@ -78,6 +81,8 @@ Adjust the amount of milk depending on the desired consistency of the breadcrumb
 Ensure the meat mixture is not too soft and use the remaining zucchini to make pasta sauce.
 -
 0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
+-
+${EMPTY}
 `
 
 const ZucchineRipienePL = `
@@ -100,25 +105,27 @@ Sól do smaku
 Oliwa z oliwek do smażenia
 -
 Umyj i osusz cukinie. Użyj długiego i cienkiego noża, aby delikatnie przekłuć środek wzdłuż całej ich długości, nie łamiąc końców.
-
 Wyjmij rdzeń za pomocą specjalnego nożyka lub łyżeczki, tworząc centralny kanał. Użyj tylko części środków cukinii do nadzienia.
 
 W misce wymieszaj mielone mięso, posiekaną gotowaną szynkę, jajko, parmezan, bułkę tartą wcześniej namoczoną w mleku i odciśniętą,
 szczyptę gałki muszkatołowej i sól, aż uzyskasz jednolitą masę. Dodaj posiekaną miąższ cukinii do farszu, dobrze mieszając.
 
 Wypełnij centralny kanał cukinii przygotowanym farszem, dobrze go ubijając.
-
 Zaklej końce cukinii częścią farszu, tworząc korek z farszu na każdym końcu, aby zapobiec wyciekom podczas gotowania.
 
 Rozgrzej odrobinę oliwy z oliwek na dużej patelni i ułóż faszerowane cukinie. Podsmaż przez chwilę.
 
-Dodaj przecier pomidorowy i mleko, aby przykryć 1/3 cukinii. Gotuj pod przykryciem na średnio-niskim ogniu przez około 20-30 minut,
+Dodaj przecier pomidorowy i mleko, aby przykryć 1/3 cukinii. 
+
+Gotuj pod przykryciem na średnio-niskim ogniu przez około 20-30 minut,
 aż cukinie będą miękkie, a farsz dobrze ugotowany.
 -
 Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu. Upewnij się, 
 że farsz mięsny nie jest zbyt miękki i użyj pozostałych cukinii do przygotowania sosu do makaronu.
 -
 0 - [https://www.cuocicuoci.com/wp-content/uploads/2020/08/zucchine-ripiene-in-umido.jpg]
+-
+${EMPTY}
 `
 
 export const ZucchineRipiene = [

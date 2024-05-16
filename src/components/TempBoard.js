@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SantaSun from '../pictures/icons/santa-sun.svg';
 import {
     batteryPercentage,
     getFirebaseSetUp,
@@ -40,11 +41,13 @@ function TempBoard() {
     return (
         <div>
             <h2>Last update: {unixToPolishTime(datetime)}</h2>
-            <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃ </h2>
+            <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃</h2>
+            <img src={SantaSun} alt="Descriptive Text" style={{ width: '100px', height: 'auto' }} />
             <h2>🔋: {roundStringToTwoDecimals(voltage)} Volts</h2>
             <h2>Battery level: {batteryPercentage(voltage)}</h2>
         </div>
     );
+
 }
 
 export default TempBoard;

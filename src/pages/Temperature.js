@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import '../App.css';
 import TempBoard from "../components/TempBoard";
 import BetterButton from "../components/BetterButton";
+import {MENU} from "../logic/Names";
+import {useNavigate} from "react-router-dom";
 
 function Temperature(){
+
+    const navigate = useNavigate();
+
+
     const [inputPassword, setInputPassword] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -41,6 +47,10 @@ function Temperature(){
                     <TempBoard/>
                 </div>
             )}
+            <BetterButton
+                text="Back"
+                click={()=>navigate(MENU)}
+            />
         </div>
     );
 }

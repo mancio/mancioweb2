@@ -1,3 +1,5 @@
+import {EMPTY} from "../../logic/Names";
+
 const BudinoAllaVanigliaConMaizenaIT = `
 
 IT
@@ -29,6 +31,8 @@ Capovolgete il budino alla vaniglia nei piattini e servite.
 Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa al cioccolato.
 -
 0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
+-
+${EMPTY}
 `
 
 const BudinoAllaVanigliaConMaizenaEN = `
@@ -62,6 +66,8 @@ Unmold the vanilla pudding onto plates and serve.
 For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
 -
 0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
+-
+${EMPTY}
 `
 
 const BudinoAllaVanigliaConMaizenaPL = `
@@ -96,6 +102,8 @@ Wyjmij budyń na talerzyki i podawaj.
 Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową.
 -
 0 - [https://www.giallozafferano.it/images/6-626/Budino-alla-vaniglia_450x300.jpg]
+-
+${EMPTY}
 `
 
 export const BudinoAllaVanigliaConMaizena = [

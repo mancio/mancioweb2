@@ -17,7 +17,7 @@ import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
 import {BudinoAllaVanigliaConMaizena} from "../components/recipes/BudinoAllaVanigliaConMaizena";
-import {ZucchineRipiene} from "../components/recipes/ZucchineRipiene";
+import {ZucchineRipiene, ZucchineRipieneIT} from "../components/recipes/ZucchineRipiene";
 
 export function roundStringToTwoDecimals(strNum) {
     const num = parseFloat(strNum);
@@ -43,7 +43,17 @@ const recipeFullList = [
     ...ZucchineRipiene
 ]
 
-export const recipeModel = { code: 1, name: "", language: "IT", text: ""};
+export const recipeModel = { code: 1, name: "", language: ITALIAN, text: ZucchineRipieneIT};
+export const recipeDataModel = {
+    language: ITALIAN,
+    name: "recipeName",
+    servings: "servings",
+    ingredients: [""],
+    steps: [""],
+    notes: "notes",
+    pictures: [{ number: 0, url: "https:....." }],
+    video: "url"
+};
 
 function splitTextIntoBlocks(text) {
     // Trim leading and trailing whitespace from the entire text
@@ -81,15 +91,14 @@ function splitTextIntoBlocks(text) {
 
 export function getRecipeData(text){
     const textBlocks = splitTextIntoBlocks(text);
-
     const recipeLanguage = textBlocks[0].trim();
     const recipeName = textBlocks[1].trim();
     const servings = textBlocks[2].trim();
-    const ingredients = textBlocks[3].split('\n').trim();
-    const steps = textBlocks[4].split('\n\n').trim();
-    const notes = textBlocks[5].split('\n').trim();
+    const ingredients = textBlocks[3].trim().split('\n');
+    const steps = textBlocks[4].trim().split('\n\n');
+    const notes = textBlocks[5].trim();
 
-    const pictureLines = textBlocks[6].split('\n').trim();
+    const pictureLines = textBlocks[6].trim().split('\n');
 
     // Prepare an array to hold the number and URL pairs
     let pictures = [];
@@ -112,6 +121,8 @@ export function getRecipeData(text){
         }
     });
 
+   const video = textBlocks[7].trim();
+
    return {
        language: recipeLanguage,
        name: recipeName,
@@ -119,7 +130,8 @@ export function getRecipeData(text){
        ingredients: ingredients,
        steps: steps,
        notes: notes,
-       pictures: pictures
+       pictures: pictures,
+       video: video
    };
 }
 
@@ -142,6 +154,38 @@ export function getRecipeByUrl(text) {
         removeSpaceLowerCaseString(recipe.name) === removeSpaceLowerCaseString(text)
     );
 }
+
+export function getLanguagesByCode(code) {
+    // Filter recipes to get only those with the specified code
+    const recipesWithCode = recipeFullList.filter(recipe => recipe.code === code);
+
+    // Extract the languages from the filtered recipes
+    const languages = recipesWithCode.map(recipe => recipe.language);
+
+    // Sort the languages in alphabetical order
+    languages.sort();
+
+    // Ensure Italian is the first language if it is present in the array
+    const index = languages.indexOf(ITALIAN);
+    if (index > -1) {
+        languages.splice(index, 1); // Remove 'Italian' from its current position
+        languages.unshift(ITALIAN); // Insert 'Italian' at the start of the array
+    }
+
+    return languages;
+}
+
+export function getRecipeNameByCodeLang(code, lang) {
+    // Assuming recipeFullList is an array containing recipe objects
+    const matchedRecipe = recipeFullList.find(recipe =>
+        recipe.code === code && recipe.language === lang
+    );
+
+    // Return the name of the found recipe, or null if no recipe matches the criteria
+    return matchedRecipe ? matchedRecipe.name : null;
+}
+
+
 
 
 //////// end
