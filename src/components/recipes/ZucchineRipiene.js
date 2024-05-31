@@ -1,4 +1,5 @@
 import {EMPTY} from "../../logic/Names";
+import {getNewRecipeGroupNumber} from "../../logic/Functions";
 
 export const ZucchineRipieneIT = `
 
@@ -61,21 +62,20 @@ Milk as needed to soften the breadcrumbs and make the sauce
 Salt to taste 
 Olive oil for frying 
 -
-Wash and dry the zucchini. Use a long, thin knife to gently pierce the center along their entire length, 
-being careful not to break the ends. Remove the core with a special knife or a teaspoon, creating a central channel. 
-Use only a portion of the zucchini centers for the stuffing.
+Wash and dry the zucchinis. Use a long, thin knife to gently pierce the center along their entire length without breaking the ends.
+Extract the core with a special knife or a teaspoon, creating a central channel. Use only part of the zucchini cores for the filling.
 
-In a bowl, mix the ground meat, chopped cooked ham, egg, Parmesan, breadcrumbs previously soaked in milk and squeezed, 
-a pinch of nutmeg, and salt until smooth. Mix in the chopped zucchini flesh into the stuffing, mixing well.
+In a bowl, mix the ground meat, chopped cooked ham, egg, Parmesan cheese, breadcrumbs previously soaked in milk and squeezed,
+a pinch of nutmeg, and salt until you get a homogeneous mixture. Incorporate the chopped zucchini pulp into the filling, mixing well.
 
-Fill the central channel of the zucchini with the prepared filling, packing it well. Seal the ends of the zucchini with some of the filling,
-forming a plug on each end to prevent leakage during cooking.
+Fill the central channel of the zucchinis with the prepared filling, compacting it well.
+Seal the ends of the zucchinis with part of the filling, forming a filling plug at each end to prevent leakage during cooking.
 
-Heat some olive oil in a wide pan and place the stuffed zucchini in it. Fry for a while.
+Heat a drizzle of olive oil in a large pan and place the stuffed zucchinis. Sauté for a bit.
 
-Add tomato sauce and milk until it covers one third of the zucchini. 
+Add tomato sauce and milk until covering one-third of the zucchinis.
 
-Cook covered on medium-low heat for about 20-30 minutes, until the zucchini are tender and the filling is well cooked.
+Cook covered over medium-low heat for about 20-30 minutes, until the zucchinis are tender and the filling is well cooked.
 -
 Adjust the amount of milk depending on the desired consistency of the breadcrumbs and the sauce. 
 Ensure the meat mixture is not too soft and use the remaining zucchini to make pasta sauce.
@@ -104,21 +104,20 @@ Mleko w razie potrzeby, aby zmiękczyć bułkę tartą i zrobić sos
 Sól do smaku
 Oliwa z oliwek do smażenia
 -
-Umyj i osusz cukinie. Użyj długiego i cienkiego noża, aby delikatnie przekłuć środek wzdłuż całej ich długości, nie łamiąc końców.
-Wyjmij rdzeń za pomocą specjalnego nożyka lub łyżeczki, tworząc centralny kanał. Użyj tylko części środków cukinii do nadzienia.
+Umyj i osusz cukinie. Użyj długiego, cienkiego noża, aby delikatnie przebić środek na całej długości, nie łamiąc końców.
+Wyciągnij rdzeń specjalnym nożem lub łyżeczką, tworząc centralny kanał. Użyj tylko części rdzeni cukinii do nadzienia.
 
-W misce wymieszaj mielone mięso, posiekaną gotowaną szynkę, jajko, parmezan, bułkę tartą wcześniej namoczoną w mleku i odciśniętą,
-szczyptę gałki muszkatołowej i sól, aż uzyskasz jednolitą masę. Dodaj posiekaną miąższ cukinii do farszu, dobrze mieszając.
+W misce wymieszaj mielone mięso, posiekaną gotowaną szynkę, jajko, ser parmezan, bułkę tartą wcześniej namoczoną w mleku i odciśniętą,
+szczyptę gałki muszkatołowej i sól, aż uzyskasz jednolitą masę. Dodaj posiekaną pulpę cukinii do nadzienia, dobrze mieszając.
 
-Wypełnij centralny kanał cukinii przygotowanym farszem, dobrze go ubijając.
-Zaklej końce cukinii częścią farszu, tworząc korek z farszu na każdym końcu, aby zapobiec wyciekom podczas gotowania.
+Wypełnij centralny kanał cukinii przygotowanym nadzieniem, dobrze go ubijając.
+Zamknij końce cukinii częścią nadzienia, tworząc zatyczki z nadzienia na każdym końcu, aby zapobiec wyciekaniu podczas gotowania.
 
-Rozgrzej odrobinę oliwy z oliwek na dużej patelni i ułóż faszerowane cukinie. Podsmaż przez chwilę.
+Podgrzej odrobinę oliwy z oliwek na dużej patelni i umieść nadziane cukinie. Smaż przez chwilę.
 
-Dodaj przecier pomidorowy i mleko, aby przykryć 1/3 cukinii. 
+Dodaj passatę i mleko, aby pokryć jedną trzecią cukinii.
 
-Gotuj pod przykryciem na średnio-niskim ogniu przez około 20-30 minut,
-aż cukinie będą miękkie, a farsz dobrze ugotowany.
+Gotuj pod przykryciem na średnim-niskim ogniu przez około 20-30 minut, aż cukinie będą miękkie, a nadzienie dobrze ugotowane.
 -
 Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej i sosu. Upewnij się, 
 że farsz mięsny nie jest zbyt miękki i użyj pozostałych cukinii do przygotowania sosu do makaronu.
@@ -128,8 +127,10 @@ Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej 
 ${EMPTY}
 `
 
+const num = getNewRecipeGroupNumber();
+
 export const ZucchineRipiene = [
-    { code: 1, name: "Zucchine Ripiene", language: "IT", text: ZucchineRipieneIT},
-    { code: 1, name: "Stuffed Zucchini", language: "EN", text: ZucchineRipieneEN},
-    { code: 1, name: "Cukinie Faszerowane", language: "PL", text: ZucchineRipienePL}
+    { code: num, name: "Zucchine Ripiene", language: "IT", text: ZucchineRipieneIT},
+    { code: num, name: "Stuffed Zucchini", language: "EN", text: ZucchineRipieneEN},
+    { code: num, name: "Cukinie Faszerowane", language: "PL", text: ZucchineRipienePL}
 ];

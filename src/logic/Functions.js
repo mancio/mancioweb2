@@ -18,6 +18,7 @@ import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
 import {BudinoAllaVanigliaConMaizena} from "../components/recipes/BudinoAllaVanigliaConMaizena";
 import {ZucchineRipiene, ZucchineRipieneIT} from "../components/recipes/ZucchineRipiene";
+import {PaniniNapoletani} from "../components/recipes/PaniniNapoletani";
 
 export function roundStringToTwoDecimals(strNum) {
     const num = parseFloat(strNum);
@@ -38,9 +39,17 @@ export function batteryPercentage(voltageStr) {
 
 /////////// recipes list handler
 
+var recipeGroupNumber;
+
+export function getNewRecipeGroupNumber() {
+    recipeGroupNumber = recipeGroupNumber || 0;
+    return ++recipeGroupNumber;
+}
+
 const recipeFullList = [
     ...BudinoAllaVanigliaConMaizena,
-    ...ZucchineRipiene
+    ...ZucchineRipiene,
+    ...PaniniNapoletani
 ]
 
 export const recipeModel = { code: 1, name: "", language: ITALIAN, text: ZucchineRipieneIT};

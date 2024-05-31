@@ -1,4 +1,5 @@
 import {EMPTY} from "../../logic/Names";
+import {getNewRecipeGroupNumber} from "../../logic/Functions";
 
 const BudinoAllaVanigliaConMaizenaIT = `
 
@@ -49,19 +50,19 @@ Ingredients for 6 molds
 1 vanilla pod 
 3 tablespoons of cornstarch 
 -
-Slit the vanilla pod and simmer in milk for 5 minutes to release its flavor.
+Slit a vanilla pod and let it simmer in milk for 5 minutes, so that it releases all its aroma.
 
-Whisk the eggs with the sugar in a bowl.
+In a bowl, beat the eggs with the sugar.
 
 Add the cornstarch and form a cream.
 
 Strain the milk, add it to the egg cream, and mix.
 
-Return to the heat and cook until the mixture thickens.
+Put it back on the heat and let it thicken.
 
 Pour the mixture into molds and refrigerate for 3 hours.
 
-Unmold the vanilla pudding onto plates and serve.
+Turn the vanilla pudding onto small plates and serve.
 -
 For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
 -
@@ -85,19 +86,19 @@ Składniki na 6 foremek
 1 laska wanilii 
 3 łyżki skrobi kukurydzianej 
 -
-Naciń laskę wanilii i gotuj w mleku na małym ogniu przez 5 minut, aby uwolnić aromat.
+Rozetnij laskę wanilii i gotuj ją na wolnym ogniu w mleku przez 5 minut, aby uwolniła cały swój aromat.
 
 W misce ubij jajka z cukrem.
 
-Dodaj mąkę kukurydzianą i utwórz krem.
+Dodaj skrobię kukurydzianą i uformuj krem.
 
-Przecedź mleko, dodaj do kremu jajecznego i mieszaj.
+Przecedź mleko, dodaj je do kremu jajecznego i wymieszaj.
 
-Włóż ponownie na ogień i gotuj, aż masa zgęstnieje.
+Ponownie podgrzej na ogniu i gotuj, aż zgęstnieje.
 
-Przelej masę do foremek i odstaw do lodówki na 3 godziny.
+Wlej mieszankę do foremek i schładzaj w lodówce przez 3 godziny.
 
-Wyjmij budyń na talerzyki i podawaj.
+Odwróć waniliowy budyń na talerzyki i podawaj.
 -
 Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czekoladową.
 -
@@ -105,9 +106,10 @@ Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czeko
 -
 ${EMPTY}
 `
+const num = getNewRecipeGroupNumber();
 
 export const BudinoAllaVanigliaConMaizena = [
-    { code: 0, name: "Budino alla vaniglia con maizena", language: "IT", text: BudinoAllaVanigliaConMaizenaIT},
-    { code: 0, name: "Vanilla Pudding with Cornstarch", language: "EN", text: BudinoAllaVanigliaConMaizenaEN},
-    { code: 0, name: "Budyń waniliowy ze skrobią kukurydzianą", language: "PL", text: BudinoAllaVanigliaConMaizenaPL}
+    { code: num, name: "Budino alla vaniglia con maizena", language: "IT", text: BudinoAllaVanigliaConMaizenaIT},
+    { code: num, name: "Vanilla Pudding with Cornstarch", language: "EN", text: BudinoAllaVanigliaConMaizenaEN},
+    { code: num, name: "Budyń waniliowy ze skrobią kukurydzianą", language: "PL", text: BudinoAllaVanigliaConMaizenaPL}
 ];
