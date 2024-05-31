@@ -16,9 +16,7 @@ import fart12 from '../sounds/farts/fart12.mp3';
 import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
-import {BudinoAllaVanigliaConMaizena} from "../components/recipes/BudinoAllaVanigliaConMaizena";
-import {ZucchineRipiene, ZucchineRipieneIT} from "../components/recipes/ZucchineRipiene";
-import {PaniniNapoletani} from "../components/recipes/PaniniNapoletani";
+import {recipeFullList} from "../components/recipes/RecipesList";
 
 export function roundStringToTwoDecimals(strNum) {
     const num = parseFloat(strNum);
@@ -27,8 +25,8 @@ export function roundStringToTwoDecimals(strNum) {
 
 export function batteryPercentage(voltageStr) {
     const voltage = parseFloat(voltageStr);
-    const MAX_VOLTAGE = 5.6;
-    const MIN_VOLTAGE = 4.0;
+    const MAX_VOLTAGE = 5.63;
+    const MIN_VOLTAGE = 4.25;
     // Clamp the voltage to ensure it's within the expected range
     const clampedVoltage = Math.max(MIN_VOLTAGE, Math.min(MAX_VOLTAGE, voltage));
     // Calculate the percentage
@@ -39,30 +37,11 @@ export function batteryPercentage(voltageStr) {
 
 /////////// recipes list handler
 
-var recipeGroupNumber;
+var recipeGroupNumber = 0;
 
 export function getNewRecipeGroupNumber() {
-    recipeGroupNumber = recipeGroupNumber || 0;
-    return ++recipeGroupNumber;
+    return recipeGroupNumber++;
 }
-
-const recipeFullList = [
-    ...BudinoAllaVanigliaConMaizena,
-    ...ZucchineRipiene,
-    ...PaniniNapoletani
-]
-
-export const recipeModel = { code: 1, name: "", language: ITALIAN, text: ZucchineRipieneIT};
-export const recipeDataModel = {
-    language: ITALIAN,
-    name: "recipeName",
-    servings: "servings",
-    ingredients: [""],
-    steps: [""],
-    notes: "notes",
-    pictures: [{ number: 0, url: "https:....." }],
-    video: "url"
-};
 
 function splitTextIntoBlocks(text) {
     // Trim leading and trailing whitespace from the entire text

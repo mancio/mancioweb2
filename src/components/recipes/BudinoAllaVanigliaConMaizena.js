@@ -106,6 +106,8 @@ Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czeko
 -
 ${EMPTY}
 `
+
+
 const num = getNewRecipeGroupNumber();
 
 export const BudinoAllaVanigliaConMaizena = [

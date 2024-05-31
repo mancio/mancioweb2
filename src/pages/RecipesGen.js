@@ -4,13 +4,12 @@ import {
     changeIngredientQuantity, getLanguagesByCode,
     getRecipeByUrl,
     getRecipeData, getRecipeNameByCodeLang, numberToEmoji,
-    recipeDataModel,
-    recipeModel
 } from "../logic/Functions";
 import {EMPTY, ITALIAN, MAGIC_SEPARATOR, RECIPES} from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
+import {recipeDataModel, recipeModel} from "../components/recipes/RecipesList";
 
 function RecipesGen(){
 

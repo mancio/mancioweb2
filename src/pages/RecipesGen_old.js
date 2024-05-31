@@ -7,7 +7,7 @@ import {
 } from "../logic/Functions";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {recipesList} from "../logic/RecipesList";
+import {recipesList} from "../components/recipes/RecipesList";
 import {ENGLISH, ITALIAN, MAGIC_SEPARATOR, RECIPES} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
 import IngredientMultiplier from "../components/IngredientMultiplier";
