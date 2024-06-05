@@ -1,5 +1,5 @@
 import {EMPTY} from "../../logic/Names";
-import {getNewRecipeGroupNumber} from "../../logic/Functions";
+import {getNewRecipeGroupNumber, getRecipeTitle} from "../../logic/Functions";
 
 const BudinoAllaVanigliaConMaizenaIT = `
 
@@ -111,7 +111,7 @@ ${EMPTY}
 const num = getNewRecipeGroupNumber();
 
 export const BudinoAllaVanigliaConMaizena = [
-    { code: num, name: "Budino alla vaniglia con maizena", language: "IT", text: BudinoAllaVanigliaConMaizenaIT},
-    { code: num, name: "Vanilla Pudding with Cornstarch", language: "EN", text: BudinoAllaVanigliaConMaizenaEN},
-    { code: num, name: "Budyń waniliowy ze skrobią kukurydzianą", language: "PL", text: BudinoAllaVanigliaConMaizenaPL}
+    { code: num, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaIT), language: "IT", text: BudinoAllaVanigliaConMaizenaIT},
+    { code: num, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaEN), language: "EN", text: BudinoAllaVanigliaConMaizenaEN},
+    { code: num, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaPL), language: "PL", text: BudinoAllaVanigliaConMaizenaPL}
 ];

@@ -44,6 +44,7 @@ Pinch of 1 teaspoon baking powder
 1 egg
 1 banana
 Olive oil
+-
 On a plate, mash a banana with a fork and set aside a piece of banana for the final garnish
 
 Combine an egg, flour, and baking powder and mix
@@ -53,6 +54,10 @@ Grease a pan with a bit of oil and blot excess oil with a paper towel, or altern
 Pour the mixture onto the hot pan, forming it into a circle
 
 Cook the pancake covered on both sides, remembering to flip it
+-
 You can serve the pancake with seasonal fruit, yogurt, and maple syrup
-
+-
+0 - [https://www.giallozafferano.it/images/174-17475/Pancake-alla-banana_450x300.jpg]
+-
+${EMPTY}
 `

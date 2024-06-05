@@ -43,6 +43,22 @@ export function getNewRecipeGroupNumber() {
     return recipeGroupNumber++;
 }
 
+export function getRecipeTitle(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+
+    // Find the index of the first hyphen
+    const firstHyphenIndex = lines.findIndex(line => line.trim() === '-');
+
+    // Return the trimmed line after the first hyphen if it exists
+    if (firstHyphenIndex !== -1 && lines.length > firstHyphenIndex + 1) {
+        return lines[firstHyphenIndex + 1].trim();
+    }
+
+    // If the line after the first hyphen is not found, return an empty string
+    return '';
+}
+
 function splitTextIntoBlocks(text) {
     // Trim leading and trailing whitespace from the entire text
     text = text.trim();
