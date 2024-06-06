@@ -1,5 +1,4 @@
 import {EMPTY} from "../../logic/Names";
-import {getNewRecipeGroupNumber} from "../../logic/Functions";
 
 export const ZucchineRipieneIT = `
 
@@ -43,7 +42,7 @@ Assicurati che l'impasto di carne non sia troppo morbido e usa le restanti zucch
 ${EMPTY}
 `
 
-const ZucchineRipieneEN = `
+export const ZucchineRipieneEN = `
 
 EN
 -
@@ -85,7 +84,7 @@ Ensure the meat mixture is not too soft and use the remaining zucchini to make p
 ${EMPTY}
 `
 
-const ZucchineRipienePL = `
+export const ZucchineRipienePL = `
 
 PL
 -
@@ -127,10 +126,3 @@ Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej 
 ${EMPTY}
 `
 
-const num = getNewRecipeGroupNumber();
-
-export const ZucchineRipiene = [
-    { code: num, name: "Zucchine Ripiene", language: "IT", text: ZucchineRipieneIT},
-    { code: num, name: "Stuffed Zucchini", language: "EN", text: ZucchineRipieneEN},
-    { code: num, name: "Cukinie Faszerowane", language: "PL", text: ZucchineRipienePL}
-];

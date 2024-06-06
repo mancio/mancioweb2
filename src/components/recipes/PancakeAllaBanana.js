@@ -1,6 +1,6 @@
 import {EMPTY} from "../../logic/Names";
 
-const PancakeAllaBananaIT = `
+export const PancakeAllaBananaIT = `
 
 IT
 -
@@ -32,13 +32,14 @@ ${EMPTY}
 
 `
 
-const PancakeAllaBananaEN = `
+export const PancakeAllaBananaEN = `
 
 EN
 -
 Banana Pancake
 -
 Portion for 1 person
+-
 Pinch of 1 teaspoon baking powder
 2 heaping tablespoons of flour
 1 egg

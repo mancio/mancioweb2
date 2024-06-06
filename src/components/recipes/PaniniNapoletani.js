@@ -1,7 +1,6 @@
 import {EMPTY} from "../../logic/Names";
-import {getNewRecipeGroupNumber} from "../../logic/Functions";
 
-const PaniniNapoletaniIT = `
+export const PaniniNapoletaniIT = `
 
 IT
 -
@@ -49,7 +48,7 @@ ${EMPTY}
 
 `
 
-const PaniniNapoletaniEN = `
+export const PaniniNapoletaniEN = `
 
 EN
 -
@@ -97,7 +96,7 @@ ${EMPTY}
 
 
 `
-const PaniniNapoletaniPL = `
+export const PaniniNapoletaniPL = `
 
 PL
 -
@@ -144,10 +143,3 @@ ${EMPTY}
 
 `
 
-const num = getNewRecipeGroupNumber();
-
-export const PaniniNapoletani = [
-    { code: num, name: "Panini Napoletani", language: "IT", text: PaniniNapoletaniIT},
-    { code: num, name: "Neapolitan Sandwiche", language: "EN", text: PaniniNapoletaniEN},
-    { code: num, name: "Kanapki Neapolitańskie", language: "PL", text: PaniniNapoletaniPL}
-];

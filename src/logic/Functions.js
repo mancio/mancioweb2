@@ -37,11 +37,6 @@ export function batteryPercentage(voltageStr) {
 
 /////////// recipes list handler
 
-var recipeGroupNumber = 0;
-
-export function getNewRecipeGroupNumber() {
-    return recipeGroupNumber++;
-}
 
 export function getRecipeTitle(text) {
     // Split the text into lines
