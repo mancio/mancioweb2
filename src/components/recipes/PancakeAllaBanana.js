@@ -62,3 +62,36 @@ You can serve the pancake with seasonal fruit, yogurt, and maple syrup
 -
 ${EMPTY}
 `
+
+export const PancakeAllaBananaPL =`
+
+PL
+-
+Bananowy naleśnik
+-
+Porcja dla 1 osoby
+-
+Szczypta proszku do pieczenia
+2 pełne łyżki mąki
+1 jajko
+1 banan
+Oliwa z oliwek
+-
+Na talerzu rozgnieć banana widelcem i odłóż kawałek banana na końcową dekorację
+
+Połącz jajko, mąkę i proszek do pieczenia i wymieszaj
+
+Posmaruj patelnię odrobiną oliwy i usuń nadmiar papierowym ręcznikiem, ewentualnie użyj sprayu olejowego
+
+Umieść mieszankę na gorącej patelni formując okrągły kształt
+
+Smaż naleśnik pod przykryciem z obu stron, pamiętając o przewróceniu
+-
+Naleśnik można podać z sezonowymi owocami, jogurtem i syropem klonowym
+-
+0 - [https://www.giallozafferano.it/images/174-17475/Pancake-alla-banana_450x300.jpg]
+-
+${EMPTY}
+
+
+`
