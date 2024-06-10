@@ -76,9 +76,9 @@ function RecipesGen(){
                         <img className='recipe-img' src={findFirstPictureUrl(index + 1)} alt={`Step ${index + 1}`}/>}
                 </div>
             ))}
-            {MAGIC_SEPARATOR}
             {!recipeData.notes.includes(EMPTY) && (
                 <div>
+                    {MAGIC_SEPARATOR}
                     <h3>Notes</h3>
                     <p>{recipeData.notes}</p>
                 </div>
