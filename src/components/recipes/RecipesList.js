@@ -7,6 +7,12 @@ import {PaniniNapoletaniEN, PaniniNapoletaniIT, PaniniNapoletaniPL} from "./Pani
 import {ENGLISH, ITALIAN, POLISH} from "../../logic/Names";
 import {getRecipeTitle} from "../../logic/Functions";
 import {PancakeAllaBananaEN, PancakeAllaBananaIT, PancakeAllaBananaPL} from "./PancakeAllaBanana";
+import {
+    PaccheriCremaBurrataPancettaEN,
+    PaccheriCremaBurrataPancettaIT,
+    PaccheriCremaBurrataPancettaPL
+} from "./PaccheriCremaBurrataPancetta";
+import {RisottoZafferanoEN, RisottoZafferanoIT, RisottoZafferanoPL} from "./RisottoZafferano";
 
 export const recipeModel = { code: 1, name: "", language: ITALIAN, text: ZucchineRipieneIT};
 export const recipeDataModel = {
@@ -33,6 +39,12 @@ export const recipeFullList = [
     { code: 2, name: getRecipeTitle(ZucchineRipienePL), language: POLISH, text: ZucchineRipienePL},
     { code: 3, name: getRecipeTitle(PancakeAllaBananaIT), language: ITALIAN, text: PancakeAllaBananaIT},
     { code: 3, name: getRecipeTitle(PancakeAllaBananaEN), language: ENGLISH, text: PancakeAllaBananaEN},
-    { code: 3, name: getRecipeTitle(PancakeAllaBananaPL), language: POLISH, text: PancakeAllaBananaPL}
+    { code: 3, name: getRecipeTitle(PancakeAllaBananaPL), language: POLISH, text: PancakeAllaBananaPL},
+    { code: 4, name: getRecipeTitle(PaccheriCremaBurrataPancettaIT), language: ITALIAN, text: PaccheriCremaBurrataPancettaIT},
+    { code: 4, name: getRecipeTitle(PaccheriCremaBurrataPancettaEN), language: ENGLISH, text: PaccheriCremaBurrataPancettaEN},
+    { code: 4, name: getRecipeTitle(PaccheriCremaBurrataPancettaPL), language: POLISH, text: PaccheriCremaBurrataPancettaPL},
+    { code: 5, name: getRecipeTitle(RisottoZafferanoIT), language: ITALIAN, text: RisottoZafferanoIT},
+    { code: 5, name: getRecipeTitle(RisottoZafferanoEN), language: ENGLISH, text: RisottoZafferanoEN},
+    { code: 5, name: getRecipeTitle(RisottoZafferanoPL), language: POLISH, text: RisottoZafferanoPL},
 ]
 
