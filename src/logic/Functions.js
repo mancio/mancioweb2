@@ -139,16 +139,20 @@ export function getRecipeData(text){
 }
 
 export function getRecipeByLangText(lang, text) {
-
     const partName = text.toLowerCase();
 
     // Filter the recipes array to get only the recipes that match the specified language and include the given text
     const filteredRecipes = recipeFullList.filter(recipe =>
-        recipe.language === lang && recipe.name.toLowerCase().includes(partName)
+        recipe.translations.some(translation =>
+            translation.language === lang && translation.text.toLowerCase().includes(partName)
+        )
     );
 
-    // Map the filtered recipes to an array of names
-    return filteredRecipes.map(recipe => recipe.name);
+    // Map the filtered recipes to an array of the matched translation texts
+    return filteredRecipes.map(recipe => {
+        const translation = recipe.translations.find(translation => translation.language === lang);
+        return translation ? getRecipeTitle(translation.text) : '';
+    });
 }
 
 export function getRecipeByUrl(text) {

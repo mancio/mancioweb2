@@ -1,6 +1,6 @@
-import {EMPTY} from "../../logic/Names";
+import {EMPTY, ENGLISH, ITALIAN, POLISH} from "../../logic/Names";
 
-export const CremaMascarponeIT = `
+const CremaMascarponeIT = `
 
 IT
 -
@@ -43,7 +43,7 @@ ${EMPTY}
 
 `
 
-export const CremaMascarponeEN = `
+const CremaMascarponeEN = `
 
 EN
 -
@@ -86,7 +86,7 @@ ${EMPTY}
 
 `
 
-export const CremaMascarponePL = `
+const CremaMascarponePL = `
 
 PL 
 -
@@ -128,3 +128,12 @@ Aby pasteryzować jajka i przygotować syrop cukrowy, ważne jest użycie precyz
 ${EMPTY}
 
 `
+
+export const CremaMascarponeList = {
+    id: 1,
+    translations: [
+        { language: ITALIAN, text: CremaMascarponeIT },
+        { language: ENGLISH, text: CremaMascarponeEN },
+        { language: POLISH, text: CremaMascarponePL },
+    ]
+}

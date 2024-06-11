@@ -1,6 +1,6 @@
-import {EMPTY} from "../../logic/Names";
+import {EMPTY, ENGLISH, ITALIAN, POLISH} from "../../logic/Names";
 
-export const BudinoAllaVanigliaConMaizenaIT = `
+const BudinoAllaVanigliaConMaizenaIT = `
 
 IT
 -
@@ -35,7 +35,7 @@ Per un tocco in più, servire con frutti di bosco freschi o una colata di salsa 
 ${EMPTY}
 `
 
-export const BudinoAllaVanigliaConMaizenaEN = `
+const BudinoAllaVanigliaConMaizenaEN = `
 
 EN
 -
@@ -70,7 +70,7 @@ For an extra touch, serve with fresh berries or a drizzle of chocolate sauce.
 ${EMPTY}
 `
 
-export const BudinoAllaVanigliaConMaizenaPL = `
+const BudinoAllaVanigliaConMaizenaPL = `
 
 
 PL
@@ -105,3 +105,12 @@ Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czeko
 -
 ${EMPTY}
 `
+
+export const BudinoAllaVanigliaConMaizenaList = {
+    id: 0,
+    translations: [
+        { language: ITALIAN, text: BudinoAllaVanigliaConMaizenaIT },
+        { language: ENGLISH, text: BudinoAllaVanigliaConMaizenaEN },
+        { language: POLISH, text: BudinoAllaVanigliaConMaizenaPL },
+    ]
+}
