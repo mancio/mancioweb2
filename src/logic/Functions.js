@@ -85,6 +85,10 @@ function splitTextIntoBlocks(text) {
         blocks.push(currentBlock.join('\n'));
     }
 
+    if(blocks.length !== 8) console.log(`Please check "-" separators in ${blocks[0]} ${blocks[1]}.
+        Only ${blocks.length} blocks are found.
+        use "EMPTY" tag if there is no text`);
+
     return blocks;
 }
 

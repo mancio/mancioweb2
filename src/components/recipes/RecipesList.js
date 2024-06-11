@@ -14,6 +14,9 @@ import {
 } from "./PaccheriCremaBurrataPancetta";
 import {RisottoZafferanoEN, RisottoZafferanoIT, RisottoZafferanoPL} from "./RisottoZafferano";
 import {PannaCottaFragoleEN, PannaCottaFragoleIT, PannaCottaFragolePL} from "./PannaCottaFragole";
+import {CrostataMarmellataEN, CrostataMarmellataIT, CrostataMarmellataPL} from "./CrostataMarmellata";
+import {CremaMascarponeEN, CremaMascarponeIT, CremaMascarponePL} from "./CremaMascarpone";
+import {TiramisuEN, TiramisuIT, TiramisuPL} from "./Tiramisu";
 
 export const recipeModel = { code: 1, name: "", language: ITALIAN, text: ZucchineRipieneIT};
 export const recipeDataModel = {
@@ -56,5 +59,19 @@ export const recipeFullList = [
     { code: 6, name: getRecipeTitle(PannaCottaFragoleIT), language: ITALIAN, text: PannaCottaFragoleIT},
     { code: 6, name: getRecipeTitle(PannaCottaFragoleEN), language: ENGLISH, text: PannaCottaFragoleEN},
     { code: 6, name: getRecipeTitle(PannaCottaFragolePL), language: POLISH, text: PannaCottaFragolePL},
+
+    { code: 7, name: getRecipeTitle(CrostataMarmellataIT), language: ITALIAN, text: CrostataMarmellataIT},
+    { code: 7, name: getRecipeTitle(CrostataMarmellataEN), language: ENGLISH, text: CrostataMarmellataEN},
+    { code: 7, name: getRecipeTitle(CrostataMarmellataPL), language: POLISH, text: CrostataMarmellataPL},
+
+    { code: 8, name: getRecipeTitle(CremaMascarponeIT), language: ITALIAN, text: CremaMascarponeIT},
+    { code: 8, name: getRecipeTitle(CremaMascarponeEN), language: ENGLISH, text: CremaMascarponeEN},
+    { code: 8, name: getRecipeTitle(CremaMascarponePL), language: POLISH, text: CremaMascarponePL},
+
+    { code: 9, name: getRecipeTitle(TiramisuIT), language: ITALIAN, text: TiramisuIT},
+    { code: 9, name: getRecipeTitle(TiramisuEN), language: ENGLISH, text: TiramisuEN},
+    { code: 9, name: getRecipeTitle(TiramisuPL), language: POLISH, text: TiramisuPL},
+
+
 ]
 
