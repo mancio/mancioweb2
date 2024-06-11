@@ -32,6 +32,11 @@ export const recipeDataModel = {
 
 
 export const recipeFullList = [
+
+    {
+        [language: ITALIAN, text: BudinoAllaVanigliaConMaizenaIT],
+        [language: ENGLISH, text: BudinoAllaVanigliaConMaizenaEN]
+    }
     { code: 0, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaIT), language: ITALIAN, text: BudinoAllaVanigliaConMaizenaIT},
     { code: 0, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaEN), language: ENGLISH, text: BudinoAllaVanigliaConMaizenaEN},
     { code: 0, name: getRecipeTitle(BudinoAllaVanigliaConMaizenaPL), language: POLISH, text: BudinoAllaVanigliaConMaizenaPL},
