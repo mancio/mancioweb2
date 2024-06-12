@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, TABLET} from "./Names";
+import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, RECIPES, TABLET} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -156,18 +156,44 @@ export function getRecipeByLangText(lang, text) {
 }
 
 export function getRecipeByUrl(text) {
-    // Filter the recipes array to get the first recipe that exactly matches the modified URL text
+    // Convert the text to lowercase and remove spaces for comparison
+    const normalizedText = removeSpaceLowerCaseString(text);
+
+    // Find the first recipe that has a translation matching the normalized text
     return recipeFullList.find(recipe =>
-        removeSpaceLowerCaseString(recipe.name) === removeSpaceLowerCaseString(text)
+        recipe.translations.some(translation => {
+            const recipeURLName = getRecipeTitle(translation.text);
+            return removeSpaceLowerCaseString(recipeURLName) === normalizedText;
+        })
     );
 }
 
-export function getLanguagesByCode(code) {
-    // Filter recipes to get only those with the specified code
-    const recipesWithCode = recipeFullList.filter(recipe => recipe.code === code);
+export function getRecipeURLByIdAndLanguage(id, language) {
+    // Find the translation directly by iterating over the recipe list
+    const translation = recipeFullList
+        .find(recipe => recipe.id === id)
+        ?.translations.find(translation => translation.language === language);
 
-    // Extract the languages from the filtered recipes
-    const languages = recipesWithCode.map(recipe => recipe.language);
+    // If the translation is found, construct and return the URL
+    if (translation) {
+        const recipeURL = removeSpaceLowerCaseString(getRecipeTitle(translation.text));
+        return `${RECIPES}/${recipeURL}`;
+    }
+
+    // Return recipes url if the recipe or translation is not found
+    return RECIPES;
+}
+
+export function getLanguagesById(id) {
+    // Find the recipe with the specified id
+    const recipe = recipeFullList.find(recipe => recipe.id === id);
+
+    if (!recipe) {
+        return []; // Return an empty array if no recipe with the specified id is found
+    }
+
+    // Extract the languages from the recipe's translations
+    const languages = recipe.translations.map(translation => translation.language);
 
     // Sort the languages in alphabetical order
     languages.sort();

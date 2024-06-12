@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import {
-    changeIngredientQuantity, getLanguagesByCode,
+    changeIngredientQuantity, getLanguagesById,
     getRecipeByUrl,
-    getRecipeData, getRecipeNameByCodeLang, numberToEmoji,
+    getRecipeData, getRecipeTitle, getRecipeURLByIdAndLanguage, numberToEmoji,
 } from "../logic/Functions";
 import { EMPTY, ITALIAN, MAGIC_SEPARATOR, RECIPES } from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
@@ -13,26 +13,27 @@ import { recipeDataModel, recipeModel } from "../components/recipes/RecipesList"
 
 function RecipesGen() {
     const navigate = useNavigate();
-    const { recipeName: initialRecipeName } = useParams();
+    const { recipeName: recipeURLName } = useParams();
 
-    const [recipeName, setRecipeName] = useState(initialRecipeName);
+    const [recipeFullName, setRecipeFullName] = useState("");
     const [recipe, setRecipe] = useState(recipeModel);
     const [recipeData, setRecipeData] = useState(recipeDataModel);
     const [multiplier, setMultiplier] = useState(1);
     const [languageList, setLanguageList] = useState([ITALIAN]);
 
-    const fetchRecipeData = useCallback((recipeName) => {
-        const currentRecipe = getRecipeByUrl(recipeName);
+    const fetchRecipeData = useCallback((recipeURLName) => {
+        const currentRecipe = getRecipeByUrl(recipeURLName);
         setRecipe(currentRecipe);
-        const currentRecipeData = getRecipeData(currentRecipe.text);
+        setRecipeFullName(getRecipeTitle(currentRecipe.translations.text));
+        const currentRecipeData = getRecipeData(currentRecipe.translations.text);
         setRecipeData(currentRecipeData);
-        const currentLangList = getLanguagesByCode(currentRecipe.code);
+        const currentLangList = getLanguagesById(currentRecipe.id);
         setLanguageList(currentLangList);
     }, []);
 
     useEffect(() => {
-        fetchRecipeData(recipeName);
-    }, [fetchRecipeData, recipeName]);
+        fetchRecipeData(recipeURLName);
+    }, [fetchRecipeData, recipeURLName]);
 
     function findFirstPictureUrl(num) {
         // Iterate through the pictures array to find the picture with number 0
@@ -45,17 +46,16 @@ function RecipesGen() {
         return null;
     }
 
-    function changeLanguage(ln) {
-        const newRecipeName = getRecipeNameByCodeLang(recipe.code, ln);
-        setRecipeName(newRecipeName);
+    function goToRecipe(ln) {
+        navigate(getRecipeURLByIdAndLanguage(recipe.id, ln));
     }
 
     return (
         <div className='recipe-box'>
             <div className='title2'>
-                <h3>{recipe.name}</h3>
+                <h3>{recipeFullName}</h3>
             </div>
-            <img className='recipe-img' src={findFirstPictureUrl(0)} alt={recipe.name} />
+            <img className='recipe-img' src={findFirstPictureUrl(0)} alt={recipeFullName} />
             <p>{recipeData.servings}</p>
             {MAGIC_SEPARATOR}
             <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier} />
@@ -93,7 +93,7 @@ function RecipesGen() {
             <div className='language-line'>
                 <h3>Languages:</h3>
                 {languageList.map((language) => (
-                    <BetterButton key={language} text={language} click={() => changeLanguage(language)} />
+                    <BetterButton key={language} text={language} click={() => goToRecipe(language)} />
                 ))}
             </div>
             <BetterButton text="Back" click={() => navigate(RECIPES)} />
