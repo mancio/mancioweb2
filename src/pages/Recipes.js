@@ -1,5 +1,5 @@
 import {
-    getRecipeByLangText,
+    getRecipesByLangText,
     getSharedLanguage,
     removeSpaceLowerCaseString,
     setSharedLanguage
@@ -31,7 +31,7 @@ function Recipes() {
 
     // Update the filtered recipes list every time the search term changes
     useEffect(() => {
-        const filtered = getRecipeByLangText(selectedLanguage, searchTerm);
+        const filtered = getRecipesByLangText(selectedLanguage, searchTerm);
         setFilteredRecipes(filtered);
     }, [selectedLanguage, searchTerm]);
 

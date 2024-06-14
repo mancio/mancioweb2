@@ -2,10 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import {
     changeIngredientQuantity, getLanguagesById,
-    getRecipeByUrl,
+    getRecipeTextByUrl,
     getRecipeData, getRecipeTitle, getRecipeURLByIdAndLanguage, numberToEmoji,
 } from "../logic/Functions";
-import { EMPTY, ITALIAN, MAGIC_SEPARATOR, RECIPES } from "../logic/Names";
+import {EMPTY, ENGLISH, ITALIAN, MAGIC_SEPARATOR, POLISH, RECIPES} from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
@@ -15,25 +15,17 @@ function RecipesGen() {
     const navigate = useNavigate();
     const { recipeName: recipeURLName } = useParams();
 
-    const [recipeFullName, setRecipeFullName] = useState("");
-    const [recipe, setRecipe] = useState(recipeModel);
-    const [recipeData, setRecipeData] = useState(recipeDataModel);
+    const languageList= [ITALIAN, ENGLISH, POLISH];
+
+    const recipeText = getRecipeTextByUrl(recipeURLName);
+
+    const recipeData = getRecipeData(recipeText);
+
+    // const [recipeFullName, setRecipeFullName] = useState("");
+    // const [recipe, setRecipe] = useState(recipeModel);
+    // const [recipeData, setRecipeData] = useState(recipeDataModel);
     const [multiplier, setMultiplier] = useState(1);
-    const [languageList, setLanguageList] = useState([ITALIAN]);
 
-    const fetchRecipeData = useCallback((recipeURLName) => {
-        const currentRecipe = getRecipeByUrl(recipeURLName);
-        setRecipe(currentRecipe);
-        setRecipeFullName(getRecipeTitle(currentRecipe.translations.text));
-        const currentRecipeData = getRecipeData(currentRecipe.translations.text);
-        setRecipeData(currentRecipeData);
-        const currentLangList = getLanguagesById(currentRecipe.id);
-        setLanguageList(currentLangList);
-    }, []);
-
-    useEffect(() => {
-        fetchRecipeData(recipeURLName);
-    }, [fetchRecipeData, recipeURLName]);
 
     function findFirstPictureUrl(num) {
         // Iterate through the pictures array to find the picture with number 0

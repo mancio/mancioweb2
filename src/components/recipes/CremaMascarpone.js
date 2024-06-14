@@ -129,11 +129,8 @@ ${EMPTY}
 
 `
 
-export const CremaMascarponeList = {
-    id: 1,
-    translations: [
-        { language: ITALIAN, text: CremaMascarponeIT },
-        { language: ENGLISH, text: CremaMascarponeEN },
-        { language: POLISH, text: CremaMascarponePL },
-    ]
-}
+export const CremaMascarponeList = [
+    CremaMascarponeIT,
+    CremaMascarponeEN,
+    CremaMascarponePL
+]

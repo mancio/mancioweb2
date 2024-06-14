@@ -54,6 +54,24 @@ export function getRecipeTitle(text) {
     return '';
 }
 
+// Function to extract the language from the recipe text
+export function extractLanguage(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+
+    // Return the first trimmed line that contains any text
+    for (const line of lines) {
+        const trimmedLine = line.trim();
+        if (trimmedLine) {
+            return trimmedLine;
+        }
+    }
+
+    // If no non-empty line is found, return an empty string
+    return '';
+}
+
+
 function splitTextIntoBlocks(text) {
     // Trim leading and trailing whitespace from the entire text
     text = text.trim();
@@ -138,34 +156,27 @@ export function getRecipeData(text){
    };
 }
 
-export function getRecipeByLangText(lang, text) {
+export function getRecipesByLangText(lang, text) {
     const partName = text.toLowerCase();
 
     // Filter the recipes array to get only the recipes that match the specified language and include the given text
-    const filteredRecipes = recipeFullList.filter(recipe =>
-        recipe.translations.some(translation =>
-            translation.language === lang && translation.text.toLowerCase().includes(partName)
-        )
-    );
-
-    // Map the filtered recipes to an array of the matched translation texts
-    return filteredRecipes.map(recipe => {
-        const translation = recipe.translations.find(translation => translation.language === lang);
-        return translation ? getRecipeTitle(translation.text) : '';
+    const filteredRecipes = recipeFullList.filter(recipeText => {
+        const recipeLang = extractLanguage(recipeText);
+        return recipeLang === lang && getRecipeTitle(recipeText.toLowerCase()).includes(partName);
     });
+
+    // Map the filtered recipes to their titles
+    return filteredRecipes.map(getRecipeTitle);
 }
 
-export function getRecipeByUrl(text) {
-    // Convert the text to lowercase and remove spaces for comparison
-    const normalizedText = removeSpaceLowerCaseString(text);
+// Function to get the recipe text by URL
+export function getRecipeTextByUrl(recipeURL) {
+    const normalizedRecipeURL = removeSpaceLowerCaseString(recipeURL);
 
-    // Find the first recipe that has a translation matching the normalized text
-    return recipeFullList.find(recipe =>
-        recipe.translations.some(translation => {
-            const recipeURLName = getRecipeTitle(translation.text);
-            return removeSpaceLowerCaseString(recipeURLName) === normalizedText;
-        })
-    );
+    // Find the first recipe text that matches the recipeURL
+    return recipeFullList.find(recipeText => {
+        return removeSpaceLowerCaseString(recipeText).includes(normalizedRecipeURL);
+    });
 }
 
 export function getRecipeURLByIdAndLanguage(id, language) {
@@ -207,18 +218,6 @@ export function getLanguagesById(id) {
 
     return languages;
 }
-
-export function getRecipeNameByCodeLang(code, lang) {
-    // Assuming recipeFullList is an array containing recipe objects
-    const matchedRecipe = recipeFullList.find(recipe =>
-        recipe.code === code && recipe.language === lang
-    );
-
-    // Return the name of the found recipe, or null if no recipe matches the criteria
-    return matchedRecipe ? matchedRecipe.name : null;
-}
-
-
 
 
 //////// end

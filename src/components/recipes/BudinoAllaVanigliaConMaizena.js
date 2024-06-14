@@ -106,11 +106,8 @@ Dla dodatkowego akcentu podawać z świeżymi owocami leśnymi lub polewą czeko
 ${EMPTY}
 `
 
-export const BudinoAllaVanigliaConMaizenaList = {
-    id: 0,
-    translations: [
-        { language: ITALIAN, text: BudinoAllaVanigliaConMaizenaIT },
-        { language: ENGLISH, text: BudinoAllaVanigliaConMaizenaEN },
-        { language: POLISH, text: BudinoAllaVanigliaConMaizenaPL },
-    ]
-}
+export const BudinoAllaVanigliaConMaizenaList = [
+    BudinoAllaVanigliaConMaizenaIT,
+    BudinoAllaVanigliaConMaizenaEN,
+    BudinoAllaVanigliaConMaizenaPL
+]
