@@ -1,4 +1,4 @@
-import {EMPTY, ENGLISH, ITALIAN, POLISH} from "../../logic/Names";
+import { EMPTY } from "../../logic/Names";
 
 export const BudinoAllaVanigliaConMaizenaIT = `
 

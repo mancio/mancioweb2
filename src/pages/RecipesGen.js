@@ -1,15 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import {
-    changeIngredientQuantity, getLanguagesById,
-    getRecipeTextByUrl,
-    getRecipeData, getRecipeTitle, getRecipeURLByIdAndLanguage, numberToEmoji,
+    changeIngredientQuantity,
+    getRecipeIDTextByUrl,
+    getRecipeData, getRecipeURLByIdAndLanguage, numberToEmoji,
 } from "../logic/Functions";
 import {EMPTY, ENGLISH, ITALIAN, MAGIC_SEPARATOR, POLISH, RECIPES} from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
-import { recipeDataModel, recipeModel } from "../components/recipes/RecipesList";
 
 function RecipesGen() {
     const navigate = useNavigate();
@@ -17,7 +16,7 @@ function RecipesGen() {
 
     const languageList= [ITALIAN, ENGLISH, POLISH];
 
-    const recipeText = getRecipeTextByUrl(recipeURLName);
+    const {id, recipeText} = getRecipeIDTextByUrl(recipeURLName);
 
     const recipeData = getRecipeData(recipeText);
 
@@ -39,15 +38,15 @@ function RecipesGen() {
     }
 
     function goToRecipe(ln) {
-        navigate(getRecipeURLByIdAndLanguage(recipe.id, ln));
+        navigate(getRecipeURLByIdAndLanguage(id, ln));
     }
 
     return (
         <div className='recipe-box'>
             <div className='title2'>
-                <h3>{recipeFullName}</h3>
+                <h3>{recipeData.name}</h3>
             </div>
-            <img className='recipe-img' src={findFirstPictureUrl(0)} alt={recipeFullName} />
+            <img className='recipe-img' src={findFirstPictureUrl(0)} alt={recipeData.name} />
             <p>{recipeData.servings}</p>
             {MAGIC_SEPARATOR}
             <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier} />

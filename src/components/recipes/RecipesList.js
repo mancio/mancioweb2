@@ -16,7 +16,7 @@ export const recipeDataModel = {
 
 
 export const recipeFullList = [
-    ...BudinoAllaVanigliaConMaizenaList,
-    ...CremaMascarponeList
+    [0, BudinoAllaVanigliaConMaizenaList],
+    [1, CremaMascarponeList]
 ]
 
