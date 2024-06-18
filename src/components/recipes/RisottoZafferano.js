@@ -120,3 +120,9 @@ Aby uzyskać autentyczne risotto allo zafferano, używaj wysokiej jakości szafr
 https://youtu.be/dc7zIDB_kBs?si=8kmqDTOszV14iNDQ
 
 `
+
+export const RisottoZafferanoList =[
+    RisottoZafferanoIT,
+    RisottoZafferanoEN,
+    RisottoZafferanoPL
+]

@@ -199,3 +199,8 @@ ${EMPTY}
 
 `
 
+export const CrostataMarmellataList = [
+    CrostataMarmellataIT,
+    CrostataMarmellataEN,
+    CrostataMarmellataPL
+]

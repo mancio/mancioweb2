@@ -95,3 +95,9 @@ ${EMPTY}
 
 
 `
+
+export const PancakeAllaBananaList = [
+    PancakeAllaBananaPL,
+    PancakeAllaBananaIT,
+    PancakeAllaBananaEN
+]

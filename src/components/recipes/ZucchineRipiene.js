@@ -126,3 +126,8 @@ Dostosuj ilość mleka w zależności od pożądanej konsystencji bułki tartej 
 ${EMPTY}
 `
 
+export const ZucchineRipieneList = [
+    ZucchineRipieneIT,
+    ZucchineRipieneEN,
+    ZucchineRipienePL
+]

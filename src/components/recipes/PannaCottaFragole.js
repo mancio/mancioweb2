@@ -130,6 +130,10 @@ ${EMPTY}
 -
 ${EMPTY}
 
-
-
 `
+
+export const PannaCottaFragoleList = [
+    PannaCottaFragoleIT,
+    PannaCottaFragolePL,
+    PannaCottaFragoleEN
+]

@@ -213,31 +213,6 @@ export function getRecipeURLByIdAndLanguage(id, language) {
 }
 
 
-export function getLanguagesById(id) {
-    // Find the recipe with the specified id
-    const recipe = recipeFullList.find(recipe => recipe.id === id);
-
-    if (!recipe) {
-        return []; // Return an empty array if no recipe with the specified id is found
-    }
-
-    // Extract the languages from the recipe's translations
-    const languages = recipe.translations.map(translation => translation.language);
-
-    // Sort the languages in alphabetical order
-    languages.sort();
-
-    // Ensure Italian is the first language if it is present in the array
-    const index = languages.indexOf(ITALIAN);
-    if (index > -1) {
-        languages.splice(index, 1); // Remove 'Italian' from its current position
-        languages.unshift(ITALIAN); // Insert 'Italian' at the start of the array
-    }
-
-    return languages;
-}
-
-
 //////// end
 
 export function changeIngredientQuantity(ingredient, multiplier) {

@@ -143,3 +143,8 @@ ${EMPTY}
 
 `
 
+export const PaniniNapoletaniList = [
+    PaniniNapoletaniPL,
+    PaniniNapoletaniIT,
+    PaniniNapoletaniEN
+]

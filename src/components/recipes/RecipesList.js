@@ -1,22 +1,26 @@
 import {BudinoAllaVanigliaConMaizenaList} from "./BudinoAllaVanigliaConMaizena";
-import {ITALIAN} from "../../logic/Names";
 import {CremaMascarponeList} from "./CremaMascarpone";
-
-export const recipeModel = BudinoAllaVanigliaConMaizenaList;
-export const recipeDataModel = {
-    language: ITALIAN,
-    name: "recipeName",
-    servings: "servings",
-    ingredients: [""],
-    steps: [""],
-    notes: "notes",
-    pictures: [{ number: 0, url: "https:....." }],
-    video: "url"
-};
-
+import {CrostataMarmellataList} from "./CrostataMarmellata";
+import {PaccheriCremaBurrataPancettaList} from "./PaccheriCremaBurrataPancetta";
+import {PancakeAllaBananaList} from "./PancakeAllaBanana";
+import {PaniniNapoletaniList} from "./PaniniNapoletani";
+import {PannaCottaFragoleList} from "./PannaCottaFragole";
+import {RisottoZafferanoList} from "./RisottoZafferano";
+import {TiramisuList} from "./Tiramisu";
+import {ZucchineRipieneList} from "./ZucchineRipiene";
+import {ZabaioneList} from "./Zabaione";
 
 export const recipeFullList = [
     [0, BudinoAllaVanigliaConMaizenaList],
-    [1, CremaMascarponeList]
+    [1, CremaMascarponeList],
+    [2, CrostataMarmellataList],
+    [3, PaccheriCremaBurrataPancettaList],
+    [4, PancakeAllaBananaList],
+    [5, PaniniNapoletaniList],
+    [6, PannaCottaFragoleList],
+    [7, RisottoZafferanoList],
+    [8, TiramisuList],
+    [9, ZucchineRipieneList],
+    [10, ZabaioneList]
 ]
 

@@ -182,5 +182,10 @@ ${EMPTY}
 -
 ${EMPTY}
 
-
 `
+
+export const TiramisuList = [
+    TiramisuPL,
+    TiramisuIT,
+    TiramisuEN
+]

@@ -94,3 +94,9 @@ ${EMPTY}
 
 
 `
+
+export const PaccheriCremaBurrataPancettaList = [
+    PaccheriCremaBurrataPancettaIT,
+    PaccheriCremaBurrataPancettaEN,
+    PaccheriCremaBurrataPancettaPL
+]
