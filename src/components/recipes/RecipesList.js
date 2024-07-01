@@ -9,6 +9,8 @@ import {RisottoZafferanoList} from "./RisottoZafferano";
 import {TiramisuList} from "./Tiramisu";
 import {ZucchineRipieneList} from "./ZucchineRipiene";
 import {ZabaioneList} from "./Zabaione";
+import {CiambellaBologneseList} from "./CiambellaBolognese";
+import {SpaghettiCarbonaraList} from "./SpaghettiCarbonara";
 
 export const recipeFullList = [
     [0, BudinoAllaVanigliaConMaizenaList],
@@ -21,6 +23,9 @@ export const recipeFullList = [
     [7, RisottoZafferanoList],
     [8, TiramisuList],
     [9, ZucchineRipieneList],
-    [10, ZabaioneList]
+    [10, ZabaioneList],
+    [11, CiambellaBologneseList],
+    [12, SpaghettiCarbonaraList]
+
 ]
 
