@@ -1,13 +1,6 @@
 import {initializeApp} from "firebase/app";
 import {getDatabase, onValue, ref, set} from "firebase/database";
-import {
-    DESKTOP,
-    ENGLISH,
-    ITALIAN,
-    LANGUAGE_RECIPE_KEY,
-    PHONE,
-    TABLET
-} from "./Names";
+import {DESKTOP, ENGLISH, ITALIAN, LANGUAGE_RECIPE_KEY, PHONE, RECIPES, TABLET} from "./Names";
 import fart1 from '../sounds/farts/fart1.mp3';
 import fart2 from '../sounds/farts/fart2.mp3';
 import fart3 from '../sounds/farts/fart3.mp3';
@@ -23,6 +16,7 @@ import fart12 from '../sounds/farts/fart12.mp3';
 import fart13 from '../sounds/farts/fart13.mp3';
 import fart14 from '../sounds/farts/fart14.mp3';
 import {useEffect} from "react";
+import {recipeFullList} from "../components/recipes/RecipesList";
 
 export function roundStringToTwoDecimals(strNum) {
     const num = parseFloat(strNum);
@@ -31,8 +25,8 @@ export function roundStringToTwoDecimals(strNum) {
 
 export function batteryPercentage(voltageStr) {
     const voltage = parseFloat(voltageStr);
-    const MAX_VOLTAGE = 5.6;
-    const MIN_VOLTAGE = 3.6;
+    const MAX_VOLTAGE = 5.63;
+    const MIN_VOLTAGE = 4.25;
     // Clamp the voltage to ensure it's within the expected range
     const clampedVoltage = Math.max(MIN_VOLTAGE, Math.min(MAX_VOLTAGE, voltage));
     // Calculate the percentage
@@ -41,6 +35,185 @@ export function batteryPercentage(voltageStr) {
     return `${percentage.toFixed(2)}%`;
 }
 
+/////////// recipes list handler
+
+
+export function getRecipeTitle(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+
+    // Find the index of the first hyphen
+    const firstHyphenIndex = lines.findIndex(line => line.trim() === '-');
+
+    // Return the trimmed line after the first hyphen if it exists
+    if (firstHyphenIndex !== -1 && lines.length > firstHyphenIndex + 1) {
+        return lines[firstHyphenIndex + 1].trim();
+    }
+
+    // If the line after the first hyphen is not found, return an empty string
+    return '';
+}
+
+// Function to extract the language from the recipe text
+export function extractLanguage(text) {
+    // Split the text into lines
+    const lines = text.split('\n');
+
+    // Return the first trimmed line that contains any text
+    for (const line of lines) {
+        const trimmedLine = line.trim();
+        if (trimmedLine) {
+            return trimmedLine;
+        }
+    }
+
+    // If no non-empty line is found, return an empty string
+    return '';
+}
+
+
+function splitTextIntoBlocks(text) {
+    // Trim leading and trailing whitespace from the entire text
+    text = text.trim();
+
+    // Split the trimmed text into lines
+    const lines = text.split('\n');
+
+    // Prepare an array to hold the blocks
+    let blocks = [];
+    let currentBlock = [];
+
+    // Iterate through each line
+    lines.forEach(line => {
+        // Check if the line is just a dash
+        if (line.trim() === '-') {
+            // When a dash is found and there is collected text, save it as a block
+            if (currentBlock.length > 0) {
+                blocks.push(currentBlock.join('\n')); // Join the block without trimming internal content
+                currentBlock = []; // Reset current block
+            }
+        } else {
+            // If not a dash, add the line to the current block
+            currentBlock.push(line);
+        }
+    });
+
+    // Add the last block if any lines remain
+    if (currentBlock.length > 0) {
+        blocks.push(currentBlock.join('\n'));
+    }
+
+    if(blocks.length !== 8) console.log(`Please check "-" separators in ${blocks[0]} ${blocks[1]}.
+        Only ${blocks.length} blocks are found.
+        use "EMPTY" tag if there is no text`);
+
+    return blocks;
+}
+
+export function getRecipeData(text){
+    const textBlocks = splitTextIntoBlocks(text);
+    const recipeLanguage = textBlocks[0].trim();
+    const recipeName = textBlocks[1].trim();
+    const servings = textBlocks[2].trim();
+    const ingredients = textBlocks[3].trim().split('\n');
+    const steps = textBlocks[4].trim().split('\n\n');
+    const notes = textBlocks[5].trim();
+
+    const pictureLines = textBlocks[6].trim().split('\n');
+
+    // Prepare an array to hold the number and URL pairs
+    let pictures = [];
+
+    // Iterate through each line, assuming each line contains a picture
+    pictureLines.forEach(line => {
+        const trimmedLine = line.trim();
+        if (trimmedLine) { // Ensure the line is not empty
+            // Split the line around ' - ' to separate the number and the URL part
+            const parts = trimmedLine.split(' - ');
+
+            // Parse the number, assumed to be before ' - '
+            const number = parseInt(parts[0], 10);
+
+            // Extract the URL from between the brackets
+            const url = parts[1].slice(1, -1); // Removes the enclosing []
+
+            // Store the number and URL as an object in the pictures array
+            pictures.push({ number, url });
+        }
+    });
+
+   const video = textBlocks[7].trim();
+
+   return {
+       language: recipeLanguage,
+       name: recipeName,
+       servings: servings,
+       ingredients: ingredients,
+       steps: steps,
+       notes: notes,
+       pictures: pictures,
+       video: video
+   };
+}
+
+// Function to get recipes by language and text and return their titles
+export function getRecipesByLangText(lang, text) {
+    const partName = text.toLowerCase();
+
+    // Flatten the nested recipe lists
+    const allRecipes = recipeFullList.flatMap(entry => entry[1]);
+
+    // Filter the recipes array to get only the recipes that match the specified language and include the given text
+    const filteredRecipes = allRecipes.filter(recipeText => {
+        const recipeLang = extractLanguage(recipeText);
+        return recipeLang === lang && getRecipeTitle(recipeText.toLowerCase()).includes(partName);
+    });
+
+    // Map the filtered recipes to their titles
+    return filteredRecipes.map(getRecipeTitle);
+}
+
+// Function to get the recipe text and ID by URL
+export function getRecipeIDTextByUrl(recipeURL) {
+    const normalizedRecipeURL = removeSpaceLowerCaseString(recipeURL);
+
+    // Iterate over the nested arrays in recipeFullList
+    for (const [id, recipeList] of recipeFullList) {
+        // Check each recipe text in the current recipe list
+        for (const recipeText of recipeList) {
+            if (removeSpaceLowerCaseString(recipeText).includes(normalizedRecipeURL)) {
+                return { id, recipeText }; // Return the ID and text if a match is found
+            }
+        }
+    }
+
+    // Return null or some indicator if no match is found
+    return null;
+}
+
+// Function to get the recipe URL by ID and language
+export function getRecipeURLByIdAndLanguage(id, language) {
+    // Find the recipe list by the specified ID
+    const recipeListEntry = recipeFullList.find(entry => entry[0] === id);
+
+    // If the recipe list entry is found, search for the translation
+    if (recipeListEntry) {
+        const recipeList = recipeListEntry[1];
+        const translation = recipeList.find(recipeText => extractLanguage(recipeText) === language);
+
+        // If the translation is found, construct and return the URL
+        if (translation) {
+            const recipeURL = removeSpaceLowerCaseString(getRecipeTitle(translation));
+            return `${RECIPES}/${recipeURL}`;
+        }
+    }
+
+    // Return the default recipes URL if the recipe or translation is not found
+    return RECIPES;
+}
+
+
+//////// end
 
 export function changeIngredientQuantity(ingredient, multiplier) {
     const regex = /(\d+\/\d+|\d+(\.\d+)?)/;

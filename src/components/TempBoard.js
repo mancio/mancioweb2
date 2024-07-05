@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Camel from '../pictures/icons/camel.svg';
+import Temperato from '../pictures/icons/temperato.svg';
+import SantaCold from '../pictures/icons/santa-cold.svg';
+
 import {
     batteryPercentage,
     getFirebaseSetUp,
@@ -34,17 +38,28 @@ function TempBoard() {
         });
     }, []);
 
-
+    // Logic to determine which image to display
+    const getImageForTemperature = (temp) => {
+        if (temp > 26) {
+            return Camel;
+        } else if (temp >= 13 && temp <= 26) {
+            return Temperato;
+        } else {
+            return SantaCold;
+        }
+    };
 
 
     return (
         <div>
             <h2>Last update: {unixToPolishTime(datetime)}</h2>
-            <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃ </h2>
-            <h2>🔋: {roundStringToTwoDecimals(voltage)} Volts</h2>
-            <h2>Battery level: {batteryPercentage(voltage)}</h2>
+            <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃</h2>
+            <img src={getImageForTemperature(temperature)} alt="temp-emoji" style={{width: '100px', height: 'auto'}}/>
+            <h3>🔋: {roundStringToTwoDecimals(voltage)} Volts</h3>
+            <h3>Battery level: {batteryPercentage(voltage)}</h3>
         </div>
     );
+
 }
 
 export default TempBoard;

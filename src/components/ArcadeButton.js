@@ -32,6 +32,7 @@ function ArcadeButton({text, click}){
 
     useEffect(() => {
         if (isHovering || isTouchDevice()) {
+            // eslint-disable-next-line
             interval = setInterval(() => {
                 setCurrentSvg(prevSvg => (prevSvg + 1) % svgs.length);
             }, 500);

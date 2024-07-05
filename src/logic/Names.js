@@ -11,6 +11,7 @@ export const TEMP = '/Temp'
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';
 export const POLISH = 'PL';
+export const EMPTY = '[EMPTY]';
 export const SEARCHING_MESSAGE = 'Searching....';
 
 // for local storage

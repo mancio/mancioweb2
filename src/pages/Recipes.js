@@ -1,18 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import {
+    getRecipesByLangText,
+    getSharedLanguage,
+    removeSpaceLowerCaseString,
+    setSharedLanguage
+} from "../logic/Functions";
 import {COOKING, ENGLISH, ITALIAN, MENU, POLISH} from "../logic/Names";
-import {getSharedLanguage, removeSpaceLowerCaseString, setSharedLanguage} from "../logic/Functions";
-import {recipesList} from "../logic/RecipesList";
-import {useEffect, useState} from "react";
-import SearchBar from '../components/SearchBar';
 import BetterButton from "../components/BetterButton";
+import SearchBar from "../components/SearchBar";
 import StaticButton from "../components/StaticButton";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
-function Recipes(){
+function Recipes() {
 
     const navigate = useNavigate();
 
     const [selectedLanguage, setSelectedLanguage] = useState(getSharedLanguage());
-
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredRecipes, setFilteredRecipes] = useState([]);
 
@@ -22,18 +25,15 @@ function Recipes(){
         setSharedLanguage(newLanguage);
     };
 
-    // Update the filtered recipes list every time the search term changes
-    useEffect(() => {
-        const filtered = recipesList.filter((recipe) => {
-            const recipeNameValues = Object.values(recipe.name);
-            return recipeNameValues.some(name => name.toLowerCase().includes(searchTerm.toLowerCase()));
-        });
-        setFilteredRecipes(filtered);
-    }, [searchTerm]);
-
     const handleSearchTermChange = (newSearchTerm) => {
         setSearchTerm(newSearchTerm);
     };
+
+    // Update the filtered recipes list every time the search term changes
+    useEffect(() => {
+        const filtered = getRecipesByLangText(selectedLanguage, searchTerm);
+        setFilteredRecipes(filtered);
+    }, [selectedLanguage, searchTerm]);
 
     return(
         <div>
@@ -49,23 +49,16 @@ function Recipes(){
                 </div>
             </div>
 
-            <BetterButton
-                text="Back"
-                click={()=>navigate(MENU)}
-            />
-
             <SearchBar onSearchTermChange={handleSearchTermChange} />
 
             {filteredRecipes.map((recipe, index) => {
-                const translatedRecipeName = recipe.name[selectedLanguage] || recipe.name[ITALIAN] ||
-                    recipe.name[ENGLISH];
                 return (
                     <StaticButton
                         style={COOKING}
                         color='black'
-                        text={translatedRecipeName}
+                        text={recipe}
                         key={index}
-                        click={() => navigate(removeSpaceLowerCaseString(translatedRecipeName))}
+                        click={() => navigate(removeSpaceLowerCaseString(recipe))}
                     />
                 );
             })}
@@ -75,7 +68,7 @@ function Recipes(){
             />
         </div>
     );
-}
 
+}
 
 export default Recipes;
