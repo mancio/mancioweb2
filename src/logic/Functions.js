@@ -37,6 +37,11 @@ export function batteryPercentage(voltageStr) {
 
 /////////// recipes list handler
 
+export function sortArrayOfStringsAlphabetically(stringsArray) {
+    return stringsArray.slice().sort((a, b) => {
+        return a.localeCompare(b);
+    });
+}
 
 export function getRecipeTitle(text) {
     // Split the text into lines

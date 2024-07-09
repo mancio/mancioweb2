@@ -2,7 +2,7 @@ import {
     getRecipesByLangText,
     getSharedLanguage,
     removeSpaceLowerCaseString,
-    setSharedLanguage
+    setSharedLanguage, sortArrayOfStringsAlphabetically
 } from "../logic/Functions";
 import {COOKING, ENGLISH, ITALIAN, MENU, POLISH} from "../logic/Names";
 import BetterButton from "../components/BetterButton";
@@ -32,7 +32,7 @@ function Recipes() {
     // Update the filtered recipes list every time the search term changes
     useEffect(() => {
         const filtered = getRecipesByLangText(selectedLanguage, searchTerm);
-        setFilteredRecipes(filtered);
+        setFilteredRecipes(sortArrayOfStringsAlphabetically(filtered));
     }, [selectedLanguage, searchTerm]);
 
     return(
