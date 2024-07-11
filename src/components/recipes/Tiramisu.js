@@ -127,7 +127,7 @@ export const TiramisuPL = `
 
 PL
 -
-Tiramisu
+Tiramisu deserow
 -
 6 porcji
 -

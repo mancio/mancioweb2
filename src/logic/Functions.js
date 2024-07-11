@@ -186,7 +186,7 @@ export function getRecipeIDTextByUrl(recipeURL) {
     for (const [id, recipeList] of recipeFullList) {
         // Check each recipe text in the current recipe list
         for (const recipeText of recipeList) {
-            if (removeSpaceLowerCaseString(recipeText).includes(normalizedRecipeURL)) {
+            if (removeSpaceLowerCaseString(getRecipeTitle(recipeText)) === normalizedRecipeURL) {
                 return { id, recipeText }; // Return the ID and text if a match is found
             }
         }

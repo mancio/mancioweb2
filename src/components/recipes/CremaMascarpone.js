@@ -1,6 +1,6 @@
 import { EMPTY } from "../../logic/Names";
 
-const CremaMascarponeIT = `
+export const CremaMascarponeIT = `
 
 IT
 -
@@ -43,7 +43,7 @@ ${EMPTY}
 
 `
 
-const CremaMascarponeEN = `
+export const CremaMascarponeEN = `
 
 EN
 -
@@ -86,7 +86,7 @@ ${EMPTY}
 
 `
 
-const CremaMascarponePL = `
+export const CremaMascarponePL = `
 
 PL 
 -
