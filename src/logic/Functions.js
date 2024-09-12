@@ -483,6 +483,42 @@ export async function getInfoFromIp() {
     }
 }
 
+export async function getUnixTimeFromIp() {
+    try {
+        const response = await fetch('https://worldtimeapi.org/api/ip');
+        const data = await response.json();
+
+        // Extract the Unix time from the response
+        return data.unixtime;
+    } catch (error) {
+        console.error("Error fetching time data:", error);
+        return null;
+    }
+}
+
+export function getTimeDifference(thermometerUnixTimestamp, currentUnixTime) {
+    // Calculate the time difference in seconds
+    const timeDifferenceInSeconds = currentUnixTime - thermometerUnixTimestamp;
+
+    // If the difference is negative (future timestamp), return a meaningful message
+    if (timeDifferenceInSeconds < 0) {
+        return 'error';
+    }
+
+    // Calculate days, hours, and minutes
+    const days = Math.floor(timeDifferenceInSeconds / (3600 * 24));
+    const hours = Math.floor((timeDifferenceInSeconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((timeDifferenceInSeconds % 3600) / 60);
+
+    // Format the result based on the number of days and hours
+    if (days > 0) {
+        return `${days} days, ${hours} hours`;
+    } else if (hours > 0) {
+        return `${hours} hours, ${minutes} minutes`;
+    } else {
+        return `${minutes} minutes`;
+    }
+}
 
 export function formatDate(dateString) {
     const parts = dateString.split('-'); // Split the date by hyphen

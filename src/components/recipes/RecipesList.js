@@ -20,6 +20,7 @@ import {CrocchetteDiPatateEProsciuttoList} from "./CrocchetteDiPatateEProsciutto
 import {MuffinAllaBananaECioccolatoList} from "./MuffinAllaBananaECioccolato";
 import {TagliataConRucolaEPomodoriniList} from "./TagliataConRucolaEPomodorini";
 import {PastaRaguBiancoList} from "./PastaRaguBianco";
+import {RigatoniCipollaList} from "./RigatoniCipolla";
 
 export const recipeFullList = [
     [0, BudinoAllaVanigliaConMaizenaList],
@@ -43,6 +44,7 @@ export const recipeFullList = [
     [18, CrocchetteDiPatateEProsciuttoList],
     [19, MuffinAllaBananaECioccolatoList],
     [20, TagliataConRucolaEPomodoriniList],
-    [21, PastaRaguBiancoList]
+    [21, PastaRaguBiancoList],
+    [22, RigatoniCipollaList]
 ]
 
