@@ -68,8 +68,7 @@ function TempBoard() {
 
     return (
         <div>
-            <h2>Last update: {unixToPolishTime(datetime)}</h2>
-            <h2>Time since last update: {timeDifference}</h2>  {/* Display time difference */}
+            <h2>Last update: {unixToPolishTime(datetime)} ({timeDifference} ago)</h2>
             <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃</h2>
             <img src={icon} alt="temp-emoji" style={{ width: '100px', height: 'auto' }} />
             <h3>Battery level: {batteryPercentage(voltage)}</h3>

@@ -33,14 +33,16 @@ function Temperature(){
 
     return (
         <div className='dashboard'>
-            <form>
+            {!isAuthenticated && (
+                <form>
                 <BetterButton text="Enter" click={handleSubmit}/>
                 <input className='password-field'
-                    type="password"
-                    value={inputPassword}
-                    onChange={(e) => setInputPassword(e.target.value)}
+                       type="password"
+                       value={inputPassword}
+                       onChange={(e) => setInputPassword(e.target.value)}
                 />
             </form>
+            )}
             {isAuthenticated && (
                 <div>
                     <h1>Temperature in Casina</h1>

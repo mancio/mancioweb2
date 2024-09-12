@@ -502,17 +502,23 @@ export function getTimeDifference(thermometerUnixTimestamp, currentUnixTime) {
 
     // If the difference is negative (future timestamp), return a meaningful message
     if (timeDifferenceInSeconds < 0) {
-        return 'The thermometer time is in the future!';
+        return 'error';
     }
 
-    // Convert the difference into hours, minutes, and seconds
-    const hours = Math.floor(timeDifferenceInSeconds / 3600);
+    // Calculate days, hours, and minutes
+    const days = Math.floor(timeDifferenceInSeconds / (3600 * 24));
+    const hours = Math.floor((timeDifferenceInSeconds % (3600 * 24)) / 3600);
     const minutes = Math.floor((timeDifferenceInSeconds % 3600) / 60);
 
-    return `${hours} hours, ${minutes} minutes`;
+    // Format the result based on the number of days and hours
+    if (days > 0) {
+        return `${days} days, ${hours} hours`;
+    } else if (hours > 0) {
+        return `${hours} hours, ${minutes} minutes`;
+    } else {
+        return `${minutes} minutes`;
+    }
 }
-
-
 
 export function formatDate(dateString) {
     const parts = dateString.split('-'); // Split the date by hyphen
