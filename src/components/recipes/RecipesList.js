@@ -1,7 +1,7 @@
 import {BudinoAllaVanigliaConMaizenaList} from "./BudinoAllaVanigliaConMaizena";
 import {CremaMascarponeList} from "./CremaMascarpone";
 import {CrostataMarmellataList} from "./CrostataMarmellata";
-import {PaccheriCremaBurrataPancettaList} from "./PaccheriCremaBurrataPancetta";
+import {PaccheriCremaBurrataGuancialeList} from "./PaccheriCremaBurrataGuanciale";
 import {PancakeAllaBananaList} from "./PancakeAllaBanana";
 import {PaniniNapoletaniList} from "./PaniniNapoletani";
 import {PannaCottaFragoleList} from "./PannaCottaFragole";
@@ -27,7 +27,7 @@ export const recipeFullList = [
     [0, BudinoAllaVanigliaConMaizenaList],
     [1, CremaMascarponeList],
     [2, CrostataMarmellataList],
-    [3, PaccheriCremaBurrataPancettaList],
+    [3, PaccheriCremaBurrataGuancialeList],
     [4, PancakeAllaBananaList],
     [5, PaniniNapoletaniList],
     [6, PannaCottaFragoleList],
