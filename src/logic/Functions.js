@@ -465,13 +465,17 @@ export function writeDb(ref, value) {
 
 export async function getInfoFromIp() {
     try {
-        const response = await fetch('https://worldtimeapi.org/api/ip');
+        const response = await fetch('https://get.geojs.io/v1/ip/geo.json');
         const data = await response.json();
 
-        // Extract date and time from the datetime string
-        const datetimeParts = data.datetime.split('T');
-        const date = datetimeParts[0];
-        const time = datetimeParts[1].split('+')[0].split('.')[0]; // This will remove the milliseconds part
+        // Extract timezone from the response
+        const timezone = data.timezone;
+
+        // Get the current date and time in the extracted timezone
+        const currentTime = new Date().toLocaleString('en-US', { timeZone: timezone });
+
+        // Split the date and time
+        const [date, time] = currentTime.split(', ');
 
         return {
             date: date,
@@ -479,6 +483,52 @@ export async function getInfoFromIp() {
         };
     } catch (error) {
         console.error(error);
+        return null;
+    }
+}
+
+async function getTimeZone(){
+    try {
+        const response = await fetch('https://get.geojs.io/v1/ip/geo.json');
+        const data = await response.json();
+        return {
+            timeZone: data.timezone
+        };
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+export async function getTimeDateFormatted() {
+    const timeZoneData = await getTimeZone(); // Await the timezone data
+
+    if (timeZoneData && timeZoneData.timeZone) {
+        const currentDate = new Date(); // Get the current date and time
+
+        // Format date as DD/MM/YYYY
+        const formattedDate = new Intl.DateTimeFormat('en-GB', {
+            timeZone: timeZoneData.timeZone,
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        }).format(currentDate);
+
+        // Format time as HH:MM:SS
+        const formattedTime = new Intl.DateTimeFormat('en-GB', {
+            timeZone: timeZoneData.timeZone,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        }).format(currentDate);
+
+        return {
+            date: formattedDate,
+            time: formattedTime
+        };
+    } else {
+        console.error('Unable to retrieve timezone.');
         return null;
     }
 }
