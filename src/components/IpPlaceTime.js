@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {addOneSecond, formatDate, getInfoFromIp} from "../logic/Functions";
+import {addOneSecond, getTimeDateFormatted} from "../logic/Functions";
 import {MIDNIGHT_AS_24H_STRING, SEARCHING_MESSAGE} from "../logic/Names";
 import '../App.css';
 
@@ -41,11 +41,11 @@ function IpPlaceTime(){
     useEffect(() => {
         // Function to fetch info and update state
         const fetchInfo = () => {
-            getInfoFromIp()
+            getTimeDateFormatted()
                 .then((info) => {
                     if (info) { // Make sure info is not null
                         setTime(info.time);
-                        setDate(formatDate(info.date));
+                        setDate(info.date);
                     }
                 })
                 .catch((error) => {
@@ -56,11 +56,6 @@ function IpPlaceTime(){
         // Call fetchInfo immediately to not wait for the first interval to elapse
         fetchInfo();
 
-        // Set up the interval to repeat fetchInfo every 30 sec
-        const intervalId = setInterval(fetchInfo, 30 * 1000);
-
-        // Clean-up function to clear the interval when the component unmounts or the effect re-runs
-        return () => clearInterval(intervalId);
     }, []);
 
     useEffect(() => {

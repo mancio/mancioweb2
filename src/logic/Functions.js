@@ -533,18 +533,7 @@ export async function getTimeDateFormatted() {
     }
 }
 
-export async function getUnixTimeFromIp() {
-    try {
-        const response = await fetch('https://worldtimeapi.org/api/ip');
-        const data = await response.json();
-
-        // Extract the Unix time from the response
-        return data.unixtime;
-    } catch (error) {
-        console.error("Error fetching time data:", error);
-        return null;
-    }
-}
+export function getUnixTime() { return  Math.floor(Date.now() / 1000); }
 
 export function getTimeDifference(thermometerUnixTimestamp, currentUnixTime) {
     // Calculate the time difference in seconds
@@ -569,12 +558,6 @@ export function getTimeDifference(thermometerUnixTimestamp, currentUnixTime) {
         return `${minutes} minutes`;
     }
 }
-
-export function formatDate(dateString) {
-    const parts = dateString.split('-'); // Split the date by hyphen
-    return `${parts[2]}-${parts[1]}-${parts[0]}`; // Rearrange the parts
-}
-
 
 export function addOneSecond(inputTime) {
     try {
