@@ -6,7 +6,7 @@ import placeHolder from '../pictures/icons/placeHolder.svg';
 
 import {
     batteryPercentage,
-    getFirebaseSetUp, getTimeDifference, getUnixTimeFromIp,
+    getFirebaseSetUp, getTimeDifference, getUnixTime,
     isDbSet,
     readDb,
     roundStringToTwoDecimals,
@@ -58,7 +58,7 @@ function TempBoard() {
     useEffect(() => {
         if (datetime) {  // Only run if datetime is available
             const fetchTimeDifference = async () => {
-                const currentUnixTime = await getUnixTimeFromIp();  // Get current time from World Time API
+                const currentUnixTime = getUnixTime();
                 const difference = getTimeDifference(datetime, currentUnixTime);  // Calculate time difference
                 setTimeDifference(difference);  // Update state with time difference
             };
@@ -68,7 +68,7 @@ function TempBoard() {
 
     return (
         <div>
-            <h2>Last update: {unixToPolishTime(datetime)} ({timeDifference} ago)</h2>
+            <h2>Last update: {unixToPolishTime(datetime)} ({timeDifference} ago) Polish time</h2>
             <h2>🌡️: {roundStringToTwoDecimals(temperature)} ℃</h2>
             <img src={icon} alt="temp-emoji" style={{ width: '100px', height: 'auto' }} />
             <h3>Battery level: {batteryPercentage(voltage)}</h3>
