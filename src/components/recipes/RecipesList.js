@@ -23,6 +23,7 @@ import {PastaRaguBiancoList} from "./PastaRaguBianco";
 import {RigatoniCipollaList} from "./RigatoniCipolla";
 import {TrotaPatateFornoList} from "./TrotaPatateForno";
 import {PatateAlFornoPerfetteList} from "./PatateFornoPerfette";
+import {BesciamellaLeggeraList} from "./BesciamellaLeggera";
 
 export const recipeFullList = [
     [0, BudinoAllaVanigliaConMaizenaList],
@@ -49,6 +50,7 @@ export const recipeFullList = [
     [21, PastaRaguBiancoList],
     [22, RigatoniCipollaList],
     [23, TrotaPatateFornoList],
-    [24, PatateAlFornoPerfetteList]
+    [24, PatateAlFornoPerfetteList],
+    [25, BesciamellaLeggeraList]
 ]
 
