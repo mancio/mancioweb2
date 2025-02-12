@@ -57,6 +57,17 @@ body {
   border-radius: 10px;
 }
 
+.ingredient-checkbox {
+  margin-right: 20px; /* Adjust the value as needed */
+  transform: scale(1.5); /* Adjust the scale value as needed */
+  transform-origin: left; /* Ensure the checkbox scales from the left */
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .dashboard{
   background-color: white;
