@@ -25,6 +25,16 @@ function RecipesGen() {
     // const [recipeData, setRecipeData] = useState(recipeDataModel);
     const [multiplier, setMultiplier] = useState(1);
 
+    const [checkedIngredients, setCheckedIngredients] = useState(
+        new Array(recipeData.ingredients.length).fill(false)
+    );
+
+    const handleCheckboxChange = (index) => {
+        const updatedCheckedIngredients = [...checkedIngredients];
+        updatedCheckedIngredients[index] = !updatedCheckedIngredients[index];
+        setCheckedIngredients(updatedCheckedIngredients);
+    };
+
 
     function findFirstPictureUrl(num) {
         // Iterate through the pictures array to find the picture with number 0
@@ -52,8 +62,16 @@ function RecipesGen() {
             <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier} />
             <h3>Ingredients</h3>
             {recipeData.ingredients.map((ingredient, index) => (
-                <div key={index}>
-                    <p>🔆 {changeIngredientQuantity(ingredient, multiplier)} 🔆</p>
+                <div key={index} className="ingredient-item">
+                    <input
+                        type="checkbox"
+                        className="ingredient-checkbox"
+                        checked={checkedIngredients[index]}
+                        onChange={() => handleCheckboxChange(index)}
+                    />
+                    <p style={{ textDecoration: checkedIngredients[index] ? 'line-through' : 'none' }}>
+                        {changeIngredientQuantity(ingredient, multiplier)}
+                    </p>
                 </div>
             ))}
             {MAGIC_SEPARATOR}
