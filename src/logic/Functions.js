@@ -614,6 +614,23 @@ export function unixToPolishTime(unixTimestamp) {
 }
 
 
+// age calculator
+export function calculateAge(day, month, year) {
+    const today = new Date();
+    const birthDate = new Date(year, month - 1, day); // month is 0-indexed in JavaScript Date
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    const dayDifference = today.getDate() - birthDate.getDate();
+
+    // Adjust age if the current date is before the birthdate in the current year
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+        age--;
+    }
+
+    return age;
+}
+
 // Pizza functions
 
 export function getHydration(water, flour){

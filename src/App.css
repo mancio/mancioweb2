@@ -258,7 +258,13 @@ body {
   }
 }
 
-
+.age-field {
+  width: 70px;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+}
 
 
 
