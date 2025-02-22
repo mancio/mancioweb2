@@ -6,7 +6,8 @@ export const KITCHEN_TOOLS = '/kitchenTools';
 export const DICE = '/Dice';
 export const FART = '/Fart';
 
-export const TEMP = '/Temp'
+export const TEMP = '/Temp';
+export const HOW_OLD = '/HowOld';
 
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';

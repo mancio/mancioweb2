@@ -258,7 +258,12 @@ body {
   }
 }
 
-
+.age-field {
+  width: 80px; /* Adjust the width as needed */
+  font-size: 20px; /* Adjust the font size as needed */
+  padding: 5px; /* Optional: Adjust padding for better appearance */
+  height: 40px; /* Increase the height to make the arrows larger */
+}
 
 
 

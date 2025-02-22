@@ -8,7 +8,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {
     DASHBOARD,
     DICE,
-    FART,
+    FART, HOW_OLD,
     KITCHEN_TOOLS,
     MENU,
     PHONE,
@@ -28,6 +28,7 @@ const KitchenTools = lazy(() => import('./pages/KitchenTools'));
 const Dice = lazy(() => import('./pages/Dice'));
 const Fart = lazy(() => import('./pages/Fart'));
 const Temperature = lazy(() => import('./pages/Temperature'));
+const HowOld = lazy(() => import('./pages/HowOld'));
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
                             <Route path={DICE} element={<Dice />} />
                             <Route path={FART} element={<Fart />} />
                             <Route path={TEMP} element={<Temperature />} />
+                            <Route path={HOW_OLD} element={<HowOld /> } />
                         </Routes>
                     </BrowserRouter>
                     <IpPlaceTime/>
