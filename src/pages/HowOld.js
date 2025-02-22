@@ -25,6 +25,7 @@ function HowOld(){
                     placeholder="Enter day"
                     className="age-field"
                 />
+                /
                 <input
                     type="number"
                     value={months}
@@ -32,6 +33,7 @@ function HowOld(){
                     placeholder="Enter month"
                     className="age-field"
                 />
+                /
                 <input
                     type="number"
                     value={years}
