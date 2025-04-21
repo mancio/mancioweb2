@@ -45,14 +45,25 @@ function RecipesGen() {
     // const [recipeData, setRecipeData] = useState(recipeDataModel);
     const [multiplier, setMultiplier] = useState(1);
 
-    const [checkedIngredients, setCheckedIngredients] = useState(
-        new Array(recipeData.ingredients.length).fill(false)
-    );
+    const [checkedIngredients, setCheckedIngredients] = useState(() => {
+        const savedState = localStorage.getItem("checkedIngredients");
+        const parsedState = savedState ? JSON.parse(savedState) : [];
+        // Ensure the array length matches the number of ingredients
+        return parsedState.length === recipeData.ingredients.length
+            ? parsedState
+            : new Array(recipeData.ingredients.length).fill(false);
+    });
+
+    useEffect(() => {
+        // Update localStorage whenever checkedIngredients changes
+        localStorage.setItem("checkedIngredients", JSON.stringify(checkedIngredients));
+    }, [checkedIngredients]);
 
     const handleCheckboxChange = (index) => {
         const updatedCheckedIngredients = [...checkedIngredients];
         updatedCheckedIngredients[index] = !updatedCheckedIngredients[index];
         setCheckedIngredients(updatedCheckedIngredients);
+        localStorage.setItem("checkedIngredients", JSON.stringify(updatedCheckedIngredients));
     };
 
     function findFirstPictureUrl(num) {
