@@ -1,16 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
     changeIngredientQuantity,
     getRecipeIDTextByUrl,
     getRecipeData, getRecipeURLByIdAndLanguage, numberToEmoji,
 } from "../logic/Functions";
+import { useWakeLock } from "react-screen-wake-lock";
 import {EMPTY, ENGLISH, ITALIAN, MAGIC_SEPARATOR, POLISH, RECIPES} from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
 
 function RecipesGen() {
+
+    const { isSupported, request, release } = useWakeLock({
+        onRequest: () => console.log("Screen Wake Lock: requested!"),
+        onError: () => console.error("An error occurred 💥"),
+        onRelease: () => console.log("Screen Wake Lock: released!"),
+        reacquireOnPageVisible: true,
+    });
+
+    useEffect(() => {
+        if (isSupported) {
+            request(); // Automatically request the wake lock when the component mounts
+        }
+
+        return () => {
+            release(); // Automatically release the wake lock when the component unmounts
+        };
+        // eslint-disable-next-line
+    }, [isSupported]);
 
     const navigate = useNavigate();
     const { recipeName: recipeURLName } = useParams();
