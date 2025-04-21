@@ -1,16 +1,35 @@
 import { useNavigate, useParams } from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
     changeIngredientQuantity,
     getRecipeIDTextByUrl,
     getRecipeData, getRecipeURLByIdAndLanguage, numberToEmoji,
 } from "../logic/Functions";
+import { useWakeLock } from "react-screen-wake-lock";
 import {EMPTY, ENGLISH, ITALIAN, MAGIC_SEPARATOR, POLISH, RECIPES} from "../logic/Names";
 import IngredientMultiplier from "../components/IngredientMultiplier";
 import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
 
 function RecipesGen() {
+
+    const { isSupported, request, release } = useWakeLock({
+        onRequest: () => console.log("Screen Wake Lock: requested!"),
+        onError: () => console.error("An error occurred 💥"),
+        onRelease: () => console.log("Screen Wake Lock: released!"),
+        reacquireOnPageVisible: true,
+    });
+
+    useEffect(() => {
+        if (isSupported) {
+            request(); // Automatically request the wake lock when the component mounts
+        }
+
+        return () => {
+            release(); // Automatically release the wake lock when the component unmounts
+        };
+        // eslint-disable-next-line
+    }, [isSupported]);
 
     const navigate = useNavigate();
     const { recipeName: recipeURLName } = useParams();
@@ -26,14 +45,25 @@ function RecipesGen() {
     // const [recipeData, setRecipeData] = useState(recipeDataModel);
     const [multiplier, setMultiplier] = useState(1);
 
-    const [checkedIngredients, setCheckedIngredients] = useState(
-        new Array(recipeData.ingredients.length).fill(false)
-    );
+    const [checkedIngredients, setCheckedIngredients] = useState(() => {
+        const savedState = localStorage.getItem("checkedIngredients");
+        const parsedState = savedState ? JSON.parse(savedState) : [];
+        // Ensure the array length matches the number of ingredients
+        return parsedState.length === recipeData.ingredients.length
+            ? parsedState
+            : new Array(recipeData.ingredients.length).fill(false);
+    });
+
+    useEffect(() => {
+        // Update localStorage whenever checkedIngredients changes
+        localStorage.setItem("checkedIngredients", JSON.stringify(checkedIngredients));
+    }, [checkedIngredients]);
 
     const handleCheckboxChange = (index) => {
         const updatedCheckedIngredients = [...checkedIngredients];
         updatedCheckedIngredients[index] = !updatedCheckedIngredients[index];
         setCheckedIngredients(updatedCheckedIngredients);
+        localStorage.setItem("checkedIngredients", JSON.stringify(updatedCheckedIngredients));
     };
 
     function findFirstPictureUrl(num) {
