@@ -25,8 +25,8 @@ export function roundStringToTwoDecimals(strNum) {
 
 export function batteryPercentage(voltageStr) {
     const voltage = parseFloat(voltageStr);
-    const MAX_VOLTAGE = 5.63;
-    const MIN_VOLTAGE = 4.25;
+    const MAX_VOLTAGE = 5.20;
+    const MIN_VOLTAGE = 4.80;
     // Clamp the voltage to ensure it's within the expected range
     const clampedVoltage = Math.max(MIN_VOLTAGE, Math.min(MAX_VOLTAGE, voltage));
     // Calculate the percentage
