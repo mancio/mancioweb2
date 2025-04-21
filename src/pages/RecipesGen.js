@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import {useState} from "react";
 import {
     changeIngredientQuantity,
     getRecipeIDTextByUrl,
@@ -11,6 +11,7 @@ import YouTubeLogo from "../pictures/icons/YouTube.svg";
 import BetterButton from "../components/BetterButton";
 
 function RecipesGen() {
+
     const navigate = useNavigate();
     const { recipeName: recipeURLName } = useParams();
 
@@ -34,7 +35,6 @@ function RecipesGen() {
         updatedCheckedIngredients[index] = !updatedCheckedIngredients[index];
         setCheckedIngredients(updatedCheckedIngredients);
     };
-
 
     function findFirstPictureUrl(num) {
         // Iterate through the pictures array to find the picture with number 0
