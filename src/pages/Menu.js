@@ -21,6 +21,7 @@ function Menu(){
             <ArcadeButton text="Dice" click={()=>navigate(DICE)}/>
             <ArcadeButton text="Fart&Run" click={()=>navigate(FART)}/>
             <ArcadeButton text="TempCasina" click={()=>navigate(TEMP)}/>
+            <ArcadeButton text="Karpathy Lessons" click={()=>window.open('https://karpathy-nn-77c7a1.gitlab.io', '_blank', 'noopener,noreferrer')}/>
         </div>
     );
 }
