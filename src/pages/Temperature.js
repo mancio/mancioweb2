@@ -45,7 +45,7 @@ function Temperature(){
             )}
             {isAuthenticated && (
                 <div>
-                    <h1>Temperature in Casina</h1>
+                    <h1>Temperature</h1>
                     <TempBoard/>
                 </div>
             )}
