@@ -6,7 +6,6 @@ import SnowMan from './pictures/icons/snowman.svg'
 import {getDisplayType, getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {
-    DASHBOARD,
     DICE,
     FART, HOW_OLD,
     KITCHEN_TOOLS,
@@ -22,7 +21,6 @@ import IpPlaceTime from "./components/IpPlaceTime";
 const Menu = lazy(() => import('./pages/Menu'));
 const Recipes = lazy(() => import('./pages/Recipes'));
 const RecipesGen = lazy(() => import('./pages/RecipesGen'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
 const ScoreCounter = lazy(() => import('./pages/ScoreCounter'));
 const KitchenTools = lazy(() => import('./pages/KitchenTools'));
 const Dice = lazy(() => import('./pages/Dice'));
@@ -68,7 +66,6 @@ function App() {
                             <Route exact path={MENU} element={<Menu />} />
                             <Route path={RECIPES} element={<Recipes />} />
                             <Route path={RECIPES + '/:recipeName'} element={<RecipesGen />} />
-                            <Route path={DASHBOARD} element={<Dashboard />} />
                             <Route path={SCORE_COUNTER} element={<ScoreCounter />} />
                             <Route path={KITCHEN_TOOLS} element={<KitchenTools />} />
                             <Route path={DICE} element={<Dice />} />

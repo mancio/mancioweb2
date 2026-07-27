@@ -1,6 +1,5 @@
 export const MENU = '/';
 export const RECIPES = '/recipes';
-export const DASHBOARD = '/dashboard';
 export const SCORE_COUNTER = '/score';
 export const KITCHEN_TOOLS = '/kitchenTools';
 export const DICE = '/Dice';
