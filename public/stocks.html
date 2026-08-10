@@ -1,0 +1,4973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stocks Near Support</title>
+<style>
+  :root { --border: #e2e2e2; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; padding: 24px; color: #1a1a1a; background: #fafafa;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 16px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; font-size: 13px; }
+  thead th {
+    position: sticky; top: 0; background: #1f2937; color: #fff; text-align: left;
+    padding: 8px 10px; cursor: pointer; user-select: none; white-space: nowrap;
+    border-bottom: 2px solid #111827;
+  }
+  thead th:hover { background: #374151; }
+  thead th::after { content: " \25B4\25BE"; opacity: 0.35; font-size: 10px; }
+  tbody td { padding: 6px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #f6f7f9; }
+  tbody tr:hover { background: #eef2ff; }
+  td.num { text-align: right; font-family: "SF Mono", ui-monospace, "Cascadia Code", Consolas, monospace; }
+  td.neg { color: #b91c1c; }
+  td.score { font-weight: 700; color: #1f2937; }
+  td.reasons { color: #444; font-size: 12px; white-space: nowrap; }
+  .rating { display: inline-block; padding: 2px 8px; border-radius: 10px; color: #fff; font-weight: 600; font-size: 12px; }
+  .r-strongbuy { background: #0a7d28; }
+  .r-buy       { background: #3aa856; }
+  .r-hold      { background: #8a8a8a; }
+  .r-sell      { background: #d97706; }
+  .r-strongsell{ background: #b91c1c; }
+  .pill { display: inline-block; padding: 1px 6px; border-radius: 4px; background: #eef; color: #334; font-size: 11px; }
+  footer { margin-top: 16px; color: #777; font-size: 12px; }
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .back { display: inline-block; margin-bottom: 12px; color: #1f2937; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .back:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    body { padding: 12px; }
+    h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back" href="/">← Back to Menu</a>
+  <h1>Stocks Near Support</h1>
+  <div class="sub">286 rows &middot; 189 US &middot; 97 EU &middot; near-support threshold &le; 5.0% &middot; ranked by composite Score</div>
+
+  <div class="table-wrap">
+  <table id="report">
+    <thead>
+      <tr>
+        <th data-type="num">Score</th>
+        <th data-type="text">Ticker</th>
+        <th data-type="text">Name</th>
+        <th data-type="text">Market</th>
+        <th data-type="num">Last</th>
+        <th data-type="num">Support</th>
+        <th data-type="num">Dist %</th>
+        <th data-type="num">52w High</th>
+        <th data-type="num">Drawdown</th>
+        <th data-type="num">Days since high</th>
+        <th data-type="text">Rating</th>
+        <th data-type="num"># Analysts</th>
+        <th data-type="num">Community</th>
+        <th data-type="text">Reasons</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <td class="num score">83.6</td>
+        <td>ADEN.SW</td>
+        <td>Adecco</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">22.56</td>
+        <td class="num">22.22</td>
+        <td class="num">1.51</td>
+        <td class="num">27.18</td>
+        <td class="num neg">-17.00%</td>
+        <td class="num">246</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (17 analysts); 1.5% above support; 17% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">82.7</td>
+        <td>JKHY</td>
+        <td>Jack Henry &amp; Associates</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">154.35</td>
+        <td class="num">153.23</td>
+        <td class="num">0.73</td>
+        <td class="num">193.39</td>
+        <td class="num neg">-20.19%</td>
+        <td class="num">138</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 0.7% above support; 20% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.6</td>
+        <td>GRF.MC</td>
+        <td>Grifols</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">10.25</td>
+        <td class="num">10.22</td>
+        <td class="num">0.29</td>
+        <td class="num">12.88</td>
+        <td class="num neg">-20.39%</td>
+        <td class="num">249</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (12 analysts); 0.3% above support; 20% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.6</td>
+        <td>GEHC</td>
+        <td>GE HealthCare</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">70.24</td>
+        <td class="num">69.95</td>
+        <td class="num">0.41</td>
+        <td class="num">89.77</td>
+        <td class="num neg">-21.76%</td>
+        <td class="num">143</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (28 analysts); 0.4% above support; 22% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 890)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.6</td>
+        <td>ARES</td>
+        <td>Ares Management</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">139.77</td>
+        <td class="num">139.31</td>
+        <td class="num">0.33</td>
+        <td class="num">195.26</td>
+        <td class="num neg">-28.42%</td>
+        <td class="num">245</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 0.3% above support; 28% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.5</td>
+        <td>ABT</td>
+        <td>Abbott Laboratories</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">105.71</td>
+        <td class="num">105.27</td>
+        <td class="num">0.42</td>
+        <td class="num">137.49</td>
+        <td class="num neg">-23.11%</td>
+        <td class="num">218</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (33 analysts); 0.4% above support; 23% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 246)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.5</td>
+        <td>CME</td>
+        <td>CME Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">264.78</td>
+        <td class="num">263.60</td>
+        <td class="num">0.44</td>
+        <td class="num">329.16</td>
+        <td class="num neg">-19.56%</td>
+        <td class="num">107</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.6</td>
+        <td class="reasons">Buy (21 analysts); 0.4% above support; 20% off 52w high; above 50-day avg; Reddit: 2 mentions ▲ (rank 179)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.1</td>
+        <td>J</td>
+        <td>Jacobs Solutions</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">144.67</td>
+        <td class="num">143.77</td>
+        <td class="num">0.62</td>
+        <td class="num">168.44</td>
+        <td class="num neg">-14.11%</td>
+        <td class="num">194</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 0.6% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">81.0</td>
+        <td>BX</td>
+        <td>Blackstone Inc.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">136.03</td>
+        <td class="num">135.44</td>
+        <td class="num">0.43</td>
+        <td class="num">190.09</td>
+        <td class="num neg">-28.44%</td>
+        <td class="num">220</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (33 analysts); 0.4% above support; 28% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">80.6</td>
+        <td>STE</td>
+        <td>Steris</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">232.71</td>
+        <td class="num">232.35</td>
+        <td class="num">0.15</td>
+        <td class="num">269.44</td>
+        <td class="num neg">-13.63%</td>
+        <td class="num">137</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 0.2% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">80.2</td>
+        <td>CBRE</td>
+        <td>CBRE Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">151.16</td>
+        <td class="num">150.06</td>
+        <td class="num">0.73</td>
+        <td class="num">174.27</td>
+        <td class="num neg">-13.26%</td>
+        <td class="num">121</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 0.7% above support; 13% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">80.0</td>
+        <td>COR</td>
+        <td>Cencora</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">317.22</td>
+        <td class="num">314.51</td>
+        <td class="num">0.85</td>
+        <td class="num">377.54</td>
+        <td class="num neg">-15.98%</td>
+        <td class="num">172</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 0.9% above support; 16% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">79.9</td>
+        <td>MDT</td>
+        <td>Medtronic</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">85.99</td>
+        <td class="num">85.35</td>
+        <td class="num">0.74</td>
+        <td class="num">106.33</td>
+        <td class="num neg">-19.13%</td>
+        <td class="num">171</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (34 analysts); 0.7% above support; 19% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">79.8</td>
+        <td>BLK</td>
+        <td>BlackRock</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1133.58</td>
+        <td class="num">1131.38</td>
+        <td class="num">0.19</td>
+        <td class="num">1219.94</td>
+        <td class="num neg">-7.08%</td>
+        <td class="num">201</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 0.2% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">79.6</td>
+        <td>VLTO</td>
+        <td>Veralto</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">97.16</td>
+        <td class="num">96.59</td>
+        <td class="num">0.59</td>
+        <td class="num">110.11</td>
+        <td class="num neg">-11.76%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (26 analysts); 0.6% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">79.3</td>
+        <td>WISE.L</td>
+        <td>Wise</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">901.00</td>
+        <td class="num">900.00</td>
+        <td class="num">0.11</td>
+        <td class="num">1164.00</td>
+        <td class="num neg">-22.59%</td>
+        <td class="num">229</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 0.1% above support; 23% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">79.2</td>
+        <td>NEM</td>
+        <td>Newmont</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">104.29</td>
+        <td class="num">103.88</td>
+        <td class="num">0.40</td>
+        <td class="num">134.88</td>
+        <td class="num neg">-22.68%</td>
+        <td class="num">129</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (31 analysts); 0.4% above support; 23% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 305)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">77.9</td>
+        <td>BA.L</td>
+        <td>BAE Systems</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2187.00</td>
+        <td class="num">2176.50</td>
+        <td class="num">0.48</td>
+        <td class="num">2360.00</td>
+        <td class="num neg">-7.33%</td>
+        <td class="num">97</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 0.5% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">77.4</td>
+        <td>APO</td>
+        <td>Apollo Global Management</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">129.74</td>
+        <td class="num">128.98</td>
+        <td class="num">0.59</td>
+        <td class="num">153.29</td>
+        <td class="num neg">-15.36%</td>
+        <td class="num">145</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (26 analysts); 0.6% above support; 15% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">77.1</td>
+        <td>WEIR.L</td>
+        <td>Weir Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2706.00</td>
+        <td class="num">2666.00</td>
+        <td class="num">1.48</td>
+        <td class="num">3580.00</td>
+        <td class="num neg">-24.41%</td>
+        <td class="num">111</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 1.5% above support; 24% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">76.3</td>
+        <td>COF</td>
+        <td>Capital One</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">221.63</td>
+        <td class="num">218.16</td>
+        <td class="num">1.57</td>
+        <td class="num">259.64</td>
+        <td class="num neg">-14.64%</td>
+        <td class="num">145</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 1.6% above support; 15% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">75.8</td>
+        <td>SGO.PA</td>
+        <td>Saint-Gobain</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">86.68</td>
+        <td class="num">85.38</td>
+        <td class="num">1.50</td>
+        <td class="num">100.75</td>
+        <td class="num neg">-13.97%</td>
+        <td class="num">245</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 1.5% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">75.5</td>
+        <td>BYG.L</td>
+        <td>Big Yellow Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">910.00</td>
+        <td class="num">904.50</td>
+        <td class="num">0.60</td>
+        <td class="num">1208.00</td>
+        <td class="num neg">-24.67%</td>
+        <td class="num">199</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 0.6% above support; 25% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">75.1</td>
+        <td>WST</td>
+        <td>West Pharmaceutical Services</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">351.02</td>
+        <td class="num">349.41</td>
+        <td class="num">0.46</td>
+        <td class="num">386.00</td>
+        <td class="num neg">-9.06%</td>
+        <td class="num">9</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 0.5% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">75.0</td>
+        <td>ALLE</td>
+        <td>Allegion</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">168.58</td>
+        <td class="num">166.77</td>
+        <td class="num">1.07</td>
+        <td class="num">183.11</td>
+        <td class="num neg">-7.94%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 1.1% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">75.0</td>
+        <td>PSX</td>
+        <td>Phillips 66</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">202.55</td>
+        <td class="num">200.80</td>
+        <td class="num">0.86</td>
+        <td class="num">216.08</td>
+        <td class="num neg">-6.26%</td>
+        <td class="num">10</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (26 analysts); 0.9% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.8</td>
+        <td>LOW</td>
+        <td>Lowe&#39;s</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">219.94</td>
+        <td class="num">218.80</td>
+        <td class="num">0.52</td>
+        <td class="num">293.06</td>
+        <td class="num neg">-24.95%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">41</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (41 analysts); 0.5% above support; 25% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 300)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.8</td>
+        <td>MC.PA</td>
+        <td>LVMH</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">485.60</td>
+        <td class="num">483.05</td>
+        <td class="num">0.53</td>
+        <td class="num">654.70</td>
+        <td class="num neg">-25.83%</td>
+        <td class="num">183</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (26 analysts); 0.5% above support; 26% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.5</td>
+        <td>CDW</td>
+        <td>CDW Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">140.10</td>
+        <td class="num">138.52</td>
+        <td class="num">1.13</td>
+        <td class="num">171.55</td>
+        <td class="num neg">-18.33%</td>
+        <td class="num">225</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 1.1% above support; 18% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.5</td>
+        <td>PRU.L</td>
+        <td>Prudential plc</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">1033.50</td>
+        <td class="num">1031.67</td>
+        <td class="num">0.18</td>
+        <td class="num">1238.00</td>
+        <td class="num neg">-16.52%</td>
+        <td class="num">127</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">13</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (13 analysts); 0.2% above support; 17% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.4</td>
+        <td>ALC.SW</td>
+        <td>Alcon</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">57.40</td>
+        <td class="num">56.44</td>
+        <td class="num">1.67</td>
+        <td class="num">72.88</td>
+        <td class="num neg">-21.24%</td>
+        <td class="num">241</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (26 analysts); 1.7% above support; 21% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.4</td>
+        <td>CARR</td>
+        <td>Carrier Global</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">65.43</td>
+        <td class="num">65.34</td>
+        <td class="num">0.14</td>
+        <td class="num">76.76</td>
+        <td class="num neg">-14.76%</td>
+        <td class="num">28</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 0.1% above support; 15% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.4</td>
+        <td>RMV.L</td>
+        <td>Rightmove</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">474.70</td>
+        <td class="num">474.50</td>
+        <td class="num">0.04</td>
+        <td class="num">822.60</td>
+        <td class="num neg">-42.29%</td>
+        <td class="num">251</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 0.0% above support; 42% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.0</td>
+        <td>CTVA</td>
+        <td>Corteva</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">78.67</td>
+        <td class="num">78.56</td>
+        <td class="num">0.14</td>
+        <td class="num">90.97</td>
+        <td class="num neg">-13.52%</td>
+        <td class="num">5</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 0.1% above support; 14% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.0</td>
+        <td>EVRG</td>
+        <td>Evergy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">83.06</td>
+        <td class="num">82.00</td>
+        <td class="num">1.28</td>
+        <td class="num">88.62</td>
+        <td class="num neg">-6.27%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (20 analysts); 1.3% above support; 6% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">74.0</td>
+        <td>CEG</td>
+        <td>Constellation Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">265.12</td>
+        <td class="num">264.74</td>
+        <td class="num">0.14</td>
+        <td class="num">412.70</td>
+        <td class="num neg">-35.76%</td>
+        <td class="num">201</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">57.3</td>
+        <td class="reasons">Buy (29 analysts); 0.1% above support; 36% off 52w high; above 50-day avg; Reddit: 5 mentions ▲ (rank 111)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.8</td>
+        <td>PNN.L</td>
+        <td>Pennon Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">459.40</td>
+        <td class="num">454.70</td>
+        <td class="num">1.02</td>
+        <td class="num">605.00</td>
+        <td class="num neg">-24.07%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">13</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (13 analysts); 1.0% above support; 24% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.7</td>
+        <td>LONN.SW</td>
+        <td>Lonza Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">566.00</td>
+        <td class="num">562.60</td>
+        <td class="num">0.60</td>
+        <td class="num">591.00</td>
+        <td class="num neg">-4.23%</td>
+        <td class="num">18</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 0.6% above support; 4% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.7</td>
+        <td>MA</td>
+        <td>Mastercard</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">570.48</td>
+        <td class="num">562.51</td>
+        <td class="num">1.40</td>
+        <td class="num">601.77</td>
+        <td class="num neg">-5.20%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">54</td>
+        <td class="num">57.3</td>
+        <td class="reasons">Buy (54 analysts); 1.4% above support; 5% off 52w high; above 50-day avg; Reddit: 5 mentions ▲ (rank 97)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.4</td>
+        <td>CL</td>
+        <td>Colgate-Palmolive</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">93.28</td>
+        <td class="num">93.27</td>
+        <td class="num">0.01</td>
+        <td class="num">99.33</td>
+        <td class="num neg">-6.09%</td>
+        <td class="num">109</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (31 analysts); 0.0% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 272)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.4</td>
+        <td>MSI</td>
+        <td>Motorola Solutions</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">438.14</td>
+        <td class="num">434.47</td>
+        <td class="num">0.84</td>
+        <td class="num">492.22</td>
+        <td class="num neg">-10.99%</td>
+        <td class="num">225</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (20 analysts); 0.8% above support; 11% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 347)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.4</td>
+        <td>HWDN.L</td>
+        <td>Howden Joinery</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">841.50</td>
+        <td class="num">832.00</td>
+        <td class="num">1.13</td>
+        <td class="num">981.00</td>
+        <td class="num neg">-14.22%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 1.1% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.3</td>
+        <td>NOC</td>
+        <td>Northrop Grumman</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">557.47</td>
+        <td class="num">553.37</td>
+        <td class="num">0.74</td>
+        <td class="num">774.00</td>
+        <td class="num neg">-27.98%</td>
+        <td class="num">107</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (28 analysts); 0.7% above support; 28% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 307)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.0</td>
+        <td>JMT.LS</td>
+        <td>Jerónimo Martins</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">17.35</td>
+        <td class="num">17.15</td>
+        <td class="num">1.15</td>
+        <td class="num">22.68</td>
+        <td class="num neg">-23.50%</td>
+        <td class="num">97</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 1.2% above support; 24% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.0</td>
+        <td>BAS.DE</td>
+        <td>BASF</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">51.10</td>
+        <td class="num">50.67</td>
+        <td class="num">0.84</td>
+        <td class="num">55.05</td>
+        <td class="num neg">-7.18%</td>
+        <td class="num">80</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 0.8% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.0</td>
+        <td>EXO.AS</td>
+        <td>Exor</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">71.45</td>
+        <td class="num">70.75</td>
+        <td class="num">0.98</td>
+        <td class="num">89.70</td>
+        <td class="num neg">-20.35%</td>
+        <td class="num">245</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">8</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (8 analysts); 1.0% above support; 20% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">73.0</td>
+        <td>AMT</td>
+        <td>American Tower</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">168.07</td>
+        <td class="num">167.64</td>
+        <td class="num">0.25</td>
+        <td class="num">214.79</td>
+        <td class="num neg">-21.75%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (29 analysts); 0.3% above support; 22% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 252)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.9</td>
+        <td>MCD</td>
+        <td>McDonald&#39;s</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">274.00</td>
+        <td class="num">271.92</td>
+        <td class="num">0.76</td>
+        <td class="num">341.75</td>
+        <td class="num neg">-19.82%</td>
+        <td class="num">108</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">41</td>
+        <td class="num">17.3</td>
+        <td class="reasons">Buy (41 analysts); 0.8% above support; 20% off 52w high; below 50-day avg; Reddit: 2 mentions ▼ (rank 176)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.7</td>
+        <td>TTWO</td>
+        <td>Take-Two Interactive</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">234.91</td>
+        <td class="num">232.68</td>
+        <td class="num">0.95</td>
+        <td class="num">265.94</td>
+        <td class="num neg">-11.67%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">38</td>
+        <td class="num">61.2</td>
+        <td class="reasons">Buy (38 analysts); 1.0% above support; 12% off 52w high; above 50-day avg; Reddit: 8 mentions ▲ (rank 69)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.6</td>
+        <td>MU</td>
+        <td>Micron Technology</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">893.19</td>
+        <td class="num">891.66</td>
+        <td class="num">0.17</td>
+        <td class="num">1255.00</td>
+        <td class="num neg">-28.83%</td>
+        <td class="num">28</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">56</td>
+        <td class="num">76.3</td>
+        <td class="reasons">Buy (56 analysts); 0.2% above support; 29% off 52w high; below 50-day avg; Reddit: 348 mentions ▬ (rank 4)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.5</td>
+        <td>LIN</td>
+        <td>Linde plc</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">491.05</td>
+        <td class="num">490.40</td>
+        <td class="num">0.13</td>
+        <td class="num">548.20</td>
+        <td class="num neg">-10.43%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 0.1% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.3</td>
+        <td>RMS.PA</td>
+        <td>Hermès</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">1600.50</td>
+        <td class="num">1595.00</td>
+        <td class="num">0.34</td>
+        <td class="num">2300.00</td>
+        <td class="num neg">-30.41%</td>
+        <td class="num">141</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 0.3% above support; 30% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.2</td>
+        <td>INF.L</td>
+        <td>Informa</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">911.40</td>
+        <td class="num">904.80</td>
+        <td class="num">0.72</td>
+        <td class="num">1000.00</td>
+        <td class="num neg">-8.86%</td>
+        <td class="num">185</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 0.7% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.1</td>
+        <td>ERIE</td>
+        <td>Erie Indemnity</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">250.79</td>
+        <td class="num">247.01</td>
+        <td class="num">1.51</td>
+        <td class="num">380.67</td>
+        <td class="num neg">-34.12%</td>
+        <td class="num">248</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">8</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (8 analysts); 1.5% above support; 34% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">72.0</td>
+        <td>RNO.PA</td>
+        <td>Renault</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">28.26</td>
+        <td class="num">27.78</td>
+        <td class="num">1.70</td>
+        <td class="num">37.97</td>
+        <td class="num neg">-25.57%</td>
+        <td class="num">160</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 1.7% above support; 26% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.9</td>
+        <td>EOAN.DE</td>
+        <td>E.ON</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">18.85</td>
+        <td class="num">18.76</td>
+        <td class="num">0.45</td>
+        <td class="num">20.39</td>
+        <td class="num neg">-7.55%</td>
+        <td class="num">98</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 0.5% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.7</td>
+        <td>WY</td>
+        <td>Weyerhaeuser</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">25.84</td>
+        <td class="num">25.59</td>
+        <td class="num">0.97</td>
+        <td class="num">27.75</td>
+        <td class="num neg">-6.88%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (22 analysts); 1.0% above support; 7% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 323)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.7</td>
+        <td>VALMT.HE</td>
+        <td>Valmet</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">27.14</td>
+        <td class="num">26.82</td>
+        <td class="num">1.17</td>
+        <td class="num">31.75</td>
+        <td class="num neg">-14.52%</td>
+        <td class="num">246</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">6</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (6 analysts); 1.2% above support; 15% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.6</td>
+        <td>DG.PA</td>
+        <td>Vinci</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">125.85</td>
+        <td class="num">124.38</td>
+        <td class="num">1.17</td>
+        <td class="num">143.15</td>
+        <td class="num neg">-12.09%</td>
+        <td class="num">111</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 1.2% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.5</td>
+        <td>LNT</td>
+        <td>Alliant Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">70.20</td>
+        <td class="num">70.07</td>
+        <td class="num">0.18</td>
+        <td class="num">78.81</td>
+        <td class="num neg">-10.93%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 0.2% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.4</td>
+        <td>PLD</td>
+        <td>Prologis</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">140.76</td>
+        <td class="num">140.17</td>
+        <td class="num">0.42</td>
+        <td class="num">153.35</td>
+        <td class="num neg">-8.21%</td>
+        <td class="num">13</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 0.4% above support; 8% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.3</td>
+        <td>ENGI.PA</td>
+        <td>Engie</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">26.61</td>
+        <td class="num">26.43</td>
+        <td class="num">0.68</td>
+        <td class="num">29.89</td>
+        <td class="num neg">-10.97%</td>
+        <td class="num">111</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 0.7% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.3</td>
+        <td>DVN</td>
+        <td>Devon Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">42.09</td>
+        <td class="num">41.73</td>
+        <td class="num">0.86</td>
+        <td class="num">52.71</td>
+        <td class="num neg">-20.15%</td>
+        <td class="num">88</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (32 analysts); 0.9% above support; 20% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 336)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.2</td>
+        <td>DOV</td>
+        <td>Dover Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">210.40</td>
+        <td class="num">208.83</td>
+        <td class="num">0.75</td>
+        <td class="num">237.54</td>
+        <td class="num neg">-11.43%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 0.7% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">71.1</td>
+        <td>AEE</td>
+        <td>Ameren</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">108.95</td>
+        <td class="num">108.41</td>
+        <td class="num">0.50</td>
+        <td class="num">118.32</td>
+        <td class="num neg">-7.92%</td>
+        <td class="num">27</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 0.5% above support; 8% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.9</td>
+        <td>NWSA</td>
+        <td>News Corp (Class A)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">29.06</td>
+        <td class="num">28.66</td>
+        <td class="num">1.38</td>
+        <td class="num">31.61</td>
+        <td class="num neg">-8.07%</td>
+        <td class="num">212</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 1.4% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.8</td>
+        <td>LOGN.SW</td>
+        <td>Logitech</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">86.16</td>
+        <td class="num">85.46</td>
+        <td class="num">0.81</td>
+        <td class="num">102.80</td>
+        <td class="num neg">-16.19%</td>
+        <td class="num">47</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">11</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (11 analysts); 0.8% above support; 16% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.8</td>
+        <td>ADS.DE</td>
+        <td>Adidas</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">164.70</td>
+        <td class="num">163.50</td>
+        <td class="num">0.73</td>
+        <td class="num">196.40</td>
+        <td class="num neg">-16.14%</td>
+        <td class="num">198</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 0.7% above support; 16% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.5</td>
+        <td>IBKR</td>
+        <td>Interactive Brokers</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">88.74</td>
+        <td class="num">87.87</td>
+        <td class="num">0.98</td>
+        <td class="num">97.84</td>
+        <td class="num neg">-9.30%</td>
+        <td class="num">31</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">66.1</td>
+        <td class="reasons">Buy (20 analysts); 1.0% above support; 9% off 52w high; below 50-day avg; Reddit: 14 mentions ▲ (rank 48)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.3</td>
+        <td>PCG</td>
+        <td>PG&amp;E Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">17.20</td>
+        <td class="num">17.00</td>
+        <td class="num">1.16</td>
+        <td class="num">19.16</td>
+        <td class="num neg">-10.23%</td>
+        <td class="num">108</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 1.2% above support; 10% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.0</td>
+        <td>EQT</td>
+        <td>EQT Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">51.23</td>
+        <td class="num">50.58</td>
+        <td class="num">1.27</td>
+        <td class="num">68.24</td>
+        <td class="num neg">-24.93%</td>
+        <td class="num">89</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 1.3% above support; 25% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">70.0</td>
+        <td>CTEC.L</td>
+        <td>ConvaTec</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">223.80</td>
+        <td class="num">219.60</td>
+        <td class="num">1.88</td>
+        <td class="num">259.30</td>
+        <td class="num neg">-13.69%</td>
+        <td class="num">111</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 1.9% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.9</td>
+        <td>ABBV</td>
+        <td>AbbVie</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">246.20</td>
+        <td class="num">243.07</td>
+        <td class="num">1.27</td>
+        <td class="num">267.47</td>
+        <td class="num neg">-7.95%</td>
+        <td class="num">5</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">38</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (38 analysts); 1.3% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.7</td>
+        <td>SAMPO.HE</td>
+        <td>Sampo Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">9.57</td>
+        <td class="num">9.48</td>
+        <td class="num">0.97</td>
+        <td class="num">10.39</td>
+        <td class="num neg">-7.87%</td>
+        <td class="num">147</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 1.0% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.7</td>
+        <td>DTE.DE</td>
+        <td>Deutsche Telekom</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">28.82</td>
+        <td class="num">28.14</td>
+        <td class="num">2.36</td>
+        <td class="num">34.36</td>
+        <td class="num neg">-16.12%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 2.4% above support; 16% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.7</td>
+        <td>DIS</td>
+        <td>Walt Disney Company (The)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">101.76</td>
+        <td class="num">100.54</td>
+        <td class="num">1.20</td>
+        <td class="num">119.78</td>
+        <td class="num neg">-15.04%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">10.6</td>
+        <td class="reasons">Buy (37 analysts); 1.2% above support; 15% off 52w high; above 50-day avg; Reddit: 2 mentions ▼ (rank 173)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.7</td>
+        <td>OR.PA</td>
+        <td>L&#39;Oréal</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">396.75</td>
+        <td class="num">392.70</td>
+        <td class="num">1.02</td>
+        <td class="num">408.35</td>
+        <td class="num neg">-2.84%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 1.0% above support; 3% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.6</td>
+        <td>ENG.MC</td>
+        <td>Enagás</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">16.90</td>
+        <td class="num">16.80</td>
+        <td class="num">0.59</td>
+        <td class="num">17.94</td>
+        <td class="num neg">-5.80%</td>
+        <td class="num">28</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 0.6% above support; 6% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.6</td>
+        <td>KMI</td>
+        <td>Kinder Morgan</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">31.12</td>
+        <td class="num">30.85</td>
+        <td class="num">0.87</td>
+        <td class="num">34.81</td>
+        <td class="num neg">-10.60%</td>
+        <td class="num">53</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 0.9% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.6</td>
+        <td>SGRO.L</td>
+        <td>Segro</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">960.40</td>
+        <td class="num">949.00</td>
+        <td class="num">1.19</td>
+        <td class="num">997.40</td>
+        <td class="num neg">-3.71%</td>
+        <td class="num">7</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (12 analysts); 1.2% above support; 4% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.4</td>
+        <td>TKO</td>
+        <td>TKO Group Holdings</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">183.07</td>
+        <td class="num">180.78</td>
+        <td class="num">1.25</td>
+        <td class="num">226.94</td>
+        <td class="num neg">-19.33%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 1.3% above support; 19% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.4</td>
+        <td>COST</td>
+        <td>Costco</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">941.99</td>
+        <td class="num">936.51</td>
+        <td class="num">0.58</td>
+        <td class="num">1096.50</td>
+        <td class="num neg">-14.09%</td>
+        <td class="num">53</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">46</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (46 analysts); 0.6% above support; 14% off 52w high; below 50-day avg; Reddit: 1 mentions ▼ (rank 245)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.2</td>
+        <td>HD</td>
+        <td>Home Depot (The)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">353.14</td>
+        <td class="num">344.00</td>
+        <td class="num">2.59</td>
+        <td class="num">426.75</td>
+        <td class="num neg">-17.25%</td>
+        <td class="num">221</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">46</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (46 analysts); 2.6% above support; 17% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.1</td>
+        <td>ACGL</td>
+        <td>Arch Capital Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">99.09</td>
+        <td class="num">97.75</td>
+        <td class="num">1.35</td>
+        <td class="num">107.09</td>
+        <td class="num neg">-7.47%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 1.4% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">69.1</td>
+        <td>LSEG.L</td>
+        <td>London Stock Exchange Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">8802.00</td>
+        <td class="num">8702.00</td>
+        <td class="num">1.14</td>
+        <td class="num">10140.00</td>
+        <td class="num neg">-13.20%</td>
+        <td class="num">73</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 1.1% above support; 13% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.9</td>
+        <td>SRE</td>
+        <td>Sempra</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">84.66</td>
+        <td class="num">83.91</td>
+        <td class="num">0.89</td>
+        <td class="num">101.04</td>
+        <td class="num neg">-16.21%</td>
+        <td class="num">81</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 0.9% above support; 16% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.9</td>
+        <td>LHX</td>
+        <td>L3Harris</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">286.12</td>
+        <td class="num">282.36</td>
+        <td class="num">1.32</td>
+        <td class="num">379.23</td>
+        <td class="num neg">-24.55%</td>
+        <td class="num">108</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 1.3% above support; 25% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.8</td>
+        <td>PPL</td>
+        <td>PPL Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">34.95</td>
+        <td class="num">34.52</td>
+        <td class="num">1.24</td>
+        <td class="num">40.11</td>
+        <td class="num neg">-12.86%</td>
+        <td class="num">79</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 1.2% above support; 13% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.6</td>
+        <td>VCT.PA</td>
+        <td>Vicat</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">67.50</td>
+        <td class="num">66.50</td>
+        <td class="num">1.48</td>
+        <td class="num">81.70</td>
+        <td class="num neg">-17.38%</td>
+        <td class="num">131</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">5</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (5 analysts); 1.5% above support; 17% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.6</td>
+        <td>UTG.L</td>
+        <td>Unite Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">539.50</td>
+        <td class="num">532.00</td>
+        <td class="num">1.39</td>
+        <td class="num">751.00</td>
+        <td class="num neg">-28.16%</td>
+        <td class="num">250</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 1.4% above support; 28% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.6</td>
+        <td>EQIX</td>
+        <td>Equinix</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1056.20</td>
+        <td class="num">1049.29</td>
+        <td class="num">0.65</td>
+        <td class="num">1128.68</td>
+        <td class="num neg">-6.42%</td>
+        <td class="num">70</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">40</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (40 analysts); 0.7% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 284)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.5</td>
+        <td>VICI</td>
+        <td>Vici Properties</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">26.40</td>
+        <td class="num">25.95</td>
+        <td class="num">1.72</td>
+        <td class="num">33.92</td>
+        <td class="num neg">-22.16%</td>
+        <td class="num">233</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 1.7% above support; 22% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.5</td>
+        <td>HII</td>
+        <td>Huntington Ingalls Industries</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">317.70</td>
+        <td class="num">311.00</td>
+        <td class="num">2.11</td>
+        <td class="num">460.00</td>
+        <td class="num neg">-30.93%</td>
+        <td class="num">108</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 2.1% above support; 31% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.4</td>
+        <td>TJX</td>
+        <td>TJX Companies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">159.92</td>
+        <td class="num">155.61</td>
+        <td class="num">2.70</td>
+        <td class="num">170.00</td>
+        <td class="num neg">-5.93%</td>
+        <td class="num">37</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (26 analysts); 2.7% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.3</td>
+        <td>ORA.PA</td>
+        <td>Orange S.A.</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">16.20</td>
+        <td class="num">16.03</td>
+        <td class="num">1.02</td>
+        <td class="num">18.81</td>
+        <td class="num neg">-13.85%</td>
+        <td class="num">55</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 1.0% above support; 14% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.3</td>
+        <td>FIX</td>
+        <td>Comfort Systems USA</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1737.00</td>
+        <td class="num">1705.00</td>
+        <td class="num">1.84</td>
+        <td class="num">2073.99</td>
+        <td class="num neg">-16.25%</td>
+        <td class="num">56</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Strong Buy (15 analysts); 1.8% above support; 16% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 437)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.2</td>
+        <td>META</td>
+        <td>Meta Platforms</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">588.77</td>
+        <td class="num">579.16</td>
+        <td class="num">1.63</td>
+        <td class="num">796.25</td>
+        <td class="num neg">-26.06%</td>
+        <td class="num">243</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">71</td>
+        <td class="num">57.4</td>
+        <td class="reasons">Buy (71 analysts); 1.6% above support; 26% off 52w high; below 50-day avg; Reddit: 47 mentions ▬ (rank 18)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">68.0</td>
+        <td>SYK</td>
+        <td>Stryker Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">337.03</td>
+        <td class="num">328.23</td>
+        <td class="num">2.61</td>
+        <td class="num">396.86</td>
+        <td class="num neg">-15.08%</td>
+        <td class="num">230</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (34 analysts); 2.6% above support; 15% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.9</td>
+        <td>HAS</td>
+        <td>Hasbro</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">91.16</td>
+        <td class="num">87.67</td>
+        <td class="num">3.82</td>
+        <td class="num">106.98</td>
+        <td class="num neg">-14.79%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Strong Buy (20 analysts); 3.8% above support; 15% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 291)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.9</td>
+        <td>FLEX</td>
+        <td>Flex Ltd.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">121.88</td>
+        <td class="num">121.30</td>
+        <td class="num">0.48</td>
+        <td class="num">166.86</td>
+        <td class="num neg">-26.96%</td>
+        <td class="num">43</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 0.5% above support; 27% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.8</td>
+        <td>SIX2.DE</td>
+        <td>Sixt</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">70.65</td>
+        <td class="num">70.10</td>
+        <td class="num">0.78</td>
+        <td class="num">94.40</td>
+        <td class="num neg">-25.16%</td>
+        <td class="num">248</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">7</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (7 analysts); 0.8% above support; 25% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.3</td>
+        <td>XEL</td>
+        <td>Xcel Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">77.20</td>
+        <td class="num">76.35</td>
+        <td class="num">1.10</td>
+        <td class="num">84.23</td>
+        <td class="num neg">-8.35%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 1.1% above support; 8% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.1</td>
+        <td>RWE.DE</td>
+        <td>RWE</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">55.62</td>
+        <td class="num">54.88</td>
+        <td class="num">1.33</td>
+        <td class="num">62.00</td>
+        <td class="num neg">-10.29%</td>
+        <td class="num">68</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 1.3% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.1</td>
+        <td>JBHT</td>
+        <td>J.B. Hunt</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">272.66</td>
+        <td class="num">269.39</td>
+        <td class="num">1.20</td>
+        <td class="num">299.76</td>
+        <td class="num neg">-9.04%</td>
+        <td class="num">14</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 1.2% above support; 9% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.0</td>
+        <td>COP</td>
+        <td>ConocoPhillips</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">115.04</td>
+        <td class="num">112.92</td>
+        <td class="num">1.84</td>
+        <td class="num">135.87</td>
+        <td class="num neg">-15.33%</td>
+        <td class="num">88</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (31 analysts); 1.8% above support; 15% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 273)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">67.0</td>
+        <td>TEL</td>
+        <td>TE Connectivity</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">218.02</td>
+        <td class="num">212.23</td>
+        <td class="num">2.66</td>
+        <td class="num">252.56</td>
+        <td class="num neg">-13.68%</td>
+        <td class="num">73</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 2.7% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.9</td>
+        <td>CRH</td>
+        <td>CRH plc</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">100.00</td>
+        <td class="num">98.42</td>
+        <td class="num">1.58</td>
+        <td class="num">131.55</td>
+        <td class="num neg">-23.98%</td>
+        <td class="num">142</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 1.6% above support; 24% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.9</td>
+        <td>STZ</td>
+        <td>Constellation Brands</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">130.64</td>
+        <td class="num">128.68</td>
+        <td class="num">1.50</td>
+        <td class="num">174.32</td>
+        <td class="num neg">-25.06%</td>
+        <td class="num">248</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 1.5% above support; 25% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.8</td>
+        <td>MCO</td>
+        <td>Moody&#39;s Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">483.98</td>
+        <td class="num">473.46</td>
+        <td class="num">2.17</td>
+        <td class="num">546.88</td>
+        <td class="num neg">-11.50%</td>
+        <td class="num">138</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 2.2% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.7</td>
+        <td>HBAN</td>
+        <td>Huntington Bancshares</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">17.60</td>
+        <td class="num">17.27</td>
+        <td class="num">1.89</td>
+        <td class="num">19.46</td>
+        <td class="num neg">-9.56%</td>
+        <td class="num">123</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 1.9% above support; 10% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.6</td>
+        <td>WDP.BR</td>
+        <td>Warehouses De Pauw</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">21.90</td>
+        <td class="num">21.52</td>
+        <td class="num">1.74</td>
+        <td class="num">26.18</td>
+        <td class="num neg">-16.35%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 1.7% above support; 16% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.6</td>
+        <td>ADYEN.AS</td>
+        <td>Adyen</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">948.00</td>
+        <td class="num">928.30</td>
+        <td class="num">2.08</td>
+        <td class="num">1600.80</td>
+        <td class="num neg">-40.78%</td>
+        <td class="num">194</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (34 analysts); 2.1% above support; 41% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.5</td>
+        <td>WM</td>
+        <td>Waste Management</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">224.31</td>
+        <td class="num">222.46</td>
+        <td class="num">0.82</td>
+        <td class="num">248.13</td>
+        <td class="num neg">-9.60%</td>
+        <td class="num">104</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">39</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (39 analysts); 0.8% above support; 10% off 52w high; below 50-day avg; Reddit: 1 mentions ▼ (rank 356)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.4</td>
+        <td>NDAQ</td>
+        <td>Nasdaq, Inc.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">94.56</td>
+        <td class="num">92.70</td>
+        <td class="num">1.97</td>
+        <td class="num">101.79</td>
+        <td class="num neg">-7.10%</td>
+        <td class="num">137</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (24 analysts); 2.0% above support; 7% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 304)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.4</td>
+        <td>APD</td>
+        <td>Air Products</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">295.09</td>
+        <td class="num">290.16</td>
+        <td class="num">1.67</td>
+        <td class="num">314.87</td>
+        <td class="num neg">-6.28%</td>
+        <td class="num">22</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 1.7% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.3</td>
+        <td>DASH</td>
+        <td>DoorDash</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">207.27</td>
+        <td class="num">200.20</td>
+        <td class="num">3.41</td>
+        <td class="num">285.50</td>
+        <td class="num neg">-27.40%</td>
+        <td class="num">200</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">52</td>
+        <td class="num">58.8</td>
+        <td class="reasons">Buy (52 analysts); 3.4% above support; 27% off 52w high; above 50-day avg; Reddit: 6 mentions ▲ (rank 92)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.1</td>
+        <td>DLR</td>
+        <td>Digital Realty</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">194.93</td>
+        <td class="num">191.56</td>
+        <td class="num">1.73</td>
+        <td class="num">208.14</td>
+        <td class="num neg">-6.35%</td>
+        <td class="num">70</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">38</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (38 analysts); 1.7% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 279)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.1</td>
+        <td>STLD</td>
+        <td>Steel Dynamics</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">265.96</td>
+        <td class="num">259.52</td>
+        <td class="num">2.42</td>
+        <td class="num">288.74</td>
+        <td class="num neg">-7.89%</td>
+        <td class="num">35</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 2.4% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.1</td>
+        <td>REGN</td>
+        <td>Regeneron Pharmaceuticals</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">768.58</td>
+        <td class="num">750.69</td>
+        <td class="num">2.33</td>
+        <td class="num">821.11</td>
+        <td class="num neg">-6.40%</td>
+        <td class="num">142</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (37 analysts); 2.3% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 312)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.1</td>
+        <td>PSN.L</td>
+        <td>Persimmon plc</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">1162.60</td>
+        <td class="num">1126.00</td>
+        <td class="num">3.15</td>
+        <td class="num">1552.00</td>
+        <td class="num neg">-25.09%</td>
+        <td class="num">117</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 3.1% above support; 25% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.0</td>
+        <td>FE</td>
+        <td>FirstEnergy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">47.79</td>
+        <td class="num">46.95</td>
+        <td class="num">1.76</td>
+        <td class="num">52.34</td>
+        <td class="num neg">-8.69%</td>
+        <td class="num">81</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 1.8% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">66.0</td>
+        <td>MSCI</td>
+        <td>MSCI Inc.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">571.87</td>
+        <td class="num">568.14</td>
+        <td class="num">0.65</td>
+        <td class="num">644.77</td>
+        <td class="num neg">-11.31%</td>
+        <td class="num">13</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (26 analysts); 0.7% above support; 11% off 52w high; below 50-day avg; Reddit: 1 mentions ▼ (rank 303)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.9</td>
+        <td>AMAT</td>
+        <td>Applied Materials</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">534.24</td>
+        <td class="num">527.63</td>
+        <td class="num">1.24</td>
+        <td class="num">739.67</td>
+        <td class="num neg">-27.77%</td>
+        <td class="num">25</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">45</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (45 analysts); 1.2% above support; 28% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 260)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.7</td>
+        <td>EFX</td>
+        <td>Equifax</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">177.37</td>
+        <td class="num">173.53</td>
+        <td class="num">2.16</td>
+        <td class="num">271.84</td>
+        <td class="num neg">-34.75%</td>
+        <td class="num">221</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 2.2% above support; 35% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.6</td>
+        <td>Q</td>
+        <td>Qnity Electronics</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">135.64</td>
+        <td class="num">134.93</td>
+        <td class="num">0.52</td>
+        <td class="num">177.28</td>
+        <td class="num neg">-23.49%</td>
+        <td class="num">31</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">14</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (14 analysts); 0.5% above support; 23% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 967)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.6</td>
+        <td>HLMA.L</td>
+        <td>Halma plc</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">3774.00</td>
+        <td class="num">3710.00</td>
+        <td class="num">1.70</td>
+        <td class="num">4902.00</td>
+        <td class="num neg">-23.01%</td>
+        <td class="num">46</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 1.7% above support; 23% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.4</td>
+        <td>JMAT.L</td>
+        <td>Johnson Matthey</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2166.00</td>
+        <td class="num">2126.00</td>
+        <td class="num">1.85</td>
+        <td class="num">2434.00</td>
+        <td class="num neg">-11.01%</td>
+        <td class="num">127</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">7</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (7 analysts); 1.8% above support; 11% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.3</td>
+        <td>CI</td>
+        <td>Cigna</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">270.50</td>
+        <td class="num">267.07</td>
+        <td class="num">1.27</td>
+        <td class="num">315.47</td>
+        <td class="num neg">-14.25%</td>
+        <td class="num">209</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (34 analysts); 1.3% above support; 14% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 269)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.2</td>
+        <td>ECL</td>
+        <td>Ecolab</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">285.47</td>
+        <td class="num">278.38</td>
+        <td class="num">2.48</td>
+        <td class="num">309.27</td>
+        <td class="num neg">-7.70%</td>
+        <td class="num">112</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 2.5% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.1</td>
+        <td>CDNS</td>
+        <td>Cadence Design Systems</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">337.07</td>
+        <td class="num">331.56</td>
+        <td class="num">1.63</td>
+        <td class="num">416.69</td>
+        <td class="num neg">-19.11%</td>
+        <td class="num">44</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 1.6% above support; 19% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">65.0</td>
+        <td>ENT.L</td>
+        <td>Entain</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">532.26</td>
+        <td class="num">532.05</td>
+        <td class="num">0.04</td>
+        <td class="num">997.40</td>
+        <td class="num neg">-46.64%</td>
+        <td class="num">251</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 0.0% above support; 47% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.9</td>
+        <td>GILD</td>
+        <td>Gilead Sciences</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">131.76</td>
+        <td class="num">128.15</td>
+        <td class="num">2.74</td>
+        <td class="num">157.29</td>
+        <td class="num neg">-16.23%</td>
+        <td class="num">120</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (37 analysts); 2.7% above support; 16% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.7</td>
+        <td>STMN.SW</td>
+        <td>Straumann</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">104.65</td>
+        <td class="num">102.55</td>
+        <td class="num">2.01</td>
+        <td class="num">109.80</td>
+        <td class="num neg">-4.69%</td>
+        <td class="num">26</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 2.0% above support; 5% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.6</td>
+        <td>EDP.LS</td>
+        <td>EDP - Energias de Portugal</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">4.47</td>
+        <td class="num">4.39</td>
+        <td class="num">1.76</td>
+        <td class="num">4.77</td>
+        <td class="num neg">-6.31%</td>
+        <td class="num">81</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 1.8% above support; 6% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.4</td>
+        <td>EDPR.LS</td>
+        <td>EDP Renováveis</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">13.22</td>
+        <td class="num">13.02</td>
+        <td class="num">1.55</td>
+        <td class="num">14.67</td>
+        <td class="num neg">-9.88%</td>
+        <td class="num">61</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 1.6% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.4</td>
+        <td>ORLY</td>
+        <td>O’Reilly Automotive</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">93.44</td>
+        <td class="num">90.46</td>
+        <td class="num">3.18</td>
+        <td class="num">108.72</td>
+        <td class="num neg">-14.05%</td>
+        <td class="num">212</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">36</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (36 analysts); 3.2% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.4</td>
+        <td>FSLR</td>
+        <td>First Solar</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">236.80</td>
+        <td class="num">233.00</td>
+        <td class="num">1.60</td>
+        <td class="num">320.95</td>
+        <td class="num neg">-26.22%</td>
+        <td class="num">43</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">49</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (49 analysts); 1.6% above support; 26% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 416)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.1</td>
+        <td>CMI</td>
+        <td>Cummins</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">650.25</td>
+        <td class="num">640.12</td>
+        <td class="num">1.56</td>
+        <td class="num">737.76</td>
+        <td class="num neg">-11.86%</td>
+        <td class="num">32</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (27 analysts); 1.6% above support; 12% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 276)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.1</td>
+        <td>MCK</td>
+        <td>McKesson Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">877.23</td>
+        <td class="num">845.52</td>
+        <td class="num">3.61</td>
+        <td class="num">999.00</td>
+        <td class="num neg">-12.19%</td>
+        <td class="num">107</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 3.6% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">64.0</td>
+        <td>SLB</td>
+        <td>Schlumberger</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">49.91</td>
+        <td class="num">48.84</td>
+        <td class="num">2.14</td>
+        <td class="num">58.82</td>
+        <td class="num neg">-15.15%</td>
+        <td class="num">49</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (34 analysts); 2.1% above support; 15% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 316)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.9</td>
+        <td>MDLZ</td>
+        <td>Mondelez International</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">62.60</td>
+        <td class="num">61.22</td>
+        <td class="num">2.20</td>
+        <td class="num">66.65</td>
+        <td class="num neg">-6.08%</td>
+        <td class="num">5</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (33 analysts); 2.2% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.9</td>
+        <td>AJG</td>
+        <td>Arthur J. Gallagher &amp; Co.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">251.03</td>
+        <td class="num">240.98</td>
+        <td class="num">4.00</td>
+        <td class="num">313.55</td>
+        <td class="num neg">-19.94%</td>
+        <td class="num">209</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 4.0% above support; 20% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.9</td>
+        <td>TMO</td>
+        <td>Thermo Fisher Scientific</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">577.83</td>
+        <td class="num">560.16</td>
+        <td class="num">3.06</td>
+        <td class="num">643.99</td>
+        <td class="num neg">-10.27%</td>
+        <td class="num">134</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">36</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (36 analysts); 3.1% above support; 10% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 247)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.6</td>
+        <td>KDP</td>
+        <td>Keurig Dr Pepper</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">30.75</td>
+        <td class="num">29.98</td>
+        <td class="num">2.50</td>
+        <td class="num">35.94</td>
+        <td class="num neg">-14.44%</td>
+        <td class="num">240</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 2.5% above support; 14% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.6</td>
+        <td>VIE.PA</td>
+        <td>Veolia</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">35.31</td>
+        <td class="num">34.75</td>
+        <td class="num">1.59</td>
+        <td class="num">37.66</td>
+        <td class="num neg">-6.24%</td>
+        <td class="num">16</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 1.6% above support; 6% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.6</td>
+        <td>NRG</td>
+        <td>NRG Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">120.73</td>
+        <td class="num">120.67</td>
+        <td class="num">0.05</td>
+        <td class="num">189.96</td>
+        <td class="num neg">-36.44%</td>
+        <td class="num">111</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (22 analysts); 0.1% above support; 36% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 308)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.6</td>
+        <td>CHRW</td>
+        <td>C.H. Robinson</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">153.60</td>
+        <td class="num">151.64</td>
+        <td class="num">1.28</td>
+        <td class="num">210.33</td>
+        <td class="num neg">-26.97%</td>
+        <td class="num">10</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 1.3% above support; 27% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.6</td>
+        <td>SIE.DE</td>
+        <td>Siemens</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">271.05</td>
+        <td class="num">265.75</td>
+        <td class="num">1.96</td>
+        <td class="num">291.50</td>
+        <td class="num neg">-7.02%</td>
+        <td class="num">1</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 2.0% above support; 7% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.5</td>
+        <td>SBAC</td>
+        <td>SBA Communications</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">178.40</td>
+        <td class="num">174.16</td>
+        <td class="num">2.38</td>
+        <td class="num">225.33</td>
+        <td class="num neg">-20.83%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 2.4% above support; 21% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.5</td>
+        <td>ELV</td>
+        <td>Elevance Health</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">391.24</td>
+        <td class="num">382.77</td>
+        <td class="num">2.16</td>
+        <td class="num">436.24</td>
+        <td class="num neg">-10.32%</td>
+        <td class="num">16</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 2.2% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.2</td>
+        <td>IMB.L</td>
+        <td>Imperial Brands</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2770.00</td>
+        <td class="num">2710.45</td>
+        <td class="num">2.15</td>
+        <td class="num">3632.04</td>
+        <td class="num neg">-23.73%</td>
+        <td class="num">157</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (12 analysts); 2.1% above support; 24% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.1</td>
+        <td>CCL</td>
+        <td>Carnival Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">29.67</td>
+        <td class="num">28.65</td>
+        <td class="num">3.44</td>
+        <td class="num">34.03</td>
+        <td class="num neg">-12.81%</td>
+        <td class="num">123</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (33 analysts); 3.4% above support; 13% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.1</td>
+        <td>FRT</td>
+        <td>Federal Realty Investment Trust</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">121.83</td>
+        <td class="num">119.59</td>
+        <td class="num">1.84</td>
+        <td class="num">128.21</td>
+        <td class="num neg">-4.98%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 1.8% above support; 5% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.1</td>
+        <td>WDC</td>
+        <td>Western Digital</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">519.17</td>
+        <td class="num">510.37</td>
+        <td class="num">1.70</td>
+        <td class="num">799.87</td>
+        <td class="num neg">-35.09%</td>
+        <td class="num">32</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">91.0</td>
+        <td class="reasons">Buy (30 analysts); 1.7% above support; 35% off 52w high; below 50-day avg; Reddit: 197 mentions ▲ (rank 7)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">63.0</td>
+        <td>SRT3.DE</td>
+        <td>Sartorius</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">231.90</td>
+        <td class="num">225.60</td>
+        <td class="num">2.72</td>
+        <td class="num">267.70</td>
+        <td class="num neg">-13.37%</td>
+        <td class="num">146</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 2.7% above support; 13% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.9</td>
+        <td>GET.PA</td>
+        <td>Getlink</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">18.55</td>
+        <td class="num">18.22</td>
+        <td class="num">1.75</td>
+        <td class="num">19.85</td>
+        <td class="num neg">-6.55%</td>
+        <td class="num">82</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 1.8% above support; 7% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.9</td>
+        <td>DIA.MC</td>
+        <td>Dia</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">39.30</td>
+        <td class="num">38.92</td>
+        <td class="num">0.95</td>
+        <td class="num">44.00</td>
+        <td class="num neg">-10.68%</td>
+        <td class="num">10</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">6</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (6 analysts); 1.0% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.9</td>
+        <td>NI</td>
+        <td>NiSource</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">42.91</td>
+        <td class="num">42.37</td>
+        <td class="num">1.25</td>
+        <td class="num">49.21</td>
+        <td class="num neg">-12.80%</td>
+        <td class="num">26</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (25 analysts); 1.3% above support; 13% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 349)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.9</td>
+        <td>ETR</td>
+        <td>Entergy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">106.86</td>
+        <td class="num">104.93</td>
+        <td class="num">1.81</td>
+        <td class="num">118.45</td>
+        <td class="num neg">-9.78%</td>
+        <td class="num">65</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 1.8% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.8</td>
+        <td>WMT</td>
+        <td>Walmart</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">112.34</td>
+        <td class="num">110.18</td>
+        <td class="num">1.92</td>
+        <td class="num">135.16</td>
+        <td class="num neg">-16.88%</td>
+        <td class="num">53</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">48</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (48 analysts); 1.9% above support; 17% off 52w high; below 50-day avg; Reddit: 1 mentions ▼ (rank 237)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.6</td>
+        <td>NXPI</td>
+        <td>NXP Semiconductors</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">231.15</td>
+        <td class="num">228.76</td>
+        <td class="num">1.03</td>
+        <td class="num">339.95</td>
+        <td class="num neg">-32.00%</td>
+        <td class="num">48</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">36</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (36 analysts); 1.0% above support; 32% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.3</td>
+        <td>RCL</td>
+        <td>Royal Caribbean Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">327.42</td>
+        <td class="num">316.11</td>
+        <td class="num">3.45</td>
+        <td class="num">366.50</td>
+        <td class="num neg">-10.66%</td>
+        <td class="num">233</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">36</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (36 analysts); 3.5% above support; 11% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 315)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.2</td>
+        <td>HON</td>
+        <td>Honeywell Technologies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">248.12</td>
+        <td class="num">242.05</td>
+        <td class="num">2.45</td>
+        <td class="num">260.28</td>
+        <td class="num neg">-4.67%</td>
+        <td class="num">108</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (31 analysts); 2.4% above support; 5% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 330)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.1</td>
+        <td>GAW.L</td>
+        <td>Games Workshop</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">18950.00</td>
+        <td class="num">18735.00</td>
+        <td class="num">1.13</td>
+        <td class="num">23540.00</td>
+        <td class="num neg">-19.50%</td>
+        <td class="num">30</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">3</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (3 analysts); 1.1% above support; 19% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.0</td>
+        <td>ICE</td>
+        <td>Intercontinental Exchange</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">149.84</td>
+        <td class="num">143.67</td>
+        <td class="num">4.11</td>
+        <td class="num">189.35</td>
+        <td class="num neg">-20.87%</td>
+        <td class="num">248</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.6</td>
+        <td class="reasons">Buy (19 analysts); 4.1% above support; 21% off 52w high; above 50-day avg; Reddit: 2 mentions ▲ (rank 182)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">62.0</td>
+        <td>SSE.L</td>
+        <td>SSE plc</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2357.00</td>
+        <td class="num">2302.00</td>
+        <td class="num">2.33</td>
+        <td class="num">2767.50</td>
+        <td class="num neg">-14.83%</td>
+        <td class="num">81</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 2.3% above support; 15% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.9</td>
+        <td>VRT</td>
+        <td>Vertiv</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">277.94</td>
+        <td class="num">274.05</td>
+        <td class="num">1.40</td>
+        <td class="num">379.93</td>
+        <td class="num neg">-26.85%</td>
+        <td class="num">56</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">36</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (36 analysts); 1.4% above support; 27% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 432)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.9</td>
+        <td>TSCO.L</td>
+        <td>Tesco</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">479.50</td>
+        <td class="num">469.05</td>
+        <td class="num">2.18</td>
+        <td class="num">510.40</td>
+        <td class="num neg">-6.05%</td>
+        <td class="num">26</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 2.2% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.8</td>
+        <td>TRGP</td>
+        <td>Targa Resources</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">260.11</td>
+        <td class="num">254.27</td>
+        <td class="num">2.25</td>
+        <td class="num">291.04</td>
+        <td class="num neg">-10.63%</td>
+        <td class="num">8</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 2.2% above support; 11% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.7</td>
+        <td>AON</td>
+        <td>Aon plc</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">359.97</td>
+        <td class="num">349.48</td>
+        <td class="num">2.91</td>
+        <td class="num">382.34</td>
+        <td class="num neg">-5.85%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 2.9% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.7</td>
+        <td>AVGO</td>
+        <td>Broadcom</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">418.28</td>
+        <td class="num">404.80</td>
+        <td class="num">3.22</td>
+        <td class="num">495.00</td>
+        <td class="num neg">-15.50%</td>
+        <td class="num">43</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">56</td>
+        <td class="num">17.3</td>
+        <td class="reasons">Buy (56 analysts); 3.2% above support; 15% off 52w high; above 50-day avg; Reddit: 5 mentions ▼ (rank 100)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.6</td>
+        <td>LUV</td>
+        <td>Southwest Airlines</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">48.79</td>
+        <td class="num">47.17</td>
+        <td class="num">3.32</td>
+        <td class="num">55.11</td>
+        <td class="num neg">-11.47%</td>
+        <td class="num">117</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 3.3% above support; 11% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.6</td>
+        <td>FDXF</td>
+        <td>FedEx Freight</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">143.03</td>
+        <td class="num">139.57</td>
+        <td class="num">2.42</td>
+        <td class="num">200.00</td>
+        <td class="num neg">-28.49%</td>
+        <td class="num">47</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 2.4% above support; 28% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.6</td>
+        <td>MSFT</td>
+        <td>Microsoft</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">487.46</td>
+        <td class="num">468.42</td>
+        <td class="num">3.91</td>
+        <td class="num">553.72</td>
+        <td class="num neg">-11.97%</td>
+        <td class="num">192</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">69</td>
+        <td class="num">41.5</td>
+        <td class="reasons">Buy (69 analysts); 3.9% above support; 12% off 52w high; above 50-day avg; Reddit: 73 mentions ▼ (rank 14)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.5</td>
+        <td>FDX</td>
+        <td>FedEx</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">310.72</td>
+        <td class="num">304.70</td>
+        <td class="num">1.94</td>
+        <td class="num">345.37</td>
+        <td class="num neg">-10.03%</td>
+        <td class="num">35</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">35</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (35 analysts); 1.9% above support; 10% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 340)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.5</td>
+        <td>EME</td>
+        <td>Emcor</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">822.16</td>
+        <td class="num">788.76</td>
+        <td class="num">4.06</td>
+        <td class="num">951.96</td>
+        <td class="num neg">-13.64%</td>
+        <td class="num">62</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">14</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (14 analysts); 4.1% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.4</td>
+        <td>VOD.L</td>
+        <td>Vodafone</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">115.90</td>
+        <td class="num">112.35</td>
+        <td class="num">3.06</td>
+        <td class="num">131.10</td>
+        <td class="num neg">-11.59%</td>
+        <td class="num">53</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 3.1% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.4</td>
+        <td>PHM</td>
+        <td>PulteGroup</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">133.01</td>
+        <td class="num">128.75</td>
+        <td class="num">3.20</td>
+        <td class="num">144.50</td>
+        <td class="num neg">-7.95%</td>
+        <td class="num">117</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 3.2% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">61.3</td>
+        <td>CVX</td>
+        <td>Chevron Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">186.41</td>
+        <td class="num">181.76</td>
+        <td class="num">2.49</td>
+        <td class="num">214.71</td>
+        <td class="num neg">-13.18%</td>
+        <td class="num">88</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">10.6</td>
+        <td class="reasons">Buy (31 analysts); 2.5% above support; 13% off 52w high; above 50-day avg; Reddit: 2 mentions ▼ (rank 186)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.9</td>
+        <td>NEE</td>
+        <td>NextEra Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">85.91</td>
+        <td class="num">83.47</td>
+        <td class="num">2.83</td>
+        <td class="num">98.75</td>
+        <td class="num neg">-13.00%</td>
+        <td class="num">65</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 2.8% above support; 13% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.9</td>
+        <td>DHR</td>
+        <td>Danaher Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">199.66</td>
+        <td class="num">192.18</td>
+        <td class="num">3.75</td>
+        <td class="num">242.80</td>
+        <td class="num neg">-17.77%</td>
+        <td class="num">134</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (32 analysts); 3.7% above support; 18% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 331)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.7</td>
+        <td>INCH.L</td>
+        <td>Inchcape</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">837.25</td>
+        <td class="num">820.50</td>
+        <td class="num">2.00</td>
+        <td class="num">895.00</td>
+        <td class="num neg">-6.45%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">9</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (9 analysts); 2.0% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.6</td>
+        <td>VTR</td>
+        <td>Ventas</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">92.53</td>
+        <td class="num">89.56</td>
+        <td class="num">3.21</td>
+        <td class="num">101.60</td>
+        <td class="num neg">-8.93%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 3.2% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.5</td>
+        <td>BSX</td>
+        <td>Boston Scientific</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">47.74</td>
+        <td class="num">47.17</td>
+        <td class="num">1.19</td>
+        <td class="num">109.50</td>
+        <td class="num neg">-56.40%</td>
+        <td class="num">227</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">38</td>
+        <td class="num">55.5</td>
+        <td class="reasons">Buy (38 analysts); 1.2% above support; 56% off 52w high; above 50-day avg; Reddit: 4 mentions ▲ (rank 114)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.5</td>
+        <td>UBER</td>
+        <td>Uber</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">68.18</td>
+        <td class="num">67.19</td>
+        <td class="num">1.45</td>
+        <td class="num">101.99</td>
+        <td class="num neg">-33.15%</td>
+        <td class="num">218</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">57</td>
+        <td class="num">21.2</td>
+        <td class="reasons">Buy (57 analysts); 1.5% above support; 33% off 52w high; below 50-day avg; Reddit: 8 mentions ▼ (rank 73)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.5</td>
+        <td>QLT.L</td>
+        <td>Quilter</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">195.00</td>
+        <td class="num">190.80</td>
+        <td class="num">2.15</td>
+        <td class="num">209.00</td>
+        <td class="num neg">-6.70%</td>
+        <td class="num">23</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 2.2% above support; 7% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.5</td>
+        <td>JBL</td>
+        <td>Jabil</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">338.62</td>
+        <td class="num">323.67</td>
+        <td class="num">4.42</td>
+        <td class="num">428.93</td>
+        <td class="num neg">-21.05%</td>
+        <td class="num">33</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (17 analysts); 4.4% above support; 21% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.5</td>
+        <td>GOOGL</td>
+        <td>Alphabet Inc. (Class A)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">362.43</td>
+        <td class="num">348.72</td>
+        <td class="num">3.78</td>
+        <td class="num">408.61</td>
+        <td class="num neg">-11.30%</td>
+        <td class="num">54</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">70</td>
+        <td class="num">86.3</td>
+        <td class="reasons">Buy (70 analysts); 3.8% above support; 11% off 52w high; above 50-day avg; Reddit: 120 mentions ▲ (rank 9)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.2</td>
+        <td>ADI</td>
+        <td>Analog Devices</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">377.69</td>
+        <td class="num">368.90</td>
+        <td class="num">2.33</td>
+        <td class="num">445.91</td>
+        <td class="num neg">-15.30%</td>
+        <td class="num">31</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (37 analysts); 2.3% above support; 15% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 258)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.0</td>
+        <td>BVI.PA</td>
+        <td>Bureau Veritas</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">28.44</td>
+        <td class="num">27.54</td>
+        <td class="num">3.16</td>
+        <td class="num">30.18</td>
+        <td class="num neg">-5.77%</td>
+        <td class="num">5</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 3.2% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.0</td>
+        <td>A</td>
+        <td>Agilent Technologies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">141.11</td>
+        <td class="num">135.68</td>
+        <td class="num">3.85</td>
+        <td class="num">160.27</td>
+        <td class="num neg">-11.95%</td>
+        <td class="num">172</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 3.8% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">60.0</td>
+        <td>LITE</td>
+        <td>Lumentum</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">826.26</td>
+        <td class="num">803.59</td>
+        <td class="num">2.74</td>
+        <td class="num">1085.68</td>
+        <td class="num neg">-23.89%</td>
+        <td class="num">58</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (33 analysts); 2.7% above support; 24% off 52w high; above 50-day avg; Reddit: 1 mentions ▼ (rank 405)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.7</td>
+        <td>RXL.PA</td>
+        <td>Rexel</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">37.28</td>
+        <td class="num">36.51</td>
+        <td class="num">2.05</td>
+        <td class="num">39.80</td>
+        <td class="num neg">-6.33%</td>
+        <td class="num">15</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">13</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (13 analysts); 2.1% above support; 6% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.7</td>
+        <td>TTE.PA</td>
+        <td>TotalEnergies</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">74.34</td>
+        <td class="num">71.98</td>
+        <td class="num">3.18</td>
+        <td class="num">81.34</td>
+        <td class="num neg">-8.61%</td>
+        <td class="num">89</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (22 analysts); 3.2% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.7</td>
+        <td>ADSK</td>
+        <td>Autodesk</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">240.03</td>
+        <td class="num">229.24</td>
+        <td class="num">4.50</td>
+        <td class="num">329.09</td>
+        <td class="num neg">-27.06%</td>
+        <td class="num">228</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">42</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (42 analysts); 4.5% above support; 27% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.5</td>
+        <td>WMB</td>
+        <td>Williams Companies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">71.81</td>
+        <td class="num">69.79</td>
+        <td class="num">2.82</td>
+        <td class="num">80.08</td>
+        <td class="num neg">-10.33%</td>
+        <td class="num">52</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 2.8% above support; 10% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.5</td>
+        <td>XYL</td>
+        <td>Xylem Inc.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">122.25</td>
+        <td class="num">116.74</td>
+        <td class="num">4.51</td>
+        <td class="num">154.27</td>
+        <td class="num neg">-20.76%</td>
+        <td class="num">190</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 4.5% above support; 21% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.5</td>
+        <td>KEYS</td>
+        <td>Keysight Technologies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">336.02</td>
+        <td class="num">325.62</td>
+        <td class="num">3.10</td>
+        <td class="num">374.96</td>
+        <td class="num neg">-10.39%</td>
+        <td class="num">31</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 3.1% above support; 10% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.5</td>
+        <td>GOOG</td>
+        <td>Alphabet Inc. (Class C)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">360.13</td>
+        <td class="num">346.15</td>
+        <td class="num">3.88</td>
+        <td class="num">404.47</td>
+        <td class="num neg">-10.96%</td>
+        <td class="num">54</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">70</td>
+        <td class="num">83.8</td>
+        <td class="reasons">Buy (70 analysts); 3.9% above support; 11% off 52w high; above 50-day avg; Reddit: 93 mentions ▲ (rank 13)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.4</td>
+        <td>BG</td>
+        <td>Bunge Global</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">106.62</td>
+        <td class="num">104.12</td>
+        <td class="num">2.34</td>
+        <td class="num">134.87</td>
+        <td class="num neg">-20.95%</td>
+        <td class="num">43</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (20 analysts); 2.3% above support; 21% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 785)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.4</td>
+        <td>EDV.L</td>
+        <td>Endeavour Mining</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">3873.00</td>
+        <td class="num">3736.00</td>
+        <td class="num">3.54</td>
+        <td class="num">5410.00</td>
+        <td class="num neg">-28.41%</td>
+        <td class="num">109</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">9</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (9 analysts); 3.5% above support; 28% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.4</td>
+        <td>AZN.L</td>
+        <td>AstraZeneca</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">12087.34</td>
+        <td class="num">11781.00</td>
+        <td class="num">2.53</td>
+        <td class="num">15732.00</td>
+        <td class="num neg">-23.17%</td>
+        <td class="num">117</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 2.5% above support; 23% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.3</td>
+        <td>MRL.MC</td>
+        <td>Merlin Properties</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">14.82</td>
+        <td class="num">14.44</td>
+        <td class="num">2.58</td>
+        <td class="num">15.92</td>
+        <td class="num neg">-6.91%</td>
+        <td class="num">30</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 2.6% above support; 7% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.2</td>
+        <td>UPM.HE</td>
+        <td>UPM-Kymmene</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">23.75</td>
+        <td class="num">23.04</td>
+        <td class="num">3.00</td>
+        <td class="num">27.94</td>
+        <td class="num neg">-15.00%</td>
+        <td class="num">119</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 3.0% above support; 15% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">59.0</td>
+        <td>GFC.PA</td>
+        <td>Gecina</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">75.70</td>
+        <td class="num">72.90</td>
+        <td class="num">3.70</td>
+        <td class="num">89.15</td>
+        <td class="num neg">-15.09%</td>
+        <td class="num">251</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 3.7% above support; 15% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.8</td>
+        <td>CMG</td>
+        <td>Chipotle Mexican Grill</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">34.50</td>
+        <td class="num">33.21</td>
+        <td class="num">3.74</td>
+        <td class="num">44.27</td>
+        <td class="num neg">-22.07%</td>
+        <td class="num">242</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">41</td>
+        <td class="num">13.4</td>
+        <td class="reasons">Buy (41 analysts); 3.7% above support; 22% off 52w high; above 50-day avg; Reddit: 3 mentions ▼ (rank 140)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.8</td>
+        <td>NEM.DE</td>
+        <td>Nemetschek</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">57.70</td>
+        <td class="num">57.35</td>
+        <td class="num">0.61</td>
+        <td class="num">138.50</td>
+        <td class="num neg">-58.34%</td>
+        <td class="num">249</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 0.6% above support; 58% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.8</td>
+        <td>HEI.DE</td>
+        <td>Heidelberg Materials</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">163.15</td>
+        <td class="num">159.70</td>
+        <td class="num">2.11</td>
+        <td class="num">241.80</td>
+        <td class="num neg">-32.53%</td>
+        <td class="num">134</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 2.1% above support; 33% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.7</td>
+        <td>VRSN</td>
+        <td>Verisign</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">293.41</td>
+        <td class="num">281.12</td>
+        <td class="num">4.19</td>
+        <td class="num">312.48</td>
+        <td class="num neg">-6.10%</td>
+        <td class="num">50</td>
+        <td><span class="rating r-strongbuy">Strong Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Strong Buy (12 analysts); 4.2% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.6</td>
+        <td>KEY</td>
+        <td>KeyCorp</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">23.09</td>
+        <td class="num">22.49</td>
+        <td class="num">2.60</td>
+        <td class="num">24.07</td>
+        <td class="num neg">-4.07%</td>
+        <td class="num">13</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (24 analysts); 2.6% above support; 4% off 52w high; above 50-day avg; Reddit: 1 mentions ▲ (rank 294)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.5</td>
+        <td>CIEN</td>
+        <td>Ciena</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">408.83</td>
+        <td class="num">404.43</td>
+        <td class="num">1.08</td>
+        <td class="num">637.51</td>
+        <td class="num neg">-35.87%</td>
+        <td class="num">43</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (26 analysts); 1.1% above support; 36% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 541)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.4</td>
+        <td>TOM.OL</td>
+        <td>Tomra</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">109.80</td>
+        <td class="num">106.00</td>
+        <td class="num">3.46</td>
+        <td class="num">158.40</td>
+        <td class="num neg">-30.68%</td>
+        <td class="num">214</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">9</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (9 analysts); 3.5% above support; 31% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.3</td>
+        <td>SNDK</td>
+        <td>Sandisk</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1350.50</td>
+        <td class="num">1325.03</td>
+        <td class="num">1.89</td>
+        <td class="num">2354.39</td>
+        <td class="num neg">-42.64%</td>
+        <td class="num">31</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">100.0</td>
+        <td class="reasons">Buy (31 analysts); 1.9% above support; 43% off 52w high; below 50-day avg; Reddit: 1067 mentions ▲ (rank 1)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.0</td>
+        <td>WFC</td>
+        <td>Wells Fargo</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">89.17</td>
+        <td class="num">86.03</td>
+        <td class="num">3.52</td>
+        <td class="num">97.76</td>
+        <td class="num neg">-8.79%</td>
+        <td class="num">146</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (30 analysts); 3.5% above support; 9% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 329)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">58.0</td>
+        <td>GEV</td>
+        <td>GE Vernova</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1017.96</td>
+        <td class="num">980.14</td>
+        <td class="num">3.72</td>
+        <td class="num">1195.94</td>
+        <td class="num neg">-14.88%</td>
+        <td class="num">22</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">43</td>
+        <td class="num">53.4</td>
+        <td class="reasons">Buy (43 analysts); 3.7% above support; 15% off 52w high; below 50-day avg; Reddit: 3 mentions ▲ (rank 169)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.9</td>
+        <td>VRTX</td>
+        <td>Vertex Pharmaceuticals</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">484.83</td>
+        <td class="num">467.30</td>
+        <td class="num">3.62</td>
+        <td class="num">533.67</td>
+        <td class="num neg">-9.15%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (37 analysts); 3.6% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.8</td>
+        <td>NEX.PA</td>
+        <td>Nexans</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">136.90</td>
+        <td class="num">132.60</td>
+        <td class="num">3.14</td>
+        <td class="num">169.00</td>
+        <td class="num neg">-18.99%</td>
+        <td class="num">59</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 3.1% above support; 19% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.6</td>
+        <td>TMUS</td>
+        <td>T-Mobile US</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">173.46</td>
+        <td class="num">169.96</td>
+        <td class="num">2.02</td>
+        <td class="num">261.56</td>
+        <td class="num neg">-33.68%</td>
+        <td class="num">240</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (37 analysts); 2.0% above support; 34% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 318)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.3</td>
+        <td>BKNG</td>
+        <td>Booking Holdings</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">207.02</td>
+        <td class="num">198.10</td>
+        <td class="num">4.31</td>
+        <td class="num">231.80</td>
+        <td class="num neg">-10.69%</td>
+        <td class="num">238</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">46</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (46 analysts); 4.3% above support; 11% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 262)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.2</td>
+        <td>WTW</td>
+        <td>Willis Towers Watson</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">338.07</td>
+        <td class="num">323.79</td>
+        <td class="num">4.22</td>
+        <td class="num">352.79</td>
+        <td class="num neg">-4.17%</td>
+        <td class="num">207</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 4.2% above support; 4% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.1</td>
+        <td>VST</td>
+        <td>Vistra Corp.</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">140.58</td>
+        <td class="num">138.22</td>
+        <td class="num">1.68</td>
+        <td class="num">219.82</td>
+        <td class="num neg">-36.05%</td>
+        <td class="num">218</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">46.7</td>
+        <td class="reasons">Buy (24 analysts); 1.7% above support; 36% off 52w high; below 50-day avg; Reddit: 7 mentions ▲ (rank 80)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">57.0</td>
+        <td>DGE.L</td>
+        <td>Diageo</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">1658.18</td>
+        <td class="num">1575.50</td>
+        <td class="num">4.99</td>
+        <td class="num">2142.00</td>
+        <td class="num neg">-22.59%</td>
+        <td class="num">241</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (23 analysts); 5.0% above support; 23% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">56.7</td>
+        <td>RHM.DE</td>
+        <td>Rheinmetall</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">1204.60</td>
+        <td class="num">1158.60</td>
+        <td class="num">3.82</td>
+        <td class="num">2008.00</td>
+        <td class="num neg">-40.01%</td>
+        <td class="num">210</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 3.8% above support; 40% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">56.5</td>
+        <td>DEMANT.CO</td>
+        <td>Demant</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">279.20</td>
+        <td class="num">269.00</td>
+        <td class="num">3.65</td>
+        <td class="num">289.00</td>
+        <td class="num neg">-3.39%</td>
+        <td class="num">3</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">20</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (20 analysts); 3.7% above support; 3% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">56.1</td>
+        <td>LLY</td>
+        <td>Lilly (Eli)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1169.86</td>
+        <td class="num">1134.40</td>
+        <td class="num">3.03</td>
+        <td class="num">1249.45</td>
+        <td class="num neg">-6.37%</td>
+        <td class="num">21</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">38</td>
+        <td class="num">22.2</td>
+        <td class="reasons">Buy (38 analysts); 3.0% above support; 6% off 52w high; above 50-day avg; Reddit: 9 mentions ▼ (rank 66)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.7</td>
+        <td>WELL</td>
+        <td>Welltower</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">237.25</td>
+        <td class="num">228.37</td>
+        <td class="num">3.74</td>
+        <td class="num">255.20</td>
+        <td class="num neg">-7.03%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (28 analysts); 3.7% above support; 7% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 357)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.6</td>
+        <td>LRCX</td>
+        <td>Lam Research</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">307.42</td>
+        <td class="num">300.69</td>
+        <td class="num">2.19</td>
+        <td class="num">438.50</td>
+        <td class="num neg">-29.89%</td>
+        <td class="num">25</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">41</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (41 analysts); 2.2% above support; 30% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 297)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.5</td>
+        <td>JPM</td>
+        <td>JPMorgan Chase</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">359.24</td>
+        <td class="num">343.78</td>
+        <td class="num">4.30</td>
+        <td class="num">363.00</td>
+        <td class="num neg">-1.04%</td>
+        <td class="num">1</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">61.2</td>
+        <td class="reasons">Buy (30 analysts); 4.3% above support; 1% off 52w high; above 50-day avg; Reddit: 8 mentions ▲ (rank 70)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.4</td>
+        <td>AZO</td>
+        <td>AutoZone</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">3066.06</td>
+        <td class="num">2949.24</td>
+        <td class="num">3.81</td>
+        <td class="num">4388.11</td>
+        <td class="num neg">-30.13%</td>
+        <td class="num">225</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 3.8% above support; 30% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.3</td>
+        <td>GN.CO</td>
+        <td>GN Store Nord</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">98.86</td>
+        <td class="num">94.22</td>
+        <td class="num">4.69</td>
+        <td class="num">125.90</td>
+        <td class="num neg">-21.48%</td>
+        <td class="num">235</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (12 analysts); 4.7% above support; 21% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.2</td>
+        <td>GNRC</td>
+        <td>Generac</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">217.41</td>
+        <td class="num">211.19</td>
+        <td class="num">2.86</td>
+        <td class="num">296.44</td>
+        <td class="num neg">-26.66%</td>
+        <td class="num">28</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 2.9% above support; 27% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.1</td>
+        <td>TPL</td>
+        <td>Texas Pacific Land Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">381.88</td>
+        <td class="num">372.87</td>
+        <td class="num">2.36</td>
+        <td class="num">547.20</td>
+        <td class="num neg">-30.21%</td>
+        <td class="num">113</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">8</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (8 analysts); 2.4% above support; 30% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.0</td>
+        <td>AZE.BR</td>
+        <td>Azelis Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">11.70</td>
+        <td class="num">11.12</td>
+        <td class="num">4.96</td>
+        <td class="num">13.66</td>
+        <td class="num neg">-14.35%</td>
+        <td class="num">241</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">14</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (14 analysts); 5.0% above support; 14% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">55.0</td>
+        <td>AIR.PA</td>
+        <td>Airbus</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">215.40</td>
+        <td class="num">205.70</td>
+        <td class="num">4.50</td>
+        <td class="num">221.30</td>
+        <td class="num neg">-2.67%</td>
+        <td class="num">142</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 4.5% above support; 3% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.7</td>
+        <td>NVDA</td>
+        <td>Nvidia</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">219.22</td>
+        <td class="num">208.78</td>
+        <td class="num">4.76</td>
+        <td class="num">236.54</td>
+        <td class="num neg">-7.32%</td>
+        <td class="num">56</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">68</td>
+        <td class="num">62.9</td>
+        <td class="reasons">Buy (68 analysts); 4.8% above support; 7% off 52w high; above 50-day avg; Reddit: 207 mentions ▼ (rank 6)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.6</td>
+        <td>UNH</td>
+        <td>UnitedHealth Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">412.75</td>
+        <td class="num">398.59</td>
+        <td class="num">3.43</td>
+        <td class="num">461.62</td>
+        <td class="num neg">-10.59%</td>
+        <td class="num">14</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">18.4</td>
+        <td class="reasons">Buy (34 analysts); 3.4% above support; 11% off 52w high; above 50-day avg; Reddit: 4 mentions ▼ (rank 117)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.5</td>
+        <td>GALP.LS</td>
+        <td>Galp Energia</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">19.88</td>
+        <td class="num">19.01</td>
+        <td class="num">4.33</td>
+        <td class="num">22.26</td>
+        <td class="num neg">-10.71%</td>
+        <td class="num">95</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 4.3% above support; 11% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.4</td>
+        <td>FIS</td>
+        <td>Fidelity National Information Services</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">42.84</td>
+        <td class="num">41.33</td>
+        <td class="num">3.52</td>
+        <td class="num">72.91</td>
+        <td class="num neg">-41.24%</td>
+        <td class="num">245</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 3.5% above support; 41% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.4</td>
+        <td>FITB</td>
+        <td>Fifth Third Bancorp</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">57.60</td>
+        <td class="num">55.30</td>
+        <td class="num">3.99</td>
+        <td class="num">59.50</td>
+        <td class="num neg">-3.19%</td>
+        <td class="num">14</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 4.0% above support; 3% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.3</td>
+        <td>BKR</td>
+        <td>Baker Hughes</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">61.67</td>
+        <td class="num">58.80</td>
+        <td class="num">4.65</td>
+        <td class="num">70.41</td>
+        <td class="num neg">-12.41%</td>
+        <td class="num">69</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 4.7% above support; 12% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.3</td>
+        <td>ALB</td>
+        <td>Albemarle Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">118.84</td>
+        <td class="num">117.61</td>
+        <td class="num">1.04</td>
+        <td class="num">221.00</td>
+        <td class="num neg">-46.23%</td>
+        <td class="num">61</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">26</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (26 analysts); 1.0% above support; 46% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 254)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">54.2</td>
+        <td>SPGI</td>
+        <td>S&amp;P Global</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">410.03</td>
+        <td class="num">393.62</td>
+        <td class="num">4.00</td>
+        <td class="num">547.82</td>
+        <td class="num neg">-25.15%</td>
+        <td class="num">244</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">34</td>
+        <td class="num">30.7</td>
+        <td class="reasons">Buy (34 analysts); 4.0% above support; 25% off 52w high; below 50-day avg; Reddit: 1 mentions ▲ (rank 351)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">53.8</td>
+        <td>VNA.DE</td>
+        <td>Vonovia</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">20.95</td>
+        <td class="num">20.15</td>
+        <td class="num">3.83</td>
+        <td class="num">29.26</td>
+        <td class="num neg">-28.40%</td>
+        <td class="num">246</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 3.8% above support; 28% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">53.7</td>
+        <td>LSG.OL</td>
+        <td>Lerøy Seafood</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">41.92</td>
+        <td class="num">40.12</td>
+        <td class="num">4.29</td>
+        <td class="num">52.40</td>
+        <td class="num neg">-20.00%</td>
+        <td class="num">196</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">9</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (9 analysts); 4.3% above support; 20% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">53.6</td>
+        <td>OMC</td>
+        <td>Omnicom Group</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">81.71</td>
+        <td class="num">78.11</td>
+        <td class="num">4.41</td>
+        <td class="num">87.41</td>
+        <td class="num neg">-6.52%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 4.4% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">53.1</td>
+        <td>BNY</td>
+        <td>BNY Mellon</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">158.74</td>
+        <td class="num">151.68</td>
+        <td class="num">4.45</td>
+        <td class="num">163.77</td>
+        <td class="num neg">-3.07%</td>
+        <td class="num">14</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 4.4% above support; 3% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.9</td>
+        <td>SDLF.L</td>
+        <td>Standard Life plc</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">934.50</td>
+        <td class="num">898.00</td>
+        <td class="num">3.91</td>
+        <td class="num">937.00</td>
+        <td class="num neg">-0.27%</td>
+        <td class="num">1</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">11</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (11 analysts); 3.9% above support; 0% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.6</td>
+        <td>RL</td>
+        <td>Ralph Lauren Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">380.78</td>
+        <td class="num">366.75</td>
+        <td class="num">3.69</td>
+        <td class="num">421.60</td>
+        <td class="num neg">-9.68%</td>
+        <td class="num">35</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (28 analysts); 3.7% above support; 10% off 52w high; below 50-day avg; Reddit: 1 mentions ▬ (rank 350)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.5</td>
+        <td>WYNN</td>
+        <td>Wynn Resorts</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">101.15</td>
+        <td class="num">96.26</td>
+        <td class="num">4.84</td>
+        <td class="num">134.72</td>
+        <td class="num neg">-24.92%</td>
+        <td class="num">169</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (28 analysts); 4.8% above support; 25% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.5</td>
+        <td>PM</td>
+        <td>Philip Morris International</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">188.93</td>
+        <td class="num">180.21</td>
+        <td class="num">4.62</td>
+        <td class="num">207.76</td>
+        <td class="num neg">-9.06%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">27</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (27 analysts); 4.6% above support; 9% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.5</td>
+        <td>BA</td>
+        <td>Boeing</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">240.19</td>
+        <td class="num">228.96</td>
+        <td class="num">4.68</td>
+        <td class="num">254.35</td>
+        <td class="num neg">-5.57%</td>
+        <td class="num">131</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">37</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (37 analysts); 4.7% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 243)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.4</td>
+        <td>NWS</td>
+        <td>News Corp (Class B)</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">33.13</td>
+        <td class="num">31.56</td>
+        <td class="num">4.74</td>
+        <td class="num">35.58</td>
+        <td class="num neg">-6.89%</td>
+        <td class="num">250</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 4.7% above support; 7% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.2</td>
+        <td>IRM</td>
+        <td>Iron Mountain</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">127.13</td>
+        <td class="num">122.22</td>
+        <td class="num">3.86</td>
+        <td class="num">134.68</td>
+        <td class="num neg">-5.61%</td>
+        <td class="num">29</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 3.9% above support; 6% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">52.0</td>
+        <td>LEG.DE</td>
+        <td>LEG Immobilien</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">52.35</td>
+        <td class="num">50.42</td>
+        <td class="num">3.68</td>
+        <td class="num">75.60</td>
+        <td class="num neg">-30.75%</td>
+        <td class="num">246</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 3.7% above support; 31% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.5</td>
+        <td>ALGN</td>
+        <td>Align Technology</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">174.83</td>
+        <td class="num">166.48</td>
+        <td class="num">4.78</td>
+        <td class="num">200.44</td>
+        <td class="num neg">-12.78%</td>
+        <td class="num">73</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">24</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (24 analysts); 4.8% above support; 13% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.4</td>
+        <td>LVS</td>
+        <td>Las Vegas Sands</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">45.85</td>
+        <td class="num">44.22</td>
+        <td class="num">3.57</td>
+        <td class="num">70.45</td>
+        <td class="num neg">-34.92%</td>
+        <td class="num">169</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">25</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (25 analysts); 3.6% above support; 35% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.2</td>
+        <td>MEL.MC</td>
+        <td>Meliá Hotels</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">10.47</td>
+        <td class="num">10.11</td>
+        <td class="num">3.44</td>
+        <td class="num">12.53</td>
+        <td class="num neg">-16.44%</td>
+        <td class="num">32</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">11</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (11 analysts); 3.4% above support; 16% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.2</td>
+        <td>STX</td>
+        <td>Seagate Technology</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">837.66</td>
+        <td class="num">801.89</td>
+        <td class="num">4.27</td>
+        <td class="num">1145.00</td>
+        <td class="num neg">-26.84%</td>
+        <td class="num">32</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">61.2</td>
+        <td class="reasons">Buy (30 analysts); 4.3% above support; 27% off 52w high; below 50-day avg; Reddit: 8 mentions ▲ (rank 71)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.2</td>
+        <td>DLN.L</td>
+        <td>Derwent London</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">2076.00</td>
+        <td class="num">1982.00</td>
+        <td class="num">4.53</td>
+        <td class="num">2196.00</td>
+        <td class="num neg">-5.46%</td>
+        <td class="num">1</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 4.5% above support; 5% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.1</td>
+        <td>PIRC.MI</td>
+        <td>Pirelli</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">6.57</td>
+        <td class="num">6.30</td>
+        <td class="num">4.11</td>
+        <td class="num">7.16</td>
+        <td class="num neg">-8.37%</td>
+        <td class="num">23</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">15</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (15 analysts); 4.1% above support; 8% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.1</td>
+        <td>GL</td>
+        <td>Globe Life</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">183.86</td>
+        <td class="num">174.84</td>
+        <td class="num">4.91</td>
+        <td class="num">191.55</td>
+        <td class="num neg">-4.01%</td>
+        <td class="num">13</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">23</td>
+        <td class="num">48.9</td>
+        <td class="reasons">Buy (23 analysts); 4.9% above support; 4% off 52w high; above 50-day avg; Reddit: 4 mentions ▲ (rank 116)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">51.0</td>
+        <td>URW.PA</td>
+        <td>Unibail-Rodamco-Westfield</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">104.50</td>
+        <td class="num">100.40</td>
+        <td class="num">3.92</td>
+        <td class="num">106.65</td>
+        <td class="num neg">-2.02%</td>
+        <td class="num">110</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 3.9% above support; 2% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.9</td>
+        <td>AMD</td>
+        <td>Advanced Micro Devices</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">482.05</td>
+        <td class="num">460.21</td>
+        <td class="num">4.53</td>
+        <td class="num">584.73</td>
+        <td class="num neg">-17.56%</td>
+        <td class="num">25</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">58</td>
+        <td class="num">53.6</td>
+        <td class="reasons">Buy (58 analysts); 4.5% above support; 18% off 52w high; below 50-day avg; Reddit: 258 mentions ▼ (rank 5)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.8</td>
+        <td>EXE</td>
+        <td>Expand Energy</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">90.82</td>
+        <td class="num">86.37</td>
+        <td class="num">4.90</td>
+        <td class="num">126.62</td>
+        <td class="num neg">-28.27%</td>
+        <td class="num">165</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">30</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (30 analysts); 4.9% above support; 28% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.4</td>
+        <td>FICO</td>
+        <td>Fair Isaac</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">1091.55</td>
+        <td class="num">1067.18</td>
+        <td class="num">2.23</td>
+        <td class="num">1998.01</td>
+        <td class="num neg">-45.37%</td>
+        <td class="num">210</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">29</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (29 analysts); 2.2% above support; 45% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.2</td>
+        <td>LAND.L</td>
+        <td>Land Securities</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">717.00</td>
+        <td class="num">683.00</td>
+        <td class="num">4.74</td>
+        <td class="num">726.00</td>
+        <td class="num neg">-1.24%</td>
+        <td class="num">1</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 4.7% above support; 1% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.1</td>
+        <td>COIN</td>
+        <td>Coinbase</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">149.89</td>
+        <td class="num">147.88</td>
+        <td class="num">1.34</td>
+        <td class="num">402.16</td>
+        <td class="num neg">-62.73%</td>
+        <td class="num">204</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">44</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (44 analysts); 1.3% above support; 63% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">50.0</td>
+        <td>CSCO</td>
+        <td>Cisco</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">121.50</td>
+        <td class="num">116.50</td>
+        <td class="num">4.12</td>
+        <td class="num">130.37</td>
+        <td class="num neg">-6.80%</td>
+        <td class="num">42</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">33</td>
+        <td class="num">6.7</td>
+        <td class="reasons">Buy (33 analysts); 4.1% above support; 7% off 52w high; above 50-day avg; Reddit: 1 mentions ▼ (rank 242)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">49.9</td>
+        <td>VK.PA</td>
+        <td>Vallourec</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">19.02</td>
+        <td class="num">18.52</td>
+        <td class="num">2.67</td>
+        <td class="num">27.67</td>
+        <td class="num neg">-31.24%</td>
+        <td class="num">59</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">11</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (11 analysts); 2.7% above support; 31% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">49.8</td>
+        <td>SNPS</td>
+        <td>Synopsys</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">400.82</td>
+        <td class="num">388.07</td>
+        <td class="num">3.18</td>
+        <td class="num">632.99</td>
+        <td class="num neg">-36.68%</td>
+        <td class="num">249</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">32</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (32 analysts); 3.2% above support; 37% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">49.5</td>
+        <td>JNJ</td>
+        <td>Johnson &amp; Johnson</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">257.59</td>
+        <td class="num">245.49</td>
+        <td class="num">4.70</td>
+        <td class="num">274.90</td>
+        <td class="num neg">-6.30%</td>
+        <td class="num">6</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (31 analysts); 4.7% above support; 6% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 236)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">49.4</td>
+        <td>BALL</td>
+        <td>Ball Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">63.49</td>
+        <td class="num">60.34</td>
+        <td class="num">4.95</td>
+        <td class="num">68.29</td>
+        <td class="num neg">-7.03%</td>
+        <td class="num">120</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">22</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (22 analysts); 5.0% above support; 7% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 854)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">49.2</td>
+        <td>PRY.MI</td>
+        <td>Prysmian</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">120.90</td>
+        <td class="num">115.95</td>
+        <td class="num">4.09</td>
+        <td class="num">157.25</td>
+        <td class="num neg">-23.12%</td>
+        <td class="num">62</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 4.1% above support; 23% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">48.8</td>
+        <td>CPRT</td>
+        <td>Copart</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">28.91</td>
+        <td class="num">27.85</td>
+        <td class="num">3.67</td>
+        <td class="num">50.11</td>
+        <td class="num neg">-42.31%</td>
+        <td class="num">230</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">21</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (21 analysts); 3.7% above support; 42% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">48.2</td>
+        <td>BATS.L</td>
+        <td>British American Tobacco</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">4440.00</td>
+        <td class="num">4225.50</td>
+        <td class="num">4.83</td>
+        <td class="num">5368.00</td>
+        <td class="num neg">-17.29%</td>
+        <td class="num">13</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">13</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (13 analysts); 4.8% above support; 17% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">47.7</td>
+        <td>WIHL.ST</td>
+        <td>Wihlborgs Fastigheter</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">78.60</td>
+        <td class="num">74.80</td>
+        <td class="num">4.83</td>
+        <td class="num">99.25</td>
+        <td class="num neg">-20.81%</td>
+        <td class="num">194</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">7</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (7 analysts); 4.8% above support; 21% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">47.2</td>
+        <td>OCDO.L</td>
+        <td>Ocado</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">212.40</td>
+        <td class="num">202.90</td>
+        <td class="num">4.47</td>
+        <td class="num">397.90</td>
+        <td class="num neg">-46.62%</td>
+        <td class="num">250</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">12</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (12 analysts); 4.5% above support; 47% off 52w high; above 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">47.0</td>
+        <td>HLT</td>
+        <td>Hilton Worldwide</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">324.56</td>
+        <td class="num">308.41</td>
+        <td class="num">4.98</td>
+        <td class="num">358.00</td>
+        <td class="num neg">-9.34%</td>
+        <td class="num">33</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">31</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (31 analysts); 5.0% above support; 9% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">46.5</td>
+        <td>AC.PA</td>
+        <td>Accor</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">47.55</td>
+        <td class="num">45.20</td>
+        <td class="num">4.94</td>
+        <td class="num">52.00</td>
+        <td class="num neg">-8.56%</td>
+        <td class="num">29</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">16</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (16 analysts); 4.9% above support; 9% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">46.1</td>
+        <td>IHG.L</td>
+        <td>InterContinental Hotels Group</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">160.10</td>
+        <td class="num">152.20</td>
+        <td class="num">4.93</td>
+        <td class="num">175.70</td>
+        <td class="num neg">-8.88%</td>
+        <td class="num">29</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">17</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (17 analysts); 4.9% above support; 9% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">46.0</td>
+        <td>G24.DE</td>
+        <td>Scout24</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">71.85</td>
+        <td class="num">68.78</td>
+        <td class="num">4.28</td>
+        <td class="num">120.00</td>
+        <td class="num neg">-40.13%</td>
+        <td class="num">250</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">19</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (19 analysts); 4.3% above support; 40% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">43.1</td>
+        <td>TYL</td>
+        <td>Tyler Technologies</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">306.58</td>
+        <td class="num">294.36</td>
+        <td class="num">3.99</td>
+        <td class="num">621.34</td>
+        <td class="num neg">-50.66%</td>
+        <td class="num">250</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">28</td>
+        <td class="num">26.7</td>
+        <td class="reasons">Buy (28 analysts); 4.0% above support; 51% off 52w high; above 50-day avg; Reddit: 1 mentions ▬ (rank 485)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">43.1</td>
+        <td>RTO.L</td>
+        <td>Rentokil Initial</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">370.70</td>
+        <td class="num">352.55</td>
+        <td class="num">4.90</td>
+        <td class="num">507.00</td>
+        <td class="num neg">-26.88%</td>
+        <td class="num">79</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">18</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (18 analysts); 4.9% above support; 27% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">41.4</td>
+        <td>NFLX</td>
+        <td>Netflix</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">74.20</td>
+        <td class="num">70.86</td>
+        <td class="num">4.50</td>
+        <td class="num">126.71</td>
+        <td class="num neg">-41.44%</td>
+        <td class="num">229</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">58</td>
+        <td class="num">17.3</td>
+        <td class="reasons">Buy (58 analysts); 4.5% above support; 41% off 52w high; below 50-day avg; Reddit: 5 mentions ▼ (rank 99)</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">38.4</td>
+        <td>VITR.ST</td>
+        <td>Vitrolife</td>
+        <td><span class="pill">EU</span></td>
+        <td class="num">89.10</td>
+        <td class="num">85.30</td>
+        <td class="num">4.26</td>
+        <td class="num">153.50</td>
+        <td class="num neg">-41.95%</td>
+        <td class="num">192</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">4</td>
+        <td class="num">50.0</td>
+        <td class="reasons">Buy (4 analysts); 4.3% above support; 42% off 52w high; below 50-day avg</td>
+      </tr>
+    
+      <tr>
+        <td class="num score">28.7</td>
+        <td>ORCL</td>
+        <td>Oracle Corporation</td>
+        <td><span class="pill">US</span></td>
+        <td class="num">144.39</td>
+        <td class="num">137.77</td>
+        <td class="num">4.58</td>
+        <td class="num">345.72</td>
+        <td class="num neg">-58.23%</td>
+        <td class="num">226</td>
+        <td><span class="rating r-buy">Buy</span></td>
+        <td class="num">49</td>
+        <td class="num">20.1</td>
+        <td class="reasons">Buy (49 analysts); 4.6% above support; 58% off 52w high; below 50-day avg; Reddit: 7 mentions ▼ (rank 78)</td>
+      </tr>
+    
+    </tbody>
+  </table>
+  </div>
+
+  <footer>Generated 2026-08-06 12:13:17 UTC &middot; NEAR_THRESHOLD_PCT = 5.0</footer>
+
+<script>
+(function () {
+  var table = document.getElementById("report");
+  var headers = table.tHead.rows[0].cells;
+  var sortState = {};
+  for (var i = 0; i < headers.length; i++) {
+    (function (idx) {
+      headers[idx].addEventListener("click", function () {
+        var type = headers[idx].getAttribute("data-type");
+        var asc = !(sortState[idx] === true);
+        sortState = {}; sortState[idx] = asc;
+        var body = table.tBodies[0];
+        var rows = Array.prototype.slice.call(body.rows);
+        rows.sort(function (a, b) {
+          var x = a.cells[idx].textContent.trim();
+          var y = b.cells[idx].textContent.trim();
+          if (type === "num") {
+            var nx = parseFloat(x.replace(/[^0-9.\-]/g, "")) || 0;
+            var ny = parseFloat(y.replace(/[^0-9.\-]/g, "")) || 0;
+            return asc ? nx - ny : ny - nx;
+          }
+          return asc ? x.localeCompare(y) : y.localeCompare(x);
+        });
+        for (var r = 0; r < rows.length; r++) body.appendChild(rows[r]);
+      });
+    })(i);
+  }
+})();
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ export const FART = '/Fart';
 
 export const TEMP = '/Temp';
 export const HOW_OLD = '/HowOld';
+export const STOCKS = '/stocks.html';
 
 export const ENGLISH = 'EN';
 export const ITALIAN = 'IT';

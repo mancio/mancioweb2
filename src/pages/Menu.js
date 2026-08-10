@@ -1,7 +1,7 @@
 import {getEmoji} from "../logic/Functions";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import {DICE, FART, HOW_OLD, KITCHEN_TOOLS, RECIPES, SCORE_COUNTER, TEMP} from "../logic/Names";
+import {DICE, FART, HOW_OLD, KITCHEN_TOOLS, RECIPES, SCORE_COUNTER, STOCKS, TEMP} from "../logic/Names";
 import ArcadeButton from "../components/ArcadeButton";
 
 function Menu(){
@@ -20,6 +20,7 @@ function Menu(){
             <ArcadeButton text="Dice" click={()=>navigate(DICE)}/>
             <ArcadeButton text="Fart&Run" click={()=>navigate(FART)}/>
             <ArcadeButton text="TempCasina" click={()=>navigate(TEMP)}/>
+            <ArcadeButton text="Stocks" click={()=>window.location.assign(STOCKS)}/>
             <ArcadeButton text="Karpathy Lessons" click={()=>window.open('https://karpathy-by-mancio-586e3f.gitlab.io', '_blank', 'noopener,noreferrer')}/>
         </div>
     );
