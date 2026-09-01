@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cross-language count mismatches stay limited to the known set 1`] = `
+Array [
+  Object {
+    "ingredients": Array [
+      11,
+      11,
+      12,
+    ],
+    "key": "paniniNapoletani",
+    "steps": Array [
+      10,
+      10,
+      9,
+    ],
+  },
+  Object {
+    "ingredients": Array [
+      3,
+      4,
+      3,
+    ],
+    "key": "zabaione",
+    "steps": Array [
+      9,
+      8,
+      8,
+    ],
+  },
+  Object {
+    "ingredients": Array [
+      10,
+      10,
+      10,
+    ],
+    "key": "ciambellaBolognese",
+    "steps": Array [
+      13,
+      11,
+      11,
+    ],
+  },
+  Object {
+    "ingredients": Array [
+      4,
+      4,
+      4,
+    ],
+    "key": "spaghettiCarbonara",
+    "steps": Array [
+      9,
+      9,
+      8,
+    ],
+  },
+  Object {
+    "ingredients": Array [
+      4,
+      4,
+      4,
+    ],
+    "key": "patateAlFornoPerfette",
+    "steps": Array [
+      9,
+      10,
+      10,
+    ],
+  },
+]
+`;

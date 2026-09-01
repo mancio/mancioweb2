@@ -15,8 +15,6 @@
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-native": "^0.72.3",
-    "react-native-web": "^0.19.7",
     "react-router-dom": "^6.14.2",
     "react-screen-wake-lock": "^3.1.1",
     "react-scripts": "5.0.1",
@@ -28,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "typecheck": "tsc --noEmit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,5 +46,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^4.9.5"
   }
 }
