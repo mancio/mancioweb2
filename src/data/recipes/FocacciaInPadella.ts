@@ -3,7 +3,9 @@ import type {Recipe} from './types';
 export const focacciaInPadella: Recipe = {
     id: 26,
     key: "focacciaInPadella",
-    pictures: [],
+    pictures: [
+        {index: 0, url: "https://www.tavolartegusto.it/wp/wp-content/uploads/2015/04/Focaccia-in-padella-Ricetta-Focaccia-in-padella.jpg"},
+    ],
     video: "https://www.youtube.com/shorts/0NxNKzMVEH8",
     i18n: {
         IT: {

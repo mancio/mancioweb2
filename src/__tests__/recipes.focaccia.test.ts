@@ -48,9 +48,14 @@ test('preserves the cooking times and pan size across translations', () => {
     }
 });
 
-test('links the source video and has no pictures', () => {
+test('links the source video and has a hero picture', () => {
     expect(focacciaInPadella.video).toBe('https://www.youtube.com/shorts/0NxNKzMVEH8');
-    expect(focacciaInPadella.pictures).toHaveLength(0);
+    expect(focacciaInPadella.pictures).toEqual([
+        {
+            index: 0,
+            url: 'https://www.tavolartegusto.it/wp/wp-content/uploads/2015/04/Focaccia-in-padella-Ricetta-Focaccia-in-padella.jpg',
+        },
+    ]);
 });
 
 test('is reachable by its slug in every language', () => {
