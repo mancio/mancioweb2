@@ -85,6 +85,7 @@ function RecipesGen() {
     }
 
     const heroImage = findPictureUrl(recipe, language, 0);
+    const separator = <span className="magic-separator">{MAGIC_SEPARATOR}</span>;
 
     return (
         <div className='recipe-box'>
@@ -93,23 +94,25 @@ function RecipesGen() {
             </div>
             {heroImage && <img className='recipe-img' src={heroImage} alt={translation.title} />}
             <p>{translation.servings}</p>
-            {MAGIC_SEPARATOR}
+            {separator}
             <IngredientMultiplier multiplier={multiplier} setMultiplier={setMultiplier} />
             <h3>Ingredients</h3>
-            {translation.ingredients.map((ingredient, index) => (
-                <div key={index} className="ingredient-item">
-                    <input
-                        type="checkbox"
-                        className="ingredient-checkbox"
-                        checked={checkedIngredients[index] ?? false}
-                        onChange={() => handleCheckboxChange(index)}
-                    />
-                    <p style={{ textDecoration: checkedIngredients[index] ? 'line-through' : 'none' }}>
-                        {changeIngredientQuantity(ingredient, multiplier)}
-                    </p>
-                </div>
-            ))}
-            {MAGIC_SEPARATOR}
+            <div className="ingredient-list">
+                {translation.ingredients.map((ingredient, index) => (
+                    <div key={index} className="ingredient-item">
+                        <input
+                            type="checkbox"
+                            className="ingredient-checkbox"
+                            checked={checkedIngredients[index] ?? false}
+                            onChange={() => handleCheckboxChange(index)}
+                        />
+                        <p style={{ textDecoration: checkedIngredients[index] ? 'line-through' : 'none' }}>
+                            {changeIngredientQuantity(ingredient, multiplier)}
+                        </p>
+                    </div>
+                ))}
+            </div>
+            {separator}
             <h3>Steps:</h3>
             {translation.steps.map((step, index) => {
                 const stepImage = findPictureUrl(recipe, language, index + 1);
@@ -123,14 +126,14 @@ function RecipesGen() {
             })}
             {translation.notes && (
                 <div>
-                    {MAGIC_SEPARATOR}
+                    {separator}
                     <h3>Notes</h3>
                     <p>{translation.notes}</p>
                 </div>
             )}
             {recipe.video && (
                 <div>
-                    {MAGIC_SEPARATOR}
+                    {separator}
                     <h1>Link to video</h1>
                     <a href={recipe.video} target="_blank" rel="noopener noreferrer">
                         <img src={YouTubeLogo} alt="Watch on YouTube" width="100" />

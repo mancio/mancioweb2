@@ -124,7 +124,8 @@ function ScorePanel(){
     const centerFlexStyle: CSSProperties = {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexWrap: 'wrap'
     };
 
     return (

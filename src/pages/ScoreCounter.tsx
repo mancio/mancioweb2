@@ -148,7 +148,7 @@ function ScoreCounter(){
     function divisor() {
         return (
             <h1 className={isPhoneInVerticalOrientation() ? 'h2Equivalent' : ''}>
-                {MAGIC_SEPARATOR}
+                <span className="magic-separator">{MAGIC_SEPARATOR}</span>
             </h1>
         )
     }

@@ -22,6 +22,9 @@ body {
   height: 100%;
   background-color: transparent;
   z-index: 9999;
+  /* keeps content clear of the fixed clock and the cookie banner */
+  padding-bottom: 110px;
+  box-sizing: border-box;
 }
 
 .title{
@@ -36,6 +39,18 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin: 2vw;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* the separator is one unbreakable glyph run, so it must never widen its parent */
+.magic-separator {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: clamp(0.5rem, 3.6vw, 1rem);
+  line-height: 2;
 }
 
 .title > p {
@@ -63,10 +78,16 @@ body {
   transform-origin: left; /* Ensure the checkbox scales from the left */
 }
 
+.ingredient-list {
+  display: inline-block;
+  text-align: left;
+  max-width: 100%;
+}
+
 .ingredient-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .dashboard{
@@ -89,13 +110,19 @@ body {
 }
 
 .language-line{
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
   margin-top: 25px;
 }
 
 .every-button {
   transform: scale(1); /* Default scale */
   transition: transform 0.3s ease; /* Smooth transition for scaling */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .every-button:hover,
@@ -112,6 +139,7 @@ body {
   transition: background-color 0.3s ease; /* Add a transition for smooth background color change */
   padding: 5px 10px 5px 10px;
   margin: 10px;
+  max-width: 100%;
 }
 
 .betterBt:hover,
@@ -127,14 +155,36 @@ body {
 }
 
 .time-now{
-  display: inline-block;
-  background-color: black;
+  position: fixed;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.85);
   color: white;
   text-align: center;
-  font-size: large;
+  font-size: medium;
   border-radius: 30px;
-  padding: 20px;
-  margin-top: 33vh;
+  padding: 6px 16px;
+  max-width: 92vw;
+  box-sizing: border-box;
+}
+
+.time-now-sep {
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .time-now {
+    font-size: small;
+    padding: 5px 12px;
+    bottom: 8px;
+  }
 }
 
 .card{

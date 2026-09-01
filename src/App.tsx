@@ -57,7 +57,11 @@ function App() {
 
     return (
         <div className="App">
-            <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
+            <CookieConsent
+                style={{zIndex: 10001, alignItems: 'center'}}
+                contentStyle={{flex: '1 1 auto', minWidth: 0, margin: '10px'}}
+                buttonStyle={{fontSize: '16px', padding: '10px 18px', borderRadius: '8px'}}
+            >This website uses cookies to enhance the user experience.</CookieConsent>
             <Suspense fallback={<div>Loading...</div>}>
                 {renderMoveSVGs(svgArray)}
                 <div className="frame">
@@ -74,9 +78,10 @@ function App() {
                             <Route path={HOW_OLD} element={<HowOld /> } />
                         </Routes>
                     </BrowserRouter>
-                    <IpPlaceTime/>
                 </div>
             </Suspense>
+            {/* outside .frame: its transform would otherwise anchor position:fixed to it */}
+            <IpPlaceTime/>
         </div>
     );
 }

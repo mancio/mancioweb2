@@ -15,6 +15,7 @@ function ArcadeButton({text, click}: ArcadeButtonProps){
 
     const btnStyle: CSSProperties = {
         width: '300px',
+        maxWidth: 'calc(100% - 20px)',
         height: '40px',
         border: 'none',
         padding: '0', // Resets any default padding

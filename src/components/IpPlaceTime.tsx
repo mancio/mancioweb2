@@ -1,4 +1,4 @@
-import {useEffect, useState, type CSSProperties} from "react";
+import {useEffect, useState} from "react";
 import {addOneSecond, getTimeDateFormatted} from "../logic/Functions";
 import {MIDNIGHT_AS_24H_STRING, SEARCHING_MESSAGE} from "../logic/Names";
 import '../App.css';
@@ -7,36 +7,6 @@ function IpPlaceTime(){
 
     const [time, setTime] = useState(SEARCHING_MESSAGE);
     const [date, setDate] = useState(SEARCHING_MESSAGE);
-
-    const [bottomPosition, setBottomPosition] = useState('0px');
-
-    const timeNowStyle: CSSProperties = {
-        display: "inline-block",
-        backgroundColor: "black",
-        color: "white",
-        textAlign: "center",
-        fontSize: "large",
-        borderRadius: "30px",
-        padding: "11px",
-        marginTop: bottomPosition,
-    };
-
-    const updatePosition = () => {
-        const viewportHeight = window.innerHeight;
-        const viewportWidth = window.innerWidth;
-        const newBottomPosition = `${viewportWidth / viewportHeight}px`;
-        setBottomPosition(newBottomPosition);
-    };
-
-    useEffect(() => {
-        window.addEventListener('resize', updatePosition);
-
-        // Set initial position
-        updatePosition();
-
-        // Cleanup listener when component unmounts
-        return () => window.removeEventListener('resize', updatePosition);
-    }, []);
 
     useEffect(() => {
         // Function to fetch info and update state
@@ -72,9 +42,10 @@ function IpPlaceTime(){
     },[time])
 
     return(
-        <div style={timeNowStyle}>
-            <p>Time now: {time}</p>
-            <p>Day: {date}</p>
+        <div className="time-now">
+            <span>Time now: {time}</span>
+            <span className="time-now-sep">·</span>
+            <span>Day: {date}</span>
         </div>
     )
 
