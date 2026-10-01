@@ -42,11 +42,7 @@ function IpPlaceTime(){
     },[time])
 
     return(
-        <div className="time-now">
-            <span>Time now: {time}</span>
-            <span className="time-now-sep">·</span>
-            <span>Day: {date}</span>
-        </div>
+        <span className="time-now">🕒 {time} · {date}</span>
     )
 
 }
