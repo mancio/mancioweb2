@@ -34,7 +34,7 @@ function MoveSVG({ svgFile }: { svgFile: string }) {
     }, []);
 
     return (
-        <div style={{ position: "absolute", width: "auto"}}>
+        <div className="floater" style={{ position: "absolute", width: "auto"}}>
             <animated.img
                 src={svgFile}
                 alt={getFileNameNoExt(svgFile)}

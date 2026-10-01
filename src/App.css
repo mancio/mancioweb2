@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #0e0f13;
+  --panel: #191b22;
+  --panel-hover: #22252f;
+  --border: #2c303c;
+  --text: #f2f2f5;
+  --muted: #a3a8b8;
+  --accent: #ffb020;
+  --accent-2: #ff5c5c;
+}
 
 .App {
   text-align: center;
@@ -10,7 +22,15 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 20% 0%, #1c2030 0%, transparent 55%),
+                    radial-gradient(circle at 90% 100%, #2a1a1a 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.floater {
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .frame {
@@ -154,7 +174,7 @@ body {
   transform: scale(0.9); /* Shrink on click */
 }
 
-.time-now{
+.site-footer {
   position: fixed;
   left: 50%;
   bottom: 12px;
@@ -164,26 +184,191 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background-color: rgba(0, 0, 0, 0.85);
-  color: white;
-  text-align: center;
-  font-size: medium;
+  gap: 4px 8px;
+  background-color: rgba(14, 15, 19, 0.9);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: small;
   border-radius: 30px;
   padding: 6px 16px;
   max-width: 92vw;
   box-sizing: border-box;
 }
 
-.time-now-sep {
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer-sep {
   opacity: 0.6;
 }
 
 @media (max-width: 600px) {
-  .time-now {
-    font-size: small;
+  .site-footer {
+    font-size: x-small;
     padding: 5px 12px;
     bottom: 8px;
+  }
+}
+
+/* ---------- home page ---------- */
+
+.home {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 0 40px;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.hero {
+  padding: 32px 16px 16px;
+}
+
+.hero-logo {
+  font-family: "Honk", serif;
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-tagline {
+  font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+
+.hero-sub {
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #1a1a1a;
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  background-color: var(--panel-hover);
+}
+
+.section {
+  margin-top: 40px;
+  scroll-margin-top: 24px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  transform: translateY(-3px) rotate(-0.5deg);
+  border-color: var(--accent);
+  background-color: var(--panel-hover);
+}
+
+.tile-emoji {
+  font-size: 1.8rem;
+}
+
+.tile-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.tile-blurb {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.game-platform {
+  margin-top: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.coming-soon {
+  align-items: center;
+  text-align: center;
+  cursor: default;
+  border-style: dashed;
+}
+
+.coming-soon:hover {
+  transform: none;
+  border-color: var(--border);
+  background-color: var(--panel);
+}
+
+@media (max-width: 600px) {
+  .tile-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .tile {
+    padding: 12px;
   }
 }
 

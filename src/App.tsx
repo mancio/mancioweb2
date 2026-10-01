@@ -1,8 +1,8 @@
 import CookieConsent from "react-cookie-consent";
 import './App.css';
-import Tree from './pictures/icons/christmas-tree.svg'
-import Santa from './pictures/icons/santa.svg'
-import SnowMan from './pictures/icons/snowman.svg'
+import Dice3 from './pictures/dice/dice-3.svg'
+import Dice5 from './pictures/dice/dice-5.svg'
+import Face from './pictures/icons/face.svg'
 import {getDisplayType, getRandomNumber} from "./logic/Functions";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import {
@@ -17,7 +17,7 @@ import {
 } from "./logic/Names";
 import {lazy, Suspense} from "react";
 import MoveSVG from "./animation/MoveSVG";
-import IpPlaceTime from "./components/IpPlaceTime";
+import Footer from "./components/Footer";
 const Menu = lazy(() => import('./pages/Menu'));
 const Recipes = lazy(() => import('./pages/Recipes'));
 const RecipesGen = lazy(() => import('./pages/RecipesGen'));
@@ -30,12 +30,12 @@ const HowOld = lazy(() => import('./pages/HowOld'));
 
 
 function App() {
-    const svgs = [Tree, Santa, SnowMan];
+    const svgs = [Dice3, Dice5, Face];
     const type = getDisplayType();
     const elements =
-        type === PHONE ? 5 :
-        type === TABLET ? 10 :
-        20;
+        type === PHONE ? 3 :
+        type === TABLET ? 5 :
+        8;
 
     const generateRandomArray = (size: number, svgs: string[]): string[] => {
         const randomArray: string[] = [];
@@ -81,7 +81,7 @@ function App() {
                 </div>
             </Suspense>
             {/* outside .frame: its transform would otherwise anchor position:fixed to it */}
-            <IpPlaceTime/>
+            <Footer/>
         </div>
     );
 }
