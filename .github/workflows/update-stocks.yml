@@ -1,0 +1,97 @@
+# Regenerates public/stocks.html with mancio/stocks-to-buy and deploys the
+# site to Firebase Hosting.
+#
+# Runs every weekday after the US close, and on demand from the Actions tab
+# ("Run workflow" also works from the GitHub mobile app).
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   FINNHUB_API_KEY           Finnhub API key used by stocks-to-buy
+#   FIREBASE_SERVICE_ACCOUNT  JSON key of a service account with the
+#                             "Firebase Hosting Admin" role on manciotech-244ac
+name: Update stocks page
+
+on:
+  schedule:
+    # 21:17 UTC Mon-Fri = after the NYSE close in both summer and winter time.
+    - cron: "17 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-stocks
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Checkout stocks-to-buy
+        uses: actions/checkout@v4
+        with:
+          repository: mancio/stocks-to-buy
+          path: .stocks-to-buy
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .stocks-to-buy/requirements.txt
+
+      - name: Restore stocks-to-buy cache
+        uses: actions/cache@v4
+        with:
+          path: .stocks-to-buy/.cache
+          key: stocks-cache-${{ github.run_id }}
+          restore-keys: stocks-cache-
+
+      - name: Generate report
+        working-directory: .stocks-to-buy
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          NEAR_THRESHOLD_PCT: "5.0"
+          DEMAND_PROVIDER: derived
+        run: |
+          pip install -r requirements.txt
+          python -m pytest tests -q
+          python -m src.main
+          test -s report.html
+
+      - name: Copy report into the site
+        run: cp .stocks-to-buy/report.html public/stocks.html
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build site
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: manciotech-244ac
+          channelId: live
+
+      - name: Commit updated stocks.html
+        run: |
+          if git diff --quiet -- public/stocks.html; then
+            echo "stocks.html unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add public/stocks.html
+          git commit -m "chore: update stocks report $(date -u +%F)"
+          git push
