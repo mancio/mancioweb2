@@ -88,57 +88,136 @@
   table.bs td.lbl { white-space: nowrap; }
   table.bs tr.total td { font-weight: 700; background: #f9fafb; }
   .nodata { color: #6b7280; font-size: 12px; margin-top: 6px; }
+  .bs-wrap { overflow-x: auto; }
+  .sortbar { display: none; }
+
+  /* ---- tablet: drop secondary columns (they stay in the detail panel) ---- */
+  @media (max-width: 1100px) {
+    body { padding: 16px; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); }
+    .c-high, .c-days, .c-analysts, .c-community, .c-reasons { display: none; }
+    td.c-name { white-space: normal; min-width: 140px; }
+    #report thead th, #report tbody td { padding: 7px 8px; }
+    #report thead th::after { content: none; }
+  }
+  @media (max-width: 900px) {
+    .c-market, .c-short { display: none; }
+    #report thead th, #report tbody td { padding: 7px 5px; }
+    td.c-name { min-width: 110px; }
+  }
+
+  /* ---- phone: one card per stock ---- */
+  @media (max-width: 640px) {
+    body { padding: 12px; }
+    h1 { font-size: 18px; }
+    .sortbar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; }
+    .sortbar select { flex: 1; min-width: 0; font: inherit; padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; }
+    #sort-dir { font: inherit; padding: 6px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; white-space: nowrap; cursor: pointer; }
+    .table-wrap { overflow: visible; border: 0; }
+    #report, #report tbody { display: block; background: none; }
+    #report thead { display: none; }
+    #report tbody tr {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px;
+      grid-template-areas:
+        "ticker ticker score"
+        "name name name"
+        "rating market market"
+        "last support dist"
+        "drawdown demand short";
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px; margin-bottom: 10px; cursor: pointer;
+    }
+    #report tbody tr:nth-child(even) { background: #fff; }
+    #report tbody tr.selected { background: #dbeafe; }
+    #report tbody td { display: block; padding: 0; border: 0; white-space: normal; min-width: 0; }
+    #report td.num { text-align: left; }
+    #report .c-high, #report .c-days, #report .c-analysts, #report .c-community, #report .c-reasons { display: none; }
+    td.c-name { min-width: 0; }
+    #report td.c-score { grid-area: score; text-align: right; font-size: 18px; }
+    .c-ticker { grid-area: ticker; }
+    .c-name { grid-area: name; }
+    .c-rating { grid-area: rating; }
+    .c-market { grid-area: market; align-self: center; }
+    .c-last { grid-area: last; }
+    .c-support { grid-area: support; }
+    .c-dist { grid-area: dist; }
+    .c-drawdown { grid-area: drawdown; }
+    .c-demand { grid-area: demand; }
+    .c-short { grid-area: short; }
+    .c-ticker .open-details { font-size: 16px; font-weight: 700; }
+    .c-name .open-details { color: #374151; }
+    .c-score::before, .c-last::before, .c-support::before, .c-dist::before,
+    .c-drawdown::before, .c-demand::before, .c-short::before {
+      content: attr(data-label); display: block; font-size: 11px; font-weight: 400;
+      color: #6b7280; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    #overlay { padding: 0; }
+    #panel { border-radius: 0; min-height: 100%; padding: 16px; }
+    #close-panel { font-size: 28px; padding: 4px 8px; margin: -4px -8px 0 0; }
+    .meter { grid-template-columns: 80px 1fr 36px; }
+    table.bs th:first-child, table.bs td.lbl { position: sticky; left: 0; background: #fff; box-shadow: 1px 0 0 var(--border); }
+    table.bs th:first-child { background: #f3f4f6; }
+    table.bs tr.total td.lbl { background: #f9fafb; }
+  }
 </style>
 </head>
 <body>
   <h1>Stocks Near Support</h1>
   <div class="sub">{{ row_count }} rows &middot; {{ us_count }} US &middot; {{ eu_count }} EU &middot; near-support threshold &le; {{ threshold }}% &middot; ranked by composite Score</div>
-  <div class="hint">Click a row to keep it highlighted (only one row at a time). Click a ticker or company name to open its details: balance sheet with short- and long-term assets/liabilities, plus the analyst buy/sell breakdown.</div>
+  <div class="hint">Click a row to keep it highlighted (only one row at a time). Click a ticker or company name (on a phone, tap anywhere on a card) to open its details: balance sheet with short- and long-term assets/liabilities, plus the analyst buy/sell breakdown.</div>
 
+  <div class="sortbar">
+    <label for="sort-select">Sort by</label>
+    <select id="sort-select"></select>
+    <button type="button" id="sort-dir" aria-label="Reverse sort order"></button>
+  </div>
+
+  <div class="table-wrap">
   <table id="report">
     <thead>
       <tr>
-        <th data-type="num">Score</th>
-        <th data-type="text">Ticker</th>
-        <th data-type="text">Name</th>
-        <th data-type="text">Market</th>
-        <th data-type="num">Last</th>
-        <th data-type="num">Support</th>
-        <th data-type="num">Dist %</th>
-        <th data-type="num">52w High</th>
-        <th data-type="num">Drawdown</th>
-        <th data-type="num">Days since high</th>
-        <th data-type="text">Rating</th>
-        <th data-type="num"># Analysts</th>
-        <th data-type="num">Community</th>
-        <th data-type="num">Demand</th>
-        <th data-type="num">Short %</th>
-        <th data-type="text">Reasons</th>
+        <th class="c-score" data-type="num">Score</th>
+        <th class="c-ticker" data-type="text">Ticker</th>
+        <th class="c-name" data-type="text">Name</th>
+        <th class="c-market" data-type="text">Market</th>
+        <th class="c-last" data-type="num">Last</th>
+        <th class="c-support" data-type="num">Support</th>
+        <th class="c-dist" data-type="num">Dist %</th>
+        <th class="c-high" data-type="num">52w High</th>
+        <th class="c-drawdown" data-type="num">Drawdown</th>
+        <th class="c-days" data-type="num">Days since high</th>
+        <th class="c-rating" data-type="text">Rating</th>
+        <th class="c-analysts" data-type="num"># Analysts</th>
+        <th class="c-community" data-type="num">Community</th>
+        <th class="c-demand" data-type="num">Demand</th>
+        <th class="c-short" data-type="num">Short %</th>
+        <th class="c-reasons" data-type="text">Reasons</th>
       </tr>
     </thead>
     <tbody>
     {% for r in rows %}
       <tr data-ticker="{{ r.ticker }}">
-        <td class="num score">{{ "%.1f"|format(r.score) }}</td>
-        <td><button type="button" class="open-details" data-ticker="{{ r.ticker }}">{{ r.ticker }}<span class="ico">&#9432;</span></button></td>
-        <td><button type="button" class="open-details" data-ticker="{{ r.ticker }}">{{ r.name }}</button></td>
-        <td><span class="pill">{{ r.market }}</span></td>
-        <td class="num">{{ "%.2f"|format(r.last_close) }}</td>
-        <td class="num">{{ "%.2f"|format(r.support) }}</td>
-        <td class="num">{{ "%.2f"|format(r.distance_pct) }}</td>
-        <td class="num">{{ "%.2f"|format(r.high_52w) }}</td>
-        <td class="num neg">{{ "%.2f"|format(-r.drawdown_pct) }}%</td>
-        <td class="num">{{ r.days_since_high }}</td>
-        <td><span class="rating {{ r.rating_class }}">{{ r.rating }}</span></td>
-        <td class="num">{{ r.num_analysts }}</td>
-        <td class="num">{{ "%.1f"|format(r.community) }}</td>
-        <td class="num">{{ "%.1f"|format(r.demand) }}</td>
-        <td class="num">{% if r.short_pct is not none %}{{ "%.1f"|format(r.short_pct) }}{% else %}n/a{% endif %}</td>
-        <td class="reasons">{{ r.reasons }}</td>
+        <td data-label="Score" class="c-score num score">{{ "%.1f"|format(r.score) }}</td>
+        <td data-label="Ticker" class="c-ticker"><button type="button" class="open-details" data-ticker="{{ r.ticker }}">{{ r.ticker }}<span class="ico">&#9432;</span></button></td>
+        <td data-label="Name" class="c-name"><button type="button" class="open-details" data-ticker="{{ r.ticker }}">{{ r.name }}</button></td>
+        <td data-label="Market" class="c-market"><span class="pill">{{ r.market }}</span></td>
+        <td data-label="Last" class="c-last num">{{ "%.2f"|format(r.last_close) }}</td>
+        <td data-label="Support" class="c-support num">{{ "%.2f"|format(r.support) }}</td>
+        <td data-label="Dist %" class="c-dist num">{{ "%.2f"|format(r.distance_pct) }}</td>
+        <td data-label="52w High" class="c-high num">{{ "%.2f"|format(r.high_52w) }}</td>
+        <td data-label="Drawdown" class="c-drawdown num neg">{{ "%.2f"|format(-r.drawdown_pct) }}%</td>
+        <td data-label="Days since high" class="c-days num">{{ r.days_since_high }}</td>
+        <td data-label="Rating" class="c-rating"><span class="rating {{ r.rating_class }}">{{ r.rating }}</span></td>
+        <td data-label="# Analysts" class="c-analysts num">{{ r.num_analysts }}</td>
+        <td data-label="Community" class="c-community num">{{ "%.1f"|format(r.community) }}</td>
+        <td data-label="Demand" class="c-demand num">{{ "%.1f"|format(r.demand) }}</td>
+        <td data-label="Short %" class="c-short num">{% if r.short_pct is not none %}{{ "%.1f"|format(r.short_pct) }}{% else %}n/a{% endif %}</td>
+        <td data-label="Reasons" class="c-reasons reasons">{{ r.reasons }}</td>
       </tr>
     {% endfor %}
     </tbody>
   </table>
+  </div>
 
   <footer>Generated {{ generated_utc }} UTC &middot; NEAR_THRESHOLD_PCT = {{ threshold }} &middot; balance sheet and analyst buckets fetched live from Yahoo Finance / Finnhub &mdash; no estimated or placeholder values</footer>
 
@@ -164,34 +243,56 @@
   var LINE_ITEMS = JSON.parse(document.getElementById("line-items").textContent);
   var TOTAL_KEYS = { total_assets: 1, total_liabilities: 1, equity: 1 };
 
-  /* ---------- click-to-sort ---------- */
+  /* ---------- sorting: header click, or the Sort by bar on phones ---------- */
   var headers = table.tHead.rows[0].cells;
-  var sortState = {};
+  var sortSelect = document.getElementById("sort-select");
+  var sortDir = document.getElementById("sort-dir");
+  var sortIdx = 0, sortAsc = false; // rows arrive ranked by Score, highest first
+
+  function sortBy(idx, asc) {
+    var type = headers[idx].getAttribute("data-type");
+    var body = table.tBodies[0];
+    var rows = Array.prototype.slice.call(body.rows);
+    rows.sort(function (a, b) {
+      var x = a.cells[idx].textContent.trim();
+      var y = b.cells[idx].textContent.trim();
+      if (type === "num") {
+        var nx = parseFloat(x.replace(/[^0-9.\-]/g, "")) || 0;
+        var ny = parseFloat(y.replace(/[^0-9.\-]/g, "")) || 0;
+        return asc ? nx - ny : ny - nx;
+      }
+      return asc ? x.localeCompare(y) : y.localeCompare(x);
+    });
+    for (var r = 0; r < rows.length; r++) body.appendChild(rows[r]);
+    sortIdx = idx; sortAsc = asc;
+    syncSortBar();
+  }
+
+  function syncSortBar() {
+    sortSelect.value = String(sortIdx);
+    var isNum = headers[sortIdx].getAttribute("data-type") === "num";
+    sortDir.textContent = sortAsc ? (isNum ? "▲ Low → high" : "▲ A → Z")
+                                  : (isNum ? "▼ High → low" : "▼ Z → A");
+  }
+
   for (var i = 0; i < headers.length; i++) {
+    sortSelect.appendChild(new Option(headers[i].textContent.trim(), String(i)));
     (function (idx) {
       headers[idx].addEventListener("click", function () {
-        var type = headers[idx].getAttribute("data-type");
-        var asc = !(sortState[idx] === true);
-        sortState = {}; sortState[idx] = asc;
-        var body = table.tBodies[0];
-        var rows = Array.prototype.slice.call(body.rows);
-        rows.sort(function (a, b) {
-          var x = a.cells[idx].textContent.trim();
-          var y = b.cells[idx].textContent.trim();
-          if (type === "num") {
-            var nx = parseFloat(x.replace(/[^0-9.\-]/g, "")) || 0;
-            var ny = parseFloat(y.replace(/[^0-9.\-]/g, "")) || 0;
-            return asc ? nx - ny : ny - nx;
-          }
-          return asc ? x.localeCompare(y) : y.localeCompare(x);
-        });
-        for (var r = 0; r < rows.length; r++) body.appendChild(rows[r]);
+        sortBy(idx, !(sortIdx === idx && sortAsc));
       });
     })(i);
   }
+  sortSelect.addEventListener("change", function () {
+    var idx = parseInt(sortSelect.value, 10);
+    sortBy(idx, headers[idx].getAttribute("data-type") !== "num");
+  });
+  sortDir.addEventListener("click", function () { sortBy(sortIdx, !sortAsc); });
+  syncSortBar();
 
   /* ---------- single-row selection ---------- */
   var selectedRow = null;
+  var phone = window.matchMedia("(max-width: 640px)");
   table.tBodies[0].addEventListener("click", function (ev) {
     var tr = ev.target.closest("tr");
     if (!tr) return;
@@ -200,6 +301,7 @@
     selectedRow = tr;
     var trigger = ev.target.closest(".open-details");
     if (trigger) openPanel(trigger.getAttribute("data-ticker"));
+    else if (phone.matches) openPanel(tr.getAttribute("data-ticker"));
   });
 
   /* ---------- detail panel ---------- */
@@ -329,7 +431,9 @@
       tbody.appendChild(tr);
     });
     tbl.appendChild(tbody);
-    s.appendChild(tbl);
+    var wrap = el("div", "bs-wrap");
+    wrap.appendChild(tbl);
+    s.appendChild(wrap);
     s.appendChild(el("div", "nodata", "As reported by Yahoo Finance; line items the issuer does not report are omitted, never zero-filled."));
     return s;
   }
