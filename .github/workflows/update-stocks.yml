@@ -6,7 +6,8 @@
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   FINNHUB_API_KEY           Finnhub API key used by the screener in stocks/
-#   FIREBASE_SERVICE_ACCOUNT  JSON key of a service account with the
+#   FIREBASE_SERVICE_ACCOUNT_MANCIOTECH_244AC
+#                             JSON key of a service account with the
 #                             "Firebase Hosting Admin" role on manciotech-244ac
 name: Update stocks page
 
@@ -74,7 +75,7 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MANCIOTECH_244AC }}
           projectId: manciotech-244ac
           channelId: live
 
