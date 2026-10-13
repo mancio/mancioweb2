@@ -77,6 +77,7 @@ def render_report(rows: list[dict], out_path: Path = OUTPUT_PATH) -> Path:
     us_count = sum(1 for r in enriched if r["market"] == "US")
     eu_count = sum(1 for r in enriched if r["market"] == "EU")
 
+    generated = datetime.now(timezone.utc)
     html = template.render(
         rows=enriched,
         details={r["ticker"]: _detail_payload(r) for r in enriched},
@@ -85,7 +86,8 @@ def render_report(rows: list[dict], out_path: Path = OUTPUT_PATH) -> Path:
         us_count=us_count,
         eu_count=eu_count,
         threshold=config.NEAR_THRESHOLD_PCT,
-        generated_utc=datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
+        generated_utc=generated.strftime("%Y-%m-%d %H:%M:%S"),
+        generated_iso=generated.strftime("%Y-%m-%dT%H:%M:%SZ"),
     )
     out_path.write_text(html, encoding="utf-8")
     return out_path

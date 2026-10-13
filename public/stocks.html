@@ -91,6 +91,27 @@
   .bs-wrap { overflow-x: auto; }
   .sortbar { display: none; }
 
+  /* ---- data update time + search ---- */
+  .updated {
+    display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 4px 0 10px;
+    padding: 6px 12px; background: #fff; border: 1px solid var(--border); border-left: 3px solid #2563eb;
+    border-radius: 6px; font-size: 13px; color: #374151;
+  }
+  .updated time { font-weight: 600; color: #111827; }
+  .updated .ago { color: #6b7280; font-size: 12px; }
+  .searchbar { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .searchbar input {
+    flex: 1; max-width: 420px; min-width: 0; font: inherit; font-size: 14px; padding: 8px 12px;
+    border: 1px solid #d1d5db; border-radius: 6px; background: #fff;
+  }
+  .searchbar input:focus { outline: 2px solid #2563eb; outline-offset: -1px; border-color: #2563eb; }
+  .search-count { color: #666; font-size: 12px; white-space: nowrap; }
+  #no-results {
+    display: none; padding: 16px; margin-top: 8px; color: #6b7280; font-size: 13px;
+    background: #fff; border: 1px solid var(--border); border-radius: 6px;
+  }
+  #report tbody tr.filtered-out { display: none; }
+
   /* ---- tablet: drop secondary columns (they stay in the detail panel) ---- */
   @media (max-width: 1100px) {
     body { padding: 16px; }
@@ -110,6 +131,7 @@
   @media (max-width: 640px) {
     body { padding: 12px; }
     h1 { font-size: 18px; }
+    .searchbar input { max-width: none; font-size: 16px; }
     .sortbar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; }
     .sortbar select { flex: 1; min-width: 0; font: inherit; padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; }
     #sort-dir { font: inherit; padding: 6px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; white-space: nowrap; cursor: pointer; }
@@ -163,8 +185,14 @@
 </head>
 <body>
   <h1>Stocks Near Support</h1>
+  <div class="updated">Data updated <time id="updated-time" datetime="2026-10-13T02:52:13Z">2026-10-13 02:52:13 UTC</time><span class="ago" id="updated-ago"></span></div>
   <div class="sub">369 rows &middot; 216 US &middot; 153 EU &middot; near-support threshold &le; 5.0% &middot; ranked by composite Score</div>
   <div class="hint">Click a row to keep it highlighted (only one row at a time). Click a ticker or company name (on a phone, tap anywhere on a card) to open its details: balance sheet with short- and long-term assets/liabilities, plus the analyst buy/sell breakdown.</div>
+
+  <div class="searchbar" role="search">
+    <input type="search" id="stock-search" placeholder="Search ticker or company name" aria-label="Search stocks by ticker or company name" autocomplete="off" spellcheck="false" />
+    <span class="search-count" id="search-count" aria-live="polite"></span>
+  </div>
 
   <div class="sortbar">
     <label for="sort-select">Sort by</label>
@@ -7210,6 +7238,7 @@
     </tbody>
   </table>
   </div>
+  <div id="no-results"></div>
 
   <footer>Generated 2026-10-13 02:52:13 UTC &middot; NEAR_THRESHOLD_PCT = 5.0 &middot; balance sheet and analyst buckets fetched live from Yahoo Finance / Finnhub &mdash; no estimated or placeholder values</footer>
 
@@ -7281,6 +7310,68 @@
   });
   sortDir.addEventListener("click", function () { sortBy(sortIdx, !sortAsc); });
   syncSortBar();
+
+  /* ---------- data update time, shown in the viewer's own time zone ---------- */
+  var updatedTime = document.getElementById("updated-time");
+  var updatedAt = new Date(updatedTime.getAttribute("datetime"));
+  if (!isNaN(updatedAt.getTime())) {
+    updatedTime.title = updatedTime.textContent;
+    updatedTime.textContent = updatedAt.toLocaleString(undefined, {
+      weekday: "short", day: "numeric", month: "short", year: "numeric",
+      hour: "2-digit", minute: "2-digit", timeZoneName: "short"
+    });
+    var mins = Math.max(0, Math.round((Date.now() - updatedAt.getTime()) / 60000));
+    var ago = mins < 60 ? mins + (mins === 1 ? " minute" : " minutes")
+      : mins < 48 * 60 ? Math.round(mins / 60) + (Math.round(mins / 60) === 1 ? " hour" : " hours")
+      : Math.round(mins / 1440) + " days";
+    document.getElementById("updated-ago").textContent = "(" + ago + " ago)";
+  }
+
+  /* ---------- search by ticker or company name ---------- */
+  var search = document.getElementById("stock-search");
+  var searchCount = document.getElementById("search-count");
+  var noResults = document.getElementById("no-results");
+  var allRows = Array.prototype.slice.call(table.tBodies[0].rows);
+
+  function fold(text) {
+    // case- and accent-insensitive, so "nestle" finds "Nestlé"
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  var haystacks = allRows.map(function (tr) {
+    var name = tr.querySelector(".c-name");
+    return fold(tr.getAttribute("data-ticker") + " " + (name ? name.textContent : ""));
+  });
+
+  function applySearch() {
+    var terms = fold(search.value).split(/\s+/).filter(Boolean);
+    var shown = 0;
+    allRows.forEach(function (tr, i) {
+      var hit = terms.every(function (t) { return haystacks[i].indexOf(t) !== -1; });
+      tr.classList.toggle("filtered-out", !hit);
+      if (hit) shown++;
+    });
+    searchCount.textContent = terms.length ? shown + " of " + allRows.length : allRows.length + " stocks";
+    noResults.style.display = terms.length && !shown ? "block" : "none";
+    noResults.textContent = "No stocks match \u201c" + search.value.trim() + "\u201d.";
+    var url = new URL(window.location.href);
+    if (terms.length) url.searchParams.set("q", search.value.trim());
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url);
+  }
+
+  search.addEventListener("input", applySearch);
+  search.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && search.value) { search.value = ""; applySearch(); ev.stopPropagation(); }
+  });
+  document.addEventListener("keydown", function (ev) {
+    var tag = (ev.target.tagName || "").toLowerCase();
+    if (ev.key === "/" && tag !== "input" && tag !== "select" && tag !== "textarea" && !overlay.classList.contains("open")) {
+      ev.preventDefault();
+      search.focus();
+    }
+  });
+  search.value = new URLSearchParams(window.location.search).get("q") || "";
 
   /* ---------- single-row selection ---------- */
   var selectedRow = null;
@@ -7453,6 +7544,8 @@
     overlay.classList.remove("open");
     current = null;
   }
+
+  applySearch();
 
   document.getElementById("close-panel").addEventListener("click", closePanel);
   overlay.addEventListener("click", function (ev) { if (ev.target === overlay) closePanel(); });
