@@ -81,6 +81,19 @@ function Menu(){
                 )}
             </section>
 
+            <section className="section" aria-labelledby="harmonopattume-title">
+                <h2 id="harmonopattume-title" className="section-title">Android app · HarmonoPattume</h2>
+                <div className="tile">
+                    <span className="tile-emoji" aria-hidden="true">🎵</span>
+                    <span className="tile-title">HarmonoPattume</span>
+                    <span className="tile-blurb">My Android project. Grab the latest APK or explore the source code on GitHub.</span>
+                    <div className="hero-actions">
+                        <a className="btn btn-primary" href="https://github.com/mancio/harmonoPattume/releases/latest/download/harmonopattume.apk">⬇ Download APK (Android)</a>
+                        <a className="btn btn-ghost" href="https://github.com/mancio/harmonoPattume" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                    </div>
+                </div>
+            </section>
+
             <section className="section">
                 <h2 className="section-title">Play right here</h2>
                 <TileGrid tiles={playHere}/>
