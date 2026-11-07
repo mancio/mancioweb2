@@ -86,7 +86,7 @@ function Menu(){
                 <div className="tile">
                     <span className="tile-emoji" aria-hidden="true">🎵</span>
                     <span className="tile-title">HarmonoPattume</span>
-                    <span className="tile-blurb">My Android project. Grab the latest APK or explore the source code on GitHub.</span>
+                    <span className="tile-blurb">Never miss bin day in Wieliczka: check your waste collection schedule, get reminders, and add pickup dates to your calendar.</span>
                     <div className="hero-actions">
                         <a className="btn btn-primary" href="https://github.com/mancio/harmonoPattume/releases/latest/download/harmonopattume.apk">⬇ Download APK (Android)</a>
                         <a className="btn btn-ghost" href="https://github.com/mancio/harmonoPattume" target="_blank" rel="noopener noreferrer">View on GitHub</a>
